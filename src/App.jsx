@@ -47,13 +47,12 @@ function App() {
         <li>emergency meeting</li>
         <li>war room</li>
       </ul>
-      <p>Outside of work, I look up to:</p>
+      <p>I look up to:</p>
       <ul>
         <li>Nietzsche for his profound thinking.</li>
         <li>Steve Jobs for his innovative spirit.</li>
         <li>Kanye West for his artistic courage.</li>
         <li>Levelsio for his entrepreneurial journey.</li>
-        <li>Andrey Azimov for his technical expertise.</li>
       </ul>
     </div>
   );
