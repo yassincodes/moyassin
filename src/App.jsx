@@ -40,7 +40,7 @@ function App() {
       <ul>
         <li>AnisAI</li>
         <li>JournalAI</li>
-        <li>headshotsAI (helping a friend with this one)</li>
+        <li>headshotsAI (building it for a friend)</li>
         <li>cloneme (first user: najmkmar)</li>
         <li>rateme</li>
         <li>UH (been planning this for 4 years!)</li>
