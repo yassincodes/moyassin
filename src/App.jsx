@@ -28,12 +28,14 @@ function App() {
         <li>Faced tough times and thoughts of ending it at 21, but chose to persevere.</li>
         <li>Believe in personal freedom and proudly identify as a libertarian.</li>
       </ul>
-      <p>Books that shaped my thinking:</p>
+      <p>writers that shaped my thinking:</p>
       <ul>
-        <li>Read everything by Friedrich Nietzsche, exploring deep questions about life.</li>
-        <li>Explored Karl Marx's writings on society and economics.</li>
-        <li>Enjoyed Fyodor Dostoevsky's novels for their insights into human nature.</li>
+        <li>2020: Explored Karl Marx's writings on society and economics (initially liked them, but later grew to dislike them more than anything else).</li>
+        <li>2020: Enjoyed Fyodor Dostoevsky's novels, which gave me profound insights into human nature.</li>
+        <li>2021: Read all of Friedrich Nietzsche's works, who gave me deep insights into life's existential questions.</li>
+        <li>Todo: Reflect on the writers who have profoundly influenced my thinking; I've devoured works from over 100 authors :)</li>
       </ul>
+
       <p>This summer, I'm excited about these projects:</p>
       <ul>
         <li>AnisAI</li>
