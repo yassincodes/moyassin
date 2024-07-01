@@ -55,10 +55,12 @@ function App() {
         <li>Levelsio for his entrepreneurial journey.</li>
       </ul>
 
-      <div style={{ marginTop: '20px' }}>
+      <div style={{ marginTop: '20px', position: 'relative', overflow: 'hidden', paddingTop: '56.25%' }}>
         <p style={{ marginTop: '10px' }}>
-          If I had to pick one song to summarize 2024's first 6 months, it would be this. </p>
+          If I had to pick one song to summarize 2024's first 6 months, it would be this.
+        </p>
         <iframe
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
           width="560"
           height="315"
           src="https://www.youtube.com/embed/Fl40bwcxVjI"
@@ -67,7 +69,6 @@ function App() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
-
       </div>
     </div>
   );
