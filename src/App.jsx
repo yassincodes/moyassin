@@ -25,7 +25,7 @@ function App() {
         <li>Used AI to draw students' portraits at 24, a simple idea that spread joy across classrooms.</li>
         <li>Grateful for amazing friends who make life an amazing journey.</li>
         <li>Was an atheist for 7 years until a life-changing event in 2023 led me to discover faith.</li>
-        <li>Faced tough times and thoughts of ending it at 21, but chose to persevere.</li>
+        <li>Faced tough times and thoughts of ending my life (on July 26, 2021), but chose to endure.</li>
         <li>Believe in personal freedom and proudly identify as a libertarian.</li>
       </ul>
       <p>writers that shaped my thinking:</p>
