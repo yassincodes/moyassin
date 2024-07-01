@@ -1,0 +1,29 @@
+function App() {
+  return (
+    <div>
+      Still looking for inspiration,
+      <br />
+      gonna code this from scratch in one night, lol.
+      <br />
+      I learned how to code online,
+      and now I forget how to do it ..
+      all my next websites will be built with the old code I wrote and AI,
+      that way, I can build any website in just 2 weeks 
+      <br />
+      what about this challenge,
+      writing 100 journal in one year from all over the country
+      <br />
+      it is all for one girl!
+      <br />
+      a girl bigger then life itself,
+      that you love so much till you can't send any message,
+      till you want her to hate you so much,
+      "I've been trying to make you love me, but everything I do just take you further from me"
+      kanye west was right
+      "in the night I hear them talk the coldest story ever told"
+      
+    </div>
+  );
+}
+
+export default App;

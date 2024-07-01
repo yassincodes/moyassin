@@ -1,27 +1,32 @@
+import React from 'react';
+
 function App() {
   return (
-    <div>
-      Still looking for inspiration,
-      <br />
-      gonna code this from scratch in one night, lol.
-      <br />
-      I learned how to code online,
-      and now I forget how to do it ..
-      all my next websites will be built with the old code I wrote and AI,
-      that way, I can build any website in just 2 weeks 
-      <br />
-      what about this challenge,
-      writing 100 journal in one year from all over the country
-      <br />
-      it is all for one girl!
-      <br />
-      a girl bigger then life itself,
-      that you love so much till you can't send any message,
-      till you want her to hate you so much,
-      "I've been trying to make you love me, but everything I do just take you further from me"
-      kanye west was right
-      "in the night I hear them talk the coldest story ever told"
-      
+    <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px', lineHeight: '1.5' }}>
+      <header style={{ marginBottom: '20px' }}>
+        <h1>moyass.in</h1>
+        <p>
+          social media:
+          <a href="https://facebook.com/moyassin" style={{ margin: '0 10px' }}>Facebook @moyassin</a>
+          <a href="https://tiktok.com/@moyassin" style={{ margin: '0 10px' }}>TikTok @moyassin</a>
+        <a href="https://github.com/yassincodes" style={{margin: '0 10px'}}>Old project @yassincodes</a>
+        </p>
+      </header>
+      <p style={{ textShadow: '2px 2px 4px #aaa' }}>
+        been in a prison for 4 years, now I'm free, finally I'm free I'm free I'm free, what is missing? one girl! anyway I'm cloning her lol
+      </p>
+      <p>I'm working on those projects this summer, things will get exciting believe me :)</p>
+      <ul>
+        <li>AnisAI</li>
+        <li>JournalAI</li>
+        <li>headshotsAI (building it for a friend)</li>
+        <li>cloneme (first user najmkmar)</li>
+        <li>rateme</li>
+        <li>UH (been thinking about this for 4 years lol)</li>
+        <li>emergency meeting</li>
+        <li>war room</li>
+      </ul>
+      <p>see you outside of the matrix</p>
     </div>
   );
 }
