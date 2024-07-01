@@ -54,6 +54,21 @@ function App() {
         <li>Kanye West for his artistic courage.</li>
         <li>Levelsio for his entrepreneurial journey.</li>
       </ul>
+
+      <div style={{ marginTop: '20px' }}>
+        <p style={{ marginTop: '10px' }}>
+          If I had to pick one song to summarize 2024's first 6 months, it would be this. </p>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/Fl40bwcxVjI"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+
+      </div>
     </div>
   );
 }
