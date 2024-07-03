@@ -1,8 +1,0 @@
-{
-  "routes": [
-    {
-      "src": "/blog",
-      "dest": "/src/pages/Blog.jsx"
-    }
-  ]
-}
