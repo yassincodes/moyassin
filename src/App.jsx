@@ -36,10 +36,10 @@ function App() {
         <li>Todo: Reflect on the writers who have profoundly influenced my thinking; I've devoured works from over 100 authors :)</li>
       </ul>
 
-      <p>This summer, working for 15 hours a day at least gonna be my goal, I'm excited about these projects:</p>
+      <p>This summer, my goal is to work for at least 15 hours a day. I'm excited about these projects:</p>
       <ul>
-        <li>AnisAI</li>
-        <li>JournalAI</li>
+        <li><a href="https://anisai.vercel.app" target="_blank">AnisAI</a></li>
+        <li><a href="https://journalai.vercel.app" target="_blank">JournalAI</a></li>
         <li>headshotsAI (building it for a friend)</li>
         <li>cloneme (first user: najmkmar)</li>
         <li>rateme</li>
@@ -47,6 +47,8 @@ function App() {
         <li>emergency meeting</li>
         <li>war room</li>
       </ul>
+
+
       <p>I look up to:</p>
       <ul>
         <li>Nietzsche for his profound thinking.</li>
