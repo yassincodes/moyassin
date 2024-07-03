@@ -5,16 +5,24 @@ function App() {
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px', lineHeight: '1.5' }}>
       <header style={{ marginBottom: '20px' }}>
         <h1>moyass.in</h1>
-        <p>
-          Social Media:
-          <a href="https://facebook.com/moyassin" style={{ margin: '0 10px' }}>Facebook @moyassin</a>
-          <a href="https://tiktok.com/@moyassin" style={{ margin: '0 10px' }}>TikTok @moyassin</a>
-          <a href="https://github.com/yassincodes" style={{ margin: '0 10px' }}>Old Projects @yassincodes</a>
-        </p>
+        <p>Important Links:</p>
+        <ul>
+          <li><a href="https://blog.moyass.in">blog.moyass.in</a></li>
+
+          <li><a href="https://facebook.com/moyassin">Facebook @moyassin</a></li>
+          <li><a href="https://tiktok.com/@moyassin">TikTok @moyassin</a></li>
+          <li><a href="https://github.com/moyassin">Old Projects @yassincodes</a></li>
+        </ul>
       </header>
-      <p style={{ textShadow: '2px 2px 4px #aaa' }}>
-        Spent 4 years feeling trapped, but now I'm free! What's missing? Just one girl! Anyway, I'm working on cloning her, metaphorically.
-      </p>
+
+
+
+      {
+        // <p style={{ textShadow: '2px 2px 4px #aaa' }}>
+        // Spent 4 years feeling trapped, but now I'm free! What's missing? Just one girl! Anyway, I'm working on cloning her, metaphorically.
+        // </p>
+      }
+
       <p>Here's a bit about my journey:</p>
       <ul>
         <li>Started writing at 12, caught the attention of this famous guy <a href="https://ar.wikipedia.org/wiki/%D8%A8%D9%88%D8%B1%D8%A7%D9%88%D9%8A_%D8%B9%D8%AC%D9%8A%D9%86%D8%A9" target="_blank" rel="noopener noreferrer">بوراوي عجينة</a>, but life took different turns.</li>
