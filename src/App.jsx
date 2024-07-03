@@ -36,7 +36,7 @@ function App() {
         <li>Todo: Reflect on the writers who have profoundly influenced my thinking; I've devoured works from over 100 authors :)</li>
       </ul>
 
-      <p>This summer, I'm excited about these projects:</p>
+      <p>This summer, working for 15 hours a day at least gonna be my goal, I'm excited about these projects:</p>
       <ul>
         <li>AnisAI</li>
         <li>JournalAI</li>
@@ -64,6 +64,22 @@ function App() {
           width="560"
           height="315"
           src="https://www.youtube.com/embed/Fl40bwcxVjI"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p>
+        If I had to pick one song to summarize this summer, I'm 100% sure it would be this.
+      </p>
+      <div style={{ marginTop: '20px', position: 'relative', overflow: 'hidden', paddingTop: '56.25%' }}>
+
+        <iframe
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+          width="560"
+          height="315"
+          src="https://www.youtube.com/watch?v=0hOIT3io4F8"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
