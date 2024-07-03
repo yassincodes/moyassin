@@ -7,10 +7,12 @@ function App() {
         <h1>moyass.in</h1>
         <p>Important Links:</p>
         <ul>
-          <li><a href="https://blog.moyass.in">blog.moyass.in</a></li>
+          {
+            // <li><a href="https://blog.moyass.in">blog.moyass.in</a></li>
+          }
           <li><a href="https://facebook.com/moyassin">Facebook @moyassin</a></li>
           <li><a href="https://tiktok.com/@moyassin">TikTok @moyassin</a></li>
-          <li><a href="https://github.com/moyassin">Old Projects @yassincodes</a></li>
+          <li><a href="https://github.com/yassincodes">Old Projects @yassincodes</a></li>
         </ul>
       </header>
 
