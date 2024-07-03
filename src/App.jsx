@@ -53,8 +53,8 @@ function App() {
       </ul>
       <p>This summer, my goal is to work for at least 15 hours a day. I'm excited about these projects:</p>
       <ul>
-        <li><a href="https://anisai.vercel.app" target="_blank">AnisAI</a></li>
         <li><a href="https://journalai.vercel.app" target="_blank">JournalAI</a></li>
+        <li><a href="https://anisai.vercel.app" target="_blank">AnisAI</a></li>
         <li>headshotsAI (building it for a friend)</li>
         <li>cloneme (first user: najmkmar)</li>
         <li>rateme</li>
