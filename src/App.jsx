@@ -35,13 +35,7 @@ function App() {
         <li>2021: Read all of Friedrich Nietzsche's works, who gave me deep insights into life's existential questions.</li>
         <li>Todo: Reflect on the writers who have profoundly influenced my thinking; I've devoured works from over 100 authors :)</li>
       </ul>
-      <p>I look up to:</p>
-      <ul>
-        <li>Nietzsche for his profound thinking.</li>
-        <li>Steve Jobs for his innovative spirit.</li>
-        <li>Kanye West for his artistic courage.</li>
-        <li>Levelsio for his entrepreneurial journey.</li>
-      </ul>
+
       <p>This summer, my goal is to work for at least 15 hours a day. I'm excited about these projects:</p>
       <ul>
         <li><a href="https://anisai.vercel.app" target="_blank">AnisAI</a></li>
@@ -53,15 +47,24 @@ function App() {
         <li>emergency meeting</li>
         <li>war room</li>
       </ul>
+
+
+      <p>I look up to:</p>
+      <ul>
+        <li>Nietzsche for his profound thinking.</li>
+        <li>Steve Jobs for his innovative spirit.</li>
+        <li>Kanye West for his artistic courage.</li>
+        <li>Levelsio for his entrepreneurial journey.</li>
+      </ul>
       <p>
-        my 2024 summer Manifesto     </p>
+        see you outside of the matrix (and beyond that)      </p>
       <div style={{ marginTop: '20px', position: 'relative', overflow: 'hidden', paddingTop: '56.25%' }}>
 
         <iframe
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/Fl40bwcxVjI"
+          src="https://www.youtube.com/embed/0hOIT3io4F8"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
