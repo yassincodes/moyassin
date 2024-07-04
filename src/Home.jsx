@@ -14,7 +14,7 @@ function Home() {
         </ul>
         <p>Notes:</p>
         <ul>
-          <li><Link to="/Jail">04.07.24</Link></li>
+          <li><Link to="/jail">04.07.24</Link></li>
         </ul>
 
       </header>
