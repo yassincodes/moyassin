@@ -1,5 +1,5 @@
-import Notes from './Notes'
-import Home from './home/Home'
+import Notes from "./Notes"
+import Home from './Home'
 import { Routes, Route } from "react-router-dom"
 
 
@@ -7,7 +7,8 @@ function App() {
     return (
         <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/jail" element={<Notes />} />
+            <Route path="/Notes" element={<Notes />} />
+
         </Routes>
     );
 }

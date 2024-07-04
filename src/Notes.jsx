@@ -1,9 +1,12 @@
+import React from 'react';
+
 function Notes() {
-    return (
-        <div>
-            Going to write so many things tonight. I'm so happy because I have this moment. If anyone is reading, please send me a message :)
-        </div>
-    );
+  return (
+    <div>
+      <h2>Notes for 04.07.24</h2>
+      <p>Write down your notes here...</p>
+    </div>
+  );
 }
 
 export default Notes;
