@@ -22,7 +22,7 @@ function Home() {
       <section style={{ marginBottom: '20px' }}>
         <p style={{ fontSize: '1.2em', marginBottom: '10px', color: '#666' }}>Here's a bit about my journey:</p>
         <ul style={{ lineHeight: '1.8' }}>
-          <li>Started writing at 12, caught the attention of <a href="https://ar.wikipedia.org/wiki/%D8%A8%D9%88%D8%B1%D8%A7%D9%88%D9%8A_%D8%B9%D8%AC%D9%8A%D9%86%D8%A9" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>بوراوي عجينة</a>, but life took different turns.</li>
+          <li>Started writing at 12, caught the attention of this guy <a href="https://ar.wikipedia.org/wiki/%D8%A8%D9%88%D8%B1%D8%A7%D9%88%D9%8A_%D8%B9%D8%AC%D9%8A%D9%86%D8%A9" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>بوراوي عجينة</a>, but life took different turns.</li>
           <li>At 16, created the most popular and interactive English teaching platform in the Arab world.</li>
           <li>Made $40 on my first day freelancing at 20, a small win but a big motivation.</li>
           <li>Once considered dropping out, but listened to my father's advice, leading to a period of introspection.</li>
