@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Jail() {
+function Independence() {
   return (
     <div>
       <h2>Notes for 04.07.24</h2>
@@ -10,11 +10,11 @@ function Jail() {
       <p>The product vision is clear,</p>
       <p>The idea is solid,</p>
       <p>Now, it's time to dive in and code,</p>
-      <p>I'll finally forget about her,</p>
       <p>I'll finally clone her,</p>
+      <p>I'll finally forget about her,</p>
       <p>I'll finally erase all the memories as they did not exist in the first place!</p>
     </div>
   );
 }
 
-export default Jail;
+export default Independence;

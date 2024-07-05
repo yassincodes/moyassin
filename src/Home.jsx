@@ -15,7 +15,7 @@ function Home() {
         <p style={{ fontSize: '1.1em', fontWeight: 'bold', color: '#666' }}>Notes:</p>
         <ul style={{ listStyleType: 'none', padding: 0 }}>
           <li style={{ marginBottom: '8px' }}><Link to="/destiny" style={{ textDecoration: 'none', color: '#007bff' }}>05.07.24</Link></li>
-          <li style={{ marginBottom: '8px' }}><Link to="/jail" style={{ textDecoration: 'none', color: '#007bff' }}>04.07.24</Link></li>
+          <li style={{ marginBottom: '8px' }}><Link to="/independence" style={{ textDecoration: 'none', color: '#007bff' }}>04.07.24</Link></li>
         </ul>
       </header>
 
