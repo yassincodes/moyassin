@@ -15,6 +15,7 @@ function Home() {
         <p>Notes:</p>
         <ul>
           <li><Link to="/jail">04.07.24</Link></li>
+          <li><Link to="/destiny">05.07.24</Link></li>
         </ul>
 
       </header>
