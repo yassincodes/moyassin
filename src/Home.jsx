@@ -70,13 +70,17 @@ function Home() {
       </section>
 
       <section>
-        <p style={{ fontSize: '1.2em', marginBottom: '10px', color: '#666' }}>
-          Maybe it's the summer I've been dreaming about?
+
+        <p style={{ marginTop: '10px', fontSize: '1.1em', color: '#777' }}>
+          If I fall if I die<br />
+          Know I lived it to the fullest<br />
+          If I fall if I die<br />
+          Know I lived and missed some bullets
         </p>
         <div style={{ marginTop: '20px', position: 'relative', overflow: 'hidden', paddingTop: '56.25%' }}>
           <iframe
             style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-            src="https://www.youtube.com/embed/dX3k_QDnzHE"
+            src="https://www.youtube.com/embed/7xzU9Qqdqww"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -84,7 +88,10 @@ function Home() {
           ></iframe>
         </div>
 
+
+
       </section>
+
     </div>
   );
 }
