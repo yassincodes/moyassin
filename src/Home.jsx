@@ -63,23 +63,23 @@ function Home() {
       </ul>
 
       <p style={{ fontStyle: 'italic', fontSize: '1.2em' }}>
-        "We finna go where the stars at<br />
-        And beyond that<br />
-        This that rip up the contract<br />
-        Fuck all that"
+  
+  Reach for the stars so if you fall, you land on a cloud 
+
       </p>
 
       <div style={{ marginTop: '20px', position: 'relative', overflow: 'hidden', paddingTop: '56.25%' }}>
-        <iframe
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/0hOIT3io4F8"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+      <iframe
+  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/LQ488QrqGE4?list=RDqGdwx5K4uAY&index=14"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+
       </div>
     </div>
   );
