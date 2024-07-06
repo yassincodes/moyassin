@@ -32,9 +32,6 @@ function Reflections() {
                 an abundance of data.<br/>
                 I need to expand my experiment!
             </p>
-            <h2 style={{ color: 'blue', marginTop: '20px' }}>
-                One small message: It's my 3rd day writing, and I have 23 readers. If you are one of them, please send me a message.
-            </h2>
         </div>
     )
 }
