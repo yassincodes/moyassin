@@ -29,8 +29,7 @@ function Reflections() {
                 I don't need assistance in this.<br/>
                 I need data,<br/>
                 lots of data,<br/>
-                an abundance of data.<br/>
-                I need to expand my experiment!
+                an abundance of data.
             </p>
         </div>
     )
