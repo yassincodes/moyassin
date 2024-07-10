@@ -2,7 +2,7 @@ import Independence from "./pages/Independence";
 import Destiny from "./pages/Destiny"
 import Reflections from "./pages/Reflections";
 import Decision from "./pages/Decision";
-import Timing from "./pages/Feelings";
+import Feelings from "./pages/Feelings";
 import Home from './Home'
 import { Routes, Route } from "react-router-dom"
 
