@@ -2,6 +2,7 @@ import Independence from "./pages/Independence";
 import Destiny from "./pages/Destiny"
 import Reflections from "./pages/Reflections";
 import Decision from "./pages/Decision";
+import Timing from "./pages/Feelings";
 import Home from './Home'
 import { Routes, Route } from "react-router-dom"
 
@@ -14,6 +15,7 @@ function App() {
             <Route path="/destiny" element={<Destiny />} />
             <Route path="/reflections" element={<Reflections />} />
             <Route path="/decision" element={<Decision />} />
+            <Route path="/feelings" element={<Feelings />} />
         </Routes>
     );
 }
