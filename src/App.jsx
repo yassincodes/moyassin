@@ -10,12 +10,16 @@ import { Routes, Route } from "react-router-dom"
 function App() {
     return (
         <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/independence" element={<Independence />} />
-            <Route path="/destiny" element={<Destiny />} />
-            <Route path="/reflections" element={<Reflections />} />
-            <Route path="/decision" element={<Decision />} />
-            <Route path="/feelings" element={<Feelings />} />
+            <Route exact path="/" element={<Front />} />
+            {
+                // <Route exact path="/" element={<Home />} />
+                // <Route path="/independence" element={<Independence />} />
+                // <Route path="/destiny" element={<Destiny />} />
+                // <Route path="/reflections" element={<Reflections />} />
+                // <Route path="/decision" element={<Decision />} />
+                // <Route path="/feelings" element={<Feelings />} />
+            }
+
         </Routes>
     );
 }
