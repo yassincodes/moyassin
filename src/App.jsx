@@ -4,6 +4,7 @@ import Reflections from "./pages/Reflections";
 import Decision from "./pages/Decision";
 import Feelings from "./pages/Feelings";
 import Home from './Home'
+import Front from './Front'
 import { Routes, Route } from "react-router-dom"
 
 
