@@ -18,7 +18,7 @@ function Front() {
 
     return (
         <div style={styles.container}>
-            21.07.24
+            07.21.24
         </div>
     );
 }
