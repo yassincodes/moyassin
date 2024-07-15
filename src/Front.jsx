@@ -8,24 +8,17 @@ function Front() {
             alignItems: 'center',
             height: '100vh',
             backgroundColor: '#000',
-            overflow: 'hidden',
-        },
-        iframe: {
-            width: '100%',
-            height: '100%',
-            border: 'none',
+            color: '#fff',
+            fontSize: '72px',
+            fontFamily: 'Arial, sans-serif',
+            textAlign: 'center',
+            animation: 'fadeInOut 3s ease-in-out infinite',
         },
     };
 
     return (
         <div style={styles.container}>
-            <iframe
-                style={styles.iframe}
-                src="https://www.youtube.com/embed/IviYsgJXG5k"
-                title="YouTube video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-            />
+            21.07.24
         </div>
     );
 }
