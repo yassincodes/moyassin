@@ -1,20 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Yassin</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Fullstack Developer Looking for Opportunities - Mohamed Yassin</title>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Mohamed Yassin"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Hello, I'm Mohamed Yassin, a fullstack developer specializing in React/Tailwind, currently based in Egypt."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Fullstack Developer Looking for Opportunities - Mohamed Yassin"/>
+    <meta property="og:description" content="Hello, I'm Mohamed Yassin, a fullstack developer specializing in React/Tailwind, currently based in Egypt."/>
+    <meta name="twitter:title" content="Fullstack Developer Looking for Opportunities - Mohamed Yassin"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:description" content="Hello, I'm Mohamed Yassin, a fullstack developer specializing in React/Tailwind, currently based in Egypt."/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 40px;
+            border: 3px solid #f0f0f0;
+            animation: imagePop 0.6s cubic-bezier(0.26, 0.53, 0.74, 1.48);
+        }
+        @keyframes imagePop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .content {
+            flex: 1;
+        }
+        h1 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+        h2 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        .social-links {
+            margin: 20px 0;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 15px 10px 0;
+            color: #3498db;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #2980b9;
+        }
+        .skill-box {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 15px;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+        .skill-box:hover {
+            background-color: #e0e0e0;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 20px 0;
+        }
+        @media (max-width: 600px) {
+            .card {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .content {
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Mohamed Yassin</h1>
-        <p>social media:</p>
-        <ul class="social-links">
-            <li><a href="https://www.facebook.com/moyassin" target="_blank">Facebook</a></li>
-            <li><a href="https://www.tiktok.com/@moyassin" target="_blank">TikTok</a></li>
-            <li><a href="https://github.com/yassincodes" target="_blank">GitHub</a></li>
-        </ul>
+    <div class="page">
+        <div class="card">
+            <img src="profile.jpg" alt="Mohamed Yassin" class="profile-image"/>
+            <div class="content">
+                <h1>Mohamed Yassin</h1>
+                <h2>Front End Developer with fullstack experience</h2>
+                <p>Navigating my school teaching job while building JournalAI – the coolest SaaS product for helping educators prepare their lessons.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/moyassin" target="_blank"><i class="fab fa-facebook"></i>/moyassin</a>
+                    <a href="https://tiktok.com/@moyassin" target="_blank"><i class="fab fa-tiktok"></i>/@moyassin</a>
+                </div>
+                <hr/>
+                <h3>Skills</h3>
+                <div>
+                    <span class="skill-box">HTML</span>
+                    <span class="skill-box">CSS</span>
+                    <span class="skill-box">ChakraUI</span>
+                    <span class="skill-box">JavaScript</span>
+                    <span class="skill-box">React</span>
+                    <span class="skill-box">Next.js</span>
+                    <span class="skill-box">Firebase</span>
+                    <span class="skill-box">AI Integration</span>
+                </div>
+                <hr/>
+                <h3>Projects</h3>
+                <p>I've built over 30 projects over the years, sharing some of them soon.</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
