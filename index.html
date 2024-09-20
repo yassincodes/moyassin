@@ -87,15 +87,17 @@
         .social-links a:hover {
             color: #2980b9;
         }
-        /* Style for JournalAI link */
+        /* Animation for JournalAI link */
         a.journal-link {
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
         }
         a.journal-link:hover {
-            color: #2980b9;
+            color: #e74c3c; /* Change color on hover */
+            transform: scale(1.05); /* Slightly increase size */
         }
         .skill-box {
             display: inline-block;
@@ -137,7 +139,9 @@
             <div class="content">
                 <h1>Mohamed Yassin</h1>
                 <h2>Front End Developer with fullstack experience</h2>
-                <p>Balancing my school teaching job while building <a href="https://vimeo.com/976990722" target="_blank" class="journal-link">JournalAI</a> — an innovative tool designed to help educators prepare their lessons. My goal is to enable teachers to create AI-driven lesson plans in under 5 minutes.</p>
+                <p>Balancing my school teaching job while building 
+                    <a href="https://vimeo.com/976990722" target="_blank" class="journal-link">JournalAI</a> — an innovative tool designed to help educators prepare their lessons. My goal is to enable teachers to create AI-driven lesson plans in under 5 minutes.
+                </p>
                 <div class="social-links">
                     <a href="https://facebook.com/moyassin" target="_blank"><i class="fab fa-facebook"></i>/moyassin</a>
                     <a href="https://www.tiktok.com/@moyassin" target="_blank"><i class="fab fa-tiktok"></i>/@moyassin</a>
