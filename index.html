@@ -13,14 +13,36 @@
             align-items: center;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+            overflow: hidden;
         }
+
         .centered-date {
             font-size: 3rem;
             font-weight: bold;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards, scaleUp 3s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleUp {
+            0% {
+                transform: scale(0.5);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="centered-date">10.05.2024</div>
+    <div class="centered-date">10.05.24</div>
 </body>
 </html>
