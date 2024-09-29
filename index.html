@@ -19,30 +19,20 @@
         .centered-date {
             font-size: 3rem;
             font-weight: bold;
-            opacity: 0;
-            animation: fadeIn 3s ease-in-out forwards, scaleUp 3s ease-in-out forwards;
+            animation: blink 1s infinite;
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
+        @keyframes blink {
+            0%, 50% {
                 opacity: 1;
             }
-        }
-
-        @keyframes scaleUp {
-            0% {
-                transform: scale(0.5);
-            }
-            100% {
-                transform: scale(1);
+            51%, 100% {
+                opacity: 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="centered-date">10.05.24</div>
+    <div class="centered-date">10.05.2024</div>
 </body>
 </html>
