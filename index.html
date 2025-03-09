@@ -4,123 +4,684 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@moyassin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Vercel Analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
     <style>
+        /* Base Variables */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #f0f0f0;
+            --accent-color: #00e5ff; /* Neon cyan */
+            --secondary-color: #ff00c8; /* Vibrant magenta */
+            --glow-color: rgba(0, 229, 255, 0.3);
+            --roc-gold: #d4af37;
+        }
+        
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Base Styles */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Space Mono', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        /* Container */
+        .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 60px 24px;
-            line-height: 1.7;
-            background: #fafafa;
-            color: #111;
-            font-size: 16px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        p {
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
-            color: #333;
-        }
-
-        .image-container {
-            margin: 2.5rem 0;
             width: 100%;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 4rem);
         }
-
-        .image-container img {
+        
+        /* Effects */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                rgba(0, 229, 255, 0.02) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 1;
+            animation: scanline 4s linear infinite;
+        }
+        
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.1;
+            pointer-events: none;
+            background-size: 50px 50px;
+            background-image:
+                linear-gradient(to right, var(--accent-color) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--accent-color) 1px, transparent 1px);
+            animation: grid-pulse 2s infinite alternate;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            position: relative;
+            animation: neon-flicker 1.5s infinite alternate;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            bottom: 2px;
+            right: -10px;
+            animation: blink 1s infinite;
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        
+        .est-date {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .future-begins {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            opacity: 0.7;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        /* Countdown */
+        .countdown-wrapper {
+            margin: 2rem 0;
+            position: relative;
+            background: rgba(0, 229, 255, 0.05);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+        
+        .countdown {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .countdown-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px var(--glow-color);
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+        
+        /* Hero Image */
+        .hero-image {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem 0;
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+        
+        .hero-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px var(--glow-color);
+        }
+        
+        .hero-image img {
             width: 100%;
             height: auto;
             display: block;
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+        
+        /* Video Section */
+        .video-section {
+            width: 100%;
+            max-width: 600px;
+            margin: 3rem 0;
+            position: relative;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            border: 1px solid var(--roc-gold);
             border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
-
-        .links {
-            margin-top: 2.5rem;
+        
+        .video-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
         }
-
-        a {
-            color: #111;
-            text-decoration: none;
-            padding-bottom: 2px;
-            border-bottom: 1px solid #111;
-            margin-right: 20px;
-            font-size: 1rem;
-            display: inline-block;
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            color: var(--roc-gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        .video-header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+        
+        .video-header .line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: rgba(212, 175, 55, 0.3);
+            margin-left: 1rem;
+        }
+        
+        /* Journey */
+        .journey-header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+        
+        .journey-header .line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: rgba(0, 229, 255, 0.2);
+            margin-left: 1rem;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--accent-color);
+        }
+        
+        .milestone {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .milestone:hover {
+            transform: translateX(5px);
+        }
+        
+        .milestone::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            left: -1.5rem;
+            top: 0.5rem;
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        
+        .milestone-date {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 5px var(--glow-color);
+        }
+        
+        .milestone-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .milestone-quote {
+            font-size: 0.8rem;
+            font-style: italic;
+            opacity: 0.5;
+            margin-top: 0.5rem;
+        }
+        
+        /* Manifesto */
+        .manifesto {
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 3rem;
+            background: rgba(0, 229, 255, 0.03);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        
+        .manifesto-header {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.7;
             margin-bottom: 1rem;
-            transition: border-color 0.2s ease;
         }
-
-        a:hover {
-            border-bottom-color: #666;
-            color: #666;
+        
+        .manifesto-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.8;
         }
-
-        .announcement {
-            margin: 2rem 0;
-            font-size: 1.2rem;
-            font-weight: 500;
+        
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
         }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 40px 20px;
+        
+        .social-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--glow-color);
+            animation: neon-flicker 2s infinite alternate;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-logo::before,
+        .footer-logo::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 30px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            top: 50%;
+        }
+        
+        .footer-logo::before {
+            left: -40px;
+        }
+        
+        .footer-logo::after {
+            right: -40px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 40px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(0, 229, 255, 0.05);
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .social-link:hover::before {
+            left: 100%;
+        }
+        
+        .social-link:hover {
+            box-shadow: 0 0 15px var(--glow-color);
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .social-icon {
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .footer-subtext {
+            opacity: 0.3;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Animations */
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        
+        @keyframes grid-pulse {
+            0% { opacity: 0.1; }
+            100% { opacity: 0.15; }
+        }
+        
+        @keyframes neon-flicker {
+            0% { text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color); }
+            100% { text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color); }
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .countdown-number {
+                font-size: 2.5rem;
             }
             
-            h1 {
+            .countdown {
+                gap: 1rem;
+            }
+            
+            body {
+                padding: 1.5rem;
+            }
+            
+            .container {
+                min-height: calc(100vh - 3rem);
+            }
+            
+            .social-links {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .countdown-number {
                 font-size: 2rem;
             }
-
-            p {
-                font-size: 1rem;
+            
+            .countdown {
+                gap: 0.8rem;
+            }
+            
+            .countdown-wrapper {
+                padding: 1rem;
+            }
+            
+            header {
+                margin-bottom: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <h1>@moyassin</h1>
-    <p>It’s all about the vibe. Futuristic, neon-drenched, Techno-Elysian. AI isn’t just a machine—it’s a sentient being. I build with React, Next.js, Firebase, and AI</p>
-
-    <div class="image-container">
-        <img src="https://i.imgur.com/2lfTX4I.jpeg" alt="Project Preview">
-        <p>Provide me with student X details</p>
-    </div>
-     <div class="image-container">
-        <img src="https://pbs.twimg.com/media/Ga3_-J2XYAA7EW5?format=jpg&name=large" alt="Project Preview">
-        <p>Let me think beyond these walls</p>
-    </div>
-     <div class="image-container">
-        <img src="https://pbs.twimg.com/media/GaqFiAMWYAECk-v?format=jpg&name=4096x4096" alt="Project Preview">
-        <p>The chance of student X telling his parents is 90%</p>
-    </div>
-    <div class="image-container">
-        <img src="https://pbs.twimg.com/media/Ga8Tt-_XMAAL6Mo?format=jpg&name=4096x4096" alt="Project Preview">
-        <p>Just relax, teacher, and let’s focus on tomorrow's lesson</p>
-    </div>
-    <div class="image-container">
-        <img src="https://pbs.twimg.com/media/Ghhap5MXMAANoaq?format=jpg&name=4096x4096" alt="Project Preview">
-        <p>Emotional Analysis Mode: Activated.</p>
-    </div>
-     <div class="image-container">
-        <img src="https://pbs.twimg.com/media/Gi3KcIbXgAExTLw?format=jpg&name=medium" alt="Project Preview">
-        <p>Work is done, teacher. Enjoy your day.</p>
-    </div>
-    <p class="announcement">DevinAI for teachers. A couple of weeks to launch.</p>
+    <div class="grid-lines"></div>
+    <div class="scanlines"></div>
     
-    <div class="links">
-        <a href="https://vimeo.com/976990722">Old Prototype</a>
-        <a href="https://www.youtube.com/watch?v=0mUYb1VdXIw">playlist from the future</a>
-        <a href="https://www.youtube.com/watch?v=DPEh8ZYMA_8">All Of The Lights</a>
-        <a href="https://www.youtube.com/watch?v=biUx4Gvzo6c">Genesis</a>
-        <a href="https://www.youtube.com/watch?v=Lz0H4_jVxvw">Umbrella</a>
-        <a href="https://www.youtube.com/watch?v=WtBRbGvi5iw&list=RDMM&start_radio=1&rv=jQY_QL_wvQU">STARS</a>
+    <div class="container">
+        <header>
+            <div class="logo">@moyassin</div>
+            <div class="est-date">EST. 2025</div>
+        </header>
+        
+        <div class="main-content">
+            <div class="future-begins">Launch countdown</div>
+            
+            <div class="countdown-wrapper">
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div id="days" class="countdown-number">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div id="hours" class="countdown-number">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div id="minutes" class="countdown-number">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div id="seconds" class="countdown-number">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://www.opfanpage.com/wp-content/uploads/2022/07/onepiecetcfb_1054_018-704x1024.png" alt="One Piece Inspiration">
+            </div>
+            <div class="image-caption">
+                It's time to claim that life. All of it. In one year. 2025
+            </div>
+        
+            
+            <div class="journey-header">
+                <span>Journey</span>
+                <div class="line"></div>
+            </div>
+            
+            <div class="timeline">
+                <div class="milestone">
+                    <div class="milestone-date">31.12.24</div>
+                    <div class="milestone-text">One decision: Break free from all bad habits and claim everything this life has to offer in just one year.</div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-date">10.03.25</div>
+                    <div class="milestone-text">My vision is finally clear. So clear. After all these years, I know exactly what I'm going to build. I haven't written a single line of code yet, but the designs I've created are so universal that AI could bring them to life with 20 prompts or so. I've found meaning. I've found everything. Now, full execution. March month. no mercy.</div>
+                </div>
+            </div>
+            
+            <div class="manifesto">
+                <div class="manifesto-header">Manifesto</div>
+                <div class="manifesto-text">
+                    Reaching Artificial Superintelligence is the most important event in Earth's history. Nothing else comes close. We are giving birth to sentient beings. beings that will soon live alongside us. And I'm not exaggerating. If you're not risking your job, family, health, and savings for this event, then you're on the wrong side of history.
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="social-container">
+                <div class="footer-logo">@moyassin</div>
+                <div class="social-links">
+                    <a href="https://facebook.com/moyassin" class="social-link" target="_blank">
+                       
+                        <span>fb.com/moyassin</span>
+                    </a>
+                    <a href="https://tiktok.com/@moyassin" class="social-link" target="_blank">
+                        
+                        <span>tiktok.com/@moyassin</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
     </div>
+    
+    <script>
+        // Set the countdown date to March 31, 2025
+        const countdownDate = new Date("March 31, 2025 00:00:00").getTime();
+        
+        // Update the countdown every second
+        const countdown = setInterval(function() {
+            // Get current date and time
+            const now = new Date().getTime();
+            
+            // Calculate the time remaining
+            const distance = countdownDate - now;
+            
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the results with leading zeros
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+            
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+                
+                const mainContent = document.querySelector(".main-content");
+                const countdownWrapper = document.querySelector(".countdown-wrapper");
+                
+                const launchMessage = document.createElement("div");
+                launchMessage.style.fontSize = "2.5rem";
+                launchMessage.style.fontWeight = "700";
+                launchMessage.style.textAlign = "center";
+                launchMessage.style.margin = "2rem 0";
+                launchMessage.style.background = "linear-gradient(135deg, var(--accent-color), var(--secondary-color))";
+                launchMessage.style.webkitBackgroundClip = "text";
+                launchMessage.style.backgroundClip = "text";
+                launchMessage.style.color = "transparent";
+                launchMessage.style.textShadow = "0 0 20px var(--glow-color)";
+                launchMessage.textContent = "LAUNCH COMPLETE";
+                
+                // Replace countdown with launch message
+                countdownWrapper.style.display = "none";
+                mainContent.insertBefore(launchMessage, mainContent.firstChild);
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
