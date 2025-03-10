@@ -441,28 +441,30 @@
             animation: scanline 2s linear infinite;
         }
         
-        /* Social links - REDESIGNED AS SQUARES */
+        /* Social links - REDESIGNED WITH FULL URLS */
         .social-links {
             display: flex;
-            gap: 2rem;
+            flex-direction: column;
+            gap: 1.5rem;
             margin-top: 2rem;
-            justify-content: center;
+            width: 100%;
+            max-width: 500px;
         }
         
         .social-link {
             position: relative;
-            width: 80px;
-            height: 80px;
             display: flex;
             align-items: center;
-            justify-content: center;
             text-decoration: none;
             transition: all 0.3s ease;
+            padding: 1rem 1.5rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
         }
         
         .social-link-glow {
             position: absolute;
-            inset: -8px;
+            inset: -5px;
             filter: blur(10px);
             opacity: 0.4;
             transition: all 0.3s ease;
@@ -481,69 +483,66 @@
             filter: blur(15px);
         }
         
-        .social-link-box {
+        .social-link-content {
             position: relative;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(0, 240, 255, 0.5);
+            z-index: 1;
             display: flex;
             align-items: center;
-            justify-content: center;
-            z-index: 1;
-            overflow: hidden;
-            transition: all 0.3s ease;
+            gap: 1rem;
+            width: 100%;
         }
         
-        .social-link:nth-child(1) .social-link-box {
-            border-color: rgba(0, 240, 255, 0.5);
-        }
-        
-        .social-link:nth-child(2) .social-link-box {
-            border-color: rgba(255, 0, 200, 0.5);
-        }
-        
-        .social-link:nth-child(1):hover .social-link-box {
-            border-color: rgba(0, 240, 255, 0.9);
-            transform: translateY(-5px);
-        }
-        
-        .social-link:nth-child(2):hover .social-link-box {
-            border-color: rgba(255, 0, 200, 0.9);
-            transform: translateY(-5px);
-        }
-        
-        .social-link svg {
+        .social-link-icon {
+            flex-shrink: 0;
             width: 32px;
             height: 32px;
             transition: all 0.3s ease;
         }
         
-        .social-link:nth-child(1) svg {
+        .social-link:nth-child(1) .social-link-icon {
             color: rgba(0, 240, 255, 0.9);
             filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.5));
         }
         
-        .social-link:nth-child(2) svg {
+        .social-link:nth-child(2) .social-link-icon {
             color: rgba(255, 0, 200, 0.9);
             filter: drop-shadow(0 0 5px rgba(255, 0, 200, 0.5));
         }
         
-        .social-link:hover svg {
+        .social-link:hover .social-link-icon {
             transform: scale(1.2);
         }
         
-        .social-link:nth-child(1):hover svg {
-            filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.8));
+        .social-link-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
         }
         
-        .social-link:nth-child(2):hover svg {
-            filter: drop-shadow(0 0 8px rgba(255, 0, 200, 0.8));
+        .social-link:nth-child(1) .social-link-text {
+            color: rgba(0, 240, 255, 0.9);
+        }
+        
+        .social-link:nth-child(2) .social-link-text {
+            color: rgba(255, 0, 200, 0.9);
+        }
+        
+        .social-link:hover .social-link-text {
+            transform: translateX(5px);
+        }
+        
+        .social-link:nth-child(1):hover .social-link-text {
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.8);
+        }
+        
+        .social-link:nth-child(2):hover .social-link-text {
+            text-shadow: 0 0 8px rgba(255, 0, 200, 0.8);
         }
         
         .social-link-border {
             position: absolute;
-            bottom: -1px;
+            bottom: 0;
             left: 0;
             right: 0;
             height: 2px;
@@ -555,31 +554,6 @@
         
         .social-link:nth-child(2) .social-link-border {
             background: linear-gradient(to right, transparent, #ff00c8, transparent);
-        }
-        
-        .social-link-label {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            white-space: nowrap;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:nth-child(1) .social-link-label {
-            color: rgba(0, 240, 255, 0.9);
-        }
-        
-        .social-link:nth-child(2) .social-link-label {
-            color: rgba(255, 0, 200, 0.9);
-        }
-        
-        .social-link:hover .social-link-label {
-            opacity: 1;
-            bottom: -25px;
         }
         
         /* Animations */
@@ -656,13 +630,8 @@
                 padding: 1rem;
             }
             
-            .social-links {
-                gap: 1.5rem;
-            }
-            
-            .social-link {
-                width: 70px;
-                height: 70px;
+            .social-link-text {
+                font-size: 1rem;
             }
         }
         
@@ -702,18 +671,17 @@
                 font-size: 0.9rem;
             }
             
-            .social-links {
-                gap: 1rem;
-            }
-            
             .social-link {
-                width: 60px;
-                height: 60px;
+                padding: 0.75rem 1rem;
             }
             
-            .social-link svg {
+            .social-link-icon {
                 width: 24px;
                 height: 24px;
+            }
+            
+            .social-link-text {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -808,28 +776,28 @@
             <div class="video-caption">TRANSCEND THE SIMULATION</div>
         </div>
         
-        <!-- Social Links - REDESIGNED AS SQUARES -->
+        <!-- Social Links - REDESIGNED WITH FULL URLS -->
         <div class="social-links">
             <a href="https://facebook.com/moyassin" class="social-link" target="_blank" rel="noopener noreferrer">
                 <div class="social-link-glow"></div>
-                <div class="social-link-box">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="social-link-content">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-link-icon">
                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                     </svg>
-                    <div class="social-link-border"></div>
+                    <span class="social-link-text">fb.com/moyassin</span>
                 </div>
-                <div class="social-link-label">FACEBOOK</div>
+                <div class="social-link-border"></div>
             </a>
             
             <a href="https://tiktok.com/@moyassin" class="social-link" target="_blank" rel="noopener noreferrer">
                 <div class="social-link-glow"></div>
-                <div class="social-link-box">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="social-link-content">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="social-link-icon">
                         <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" fill="currentColor"/>
                     </svg>
-                    <div class="social-link-border"></div>
+                    <span class="social-link-text">tiktok.com/@moyassin</span>
                 </div>
-                <div class="social-link-label">TIKTOK</div>
+                <div class="social-link-border"></div>
             </a>
         </div>
     </div>
@@ -1068,5 +1036,11 @@
             }, 2000);
         }, 10000);
     </script>
+    
+    <!-- Vercel Analytics -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
