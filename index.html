@@ -24,7 +24,7 @@
             position: relative;
         }
         
-        /* Container */
+        /* Container with improved spacing */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -32,14 +32,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             min-height: 100vh;
-            padding: 2rem;
+            padding: 3rem 2rem; /* Increased top/bottom padding */
             position: relative;
             z-index: 10;
+            gap: 3rem; /* Added gap between main sections */
         }
         
-        /* Background effects */
+        /* Background effects with improved opacity */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -48,7 +49,7 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            opacity: 0.1;
+            opacity: 0.15; /* Slightly increased */
             z-index: 1;
         }
         
@@ -58,7 +59,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.15) 0%, transparent 70%); /* Enhanced glow */
             z-index: 2;
         }
         
@@ -70,7 +71,7 @@
             height: 100%;
             overflow: hidden;
             z-index: 3;
-            opacity: 0.2;
+            opacity: 0.25; /* Slightly increased */
         }
         
         .matrix-code {
@@ -79,7 +80,7 @@
             left: 0;
             width: 100%;
             height: 200%;
-            background: linear-gradient(180deg, transparent, rgba(0, 240, 255, 0.2), transparent);
+            background: linear-gradient(180deg, transparent, rgba(0, 240, 255, 0.25), transparent);
             animation: matrixRain 20s linear infinite;
         }
         
@@ -107,7 +108,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 0, 200, 0.02);
+            background: rgba(255, 0, 200, 0.03); /* Slightly enhanced */
             mix-blend-mode: overlay;
             pointer-events: none;
             z-index: 5;
@@ -115,40 +116,42 @@
             opacity: 0;
         }
         
-        /* Logo */
+        /* Logo with enhanced text shadow */
         .logo {
-            font-size: 4rem;
+            font-size: 4.5rem; /* Increased size */
             font-weight: 700;
             background: linear-gradient(to right, #00f0ff, #ff00c8);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem; /* Increased spacing */
             animation: textShadow 1.5s infinite;
             position: relative;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.4); /* Added glow */
+            letter-spacing: 0.05em; /* Added slight letter spacing */
         }
         
-        /* Main content */
+        /* Main content with improved spacing */
         .main-content {
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 2rem;
+            gap: 4rem; /* Added gap between elements */
             margin-bottom: 4rem;
         }
         
-        /* March is for locking in */
+        /* March is for locking in - enhanced */
         .march-text {
             position: relative;
-            font-size: 2rem;
+            font-size: 2.2rem; /* Slightly increased */
             text-transform: uppercase;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.3em; /* Increased letter spacing */
             font-weight: 700;
             text-align: center;
-            padding: 0.5rem 1rem;
-            margin-bottom: 3rem;
+            padding: 0.75rem 1.5rem; /* Increased padding */
             z-index: 1;
+            margin-bottom: 1rem; /* Added space */
         }
         
         .march-text span {
@@ -158,6 +161,7 @@
             color: transparent;
             position: relative;
             z-index: 2;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); /* Added glow */
         }
         
         .march-text::before, .march-text::after {
@@ -173,89 +177,102 @@
         
         .march-text::before {
             color: #ff00c8;
-            transform: translateX(-2px);
-            opacity: 0.5;
+            transform: translateX(-3px); /* Increased offset */
+            opacity: 0.6; /* Increased visibility */
             animation: glitch 0.3s infinite;
         }
         
         .march-text::after {
             color: #00f0ff;
-            transform: translateX(2px);
-            opacity: 0.5;
+            transform: translateX(3px); /* Increased offset */
+            opacity: 0.6; /* Increased visibility */
             animation: glitch 0.3s infinite reverse;
         }
         
         .march-glow {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to right, rgba(0, 240, 255, 0.2), rgba(255, 0, 200, 0.2));
-            filter: blur(1rem);
-            opacity: 0.5;
+            inset: -10px; /* Expanded glow area */
+            background: linear-gradient(to right, rgba(0, 240, 255, 0.25), rgba(255, 0, 200, 0.25));
+            filter: blur(1.5rem); /* Increased blur */
+            opacity: 0.6;
             transition: opacity 0.5s;
         }
         
         .march-text:hover .march-glow {
-            opacity: 0.7;
+            opacity: 0.8;
         }
         
-        /* Countdown */
+        /* Countdown - enhanced spacing and effects */
         .countdown {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            gap: 2rem; /* Increased gap */
             width: 100%;
-            max-width: 800px;
-            margin-bottom: 4rem;
+            max-width: 850px; /* Increased max width */
+            margin: 1rem 0 2rem; /* Adjusted margins */
         }
         
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 0.75rem; /* Added gap */
         }
         
         .countdown-value-container {
             position: relative;
             width: 100%;
+            transition: transform 0.2s ease;
+        }
+        
+        .countdown-value-container:hover {
+            transform: translateY(-3px); /* Added hover effect */
         }
         
         .countdown-glow {
             position: absolute;
-            inset: -2px;
+            inset: -4px; /* Expanded glow area */
             background: linear-gradient(to right, #00f0ff, #ff00c8);
-            opacity: 0.3;
-            filter: blur(8px);
-            transition: opacity 0.3s;
+            opacity: 0.35; /* Increased visibility */
+            filter: blur(10px); /* Increased blur */
+            transition: opacity 0.3s, filter 0.3s;
         }
         
         .countdown-value-container:hover .countdown-glow {
-            opacity: 0.5;
+            opacity: 0.6;
+            filter: blur(12px);
         }
         
         .countdown-value-box {
-            background-color: #0a0a0a;
-            border: 1px solid rgba(0, 240, 255, 0.3);
+            background-color: rgba(10, 10, 10, 0.9); /* Added transparency */
+            border: 1px solid rgba(0, 240, 255, 0.4); /* Enhanced border */
             position: relative;
             z-index: 1;
-            padding: 1rem;
+            padding: 1.25rem; /* Increased padding */
+            transition: all 0.3s ease;
+        }
+        
+        .countdown-value-container:hover .countdown-value-box {
+            border-color: rgba(0, 240, 255, 0.7); /* Enhanced border on hover */
         }
         
         .countdown-value {
-            font-size: 3.5rem;
+            font-size: 3.75rem; /* Increased size */
             font-weight: 700;
             color: white;
             text-align: center;
             width: 100%;
             position: relative;
             overflow: hidden;
+            text-shadow: 0 0 5px rgba(0, 240, 255, 0.5); /* Added glow */
         }
         
         .countdown-value::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, transparent, rgba(0, 240, 255, 0.1), transparent);
-            opacity: 0.7;
+            background: linear-gradient(to bottom, transparent, rgba(0, 240, 255, 0.15), transparent);
+            opacity: 0.8;
         }
         
         .countdown-border {
@@ -263,32 +280,38 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 1px;
-            background-color: #00f0ff;
+            height: 2px; /* Increased height */
+            background: linear-gradient(to right, transparent, #00f0ff, transparent); /* Added gradient */
             z-index: 2;
         }
         
         .countdown-label {
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-            letter-spacing: 0.2em;
-            color: rgba(0, 240, 255, 0.8);
+            font-size: 0.95rem; /* Increased size */
+            letter-spacing: 0.25em; /* Increased letter spacing */
+            color: rgba(0, 240, 255, 0.85); /* Brighter color */
+            font-weight: 700; /* Added weight */
         }
         
-        /* Video section */
+        /* Video section - enhanced */
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 800px;
-            margin-bottom: 3rem;
+            max-width: 850px; /* Increased max width */
+            margin: 1rem 0 2rem; /* Adjusted spacing */
         }
         
         .video-glow {
             position: absolute;
-            inset: -4px;
+            inset: -8px; /* Expanded glow area */
             background: linear-gradient(to right, #00f0ff, #ff00c8);
-            opacity: 0.3;
-            filter: blur(8px);
+            opacity: 0.4; /* Increased visibility */
+            filter: blur(12px); /* Increased blur */
+            transition: opacity 0.3s, filter 0.3s;
+        }
+        
+        .video-container:hover .video-glow {
+            opacity: 0.55;
+            filter: blur(15px);
         }
         
         .video-wrapper {
@@ -296,8 +319,13 @@
             aspect-ratio: 16 / 9;
             width: 100%;
             background-color: black;
-            border: 1px solid rgba(0, 240, 255, 0.3);
+            border: 1px solid rgba(0, 240, 255, 0.4); /* Enhanced border */
             overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        
+        .video-container:hover .video-wrapper {
+            border-color: rgba(0, 240, 255, 0.7); /* Enhanced border on hover */
         }
         
         .video-wrapper iframe {
@@ -314,7 +342,7 @@
             top: -1px;
             left: 0;
             right: 0;
-            height: 2px;
+            height: 2px; /* Increased height */
             background: linear-gradient(to right, transparent, #ff00c8, transparent);
         }
         
@@ -323,7 +351,7 @@
             bottom: -1px;
             left: 0;
             right: 0;
-            height: 2px;
+            height: 2px; /* Increased height */
             background: linear-gradient(to right, transparent, #00f0ff, transparent);
         }
         
@@ -331,21 +359,23 @@
             position: absolute;
             inset: 0;
             pointer-events: none;
-            border: 1px solid rgba(0, 240, 255, 0.2);
+            border: 1px solid rgba(0, 240, 255, 0.3); /* Enhanced border */
             z-index: 1;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent, rgba(0, 0, 0, 0.3));
+            box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.1); /* Added inner glow */
         }
         
         .video-caption {
             text-align: center;
-            margin-top: 1.5rem;
+            margin-top: 1.75rem; /* Increased spacing */
             color: #00f0ff;
-            font-weight: 500;
-            letter-spacing: 0.2em;
+            font-weight: 700; /* Increased weight */
+            letter-spacing: 0.25em; /* Increased letter spacing */
             text-transform: uppercase;
-            font-size: 1rem;
+            font-size: 1.1rem; /* Increased size */
             position: relative;
             overflow: hidden;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.4); /* Added glow */
         }
         
         .video-caption::before {
@@ -355,44 +385,52 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
             animation: scanline 2s linear infinite;
         }
         
-        /* Social links */
+        /* Social links - enhanced */
         .social-links {
             display: flex;
-            gap: 2rem;
-            margin-top: auto;
+            gap: 3rem; /* Increased gap */
+            margin-top: 2rem; /* Added space */
+            padding: 1rem; /* Added padding */
+            background: rgba(10, 10, 10, 0.5); /* Added background */
+            border-radius: 2px; /* Added slight border radius */
+            border-top: 1px solid rgba(0, 240, 255, 0.2); /* Added border */
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2); /* Added border */
         }
         
         .social-link {
-            color: rgba(0, 240, 255, 0.8);
+            color: rgba(0, 240, 255, 0.85); /* Brighter color */
             text-decoration: none;
-            transition: color 0.3s, transform 0.3s;
-            font-size: 1rem;
-            letter-spacing: 0.1em;
+            transition: all 0.3s;
+            font-size: 1.1rem; /* Increased size */
+            letter-spacing: 0.15em; /* Increased letter spacing */
             text-transform: uppercase;
             position: relative;
             padding: 0.5rem 1rem;
+            font-weight: 700; /* Added weight */
         }
         
         .social-link:first-child {
-            color: rgba(0, 240, 255, 0.8);
+            color: rgba(0, 240, 255, 0.85); /* Brighter color */
         }
         
         .social-link:last-child {
-            color: rgba(255, 0, 200, 0.8);
+            color: rgba(255, 0, 200, 0.85); /* Brighter color */
         }
         
         .social-link:first-child:hover {
             color: #00f0ff;
-            transform: translateY(-2px);
+            transform: translateY(-3px); /* Increased movement */
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.6); /* Added glow */
         }
         
         .social-link:last-child:hover {
             color: #ff00c8;
-            transform: translateY(-2px);
+            transform: translateY(-3px); /* Increased movement */
+            text-shadow: 0 0 10px rgba(255, 0, 200, 0.6); /* Added glow */
         }
         
         .social-link::after {
@@ -401,7 +439,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 1px;
+            height: 2px; /* Increased height */
             background: currentColor;
             transform: scaleX(0);
             transform-origin: right;
@@ -429,13 +467,13 @@
         }
         
         @keyframes textShadow {
-            0% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 0, 255, 0.75); }
-            14% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 0, 255, 0.75); }
-            15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0 rgba(0, 0, 255, 0.75); }
-            49% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0 rgba(0, 0, 255, 0.75); }
-            50% { text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75); }
-            99% { text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75); }
-            100% { text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.025em 0 rgba(0, 255, 0, 0.75), -0.025em -0.05em 0 rgba(0, 0, 255, 0.75); }
+            0% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.8), -0.025em -0.05em 0 rgba(0, 255, 0, 0.8), 0.025em 0.05em 0 rgba(0, 0, 255, 0.8); }
+            14% { text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.8), -0.025em -0.05em 0 rgba(0, 255, 0, 0.8), 0.025em 0.05em 0 rgba(0, 0, 255, 0.8); }
+            15% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.8), 0.025em 0.025em 0 rgba(0, 255, 0, 0.8), -0.05em -0.05em 0 rgba(0, 0, 255, 0.8); }
+            49% { text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.8), 0.025em 0.025em 0 rgba(0, 255, 0, 0.8), -0.05em -0.05em 0 rgba(0, 0, 255, 0.8); }
+            50% { text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.8), 0.05em 0 0 rgba(0, 255, 0, 0.8), 0 -0.05em 0 rgba(0, 0, 255, 0.8); }
+            99% { text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.8), 0.05em 0 0 rgba(0, 255, 0, 0.8), 0 -0.05em 0 rgba(0, 0, 255, 0.8); }
+            100% { text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.8), -0.025em -0.025em 0 rgba(0, 255, 0, 0.8), -0.025em -0.05em 0 rgba(0, 0, 255, 0.8); }
         }
         
         @keyframes matrixRain {
@@ -443,38 +481,66 @@
             100% { top: 110%; }
         }
         
+        /* Random flicker animation */
+        @keyframes flicker {
+            0% { opacity: 1; }
+            3% { opacity: 0.8; }
+            6% { opacity: 1; }
+            7% { opacity: 0.9; }
+            9% { opacity: 1; }
+            11% { opacity: 0.6; }
+            14% { opacity: 1; }
+            50% { opacity: 1; }
+            52% { opacity: 0.8; }
+            54% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+                gap: 2rem;
+            }
+            
             .logo {
-                font-size: 3rem;
+                font-size: 3.2rem;
+                margin-bottom: 2rem;
             }
             
             .march-text {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+                letter-spacing: 0.2em;
+            }
+            
+            .main-content {
+                gap: 3rem;
             }
             
             .countdown {
-                gap: 1rem;
+                gap: 1.2rem;
             }
             
             .countdown-value {
-                font-size: 2.5rem;
-            }
-            
-            .container {
-                padding: 1.5rem;
+                font-size: 2.8rem;
             }
             
             .social-links {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.2rem;
                 align-items: center;
             }
         }
         
         @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+            
             .logo {
                 font-size: 2.5rem;
+                margin-bottom: 1.5rem;
             }
             
             .march-text {
@@ -482,8 +548,12 @@
                 letter-spacing: 0.15em;
             }
             
+            .main-content {
+                gap: 2rem;
+            }
+            
             .countdown {
-                gap: 0.5rem;
+                gap: 0.7rem;
             }
             
             .countdown-value {
@@ -495,11 +565,11 @@
             }
             
             .countdown-label {
-                font-size: 0.7rem;
+                font-size: 0.75rem;
             }
             
             .video-caption {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -629,15 +699,37 @@
             }
         }, 1000);
         
-        // Occasionally trigger glitch effect
-        setInterval(function() {
+        // Enhanced glitch effect - more frequent and random
+        function randomGlitch() {
             const glitchOverlay = document.querySelector('.glitch-overlay');
             glitchOverlay.style.opacity = '0.3';
             
             setTimeout(function() {
                 glitchOverlay.style.opacity = '0';
             }, 200);
-        }, 5000);
+            
+            // Set next glitch at random interval between 3-7 seconds
+            setTimeout(randomGlitch, Math.random() * 4000 + 3000);
+        }
+        
+        // Start random glitches
+        randomGlitch();
+        
+        // Add flicker effect to the logo periodically
+        setInterval(function() {
+            const logo = document.querySelector('.logo');
+            logo.style.animation = 'flicker 2s ease forwards';
+            
+            setTimeout(function() {
+                logo.style.animation = 'textShadow 1.5s infinite';
+            }, 2000);
+        }, 10000);
     </script>
+    
+    <!-- Vercel Analytics -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
