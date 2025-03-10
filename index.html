@@ -34,33 +34,22 @@
             align-items: center;
             justify-content: space-between;
             min-height: 100vh;
-            padding: 3rem 2rem; /* Increased top/bottom padding */
+            padding: 3rem 2rem;
             position: relative;
             z-index: 10;
-            gap: 3rem; /* Added gap between main sections */
+            gap: 2rem;
         }
         
-        /* Background effects with improved opacity */
-        .bg-overlay {
+        /* Background effects */
+        .bg-radial-gradient {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15; /* Slightly increased */
-            z-index: 1;
-        }
-        
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.15) 0%, transparent 70%); /* Enhanced glow */
+            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.18) 0%, transparent 70%);
             z-index: 2;
+            pointer-events: none;
         }
         
         .matrix-container {
@@ -71,7 +60,8 @@
             height: 100%;
             overflow: hidden;
             z-index: 3;
-            opacity: 0.25; /* Slightly increased */
+            opacity: 0.25;
+            pointer-events: none;
         }
         
         .matrix-code {
@@ -80,7 +70,7 @@
             left: 0;
             width: 100%;
             height: 200%;
-            background: linear-gradient(180deg, transparent, rgba(0, 240, 255, 0.25), transparent);
+            background: linear-gradient(180deg, transparent, rgba(0, 240, 255, 0.3), transparent);
             animation: matrixRain 20s linear infinite;
         }
         
@@ -94,8 +84,8 @@
                 to bottom,
                 transparent,
                 transparent 1px,
-                rgba(0, 240, 255, 0.03) 1px,
-                rgba(0, 240, 255, 0.03) 2px
+                rgba(0, 240, 255, 0.04) 1px,
+                rgba(0, 240, 255, 0.04) 2px
             );
             pointer-events: none;
             z-index: 4;
@@ -108,7 +98,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 0, 200, 0.03); /* Slightly enhanced */
+            background: rgba(255, 0, 200, 0.05);
             mix-blend-mode: overlay;
             pointer-events: none;
             z-index: 5;
@@ -116,42 +106,55 @@
             opacity: 0;
         }
         
+        /* Canvas background */
+        #cyberpunk-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
         /* Logo with enhanced text shadow */
         .logo {
-            font-size: 4.5rem; /* Increased size */
+            font-size: 4.5rem;
             font-weight: 700;
             background: linear-gradient(to right, #00f0ff, #ff00c8);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 2.5rem; /* Increased spacing */
+            margin-bottom: 2.5rem;
             animation: textShadow 1.5s infinite;
             position: relative;
-            text-shadow: 0 0 15px rgba(0, 240, 255, 0.4); /* Added glow */
-            letter-spacing: 0.05em; /* Added slight letter spacing */
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            letter-spacing: 0.05em;
         }
         
-        /* Main content with improved spacing */
-        .main-content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4rem; /* Added gap between elements */
-            margin-bottom: 4rem;
+        .logo-glow {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0, 240, 255, 0.2), rgba(255, 0, 200, 0.2));
+            filter: blur(20px);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .logo:hover .logo-glow {
+            opacity: 0.7;
         }
         
         /* March is for locking in - enhanced */
         .march-text {
             position: relative;
-            font-size: 2.2rem; /* Slightly increased */
+            font-size: 2.2rem;
             text-transform: uppercase;
-            letter-spacing: 0.3em; /* Increased letter spacing */
+            letter-spacing: 0.35em;
             font-weight: 700;
             text-align: center;
-            padding: 0.75rem 1.5rem; /* Increased padding */
+            padding: 0.75rem 1.5rem;
             z-index: 1;
-            margin-bottom: 1rem; /* Added space */
+            margin-bottom: 2rem;
         }
         
         .march-text span {
@@ -161,7 +164,7 @@
             color: transparent;
             position: relative;
             z-index: 2;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); /* Added glow */
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
         }
         
         .march-text::before, .march-text::after {
@@ -173,27 +176,30 @@
             height: 100%;
             background: transparent;
             z-index: -1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .march-text::before {
             color: #ff00c8;
-            transform: translateX(-3px); /* Increased offset */
-            opacity: 0.6; /* Increased visibility */
+            transform: translateX(-4px);
+            opacity: 0.6;
             animation: glitch 0.3s infinite;
         }
         
         .march-text::after {
             color: #00f0ff;
-            transform: translateX(3px); /* Increased offset */
-            opacity: 0.6; /* Increased visibility */
+            transform: translateX(4px);
+            opacity: 0.6;
             animation: glitch 0.3s infinite reverse;
         }
         
         .march-glow {
             position: absolute;
-            inset: -10px; /* Expanded glow area */
+            inset: -10px;
             background: linear-gradient(to right, rgba(0, 240, 255, 0.25), rgba(255, 0, 200, 0.25));
-            filter: blur(1.5rem); /* Increased blur */
+            filter: blur(1.5rem);
             opacity: 0.6;
             transition: opacity 0.5s;
         }
@@ -206,17 +212,17 @@
         .countdown {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem; /* Increased gap */
+            gap: 2rem;
             width: 100%;
-            max-width: 850px; /* Increased max width */
-            margin: 1rem 0 2rem; /* Adjusted margins */
+            max-width: 850px;
+            margin: 1rem 0 2rem;
         }
         
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.75rem; /* Added gap */
+            gap: 0.75rem;
         }
         
         .countdown-value-container {
@@ -226,45 +232,45 @@
         }
         
         .countdown-value-container:hover {
-            transform: translateY(-3px); /* Added hover effect */
+            transform: translateY(-3px);
         }
         
         .countdown-glow {
             position: absolute;
-            inset: -4px; /* Expanded glow area */
+            inset: -6px;
             background: linear-gradient(to right, #00f0ff, #ff00c8);
-            opacity: 0.35; /* Increased visibility */
-            filter: blur(10px); /* Increased blur */
+            opacity: 0.4;
+            filter: blur(10px);
             transition: opacity 0.3s, filter 0.3s;
         }
         
         .countdown-value-container:hover .countdown-glow {
-            opacity: 0.6;
+            opacity: 0.7;
             filter: blur(12px);
         }
         
         .countdown-value-box {
-            background-color: rgba(10, 10, 10, 0.9); /* Added transparency */
-            border: 1px solid rgba(0, 240, 255, 0.4); /* Enhanced border */
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(0, 240, 255, 0.5);
             position: relative;
             z-index: 1;
-            padding: 1.25rem; /* Increased padding */
+            padding: 1.5rem;
             transition: all 0.3s ease;
         }
         
         .countdown-value-container:hover .countdown-value-box {
-            border-color: rgba(0, 240, 255, 0.7); /* Enhanced border on hover */
+            border-color: rgba(0, 240, 255, 0.8);
         }
         
         .countdown-value {
-            font-size: 3.75rem; /* Increased size */
+            font-size: 3.75rem;
             font-weight: 700;
             color: white;
             text-align: center;
             width: 100%;
             position: relative;
             overflow: hidden;
-            text-shadow: 0 0 5px rgba(0, 240, 255, 0.5); /* Added glow */
+            text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
         }
         
         .countdown-value::after {
@@ -280,37 +286,37 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 2px; /* Increased height */
-            background: linear-gradient(to right, transparent, #00f0ff, transparent); /* Added gradient */
+            height: 3px;
+            background: linear-gradient(to right, transparent, #00f0ff, transparent);
             z-index: 2;
         }
         
         .countdown-label {
-            font-size: 0.95rem; /* Increased size */
-            letter-spacing: 0.25em; /* Increased letter spacing */
-            color: rgba(0, 240, 255, 0.85); /* Brighter color */
-            font-weight: 700; /* Added weight */
+            font-size: 0.95rem;
+            letter-spacing: 0.25em;
+            color: rgba(0, 240, 255, 0.85);
+            font-weight: 700;
         }
         
         /* Video section - enhanced */
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 850px; /* Increased max width */
-            margin: 1rem 0 2rem; /* Adjusted spacing */
+            max-width: 850px;
+            margin: 1rem 0 2rem;
         }
         
         .video-glow {
             position: absolute;
-            inset: -8px; /* Expanded glow area */
+            inset: -10px;
             background: linear-gradient(to right, #00f0ff, #ff00c8);
-            opacity: 0.4; /* Increased visibility */
-            filter: blur(12px); /* Increased blur */
+            opacity: 0.5;
+            filter: blur(12px);
             transition: opacity 0.3s, filter 0.3s;
         }
         
         .video-container:hover .video-glow {
-            opacity: 0.55;
+            opacity: 0.65;
             filter: blur(15px);
         }
         
@@ -319,13 +325,14 @@
             aspect-ratio: 16 / 9;
             width: 100%;
             background-color: black;
-            border: 1px solid rgba(0, 240, 255, 0.4); /* Enhanced border */
+            border: 1px solid rgba(0, 240, 255, 0.5);
             overflow: hidden;
             transition: border-color 0.3s;
+            cursor: pointer;
         }
         
         .video-container:hover .video-wrapper {
-            border-color: rgba(0, 240, 255, 0.7); /* Enhanced border on hover */
+            border-color: rgba(0, 240, 255, 0.8);
         }
         
         .video-wrapper iframe {
@@ -337,21 +344,67 @@
             border: none;
         }
         
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+        
+        .video-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid #00f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        
+        .video-wrapper:hover .video-play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-play-icon {
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-left: 20px solid #00f0ff;
+            border-bottom: 12px solid transparent;
+            margin-left: 5px;
+        }
+        
+        .video-gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent, rgba(0, 0, 0, 0.3));
+            pointer-events: none;
+        }
+        
         .video-border-top {
             position: absolute;
-            top: -1px;
+            top: -2px;
             left: 0;
             right: 0;
-            height: 2px; /* Increased height */
+            height: 3px;
             background: linear-gradient(to right, transparent, #ff00c8, transparent);
         }
         
         .video-border-bottom {
             position: absolute;
-            bottom: -1px;
+            bottom: -2px;
             left: 0;
             right: 0;
-            height: 2px; /* Increased height */
+            height: 3px;
             background: linear-gradient(to right, transparent, #00f0ff, transparent);
         }
         
@@ -359,23 +412,22 @@
             position: absolute;
             inset: 0;
             pointer-events: none;
-            border: 1px solid rgba(0, 240, 255, 0.3); /* Enhanced border */
+            border: 1px solid rgba(0, 240, 255, 0.4);
             z-index: 1;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent, rgba(0, 0, 0, 0.3));
-            box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.1); /* Added inner glow */
+            box-shadow: inset 0 0 40px rgba(0, 240, 255, 0.15);
         }
         
         .video-caption {
             text-align: center;
-            margin-top: 1.75rem; /* Increased spacing */
+            margin-top: 1.75rem;
             color: #00f0ff;
-            font-weight: 700; /* Increased weight */
-            letter-spacing: 0.25em; /* Increased letter spacing */
+            font-weight: 700;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            font-size: 1.1rem; /* Increased size */
+            font-size: 1.1rem;
             position: relative;
             overflow: hidden;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.4); /* Added glow */
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
         }
         
         .video-caption::before {
@@ -389,66 +441,145 @@
             animation: scanline 2s linear infinite;
         }
         
-        /* Social links - enhanced */
+        /* Social links - REDESIGNED AS SQUARES */
         .social-links {
             display: flex;
-            gap: 3rem; /* Increased gap */
-            margin-top: 2rem; /* Added space */
-            padding: 1rem; /* Added padding */
-            background: rgba(10, 10, 10, 0.5); /* Added background */
-            border-radius: 2px; /* Added slight border radius */
-            border-top: 1px solid rgba(0, 240, 255, 0.2); /* Added border */
-            border-bottom: 1px solid rgba(0, 240, 255, 0.2); /* Added border */
+            gap: 2rem;
+            margin-top: 2rem;
+            justify-content: center;
         }
         
         .social-link {
-            color: rgba(0, 240, 255, 0.85); /* Brighter color */
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 1.1rem; /* Increased size */
-            letter-spacing: 0.15em; /* Increased letter spacing */
-            text-transform: uppercase;
             position: relative;
-            padding: 0.5rem 1rem;
-            font-weight: 700; /* Added weight */
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
         
-        .social-link:first-child {
-            color: rgba(0, 240, 255, 0.85); /* Brighter color */
-        }
-        
-        .social-link:last-child {
-            color: rgba(255, 0, 200, 0.85); /* Brighter color */
-        }
-        
-        .social-link:first-child:hover {
-            color: #00f0ff;
-            transform: translateY(-3px); /* Increased movement */
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.6); /* Added glow */
-        }
-        
-        .social-link:last-child:hover {
-            color: #ff00c8;
-            transform: translateY(-3px); /* Increased movement */
-            text-shadow: 0 0 10px rgba(255, 0, 200, 0.6); /* Added glow */
-        }
-        
-        .social-link::after {
-            content: '';
+        .social-link-glow {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px; /* Increased height */
-            background: currentColor;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
+            inset: -8px;
+            filter: blur(10px);
+            opacity: 0.4;
+            transition: all 0.3s ease;
         }
         
-        .social-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
+        .social-link:nth-child(1) .social-link-glow {
+            background: #00f0ff;
+        }
+        
+        .social-link:nth-child(2) .social-link-glow {
+            background: #ff00c8;
+        }
+        
+        .social-link:hover .social-link-glow {
+            opacity: 0.7;
+            filter: blur(15px);
+        }
+        
+        .social-link-box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(0, 240, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:nth-child(1) .social-link-box {
+            border-color: rgba(0, 240, 255, 0.5);
+        }
+        
+        .social-link:nth-child(2) .social-link-box {
+            border-color: rgba(255, 0, 200, 0.5);
+        }
+        
+        .social-link:nth-child(1):hover .social-link-box {
+            border-color: rgba(0, 240, 255, 0.9);
+            transform: translateY(-5px);
+        }
+        
+        .social-link:nth-child(2):hover .social-link-box {
+            border-color: rgba(255, 0, 200, 0.9);
+            transform: translateY(-5px);
+        }
+        
+        .social-link svg {
+            width: 32px;
+            height: 32px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:nth-child(1) svg {
+            color: rgba(0, 240, 255, 0.9);
+            filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.5));
+        }
+        
+        .social-link:nth-child(2) svg {
+            color: rgba(255, 0, 200, 0.9);
+            filter: drop-shadow(0 0 5px rgba(255, 0, 200, 0.5));
+        }
+        
+        .social-link:hover svg {
+            transform: scale(1.2);
+        }
+        
+        .social-link:nth-child(1):hover svg {
+            filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.8));
+        }
+        
+        .social-link:nth-child(2):hover svg {
+            filter: drop-shadow(0 0 8px rgba(255, 0, 200, 0.8));
+        }
+        
+        .social-link-border {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+        }
+        
+        .social-link:nth-child(1) .social-link-border {
+            background: linear-gradient(to right, transparent, #00f0ff, transparent);
+        }
+        
+        .social-link:nth-child(2) .social-link-border {
+            background: linear-gradient(to right, transparent, #ff00c8, transparent);
+        }
+        
+        .social-link-label {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:nth-child(1) .social-link-label {
+            color: rgba(0, 240, 255, 0.9);
+        }
+        
+        .social-link:nth-child(2) .social-link-label {
+            color: rgba(255, 0, 200, 0.9);
+        }
+        
+        .social-link:hover .social-link-label {
+            opacity: 1;
+            bottom: -25px;
         }
         
         /* Animations */
@@ -459,10 +590,10 @@
         
         @keyframes glitch {
             0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
             100% { transform: translate(0); }
         }
         
@@ -513,10 +644,6 @@
                 letter-spacing: 0.2em;
             }
             
-            .main-content {
-                gap: 3rem;
-            }
-            
             .countdown {
                 gap: 1.2rem;
             }
@@ -525,10 +652,17 @@
                 font-size: 2.8rem;
             }
             
+            .countdown-value-box {
+                padding: 1rem;
+            }
+            
             .social-links {
-                flex-direction: column;
-                gap: 1.2rem;
-                align-items: center;
+                gap: 1.5rem;
+            }
+            
+            .social-link {
+                width: 70px;
+                height: 70px;
             }
         }
         
@@ -546,10 +680,6 @@
             .march-text {
                 font-size: 1.2rem;
                 letter-spacing: 0.15em;
-            }
-            
-            .main-content {
-                gap: 2rem;
             }
             
             .countdown {
@@ -571,12 +701,29 @@
             .video-caption {
                 font-size: 0.9rem;
             }
+            
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .social-link {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .social-link svg {
+                width: 24px;
+                height: 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="bg-overlay"></div>
-    <div class="bg-gradient"></div>
+    <!-- Canvas Background -->
+    <canvas id="cyberpunk-canvas"></canvas>
+    
+    <!-- Background Effects -->
+    <div class="bg-radial-gradient"></div>
     <div class="matrix-container">
         <div class="matrix-code"></div>
     </div>
@@ -584,83 +731,105 @@
     <div class="glitch-overlay"></div>
     
     <div class="container">
-        <div class="logo">@moyassin</div>
+        <!-- Logo -->
+        <div class="logo">
+            <div class="logo-glow"></div>
+            @moyassin
+        </div>
         
-        <div class="main-content">
-            <div class="march-text">
-                <div class="march-glow"></div>
-                <span>march is for locking in</span>
+        <!-- March Text -->
+        <div class="march-text">
+            <div class="march-glow"></div>
+            <span>march is for locking in</span>
+        </div>
+        
+        <!-- Countdown -->
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value-container">
+                    <div class="countdown-glow"></div>
+                    <div class="countdown-value-box">
+                        <div id="days" class="countdown-value">00</div>
+                    </div>
+                    <div class="countdown-border"></div>
+                </div>
+                <div class="countdown-label">DAYS</div>
             </div>
             
-            <div class="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-value-container">
-                        <div class="countdown-glow"></div>
-                        <div class="countdown-value-box">
-                            <div id="days" class="countdown-value">00</div>
-                        </div>
-                        <div class="countdown-border"></div>
+            <div class="countdown-item">
+                <div class="countdown-value-container">
+                    <div class="countdown-glow"></div>
+                    <div class="countdown-value-box">
+                        <div id="hours" class="countdown-value">00</div>
                     </div>
-                    <div class="countdown-label">DAYS</div>
+                    <div class="countdown-border"></div>
                 </div>
-                
-                <div class="countdown-item">
-                    <div class="countdown-value-container">
-                        <div class="countdown-glow"></div>
-                        <div class="countdown-value-box">
-                            <div id="hours" class="countdown-value">00</div>
-                        </div>
-                        <div class="countdown-border"></div>
-                    </div>
-                    <div class="countdown-label">HOURS</div>
-                </div>
-                
-                <div class="countdown-item">
-                    <div class="countdown-value-container">
-                        <div class="countdown-glow"></div>
-                        <div class="countdown-value-box">
-                            <div id="minutes" class="countdown-value">00</div>
-                        </div>
-                        <div class="countdown-border"></div>
-                    </div>
-                    <div class="countdown-label">MIN</div>
-                </div>
-                
-                <div class="countdown-item">
-                    <div class="countdown-value-container">
-                        <div class="countdown-glow"></div>
-                        <div class="countdown-value-box">
-                            <div id="seconds" class="countdown-value">00</div>
-                        </div>
-                        <div class="countdown-border"></div>
-                    </div>
-                    <div class="countdown-label">SEC</div>
-                </div>
+                <div class="countdown-label">HOURS</div>
             </div>
             
-            <div class="video-container">
-                <div class="video-glow"></div>
-                <div class="video-wrapper">
-                    <iframe 
-                        src="https://www.youtube.com/embed/ma1pD7ugMb8?si=fa0lHG8vg8q6ez2I&autoplay=1&mute=1&loop=1&playlist=ma1pD7ugMb8&controls=0&showinfo=0" 
-                        title="Grimes - Genesis" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                    ></iframe>
-                    <div class="video-overlay"></div>
-                    <div class="video-border-top"></div>
-                    <div class="video-border-bottom"></div>
+            <div class="countdown-item">
+                <div class="countdown-value-container">
+                    <div class="countdown-glow"></div>
+                    <div class="countdown-value-box">
+                        <div id="minutes" class="countdown-value">00</div>
+                    </div>
+                    <div class="countdown-border"></div>
                 </div>
-                <div class="video-caption">TRANSCEND THE SIMULATION</div>
+                <div class="countdown-label">MIN</div>
+            </div>
+            
+            <div class="countdown-item">
+                <div class="countdown-value-container">
+                    <div class="countdown-glow"></div>
+                    <div class="countdown-value-box">
+                        <div id="seconds" class="countdown-value">00</div>
+                    </div>
+                    <div class="countdown-border"></div>
+                </div>
+                <div class="countdown-label">SEC</div>
             </div>
         </div>
         
+        <!-- Video -->
+        <div class="video-container">
+            <div class="video-glow"></div>
+            <div id="video-wrapper" class="video-wrapper">
+                <div id="video-player-container">
+                    <img id="video-thumbnail" class="video-thumbnail" src="https://img.youtube.com/vi/ma1pD7ugMb8/maxresdefault.jpg" alt="Grimes - Genesis Thumbnail">
+                    <div class="video-play-button">
+                        <div class="video-play-icon"></div>
+                    </div>
+                    <div class="video-gradient-overlay"></div>
+                </div>
+                <div class="video-overlay"></div>
+                <div class="video-border-top"></div>
+                <div class="video-border-bottom"></div>
+            </div>
+            <div class="video-caption">TRANSCEND THE SIMULATION</div>
+        </div>
+        
+        <!-- Social Links - REDESIGNED AS SQUARES -->
         <div class="social-links">
             <a href="https://facebook.com/moyassin" class="social-link" target="_blank" rel="noopener noreferrer">
-                fb.com/moyassin
+                <div class="social-link-glow"></div>
+                <div class="social-link-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                    <div class="social-link-border"></div>
+                </div>
+                <div class="social-link-label">FACEBOOK</div>
             </a>
+            
             <a href="https://tiktok.com/@moyassin" class="social-link" target="_blank" rel="noopener noreferrer">
-                tiktok.com/@moyassin
+                <div class="social-link-glow"></div>
+                <div class="social-link-box">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" fill="currentColor"/>
+                    </svg>
+                    <div class="social-link-border"></div>
+                </div>
+                <div class="social-link-label">TIKTOK</div>
             </a>
         </div>
     </div>
@@ -684,12 +853,12 @@
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
             // Display the results with leading zeros
-            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days.toString();
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours.toString();
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes.toString();
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds.toString();
             
-            // If the countdown is finished, display a message
+            // If the countdown is finished, display zeros
             if (distance < 0) {
                 clearInterval(countdown);
                 document.getElementById("days").innerHTML = "00";
@@ -702,18 +871,192 @@
         // Enhanced glitch effect - more frequent and random
         function randomGlitch() {
             const glitchOverlay = document.querySelector('.glitch-overlay');
-            glitchOverlay.style.opacity = '0.3';
+            glitchOverlay.style.opacity = '0.4';
             
             setTimeout(function() {
                 glitchOverlay.style.opacity = '0';
-            }, 200);
+            }, Math.random() * 200 + 100);
             
-            // Set next glitch at random interval between 3-7 seconds
-            setTimeout(randomGlitch, Math.random() * 4000 + 3000);
+            // Set next glitch at random interval between 2-5 seconds
+            setTimeout(randomGlitch, Math.random() * 3000 + 2000);
         }
         
         // Start random glitches
         randomGlitch();
+        
+        // Video player functionality
+        document.getElementById('video-wrapper').addEventListener('click', function() {
+            const videoPlayerContainer = document.getElementById('video-player-container');
+            videoPlayerContainer.innerHTML = `
+                <iframe 
+                    src="https://www.youtube.com/embed/ma1pD7ugMb8?si=fa0lHG8vg8q6ez2I&autoplay=1&loop=1&playlist=ma1pD7ugMb8&controls=1&showinfo=0" 
+                    title="Grimes - Genesis" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                ></iframe>
+            `;
+        });
+        
+        // Initialize the cyberpunk grid background
+        const canvas = document.getElementById('cyberpunk-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas dimensions
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Grid properties
+        const gridSize = 40;
+        const gridLineWidth = 1;
+        const gridColor = 'rgba(0, 240, 255, 0.15)';
+        const gridColorBright = 'rgba(0, 240, 255, 0.3)';
+        
+        // Perspective grid properties
+        let horizonY = canvas.height * 0.5;
+        const vanishingPointX = canvas.width * 0.5;
+        
+        // Animation properties
+        let time = 0;
+        
+        // Draw the cyberpunk grid
+        function drawGrid() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Create gradient background
+            const bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            bgGradient.addColorStop(0, 'rgba(0, 0, 20, 0.7)');
+            bgGradient.addColorStop(1, 'rgba(80, 0, 100, 0.4)');
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Animate horizon line
+            horizonY = canvas.height * 0.5 + Math.sin(time * 0.2) * 20;
+            
+            // Draw horizontal grid lines (perspective)
+            const horizonLines = 20;
+            for (let i = 0; i <= horizonLines; i++) {
+                const y = horizonY + (canvas.height - horizonY) * (i / horizonLines);
+                const lineWidth = gridLineWidth * (i / horizonLines) * 2;
+                
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.strokeStyle = i % 5 === 0 ? gridColorBright : gridColor;
+                ctx.lineWidth = lineWidth;
+                ctx.stroke();
+            }
+            
+            // Draw vertical grid lines (perspective)
+            const verticalLines = 40;
+            for (let i = 0; i <= verticalLines; i++) {
+                const x = (i / verticalLines) * canvas.width;
+                const lineWidth = gridLineWidth;
+                
+                ctx.beginPath();
+                ctx.moveTo(x, horizonY);
+                ctx.lineTo(x, canvas.height);
+                ctx.strokeStyle = i % 5 === 0 ? gridColorBright : gridColor;
+                ctx.lineWidth = lineWidth;
+                ctx.stroke();
+            }
+            
+            // Draw perspective lines from vanishing point
+            const perspectiveLines = 12;
+            for (let i = 0; i < perspectiveLines; i++) {
+                const angle = (i / perspectiveLines) * Math.PI * 2;
+                const length = canvas.width;
+                
+                const endX = vanishingPointX + Math.cos(angle) * length;
+                const endY = horizonY + Math.sin(angle) * length;
+                
+                ctx.beginPath();
+                ctx.moveTo(vanishingPointX, horizonY);
+                ctx.lineTo(endX, endY);
+                ctx.strokeStyle = gridColorBright;
+                ctx.lineWidth = gridLineWidth;
+                ctx.stroke();
+            }
+            
+            // Draw distant city skyline
+            drawCitySkyline();
+            
+            // Add some floating particles
+            drawParticles();
+            
+            // Update time
+            time += 0.01;
+            
+            // Continue animation
+            requestAnimationFrame(drawGrid);
+        }
+        
+        // Draw city skyline
+        function drawCitySkyline() {
+            ctx.fillStyle = 'rgba(0, 0, 30, 0.8)';
+            
+            // Draw buildings
+            const buildingCount = 30;
+            const maxBuildingWidth = 100;
+            const maxBuildingHeight = 150;
+            
+            for (let i = 0; i < buildingCount; i++) {
+                const x = (i / buildingCount) * canvas.width * 2 - canvas.width * 0.5 + vanishingPointX;
+                const width = 20 + Math.random() * maxBuildingWidth;
+                const height = 30 + Math.random() * maxBuildingHeight;
+                
+                ctx.fillRect(x - width/2, horizonY - height, width, height);
+                
+                // Add some windows
+                ctx.fillStyle = `rgba(${Math.random() > 0.5 ? 255 : 0}, ${Math.random() > 0.7 ? 255 : 0}, 255, ${0.3 + Math.random() * 0.7})`;
+                
+                const windowRows = Math.floor(height / 15);
+                const windowCols = Math.floor(width / 10);
+                
+                for (let row = 0; row < windowRows; row++) {
+                    for (let col = 0; col < windowCols; col++) {
+                        if (Math.random() > 0.3) {
+                            ctx.fillRect(
+                                x - width/2 + col * 10 + 2, 
+                                horizonY - height + row * 15 + 2, 
+                                6, 
+                                8
+                            );
+                        }
+                    }
+                }
+                
+                ctx.fillStyle = 'rgba(0, 0, 30, 0.8)';
+            }
+        }
+        
+        // Draw floating particles
+        function drawParticles() {
+            const particleCount = 100;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const x = (Math.sin(i * 0.1 + time) * 0.5 + 0.5) * canvas.width;
+                const y = (Math.cos(i * 0.1 + time * 0.5) * 0.5 + 0.5) * canvas.height;
+                const size = Math.sin(i + time) * 2 + 3;
+                
+                const gradient = ctx.createRadialGradient(x, y, 0, x, y, size);
+                gradient.addColorStop(0, 'rgba(0, 240, 255, 0.8)');
+                gradient.addColorStop(1, 'rgba(0, 240, 255, 0)');
+                
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fillStyle = gradient;
+                ctx.fill();
+            }
+        }
+        
+        // Start animation
+        drawGrid();
         
         // Add flicker effect to the logo periodically
         setInterval(function() {
@@ -725,11 +1068,5 @@
             }, 2000);
         }, 10000);
     </script>
-    
-    <!-- Vercel Analytics -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
