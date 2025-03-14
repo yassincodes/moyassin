@@ -32,22 +32,22 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between; /* Changed to space-between for better distribution */
+            justify-content: space-between;
             min-height: 100vh;
-            padding: 4rem 2.5rem; /* Increased top/bottom padding */
+            padding: 4rem 2.5rem;
             position: relative;
             z-index: 10;
-            gap: 3rem; /* Added gap between main sections */
+            gap: 3rem;
         }
         
-        /* Background effects */
+        /* Background effects - updated to match video colors */
         .bg-gradient {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(128, 0, 128, 0.05) 0%, transparent 70%);
             z-index: 1;
         }
         
@@ -61,8 +61,8 @@
                 to bottom,
                 transparent,
                 transparent 2px,
-                rgba(0, 240, 255, 0.02) 2px,
-                rgba(0, 240, 255, 0.02) 4px
+                rgba(128, 0, 128, 0.02) 2px,
+                rgba(128, 0, 128, 0.02) 4px
             );
             pointer-events: none;
             z-index: 2;
@@ -73,17 +73,17 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            margin-bottom: 2rem; /* Space after logo */
+            margin-bottom: 2rem;
         }
         
         .logo {
             font-size: 3.5rem;
             font-weight: 700;
-            background: linear-gradient(to right, #00f0ff, #ff00c8);
+            background: linear-gradient(to right, #9900ff, #ff00c8);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            text-shadow: 0 0 10px rgba(153, 0, 255, 0.5);
         }
         
         /* Main content */
@@ -92,8 +92,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex: 1; /* Take available space */
-            gap: 5rem; /* Large gap between main content sections */
+            flex: 1;
+            gap: 5rem;
         }
         
         /* Title text */
@@ -104,7 +104,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem; /* Space between title and mission */
+            gap: 2rem;
         }
         
         .title-text {
@@ -115,15 +115,15 @@
             font-weight: 700;
             text-align: center;
             padding: 0.5rem 1rem;
-            background: linear-gradient(to right, #00f0ff, #ff00c8);
+            background: linear-gradient(to right, #9900ff, #ff00c8);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+            text-shadow: 0 0 8px rgba(153, 0, 255, 0.3);
         }
         
         .title-separator {
-            color: #00f0ff;
+            color: #9900ff;
             animation: pulse 2s infinite alternate;
         }
         
@@ -139,8 +139,8 @@
             letter-spacing: 0.15em;
             position: relative;
             display: inline-block;
-            padding: 0.8rem 2rem; /* Increased padding */
-            border-left: 2px solid rgba(0, 240, 255, 0.4);
+            padding: 0.8rem 2rem;
+            border-left: 2px solid rgba(153, 0, 255, 0.4);
             border-right: 2px solid rgba(255, 0, 200, 0.4);
         }
         
@@ -158,7 +158,7 @@
         
         .subtitle::before {
             content: '[';
-            color: #00f0ff;
+            color: #9900ff;
             margin-right: 0.5rem;
             font-weight: bold;
         }
@@ -176,13 +176,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem; /* Space between countdown and any potential caption */
+            gap: 1rem;
         }
         
         .countdown {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2.5rem; /* Increased gap between countdown items */
+            gap: 2.5rem;
             width: 100%;
             max-width: 700px;
         }
@@ -191,7 +191,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem; /* Space between value and label */
+            gap: 1rem;
         }
         
         .countdown-value-container {
@@ -201,12 +201,12 @@
         
         .countdown-value-box {
             background-color: #0a0a0a;
-            border: 1px solid rgba(0, 240, 255, 0.3);
+            border: 1px solid rgba(153, 0, 255, 0.3);
             position: relative;
             z-index: 1;
-            padding: 1.5rem; /* Increased padding */
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
-            border-radius: 4px; /* Added subtle border radius */
+            padding: 1.5rem;
+            box-shadow: 0 0 15px rgba(153, 0, 255, 0.15);
+            border-radius: 4px;
         }
         
         .countdown-value {
@@ -224,14 +224,14 @@
             left: 0;
             right: 0;
             height: 1px;
-            background-color: #00f0ff;
+            background-color: #9900ff;
             z-index: 2;
         }
         
         .countdown-label {
             font-size: 0.875rem;
             letter-spacing: 0.2em;
-            color: rgba(0, 240, 255, 0.8);
+            color: rgba(153, 0, 255, 0.8);
         }
         
         /* Video section */
@@ -240,7 +240,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem; /* Space between video and caption */
+            gap: 2rem;
         }
         
         .video-container {
@@ -254,11 +254,11 @@
             aspect-ratio: 16 / 9;
             width: 100%;
             background-color: black;
-            border: 1px solid rgba(0, 240, 255, 0.3);
+            border: 1px solid rgba(153, 0, 255, 0.3);
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            box-shadow: 0 0 20px rgba(153, 0, 255, 0.2);
             cursor: pointer;
-            border-radius: 4px; /* Added subtle border radius */
+            border-radius: 4px;
         }
         
         .video-wrapper iframe {
@@ -276,7 +276,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://img.youtube.com/vi/GC7ntrORW0w/maxresdefault.jpg');
+            background-image: url('https://i.ytimg.com/vi/rm7UdTLKt5Y/maxresdefault.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -301,7 +301,7 @@
         }
         
         .play-button:hover {
-            background-color: rgba(0, 240, 255, 0.3);
+            background-color: rgba(153, 0, 255, 0.3);
             transform: scale(1.1);
         }
         
@@ -330,12 +330,12 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(to right, transparent, #00f0ff, transparent);
+            background: linear-gradient(to right, transparent, #9900ff, transparent);
         }
         
         .video-caption {
             text-align: center;
-            color: #00f0ff;
+            color: #9900ff;
             font-weight: 500;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -345,20 +345,20 @@
         /* Social links */
         .footer-section {
             width: 100%;
-            margin-top: 3rem; /* Space before footer */
+            margin-top: 3rem;
         }
         
         .social-links {
             display: flex;
-            gap: 4rem; /* Increased gap between links */
-            padding: 2rem 0; /* Vertical padding */
-            border-top: 1px solid rgba(0, 240, 255, 0.1); /* Added subtle border */
+            gap: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(153, 0, 255, 0.1);
             width: 100%;
             justify-content: center;
         }
         
         .social-link {
-            color: rgba(0, 240, 255, 0.8);
+            color: rgba(153, 0, 255, 0.8);
             text-decoration: none;
             transition: color 0.3s, transform 0.3s;
             font-size: 1rem;
@@ -368,7 +368,7 @@
         }
         
         .social-link:first-child {
-            color: rgba(0, 240, 255, 0.8);
+            color: rgba(153, 0, 255, 0.8);
         }
         
         .social-link:last-child {
@@ -376,7 +376,7 @@
         }
         
         .social-link:first-child:hover {
-            color: #00f0ff;
+            color: #9900ff;
             transform: translateY(-2px);
         }
         
@@ -527,8 +527,7 @@
                 height: 50px;
             }
             
-            .play-button::after {
-                border-top: 12px solid transparent;
+            .play-button::after {border-top: 12px solid transparent;
                 border-left: 20px solid white;
                 border-bottom: 12px solid transparent;
                 margin-left: 4px;
@@ -674,7 +673,7 @@
             }
         }, 1000);
         
-        // Video player functionality
+        // Video player functionality - FIXED
         document.getElementById('videoWrapper').addEventListener('click', function() {
             const videoThumbnail = document.getElementById('videoThumbnail');
             const videoPlayer = document.getElementById('videoPlayer');
@@ -682,10 +681,10 @@
             // Hide thumbnail
             videoThumbnail.style.display = 'none';
             
-            // Create iframe and start playing video
+            // Create iframe with the correct YouTube embed URL
             videoPlayer.innerHTML = `<iframe 
-                src="https://youtu.be/rm7UdTLKt5Y?si=bHREybpsvjm5pHZC" 
-                title="Kanye West, Ty Dolla Sign - Stars (Live at UBS Arena, New York)" 
+                src="https://www.youtube.com/embed/rm7UdTLKt5Y?autoplay=1" 
+                title="Kanye West - City of Gods / Midnight" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen
             ></iframe>`;
