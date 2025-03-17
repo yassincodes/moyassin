@@ -107,42 +107,54 @@
             gap: 2rem;
         }
         
-        .title-text {
+        .mission-link {
+            color: #ff00c8;
+            text-decoration: none;
             position: relative;
-            font-size: 1.8rem;
+            transition: color 0.3s;
+            font-weight: 700;
+            display: inline-block;
+            margin-left: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-weight: 700;
-            text-align: center;
-            padding: 0.5rem 1rem;
-            background: linear-gradient(to right, #00f0ff, #ff00c8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
         }
-        
-        .title-separator {
+
+        .mission-link:hover {
             color: #00f0ff;
-            animation: pulse 2s infinite alternate;
         }
-        
-        @keyframes pulse {
-            0% { opacity: 0.7; }
-            100% { opacity: 1; }
+
+        .mission-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #00f0ff;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .mission-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
         
         .mission-statement {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            position: relative;
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            border-left: 2px solid rgba(0, 240, 255, 0.4);
-            border-right: 2px solid rgba(255, 0, 200, 0.4);
-        }
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-width: 700px;
+    position: relative;
+    display: block;
+    padding: 1.2rem 2rem;
+    background-color: rgba(10, 10, 10, 0.7);
+    border-left: 2px solid rgba(0, 240, 255, 0.4);
+    text-align: left;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}
         
         .subtitle {
             font-size: 1.2rem;
@@ -276,7 +288,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://i.ytimg.com/vi/rm7UdTLKt5Y/hqdefault.jpg');
+            background-image: url('https://i.ytimg.com/vi/L5r1uEyWxH4/hqdefault.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -423,10 +435,6 @@
                 gap: 1.5rem;
             }
             
-            .title-text {
-                font-size: 1.3rem;
-            }
-            
             .subtitle {
                 font-size: 1rem;
             }
@@ -463,8 +471,8 @@
             }
             
             .mission-statement {
-                font-size: 1rem;
-                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+                padding: 1rem 1.5rem;
             }
             
             .video-section {
@@ -488,11 +496,6 @@
             
             .title-container {
                 gap: 1rem;
-            }
-            
-            .title-text {
-                font-size: 1rem;
-                letter-spacing: 0.05em;
             }
             
             .subtitle {
@@ -536,10 +539,8 @@
             }
             
             .mission-statement {
-                font-size: 0.9rem;
-                padding: 0.5rem 1rem;
-                border-left-width: 1px;
-                border-right-width: 1px;
+                font-size: 0.8rem;
+                padding: 0.8rem 1rem;
             }
             
             .video-section {
@@ -562,13 +563,9 @@
         
         <div class="main-content">
             <div class="title-container">
-                <div class="title-text">
-                    Locked in ⟁⟁⟁ Countdown to April 6th
-                </div>
-                
                 <div class="mission-statement">
-                    mission: build excellence
-                </div>
+    Building 15-25 projects in 2025. Life is a game, and I'm playing to win. <a href="story.html" class="mission-link">Read here</a>
+</div>
             </div>
             
             <div class="countdown-section">
@@ -626,7 +623,7 @@
                         <div class="video-border-bottom"></div>
                     </div>
                 </div>
-                <div class="video-caption">accelerate beyond the simulation</div>
+                <div class="video-caption">chasing our crazy dreams</div>
             </div>
         </div>
         
@@ -643,8 +640,8 @@
     </div>
     
     <script>
-        // Set the countdown date to April 7, 2025 at midnight (to include all of April 6th)
-        const countdownDate = new Date("April 7, 2025 00:00:00").getTime();
+        // Set the countdown date to January 1, 2026 at midnight (end of 2025)
+        const countdownDate = new Date("January 1, 2026 00:00:00").getTime();
         
         // Update the countdown every second
         const countdown = setInterval(function() {
@@ -686,8 +683,8 @@
             
             // Create iframe with the correct YouTube embed URL and parameters to fill the container
             videoPlayer.innerHTML = `<iframe 
-                src="https://www.youtube.com/watch?v=L5r1uEyWxH4&pp=ygUSbGlnaHQgaXQgdXAgc2xvd2Vk" 
-                title="Kanye West, Ty Dolla Sign - Stars (Live at UBS Arena)" 
+                src="https://www.youtube.com/embed/L5r1uEyWxH4?autoplay=1&modestbranding=1&rel=0&showinfo=0&controls=1&fs=1&color=white&iv_load_policy=3&start=0&vq=hd1080" 
+                title="light it up (slowed + reverb) major lazer feat. nyla & fuse odg" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
