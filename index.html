@@ -12,232 +12,366 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #1d1d1f;
-            background-color: #fbfbfd;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+            background: #000;
+            color: #f5f5f7;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
+        /* Hero Section */
         .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 80px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            margin-bottom: 60px;
+            position: relative;
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #000 70%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 56px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            animation: fadeInUp 0.8s ease-out;
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #f5f5f7 0%, #86868b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .hero .username {
-            font-size: 24px;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+        .hero .subtitle {
+            font-size: 20px;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 48px;
+            letter-spacing: 0.01em;
         }
 
-        /* Sections */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 40px;
+            border: 2px solid #86868b;
+            border-radius: 12px;
+            opacity: 0.6;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: #86868b;
+            border-radius: 2px;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% { opacity: 0; transform: translateX(-50%) translateY(0); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(-50%) translateY(16px); }
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
         .section {
+            padding: 120px 0;
+            border-bottom: 1px solid #1d1d1f;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            text-align: center;
             margin-bottom: 80px;
         }
 
         .section-title {
-            font-size: 40px;
-            font-weight: 600;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #1d1d1f;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            color: #f5f5f7;
         }
 
-        /* Social Media */
+        .section-subtitle {
+            font-size: 20px;
+            color: #86868b;
+            font-weight: 400;
+        }
+
+        /* Social Grid */
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
-            margin-bottom: 40px;
         }
 
-        .social-item {
-            background: white;
+        .social-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            padding: 32px 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            padding: 32px;
             text-decoration: none;
             color: inherit;
-            display: block;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
         }
 
-        .social-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .social-card:hover::before {
+            opacity: 1;
         }
 
         .social-platform {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 600;
             margin-bottom: 8px;
-            color: #1d1d1f;
+            color: #f5f5f7;
         }
 
         .social-description {
-            color: #6e6e73;
             font-size: 16px;
-            margin-bottom: 12px;
+            color: #86868b;
+            margin-bottom: 16px;
+            line-height: 1.5;
         }
 
         .social-handle {
             font-size: 14px;
-            color: #0066cc;
+            color: #0a84ff;
             font-weight: 500;
+            font-family: 'SF Mono', Monaco, monospace;
         }
 
-        /* About */
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-stats {
+            display: grid;
+            gap: 32px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            backdrop-filter: blur(20px);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0a84ff;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #86868b;
+        }
+
         .about-content {
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            font-size: 18px;
+            line-height: 1.7;
+            color: #a1a1a6;
         }
 
         .about-content p {
-            font-size: 18px;
-            margin-bottom: 16px;
-            color: #1d1d1f;
+            margin-bottom: 24px;
         }
 
         .highlight {
+            color: #f5f5f7;
             font-weight: 600;
-            color: #0066cc;
         }
 
-        /* Goals */
-        .goals-container {
-            max-width: 700px;
+        /* Goals Section */
+        .goals-grid {
+            display: grid;
+            gap: 24px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .goals-intro {
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 32px;
-            color: #1d1d1f;
-        }
-
-        .goal-item {
-            background: white;
+        .goal-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
         }
 
-        .goal-item:hover {
-            transform: translateX(8px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        .goal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
-        .goal-emoji {
+        .goal-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(10, 132, 255, 0.3);
+        }
+
+        .goal-card:hover::before {
+            opacity: 1;
+        }
+
+        .goal-icon {
             font-size: 32px;
-            margin-right: 20px;
+            margin-bottom: 16px;
+            display: block;
         }
 
-        .goal-text {
-            font-size: 20px;
-            font-weight: 500;
-            color: #1d1d1f;
+        .goal-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #f5f5f7;
+            margin-bottom: 12px;
+        }
+
+        .goal-description {
+            font-size: 16px;
+            color: #86868b;
+            line-height: 1.6;
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 40px 0;
+            padding: 80px 24px 40px;
             color: #86868b;
             font-size: 14px;
-            border-top: 1px solid #d2d2d7;
-            margin-top: 60px;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 42px;
+                font-size: 48px;
+            }
+            
+            .section {
+                padding: 80px 0;
             }
             
             .section-title {
-                font-size: 32px;
+                font-size: 36px;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
             .social-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .about-content {
-                padding: 24px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
-    <div class="hero">
-        <h1>Mohamed Yassin</h1>
-        <p class="username">@moyassin</p>
-    </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mohamed Yassin</h1>
+            <p class="subtitle">@moyassin</p>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
 
-    <div class="container">
-        <!-- Social Media Section -->
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Social Section -->
         <section class="section">
-            <h2 class="section-title">Connect With Me</h2>
+            <div class="section-header">
+                <h2 class="section-title">Connect</h2>
+                <p class="section-subtitle">Find me across platforms</p>
+            </div>
             <div class="social-grid">
-                <a href="https://facebook.com/moyassin" target="_blank" class="social-item">
+                <a href="https://facebook.com/moyassin" target="_blank" class="social-card">
                     <div class="social-platform">Facebook</div>
-                    <div class="social-description">Sharing thoughts</div>
+                    <div class="social-description">Sharing thoughts and insights</div>
                     <div class="social-handle">@moyassin</div>
                 </a>
-                <a href="https://tiktok.com/@moyassin" target="_blank" class="social-item">
+                <a href="https://tiktok.com/@moyassin" target="_blank" class="social-card">
                     <div class="social-platform">TikTok</div>
-                    <div class="social-description">Short term videos</div>
+                    <div class="social-description">Short-form video content</div>
                     <div class="social-handle">@moyassin</div>
                 </a>
-                <a href="https://vimeo.com/moyassin" target="_blank" class="social-item">
+                <a href="https://vimeo.com/moyassin" target="_blank" class="social-card">
                     <div class="social-platform">Vimeo</div>
-                    <div class="social-description">Long term videos</div>
+                    <div class="social-description">Long-form video projects</div>
                     <div class="social-handle">@moyassin</div>
                 </a>
-                <a href="https://medium.com/@moyassin" target="_blank" class="social-item">
+                <a href="https://medium.com/@moyassin" target="_blank" class="social-card">
                     <div class="social-platform">Medium</div>
                     <div class="social-description">Documenting the journey</div>
                     <div class="social-handle">@moyassin</div>
@@ -247,71 +381,104 @@
 
         <!-- About Section -->
         <section class="section">
-            <h2 class="section-title">About</h2>
-            <div class="about-content">
-                <p><span class="highlight">5+ years of experience</span> in coding and design</p>
-                <p><span class="highlight">Typing speed: +100 WPM</span> | <span class="highlight">Chess Elo: 1500</span></p>
-                <p>Made the most engaging English-learning Facebook page in the Arab world at <span class="highlight">16</span></p>
-                <p>Developed a university rating website that gained <span class="highlight">viral popularity</span> among students in several countries in 2021</p>
-                <p>Built AI-powered clones of Facebook and Messenger for interacting with AI versions of <span class="highlight">historical figures</span> (2023 graduation project)</p>
-                <p>Worked with clients across the <span class="highlight">MENA region</span> in web development & marketing</p>
-                <p><span class="highlight">Favorite book:</span> Meditations | <span class="highlight">Favorite novel:</span> Crime and Punishment</p>
-                <p><span class="highlight">Favorite artists:</span> Kanye West, Kid Cudi, Rihanna</p>
+            <div class="section-header">
+                <h2 class="section-title">About</h2>
+                <p class="section-subtitle">Developer, Designer, Builder</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">WPM Typing Speed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1500</div>
+                        <div class="stat-label">Chess Elo Rating</div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <p>Made the most engaging English-learning Facebook page in the Arab world at <span class="highlight">16</span>.</p>
+                    <p>Developed a university rating website that gained <span class="highlight">viral popularity</span> among students across multiple countries in 2021.</p>
+                    <p>Built AI-powered clones of Facebook and Messenger for interacting with AI versions of <span class="highlight">historical figures</span> as my 2023 graduation project.</p>
+                    <p>Currently working with clients across the <span class="highlight">MENA region</span> in web development and marketing.</p>
+                    <p><span class="highlight">Favorite reads:</span> Meditations, Crime and Punishment<br>
+                    <span class="highlight">Soundtrack:</span> Kanye West, Kid Cudi, Rihanna</p>
+                </div>
             </div>
         </section>
 
         <!-- Goals Section -->
         <section class="section">
-            <h2 class="section-title">My Goal</h2>
-            <div class="goals-container">
-                <p class="goals-intro">To build AI tools that:</p>
-                <div class="goal-item">
-                    <div class="goal-emoji">🧠</div>
-                    <div class="goal-text">Hack the mind</div>
+            <div class="section-header">
+                <h2 class="section-title">Mission</h2>
+                <p class="section-subtitle">Building AI tools that transform human experience</p>
+            </div>
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <span class="goal-icon">🧠</span>
+                    <h3 class="goal-title">Hack the Mind</h3>
+                    <p class="goal-description">Developing cognitive enhancement tools that unlock human mental potential and optimize thinking patterns.</p>
                 </div>
-                <div class="goal-item">
-                    <div class="goal-emoji">❤️</div>
-                    <div class="goal-text">Hack the heart</div>
+                <div class="goal-card">
+                    <span class="goal-icon">❤️</span>
+                    <h3 class="goal-title">Hack the Heart</h3>
+                    <p class="goal-description">Creating emotional intelligence systems that understand, connect with, and enhance human feelings.</p>
                 </div>
-                <div class="goal-item">
-                    <div class="goal-emoji">✨</div>
-                    <div class="goal-text">Hack the look</div>
+                <div class="goal-card">
+                    <span class="goal-icon">✨</span>
+                    <h3 class="goal-title">Hack the Look</h3>
+                    <p class="goal-description">Building visual AI that transforms aesthetic experiences and redefines digital beauty standards.</p>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2023 Mohamed Yassin. All rights reserved.</p>
-    </div>
+    <footer class="footer">
+        <p>© 2024 Mohamed Yassin. Crafted with precision.</p>
+    </footer>
 
     <script>
-        // Simple fade-in animation on scroll
+        // Smooth scroll behavior
         document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.section');
-            
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            }, { threshold: 0.1 });
-            
-            sections.forEach(section => {
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 observer.observe(section);
             });
 
-            // Add click effects to social items
-            const socialItems = document.querySelectorAll('.social-item');
-            socialItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    // Add a subtle click animation
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 });
             });
         });
