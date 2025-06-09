@@ -13,10 +13,31 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
-            background: #000;
-            color: #f5f5f7;
+            background: #0a0a0a;
+            color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.15) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
         }
 
         /* Hero Section */
@@ -28,20 +49,6 @@
             align-items: center;
             text-align: center;
             position: relative;
-            background: radial-gradient(ellipse at center, #1a1a1a 0%, #000 70%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
         }
 
         .hero-content {
@@ -50,53 +57,47 @@
         }
 
         .hero h1 {
-            font-size: clamp(48px, 8vw, 96px);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #f5f5f7 0%, #86868b 100%);
+            font-size: clamp(48px, 8vw, 120px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: gradientShift 8s ease infinite;
+            text-shadow: 0 0 40px rgba(255, 107, 107, 0.3);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .hero .subtitle {
-            font-size: 20px;
-            color: #86868b;
-            font-weight: 400;
-            margin-bottom: 48px;
-            letter-spacing: 0.01em;
+            font-size: 24px;
+            color: #a0a0a0;
+            font-weight: 500;
+            margin-bottom: 40px;
+            letter-spacing: 0.02em;
         }
 
-        .scroll-indicator {
+        .hero-glow {
             position: absolute;
-            bottom: 32px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 40px;
-            border: 2px solid #86868b;
-            border-radius: 12px;
-            opacity: 0.6;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
         }
 
-        .scroll-indicator::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 8px;
-            background: #86868b;
-            border-radius: 2px;
-            animation: scroll 2s infinite;
-        }
-
-        @keyframes scroll {
-            0% { opacity: 0; transform: translateX(-50%) translateY(0); }
-            50% { opacity: 1; }
-            100% { opacity: 0; transform: translateX(-50%) translateY(16px); }
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
         }
 
         /* Main Content */
@@ -108,11 +109,7 @@
 
         .section {
             padding: 120px 0;
-            border-bottom: 1px solid #1d1d1f;
-        }
-
-        .section:last-child {
-            border-bottom: none;
+            position: relative;
         }
 
         .section-header {
@@ -121,34 +118,37 @@
         }
 
         .section-title {
-            font-size: 48px;
-            font-weight: 700;
+            font-size: 56px;
+            font-weight: 800;
             letter-spacing: -0.02em;
-            margin-bottom: 16px;
-            color: #f5f5f7;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .section-subtitle {
             font-size: 20px;
-            color: #86868b;
+            color: #a0a0a0;
             font-weight: 400;
         }
 
         /* Social Grid */
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
         }
 
         .social-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 32px;
+            border-radius: 24px;
+            padding: 40px;
             text-decoration: none;
             color: inherit;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             backdrop-filter: blur(20px);
             position: relative;
             overflow: hidden;
@@ -161,15 +161,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s ease;
         }
 
         .social-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(255, 107, 107, 0.4);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 107, 107, 0.2);
         }
 
         .social-card:hover::before {
@@ -177,63 +179,96 @@
         }
 
         .social-platform {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #f5f5f7;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
         }
 
         .social-description {
             font-size: 16px;
-            color: #86868b;
-            margin-bottom: 16px;
+            color: #a0a0a0;
+            margin-bottom: 20px;
             line-height: 1.5;
         }
 
         .social-handle {
             font-size: 14px;
-            color: #0a84ff;
-            font-weight: 500;
+            color: #4ecdc4;
+            font-weight: 600;
             font-family: 'SF Mono', Monaco, monospace;
+            background: rgba(78, 205, 196, 0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: inline-block;
         }
 
         /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.5fr;
             gap: 80px;
             align-items: start;
         }
 
         .about-stats {
             display: grid;
-            gap: 32px;
+            gap: 24px;
         }
 
         .stat-item {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 24px;
+            border-radius: 20px;
+            padding: 32px;
             backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 107, 107, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-item:hover::before {
+            opacity: 1;
         }
 
         .stat-number {
-            font-size: 32px;
-            font-weight: 700;
-            color: #0a84ff;
+            font-size: 40px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 8px;
         }
 
         .stat-label {
             font-size: 16px;
-            color: #86868b;
+            color: #a0a0a0;
+            font-weight: 500;
         }
 
         .about-content {
             font-size: 18px;
-            line-height: 1.7;
-            color: #a1a1a6;
+            line-height: 1.8;
+            color: #d0d0d0;
         }
 
         .about-content p {
@@ -241,27 +276,33 @@
         }
 
         .highlight {
-            color: #f5f5f7;
-            font-weight: 600;
+            color: #ffffff;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Goals Section */
         .goals-grid {
             display: grid;
-            gap: 24px;
-            max-width: 800px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .goal-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 40px;
+            border-radius: 24px;
+            padding: 48px;
             backdrop-filter: blur(20px);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .goal-card::before {
@@ -271,14 +312,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(10, 132, 255, 0.1) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s ease;
         }
 
         .goal-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(10, 132, 255, 0.3);
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 107, 107, 0.4);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 107, 107, 0.15);
         }
 
         .goal-card:hover::before {
@@ -286,30 +330,57 @@
         }
 
         .goal-icon {
-            font-size: 32px;
-            margin-bottom: 16px;
+            font-size: 48px;
+            margin-bottom: 24px;
             display: block;
+            filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.3));
         }
 
         .goal-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: #f5f5f7;
-            margin-bottom: 12px;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .goal-description {
-            font-size: 16px;
-            color: #86868b;
-            line-height: 1.6;
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 107, 107, 0.6);
+            border-radius: 50%;
+            animation: floatParticle 15s infinite linear;
         }
 
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 80px 24px 40px;
-            color: #86868b;
-            font-size: 14px;
+        .particle:nth-child(2) { 
+            left: 20%; 
+            animation-delay: -5s; 
+            background: rgba(78, 205, 196, 0.6);
+        }
+        .particle:nth-child(3) { 
+            left: 40%; 
+            animation-delay: -10s; 
+            background: rgba(69, 183, 209, 0.6);
+        }
+        .particle:nth-child(4) { 
+            left: 60%; 
+            animation-delay: -15s; 
+            background: rgba(150, 206, 180, 0.6);
+        }
+        .particle:nth-child(5) { 
+            left: 80%; 
+            animation-delay: -20s; 
+            background: rgba(254, 202, 87, 0.6);
+        }
+
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
 
         /* Responsive */
@@ -323,7 +394,7 @@
             }
             
             .section-title {
-                font-size: 36px;
+                font-size: 40px;
             }
             
             .about-grid {
@@ -331,20 +402,29 @@
                 gap: 40px;
             }
             
-            .social-grid {
+            .social-grid, .goals-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <div class="bg-animation"></div>
+    
+    <!-- Floating particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-glow"></div>
         <div class="hero-content">
             <h1>Mohamed Yassin</h1>
             <p class="subtitle">@moyassin</p>
         </div>
-        <div class="scroll-indicator"></div>
     </section>
 
     <!-- Main Content -->
@@ -353,23 +433,23 @@
         <section class="section">
             <div class="section-header">
                 <h2 class="section-title">Connect</h2>
-                <p class="section-subtitle">Find me across platforms</p>
+                <p class="section-subtitle">Find me across the digital universe</p>
             </div>
             <div class="social-grid">
                 <a href="https://facebook.com/moyassin" target="_blank" class="social-card">
                     <div class="social-platform">Facebook</div>
-                    <div class="social-description">Sharing thoughts and insights</div>
-                    <div class="social-handle">@moyassin</div>
+                    <div class="social-description">Thoughts</div>
+                    <div class="social-handle">facebook.com/moyassin</div>
                 </a>
                 <a href="https://tiktok.com/@moyassin" target="_blank" class="social-card">
                     <div class="social-platform">TikTok</div>
-                    <div class="social-description">Short-form video content</div>
-                    <div class="social-handle">@moyassin</div>
+                    <div class="social-description">Short-form content</div>
+                    <div class="social-handle">tiktok.com/@moyassin</div>
                 </a>
                 <a href="https://vimeo.com/moyassin" target="_blank" class="social-card">
                     <div class="social-platform">Vimeo</div>
-                    <div class="social-description">Long-form video projects</div>
-                    <div class="social-handle">@moyassin</div>
+                    <div class="social-description">Long-form projects</div>
+                    <div class="social-handle">vimeo.com/moyassin</div>
                 </a>
             </div>
         </section>
@@ -378,7 +458,7 @@
         <section class="section">
             <div class="section-header">
                 <h2 class="section-title">About</h2>
-                <p class="section-subtitle">Developer, Designer, Builder</p>
+                <p class="section-subtitle">Builder of digital experiences</p>
             </div>
             <div class="about-grid">
                 <div class="about-stats">
@@ -410,7 +490,7 @@
         <section class="section">
             <div class="section-header">
                 <h2 class="section-title">Mission</h2>
-                <p class="section-subtitle">Building AI tools that transform human experience</p>
+                <p class="section-subtitle">Building AI tools that transform reality</p>
             </div>
             <div class="goals-grid">
                 <div class="goal-card">
@@ -429,15 +509,9 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p></p>
-    </footer>
-
     <script>
-        // Smooth scroll behavior
+        // Enhanced scroll animations
         document.addEventListener('DOMContentLoaded', function() {
-            // Intersection Observer for fade-in animations
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -452,25 +526,46 @@
                 });
             }, observerOptions);
 
-            // Observe all sections
-            document.querySelectorAll('.section').forEach(section => {
+            // Observe all sections with staggered animation
+            document.querySelectorAll('.section').forEach((section, index) => {
                 section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s`;
                 observer.observe(section);
             });
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+            // Add parallax effect to hero
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                const heroGlow = document.querySelector('.hero-glow');
+                
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+                if (heroGlow) {
+                    heroGlow.style.transform = `translate(-50%, -50%) scale(${1 + scrolled * 0.001})`;
+                }
+            });
+
+            // Add mouse movement effect to cards
+            document.querySelectorAll('.social-card, .goal-card, .stat-item').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
                 });
             });
         });
