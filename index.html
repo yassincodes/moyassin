@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
-            background: #0a0a0a;
+            background: #000000;
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
@@ -27,17 +27,48 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.15) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
+            background: linear-gradient(to bottom right, #111827, #000000, #1f2937);
+        }
+
+        .bg-gradient-1 {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(156,163,175,0.08) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .bg-gradient-2 {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(209,213,219,0.06) 0%, transparent 50%);
+        }
+
+        .bg-gradient-3 {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 40% 40%, rgba(107,114,128,0.04) 0%, transparent 50%);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(156,163,175,0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(1deg); }
-            66% { transform: translateY(10px) rotate(-1deg); }
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
 
         /* Hero Section */
@@ -51,38 +82,6 @@
             position: relative;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: clamp(48px, 8vw, 120px);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 8s ease infinite;
-            text-shadow: 0 0 40px rgba(255, 107, 107, 0.3);
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero .subtitle {
-            font-size: 24px;
-            color: #a0a0a0;
-            font-weight: 500;
-            margin-bottom: 40px;
-            letter-spacing: 0.02em;
-        }
-
         .hero-glow {
             position: absolute;
             top: 50%;
@@ -90,14 +89,31 @@
             transform: translate(-50%, -50%);
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(156,163,175,0.1) 0%, transparent 70%);
             border-radius: 50%;
             animation: pulse 4s ease-in-out infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 120px);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            color: #9ca3af;
+            font-weight: 500;
         }
 
         /* Main Content */
@@ -110,6 +126,14 @@
         .section {
             padding: 120px 0;
             position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-header {
@@ -119,10 +143,10 @@
 
         .section-title {
             font-size: 56px;
-            font-weight: 800;
+            font-weight: 900;
             letter-spacing: -0.02em;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(135deg, #ffffff, #9ca3af);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -130,7 +154,7 @@
 
         .section-subtitle {
             font-size: 20px;
-            color: #a0a0a0;
+            color: #9ca3af;
             font-weight: 400;
         }
 
@@ -142,44 +166,28 @@
         }
 
         .social-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(17, 24, 39, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(31, 41, 55, 0.5);
             border-radius: 24px;
             padding: 40px;
             text-decoration: none;
             color: inherit;
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            backdrop-filter: blur(20px);
             position: relative;
             overflow: hidden;
-        }
-
-        .social-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            display: block;
         }
 
         .social-card:hover {
             transform: translateY(-12px) scale(1.02);
-            border-color: rgba(255, 107, 107, 0.4);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.3),
-                0 0 40px rgba(255, 107, 107, 0.2);
-        }
-
-        .social-card:hover::before {
-            opacity: 1;
+            border-color: rgba(156, 163, 175, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(156, 163, 175, 0.2);
+            background: rgba(31, 41, 55, 0.4);
         }
 
         .social-platform {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             margin-bottom: 12px;
             color: #ffffff;
@@ -187,20 +195,24 @@
 
         .social-description {
             font-size: 16px;
-            color: #a0a0a0;
+            color: #9ca3af;
             margin-bottom: 20px;
             line-height: 1.5;
         }
 
         .social-handle {
             font-size: 14px;
-            color: #4ecdc4;
+            color: #6b7280;
             font-weight: 600;
             font-family: 'SF Mono', Monaco, monospace;
-            background: rgba(78, 205, 196, 0.1);
+            background: rgba(31, 41, 55, 0.5);
             padding: 8px 12px;
             border-radius: 8px;
             display: inline-block;
+        }
+
+        .social-card:hover .social-handle {
+            background: rgba(55, 65, 81, 0.5);
         }
 
         /* About Section */
@@ -217,42 +229,27 @@
         }
 
         .stat-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(17, 24, 39, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(31, 41, 55, 0.5);
             border-radius: 20px;
             padding: 32px;
-            backdrop-filter: blur(20px);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
         .stat-item:hover {
             transform: translateY(-4px);
-            border-color: rgba(255, 107, 107, 0.3);
+            border-color: rgba(156, 163, 175, 0.3);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .stat-item:hover::before {
-            opacity: 1;
+            background: rgba(31, 41, 55, 0.4);
         }
 
         .stat-number {
             font-size: 40px;
             font-weight: 800;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(135deg, #ffffff, #9ca3af);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -261,14 +258,14 @@
 
         .stat-label {
             font-size: 16px;
-            color: #a0a0a0;
+            color: #9ca3af;
             font-weight: 500;
         }
 
         .about-content {
             font-size: 18px;
             line-height: 1.8;
-            color: #d0d0d0;
+            color: #d1d5db;
         }
 
         .about-content p {
@@ -278,10 +275,6 @@
         .highlight {
             color: #ffffff;
             font-weight: 700;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         /* Goals Section */
@@ -294,93 +287,38 @@
         }
 
         .goal-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(17, 24, 39, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(31, 41, 55, 0.5);
             border-radius: 24px;
             padding: 48px;
-            backdrop-filter: blur(20px);
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
             overflow: hidden;
             text-align: center;
         }
 
-        .goal-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
         .goal-card:hover {
             transform: translateY(-8px) scale(1.02);
-            border-color: rgba(255, 107, 107, 0.4);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.3),
-                0 0 40px rgba(255, 107, 107, 0.15);
-        }
-
-        .goal-card:hover::before {
-            opacity: 1;
+            border-color: rgba(156, 163, 175, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(156, 163, 175, 0.15);
+            background: rgba(31, 41, 55, 0.4);
         }
 
         .goal-icon {
             font-size: 48px;
             margin-bottom: 24px;
             display: block;
-            filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.3));
+            filter: drop-shadow(0 0 20px rgba(156, 163, 175, 0.3));
         }
 
         .goal-title {
             font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(135deg, #ffffff, #9ca3af);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-
-        /* Floating particles */
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 107, 107, 0.6);
-            border-radius: 50%;
-            animation: floatParticle 15s infinite linear;
-        }
-
-        .particle:nth-child(2) { 
-            left: 20%; 
-            animation-delay: -5s; 
-            background: rgba(78, 205, 196, 0.6);
-        }
-        .particle:nth-child(3) { 
-            left: 40%; 
-            animation-delay: -10s; 
-            background: rgba(69, 183, 209, 0.6);
-        }
-        .particle:nth-child(4) { 
-            left: 60%; 
-            animation-delay: -15s; 
-            background: rgba(150, 206, 180, 0.6);
-        }
-        .particle:nth-child(5) { 
-            left: 80%; 
-            animation-delay: -20s; 
-            background: rgba(254, 202, 87, 0.6);
-        }
-
-        @keyframes floatParticle {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
 
         /* Responsive */
@@ -409,14 +347,18 @@
     </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
+    <div class="bg-animation">
+        <div class="bg-gradient-1"></div>
+        <div class="bg-gradient-2"></div>
+        <div class="bg-gradient-3"></div>
+    </div>
     
     <!-- Floating particles -->
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
+    <div class="particle" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: -5s;"></div>
+    <div class="particle" style="left: 60%; animation-delay: -10s;"></div>
+    <div class="particle" style="left: 80%; animation-delay: -15s;"></div>
+    <div class="particle" style="left: 90%; animation-delay: -20s;"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -430,10 +372,9 @@
     <!-- Main Content -->
     <main class="main">
         <!-- Social Section -->
-        <section class="section">
+        <section class="section" id="connect">
             <div class="section-header">
                 <h2 class="section-title">Connect</h2>
-                <p class="section-subtitle">Find me across the digital universe</p>
             </div>
             <div class="social-grid">
                 <a href="https://facebook.com/moyassin" target="_blank" class="social-card">
@@ -455,16 +396,15 @@
         </section>
 
         <!-- About Section -->
-        <section class="section">
+        <section class="section" id="about">
             <div class="section-header">
                 <h2 class="section-title">About</h2>
-                <p class="section-subtitle">Builder of digital experiences</p>
             </div>
             <div class="about-grid">
                 <div class="about-stats">
                     <div class="stat-item">
                         <div class="stat-number">5+</div>
-                        <div class="stat-label">Years Experience</div>
+                        <div class="stat-label">Years of Experience in Coding and Design</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">100+</div>
@@ -479,31 +419,31 @@
                     <p>Made the most engaging English-learning Facebook page in the Arab world at <span class="highlight">16</span>.</p>
                     <p>Developed a university rating website that gained <span class="highlight">viral popularity</span> among students across multiple countries in 2021.</p>
                     <p>Built AI-powered clones of Facebook and Messenger for interacting with AI versions of <span class="highlight">historical figures</span> as my 2023 graduation project.</p>
-                    <p>Currently working with clients across the <span class="highlight">MENA region</span> in web development and marketing.</p>
-                    <p><span class="highlight">Favorite reads:</span> Meditations, Crime and Punishment<br>
-                    <span class="highlight">Soundtrack:</span> Kanye West, Kid Cudi, Rihanna</p>
+                    <p>Worked with clients across the MENA region in web development and marketing.</p>
+                    <p><span class="highlight">Favorite books:</span> Meditations, Crime and Punishment<br>
+                    <span class="highlight">Favorite artists:</span> Kanye West, Kid Cudi, Rihanna</p>
                 </div>
             </div>
         </section>
 
         <!-- Goals Section -->
-        <section class="section">
+        <section class="section" id="mission">
             <div class="section-header">
                 <h2 class="section-title">Mission</h2>
-                <p class="section-subtitle">Building AI tools that transform reality</p>
+                <p class="section-subtitle">Break the code of this simulation called life</p>
             </div>
             <div class="goals-grid">
                 <div class="goal-card">
                     <span class="goal-icon">🧠</span>
-                    <h3 class="goal-title">Hack the Mind</h3>
+                    <h3 class="goal-title">Mind</h3>
                 </div>
                 <div class="goal-card">
                     <span class="goal-icon">❤️</span>
-                    <h3 class="goal-title">Hack the Heart</h3>
+                    <h3 class="goal-title">Heart</h3>
                 </div>
                 <div class="goal-card">
                     <span class="goal-icon">✨</span>
-                    <h3 class="goal-title">Hack the Look</h3>
+                    <h3 class="goal-title">Looks</h3>
                 </div>
             </div>
         </section>
@@ -520,17 +460,13 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.classList.add('visible');
                     }
                 });
             }, observerOptions);
 
             // Observe all sections with staggered animation
-            document.querySelectorAll('.section').forEach((section, index) => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(50px)';
-                section.style.transition = `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s`;
+            document.querySelectorAll('.section').forEach(section => {
                 observer.observe(section);
             });
 
