@@ -6,8 +6,14 @@ function Home() {
     <div className="home-container">
       <div className="home-content">
         <div className="intro">
+          <img 
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pg0olhsa1xiwgo5i.jpg-tcUeUYjbxPyCjOhf6udIqQZRHy7nIK.jpeg" 
+            alt="Mohamed Yassin" 
+            className="profile-pic"
+            crossOrigin="anonymous"
+          />
           <h1>Mohamed Yassin</h1>
-          <p>a developer</p>
+          <p>sad, kinda free, confused and lonely at the same time.</p>
         </div>
 
         <div className="social-links">
