@@ -1,5 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* Basic Reset & Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,12 +12,14 @@
 }
 
 body {
-  font-family: 'Amiri', 'Tahoma', 'Arial Unicode MS', sans-serif;
-  line-height: 1.6;
-  color: #333;
+  font-family: "Amiri", "Tahoma", "Arial Unicode MS", sans-serif;
+  line-height: 1.7; /* Improved line height for readability */
+  color: #333; /* Darker text for better contrast */
+  background-color: #f8f8f8; /* A soft, light background */
+  scroll-behavior: smooth;
 }
 
-/* Home Page Styles */
+/* Home Page Styles (Keeping them as provided, assuming they are still needed) */
 .home-container {
   min-height: 100vh;
   display: flex;
@@ -86,19 +93,21 @@ body {
   text-decoration: underline;
 }
 
-/* Blog Page Styles */
+/* Blog Page Container */
 .blog-container {
   min-height: 100vh;
-  background-color: #ffffff;
-  direction: rtl;
+  background-color: #f8f8f8;
+  direction: rtl; /* Right-to-left for Arabic text */
+  padding: 2rem 0; /* Add vertical padding to the container */
 }
 
 .blog-content {
-  max-width: 56rem;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
+  max-width: 760px; /* Optimal width for readability */
+  margin: 0 auto; /* Center the content */
+  padding: 0 1.5rem; /* Horizontal padding for smaller screens */
 }
 
+/* Back Link */
 .back-link {
   margin-bottom: 3rem;
   text-align: right;
@@ -106,145 +115,191 @@ body {
 
 .back-link a {
   display: inline-block;
-  color: #b45309;
-  font-weight: 500;
-  font-size: 1.125rem;
+  color: #6a0572; /* A deep purple for links */
+  font-weight: 600;
+  font-size: 1.1rem;
   text-decoration: none;
-  transition: color 0.15s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 .back-link a:hover {
-  color: #78350f;
+  color: #9b59b6; /* Lighter purple on hover */
 }
 
-.blog-article {
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(4px);
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
-  margin-bottom: 2rem;
+/* Article Wrapper (Card Style) */
+.article-wrapper {
+  background-color: #ffffff;
+  border-radius: 12px; /* More pronounced rounded corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Softer, more diffused shadow */
+  padding: 2.5rem; /* Generous padding inside the card */
+  margin-bottom: 3rem; /* Space between articles */
+  border: 1px solid #eee; /* Subtle border */
 }
 
+/* Article Header */
 .article-header {
-  border-bottom: 2px solid #fde68a;
+  border-bottom: 1px solid #e0e0e0; /* Lighter, more subtle separator */
   padding-bottom: 1.5rem;
   margin-bottom: 2rem;
   text-align: right;
 }
 
 .article-header h2 {
-  font-size: 1.875rem;
-  font-weight: bold;
-  margin-bottom: 0.75rem;
-  color: #78350f;
+  font-size: 2.2rem; /* Larger, more impactful title */
+  font-weight: 700; /* Bold title */
+  margin-bottom: 0.8rem;
+  color: #4a4a4a; /* Darker grey for titles */
+  line-height: 1.3;
 }
 
 .article-header time {
-  color: #d97706;
-  font-size: 1.125rem;
-  font-weight: 500;
+  color: #888; /* Muted color for date */
+  font-size: 0.95rem;
+  font-weight: 400;
+  display: block;
 }
 
-.article-content {
-  text-align: right;
-  line-height: 2;
-}
-
+/* Article Content - Paragraphs */
 .article-content p {
-  font-size: 18px;
-  line-height: 2;
+  font-size: 1.15rem; /* Slightly larger base font size */
+  line-height: 1.8;
   margin-bottom: 1.5rem;
-  color: #1f2937;
+  color: #333;
 }
 
+/* Article Content - Headings (h3) */
+.article-content h3 {
+  font-size: 1.8rem; /* Subheading size */
+  font-weight: 700;
+  color: #4a4a4a;
+  margin-top: 3rem; /* More space above subheadings */
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0; /* Subtle underline */
+  padding-bottom: 0.5rem;
+}
+
+/* Article Content - Lists (Improved) */
+.article-content ul {
+  list-style: none; /* Remove default ugly dots */
+  padding-right: 0;
+  margin-bottom: 1.5rem;
+}
+
+.article-content ul li {
+  position: relative;
+  padding-right: 1.8rem; /* Space for custom bullet */
+  margin-bottom: 0.8rem; /* Spacing between list items */
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.article-content ul li::before {
+  content: "•"; /* Custom bullet point */
+  color: #6a0572; /* A distinct color for the bullet */
+  font-size: 1.3em; /* Size of the bullet */
+  position: absolute;
+  right: 0;
+  top: 0.1em; /* Adjust vertical alignment */
+}
+
+/* Highlighted Text Styles (Refined Colors) */
 .opening {
-  color: #92400e !important;
-  font-weight: 500;
+  color: #8e44ad !important; /* A soft purple */
+  font-weight: 600;
   font-size: 1.25rem !important;
 }
 
 .highlight-rose {
-  color: #be185d !important;
+  color: #c0392b !important; /* A deep red */
   font-weight: 500;
 }
 
 .highlight-red {
-  color: #dc2626 !important;
+  color: #e74c3c !important; /* A vibrant red */
 }
 
 .highlight-blue {
-  color: #1d4ed8 !important;
-  font-weight: 500;
+  color: #2980b9 !important; /* A strong blue */
+  font-weight: 600;
 }
 
 .highlight-purple {
-  color: #7c3aed !important;
-  font-weight: 500;
+  color: #8e44ad !important; /* Consistent purple */
+  font-weight: 600;
 }
 
 .highlight-indigo {
-  color: #4338ca !important;
-  font-weight: 500;
+  color: #34495e !important; /* Dark slate grey */
+  font-weight: 600;
 }
 
 .highlight-green {
-  color: #15803d !important;
+  color: #27ae60 !important; /* A fresh green */
 }
 
 .highlight-teal {
-  color: #0f766e !important;
-  font-weight: 500;
+  color: #16a085 !important; /* A deep teal */
+  font-weight: 600;
 }
 
 .highlight-orange {
-  color: #c2410c !important;
+  color: #d35400 !important; /* A rich orange */
   font-weight: bold;
 }
 
 .highlight-amber {
-  color: #d97706 !important;
+  color: #f39c12 !important; /* A warm amber */
   font-weight: bold;
 }
 
+/* Special Text Blocks */
 .main-quote {
-  font-size: 1.5rem !important;
+  font-size: 1.4rem !important;
   font-weight: bold;
-  color: #047857 !important;
+  color: #27ae60 !important; /* Green for main quote */
   text-align: center;
-  padding: 1rem;
-  background-color: #ecfdf5;
-  border-radius: 0.5rem;
-  margin: 2rem 0;
+  padding: 1.8rem;
+  background-color: #e8f8f5; /* Light green background */
+  border-radius: 8px;
+  margin: 3rem 0;
+  border-right: 6px solid #27ae60; /* Right border for emphasis */
 }
 
 .big-statement {
-  font-size: 1.25rem !important;
+  font-size: 1.3rem !important;
   font-weight: bold;
-  color: #be185d !important;
+  color: #c0392b !important; /* Deep red for big statement */
+  text-align: center;
+  margin: 2.5rem 0;
 }
 
 .sam-quote {
-  border-right: 4px solid #fbbf24;
+  border-right: 4px solid #f1c40f; /* Yellow border */
   padding-right: 1.5rem;
-  background-color: #fffbeb;
+  background-color: #fefde0; /* Very light yellow background */
   padding: 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   font-style: italic;
-  color: #92400e;
-  margin: 2rem 0;
-  font-size: 1.125rem;
+  color: #7f8c8d; /* Muted grey for quote text */
+  margin: 2.5rem 0;
+  font-size: 1.05rem;
   line-height: 1.7;
 }
 
 .quote-author {
   font-weight: bold;
-  color: #78350f;
+  color: #34495e; /* Darker grey for author */
   font-style: normal;
+  display: block; /* Ensure author is on new line */
+  margin-top: 0.5rem;
 }
 
 .closing {
-  color: #4b5563 !important;
+  color: #555 !important;
+  margin-top: 3rem;
+  font-size: 1.1rem;
+  text-align: center; /* Center align closing statement */
 }
 
 /* Responsive Design */
@@ -252,20 +307,122 @@ body {
   .home-container {
     padding: 1rem;
   }
-  
+
   .blog-content {
-    padding: 2rem 1rem;
+    padding: 0 1rem; /* Reduce horizontal padding on smaller screens */
   }
-  
-  .blog-article {
+
+  .article-wrapper {
     padding: 1.5rem;
+    margin-bottom: 2rem;
   }
-  
+
   .article-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
-  
-  .article-content p {
-    font-size: 16px;
+
+  .article-content p,
+  .article-content ul li {
+    font-size: 1rem; /* Slightly smaller font size on mobile */
+  }
+
+  .article-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .main-quote {
+    font-size: 1.2rem !important;
+    padding: 1.2rem;
+  }
+
+  .big-statement {
+    font-size: 1.1rem !important;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
