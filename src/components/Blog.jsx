@@ -124,9 +124,9 @@ function Blog() {
 
               </li>
             </ul>
-            <li>هذا كل شيء.
+            <p>هذا كل شيء.
 
-            </li>
+            </p>
           </div>
         </div>
       </div>
