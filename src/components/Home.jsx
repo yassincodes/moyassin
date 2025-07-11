@@ -13,7 +13,7 @@ function Home() {
             crossOrigin="anonymous"
           />
           <h1>Mohamed Yassin</h1>
-          <p>sad, kinda free, confused and lonely at the same time.</p>
+          <p>happy, confused and lonely at the same time.</p>
         </div>
 
         <div className="social-links">
