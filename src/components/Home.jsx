@@ -13,11 +13,7 @@ function Home() {
             crossOrigin="anonymous"
           />
           <h1>Mohamed Yassin</h1>
-<<<<<<< HEAD
           <p>@moyassin</p>
-=======
-          <p>happy, confused and lonely at the same time.</p>
->>>>>>> 183952ce122d740864d61ca3d509384a9796fc6c
         </div>
 
         <div className="social-links">
