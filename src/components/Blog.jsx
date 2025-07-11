@@ -90,7 +90,8 @@ function Blog() {
             <ul>
               <li>yetweets.com</li>
               <li>at-your-age.vercel.app</li>
-              <li>قناة yefanboisituationmonitor.vercel.app</li>
+              <li>قناة yefanboi</li>
+              <li>situationmonitor.vercel.app</li>
               <li>تصميم ratewithai</li>
               <li>تصميم analyzewithai</li>
             </ul>
