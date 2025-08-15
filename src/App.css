@@ -33,6 +33,21 @@ body {
   position: relative;
 }
 
+/* Unified container system for consistent margins */
+.site-container {
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Background animations */
 .background-container {
   position: fixed;
   inset: 0;
@@ -96,33 +111,32 @@ body {
   }
 }
 
-.header {
+/* Simplified header using unified container */
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
-  background-color: rgba(var(--background-rgb, 255, 255, 255), 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(var(--border-rgb, 229, 229, 229), 0.2);
+  border-bottom: 1px solid rgba(229, 229, 229, 0.2);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
-.dark .header {
+.dark .site-header {
   background-color: rgba(10, 10, 10, 0.8);
   border-bottom: 1px solid rgba(38, 38, 38, 0.2);
 }
 
-.header-content {
+.site-header .site-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1024px;
-  margin: 0 auto;
-  /* Added consistent padding for mobile and tablet+ to match container */
-  padding: 1rem 1.5rem;
 }
 
-.header-title {
+.header-name {
   font-family: Georgia, serif;
   font-size: 1.25rem;
   font-weight: bold;
@@ -132,7 +146,7 @@ body {
   transition: all 1s ease-out;
 }
 
-.header-title.visible {
+.header-name.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -148,6 +162,7 @@ body {
   transform: translateY(0);
 }
 
+/* Theme toggle button */
 .theme-toggle {
   background: none;
   border: none;
@@ -222,26 +237,14 @@ body {
   border: 0;
 }
 
-.main {
+/* Main content using unified container */
+.site-main {
   padding-top: 6rem;
   position: relative;
   z-index: 10;
 }
 
-.container {
-  max-width: 1024px;
-  margin: 0 auto;
-  /* Updated to match header-content padding system */
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-}
-
+/* Hero section */
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -269,7 +272,7 @@ body {
 }
 
 .play-icon {
-  color: rgba(var(--foreground-rgb, 10, 10, 10), 0.6);
+  color: rgba(10, 10, 10, 0.6);
 }
 
 .dark .play-icon {
@@ -296,10 +299,12 @@ body {
   margin: 0;
 }
 
+/* Bio section */
 .bio-section {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-bottom: 5rem;
 }
 
 .bio-items {
@@ -327,7 +332,7 @@ body {
 }
 
 .bio-icon {
-  color: rgba(var(--foreground-rgb, 10, 10, 10), 0.4);
+  color: rgba(10, 10, 10, 0.4);
   margin-top: 0.5rem;
   font-size: 1.25rem;
   transition: all 0.3s ease;
@@ -339,7 +344,7 @@ body {
 }
 
 .bio-item:hover .bio-icon {
-  color: rgba(var(--foreground-rgb, 10, 10, 10), 0.8);
+  color: rgba(10, 10, 10, 0.8);
   transform: scale(1.1);
 }
 
@@ -350,7 +355,7 @@ body {
 .bio-item p {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: rgba(var(--foreground-rgb, 10, 10, 10), 0.9);
+  color: rgba(10, 10, 10, 0.9);
   transition: all 0.3s ease;
   margin: 0;
 }
@@ -363,12 +368,13 @@ body {
   color: var(--foreground);
 }
 
+/* Contact section */
 .contact-section {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding-top: 3rem;
-  border-top: 1px solid rgba(var(--border-rgb, 229, 229, 229), 0.2);
+  border-top: 1px solid rgba(229, 229, 229, 0.2);
 }
 
 .dark .contact-section {
@@ -403,7 +409,7 @@ body {
 .contact-links p {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: rgba(var(--foreground-rgb, 10, 10, 10), 0.9);
+  color: rgba(10, 10, 10, 0.9);
   margin: 0;
 }
 
@@ -423,7 +429,7 @@ body {
 }
 
 .contact-links a:hover {
-  color: rgba(var(--foreground-rgb, 10, 10, 10), 0.8);
+  color: rgba(10, 10, 10, 0.8);
   text-decoration-thickness: 4px;
   transform: scale(1.05);
 }
@@ -432,18 +438,8 @@ body {
   color: rgba(250, 250, 250, 0.8);
 }
 
+/* Responsive design */
 @media (min-width: 768px) {
-  .header-content {
-    /* Updated to match container responsive padding */
-    padding: 1rem 2rem;
-  }
-
-  .main {
-    padding-top: 6rem;
-    position: relative;
-    z-index: 10;
-  }
-
   .hero-title h1 {
     font-size: clamp(3rem, 8vw, 6rem);
   }
