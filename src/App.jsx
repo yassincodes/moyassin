@@ -8,7 +8,7 @@ function ThemeToggle({ theme, setTheme }) {
   return (
     <button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className="theme-toggle">
       <Sun className={`icon sun-icon ${theme === "dark" ? "hidden" : ""}`} />
-      <Moon className={`icon moon-icon ${theme === "light" ? "hidden" : ""}`} />
+      <Moon className={`icon moon-icon ${theme === "dark" ? "" : "hidden"}`} />
       <span className="sr-only">Toggle theme</span>
     </button>
   )
@@ -16,7 +16,12 @@ function ThemeToggle({ theme, setTheme }) {
 
 function App() {
   const [isVisible, setIsVisible] = useState(false)
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("theme") || "dark"
+    }
+    return "dark"
+  })
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -27,6 +32,10 @@ function App() {
 
   useEffect(() => {
     document.documentElement.className = theme
+    document.body.className = theme
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", theme)
+    }
   }, [theme])
 
   return (
@@ -41,10 +50,13 @@ function App() {
       </div>
 
       <header className="header">
-        <div className="header-content">
-          <div className={`header-title ${isVisible ? "visible" : ""}`}>MOHAMMED YASSIN</div>
-          <div className={`header-toggle ${isVisible ? "visible" : ""}`}>
-            <ThemeToggle theme={theme} setTheme={setTheme} />
+        <div className="container">
+          {/* Using same container class for consistent margins */}
+          <div className="header-content">
+            <div className={`header-title ${isVisible ? "visible" : ""}`}>MOHAMMED YASSIN</div>
+            <div className={`header-toggle ${isVisible ? "visible" : ""}`}>
+              <ThemeToggle theme={theme} setTheme={setTheme} />
+            </div>
           </div>
         </div>
       </header>

@@ -116,9 +116,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
-  max-width: 1200px;
+  max-width: 1024px;
   margin: 0 auto;
+  /* Added consistent padding for mobile and tablet+ to match container */
+  padding: 1rem 1.5rem;
 }
 
 .header-title {
@@ -159,11 +160,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
+  border: 1px solid rgba(115, 115, 115, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .theme-toggle:hover {
-  background-color: rgba(var(--muted-foreground-rgb, 115, 115, 115), 0.1);
+  background-color: rgba(115, 115, 115, 0.1);
+  border-color: rgba(115, 115, 115, 0.4);
+}
+
+.dark .theme-toggle {
+  border: 1px solid rgba(163, 163, 163, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dark .theme-toggle:hover {
+  background-color: rgba(163, 163, 163, 0.1);
+  border-color: rgba(163, 163, 163, 0.5);
 }
 
 .icon {
@@ -171,22 +185,29 @@ body {
   height: 16px;
   transition: all 0.3s ease;
   position: absolute;
+  stroke: var(--foreground);
+  fill: none;
+  stroke-width: 2;
 }
 
 .sun-icon {
   transform: rotate(0deg) scale(1);
+  opacity: 1;
 }
 
 .sun-icon.hidden {
   transform: rotate(-90deg) scale(0);
+  opacity: 0;
 }
 
 .moon-icon {
   transform: rotate(90deg) scale(0);
+  opacity: 0;
 }
 
-.moon-icon.hidden {
+.moon-icon:not(.hidden) {
   transform: rotate(0deg) scale(1);
+  opacity: 1;
 }
 
 .sr-only {
@@ -203,9 +224,6 @@ body {
 
 .main {
   padding-top: 6rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 3rem;
   position: relative;
   z-index: 10;
 }
@@ -213,6 +231,9 @@ body {
 .container {
   max-width: 1024px;
   margin: 0 auto;
+  /* Updated to match header-content padding system */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .content {
@@ -413,12 +434,14 @@ body {
 
 @media (min-width: 768px) {
   .header-content {
-    padding: 2rem;
+    /* Updated to match container responsive padding */
+    padding: 1rem 2rem;
   }
 
   .main {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-top: 6rem;
+    position: relative;
+    z-index: 10;
   }
 
   .hero-title h1 {
