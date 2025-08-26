@@ -51,7 +51,7 @@ function App() {
     "On October 5, World Teachers' Day, stepped into teaching for the very first time, with no prior experience.",
     "Shortly after stepping in, I started designing and building my own AI teaching assistant.",
     "Along the way, shiny side projects pulled me in. A few I built recently include yetweets.com (1k daily visitors) and keyboardmemeory.com (an open-source AI keyboard memory). While I’d like to improve them, I now see Assis.tn as my main life mission.",
-    "Skills: Can design and code; Typing speed: 100 words per minute; Read all Marx, Nietzsche, and major philosophical books."
+   
   ]
 
   return (
