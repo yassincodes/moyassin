@@ -6,7 +6,10 @@ import "./App.css"
 
 function ThemeToggle({ theme, setTheme }) {
   return (
-    <button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className="theme-toggle">
+    <button
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      className="theme-toggle"
+    >
       <Sun className={`icon sun-icon ${theme === "dark" ? "hidden" : ""}`} />
       <Moon className={`icon moon-icon ${theme === "dark" ? "" : "hidden"}`} />
       <span className="sr-only">Toggle theme</span>
@@ -37,6 +40,19 @@ function App() {
       localStorage.setItem("theme", theme)
     }
   }, [theme])
+
+  const bioTexts = [
+    "Taught English online by building multiple websites and platforms, including the LearnEnglish Facebook page, the largest English teaching page in the Arab world at the time, helping nearly 100,000 people learn English when I was 16 years old.",
+    "In 2019, graduated high school as a mathematics student.",
+    "Attended Teachers' College, and at the same time, taught myself how to code by hacking into Scrimba.com and gaining access to one year of courses for free. Later built more than 100 websites to strengthen coding skills.",
+    "Worked with clients across the MENA region in web development and digital marketing.",
+    "Created a university rating website in 2021 that started in Tunisia and went viral across several countries.",
+    "As a graduation project, built Facebook and Messenger clones featuring AI-generated historic figures, letting users explore history and interact with them as if they were living in that era.",
+    "On October 5, World Teachers' Day, stepped into teaching for the very first time, with no prior experience.",
+    "Shortly after stepping in, I started designing and building my own AI teaching assistant.",
+    "Along the way, shiny side projects pulled me in. A few I built recently include yetweets.com (1k daily visitors) and keyboardmemeory.com (an open-source AI keyboard memory). While I’d like to improve them, I now see Assis.tn as my main life mission.",
+    "Skills: Can design and code; Typing speed: 100 words per minute; Read all Marx, Nietzsche, and major philosophical books."
+  ]
 
   return (
     <div className={`app ${theme}`}>
@@ -77,16 +93,7 @@ function App() {
 
           <section className="bio-section">
             <div className="bio-items">
-              {[
-                "Taught English online by building multiple websites and platforms, including the LearnEnglish Facebook page, the largest English teaching page in the Arab world at the time, helping nearly 100,000 people learn English when I was 16 years old.",
-                "In 2019, graduated high school as a mathematics student.",
-                "Attended Teachers' College, and at the same time, taught myself how to code by hacking into Scrimba.com and gaining access to one year of courses for free. Later built more than 100 websites to strengthen coding skills.",
-                "Worked with clients across the MENA region in web development and digital marketing.",
-                "Created a university rating website in 2021 that started in Tunisia and went viral across several countries.",
-                "As a graduation project, built Facebook and Messenger clones featuring AI-generated historic figures, imagining how they would have used social media in their own time. Users could select a historical era, scroll through feeds created by these figures, and interact or chat with them as if they were living in that era, offering a novel way to explore and learn history.",
-                "On October 5, World Teachers' Day, stepped into teaching for the very first time, with no prior experience.",
-                "During my two years as a teacher, I dedicated myself to creating my own teaching assistant, facing countless risks, battling addiction, and enduring relentless personal struggles; through this journey, the project grew into my main assistant and companion.",
-              ].map((text, index) => (
+              {bioTexts.map((text, index) => (
                 <div
                   key={index}
                   className={`bio-item ${isVisible ? "visible" : ""}`}
@@ -109,7 +116,7 @@ function App() {
                   Reach me via <a href="mailto:contact@moyass.in">contact@moyass.in</a>
                 </p>
                 <p>
-                  or explore my assistant at <a href="https://yassin.assis.tn">yassin.assis.tn</a>
+                  Or explore my assistant at <a href="https://yassin.assis.tn">yassin.assis.tn</a>
                 </p>
                 <p>
                   <a href="https://facebook.com/moyassin">facebook: /moyassin</a>
