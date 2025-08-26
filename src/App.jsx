@@ -116,9 +116,6 @@ function App() {
                   Reach me via <a href="mailto:contact@moyass.in">contact@moyass.in</a>
                 </p>
                 <p>
-                  Or explore my assistant at <a href="https://yassin.assis.tn">yassin.assis.tn</a>
-                </p>
-                <p>
                   <a href="https://facebook.com/moyassin">facebook: /moyassin</a>
                 </p>
                 <p>
