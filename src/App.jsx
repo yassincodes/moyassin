@@ -50,8 +50,7 @@ function App() {
     "As a graduation project, built Facebook and Messenger clones featuring AI-generated historic figures, letting users explore history and interact with them as if they were living in that era.",
     "On October 5, World Teachers' Day, stepped into teaching for the very first time, with no prior experience.",
     "Shortly after stepping in, I started designing and building my own AI teaching assistant.",
-    "Along the way, shiny side projects pulled me in. A few I’ve built recently include yetweets.com (150k visitors so far) and keyboardmemory.com (an internal tool I now use every day to capture all my keyboard memories). While I’d like to improve them, I now see Assis.tn as my main life mission."
-
+"Along the way, shiny side projects drew me in. A few I've built recently include yetweets.com (150,000 visitors so far) and keyboardmemory.com (an internal tool I now use daily to capture everything I type on my keyboard and turn it into memories). While I'd like to improve them, I now see Assis.tn as my primary life mission."
   ]
 
   return (
