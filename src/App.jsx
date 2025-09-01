@@ -50,10 +50,31 @@ function App() {
     "As a graduation project, built Facebook and Messenger clones featuring AI-generated historic figures, letting users explore history and interact with them as if they were living in that era.",
     "On October 5, World Teachers' Day, stepped into teaching for the very first time, with no prior experience.",
     "Shortly after stepping in, started designing and building my own AI teaching assistant.",
-    "My first experiment was drawing my students as grown-ups. I had to set up a new Facebook account in 2024 to share the idea, after almost 7 years of not using Facebook. Soon, the concept went viral.",
-    "I then started building tools to help teachers do the same, while also creating tools for different tasks, like my journal tool (view video).",
+    <>
+      My first experiment was drawing my students as grown-ups. I had to set up a new Facebook account in 2024 to share the idea, after almost 7 years of not using Facebook. Soon, the concept went viral.
+    </>,
+    <>
+      I then started building tools to help teachers do the same, while also creating tools for different tasks, like my{" "}
+      <a
+        href="https://vimeo.com/976990722"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        journal tool 🔗 (view video)
+      </a>.
+    </>,
     "Kept building AI educational tools, but still couldn’t see the full connection between everything. My goal from the start was to build a simple, very simple tool that combined all my experimenting into one product.",
-    "Shiny side projects kept pulling me in as well, a few I built recently include yetweets.com (150,000 visitors so far) and keyboardmemory.com (an internal tool I use daily to capture everything I type and turn it into memories).",
+    <>
+      Shiny side projects kept pulling me in as well, a few I built recently include{" "}
+      <a href="https://yetweets.com" target="_blank" rel="noopener noreferrer">
+        yetweets.com 🔗
+      </a>{" "}
+      (150,000 visitors so far) and{" "}
+      <a href="https://keyboardmemory.com" target="_blank" rel="noopener noreferrer">
+        keyboardmemory.com 🔗
+      </a>{" "}
+      (an internal tool I use daily to capture everything I type and turn it into memories).
+    </>,
     "Although I’d like to improve them, now that I have the full vision for my assistant, I see this project as my main life mission."
   ]
 
@@ -113,24 +134,4 @@ function App() {
             <div className={`contact-content ${isVisible ? "visible" : ""}`}>
               <p className="closing-statement">
                 I am now designing more of these assistants and looking forward to where destiny will lead me.
-              </p>
-              <div className="contact-links">
-                <p>
-                  Reach me via <a href="mailto:contact@moyass.in">contact@moyass.in</a>
-                </p>
-                <p>
-                  <a href="https://facebook.com/moyassin">facebook: /moyassin</a>
-                </p>
-                <p>
-                  <a href="https://tiktok.com/@moyassin">tiktok: @moyassin</a>
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
-      </main>
-    </div>
-  )
-}
-
-export default App
+              </
