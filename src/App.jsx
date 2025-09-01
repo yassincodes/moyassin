@@ -49,8 +49,12 @@ function App() {
     "Created a university rating website in 2021 that started in Tunisia and went viral across several countries.",
     "As a graduation project, built Facebook and Messenger clones featuring AI-generated historic figures, letting users explore history and interact with them as if they were living in that era.",
     "On October 5, World Teachers' Day, stepped into teaching for the very first time, with no prior experience.",
-    "Shortly after stepping in, I started designing and building my own AI teaching assistant.",
-"Along the way, shiny side projects drew me in. A few I've built recently include yetweets.com (150,000 visitors so far) and keyboardmemory.com (an internal tool I now use daily to capture everything I type on my keyboard and turn it into memories). While I'd like to improve them, I now see Assis.tn as my primary life mission."
+    "Shortly after stepping in, started designing and building my own AI teaching assistant.",
+    "My first experiment was drawing my students as grown-ups. I had to set up a new Facebook account in 2024 to share the idea, after almost 7 years of not using Facebook. Soon, the concept went viral.",
+    "I then started building tools to help teachers do the same, while also creating tools for different tasks, like my journal tool (view video).",
+    "Kept building AI educational tools, but still couldn’t see the full connection between everything. My goal from the start was to build a simple, very simple tool that combined all my experimenting into one product.",
+    "Shiny side projects kept pulling me in as well, a few I built recently include yetweets.com (150,000 visitors so far) and keyboardmemory.com (an internal tool I use daily to capture everything I type and turn it into memories).",
+    "Although I’d like to improve them, now that I have the full vision for my assistant, I see this project as my main life mission."
   ]
 
   return (
