@@ -134,4 +134,24 @@ function App() {
             <div className={`contact-content ${isVisible ? "visible" : ""}`}>
               <p className="closing-statement">
                 I am now designing more of these assistants and looking forward to where destiny will lead me.
-              </
+              </p>
+              <div className="contact-links">
+                <p>
+                  Reach me via <a href="mailto:contact@moyass.in">contact@moyass.in</a>
+                </p>
+                <p>
+                  <a href="https://facebook.com/moyassin">facebook: /moyassin</a>
+                </p>
+                <p>
+                  <a href="https://tiktok.com/@moyassin">tiktok: @moyassin</a>
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  )
+}
+
+export default App
