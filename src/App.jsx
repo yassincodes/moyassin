@@ -113,10 +113,10 @@ export default function App() {
           {/* Hero Section */}
           <section className="hero-section">
             <div className={`hero-title ${isVisible ? "visible" : ""}`}>
-              <h1>▶ Hi, I'm Mohammed Yassin</h1>
+              <h1>▶ Hi, I'm Yassin</h1>
             </div>
             <div className={`hero-subtitle ${isVisible ? "visible" : ""}`}>
-              <p>Builder, educator, and perpetual learner crafting AI-powered teaching tools.</p>
+              <p>Builder, educator, and perpetual learner.</p>
             </div>
           </section>
 
