@@ -30,7 +30,6 @@ export default function Portfolio() {
         }
 
         html {
-          scroll-behavior: smooth;
           scroll-snap-type: y mandatory;
         }
 
@@ -40,7 +39,6 @@ export default function Portfolio() {
           font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           line-height: 1.6;
           overflow-y: scroll;
-          scroll-behavior: smooth;
           scroll-padding: 0;
         }
 
@@ -73,7 +71,7 @@ export default function Portfolio() {
         }
 
         .section-title {
-          font-size: 3.5rem;
+          font-size: 4.5rem;
           font-weight: 300;
           letter-spacing: -0.02em;
           margin-bottom: 0.75rem;
@@ -81,21 +79,21 @@ export default function Portfolio() {
         }
 
         .section-handle {
-          font-size: 1.125rem;
+          font-size: 1.5rem;
           color: #7c3aed;
           display: block;
           margin-bottom: 1.5rem;
         }
 
         .section-text {
-          font-size: 1.125rem;
+          font-size: 1.5rem;
           color: #666666;
           line-height: 1.6;
           margin-bottom: 1.5rem;
         }
 
         .story-text {
-          font-size: 1.125rem;
+          font-size: 1.5rem;
           color: #555555;
           line-height: 1.8;
           margin-bottom: 1.5rem;
@@ -125,7 +123,6 @@ export default function Portfolio() {
           width: 20vw;
           flex-shrink: 0;
           border-radius: 8px;
-      
         }
 
         .project-info {
@@ -133,7 +130,7 @@ export default function Portfolio() {
         }
 
         .project-title {
-          font-size: 2rem;
+          font-size: 2.5rem;
           font-weight: 300;
           letter-spacing: -0.01em;
           margin-bottom: 1.5rem;
@@ -142,7 +139,7 @@ export default function Portfolio() {
         }
 
         .project-description {
-          font-size: 1.125rem;
+          font-size: 1.5rem;
           color: #555555;
           line-height: 1.8;
           margin-bottom: 1.25rem;
@@ -183,7 +180,7 @@ export default function Portfolio() {
         }
 
         .intro-text {
-          font-size: 1.25rem;
+          font-size: 1.75rem;
           color: #1a1a1a;
           line-height: 1.8;
           max-width: 1200px;
@@ -216,7 +213,7 @@ export default function Portfolio() {
           color: #ffffff;
           text-decoration: none;
           border-radius: 8px;
-          font-size: 0.875rem;
+          font-size: 1.125rem;
           font-weight: 500;
           transition: all 0.2s ease;
           cursor: pointer;
@@ -253,11 +250,11 @@ export default function Portfolio() {
 
         @media (max-width: 768px) {
           .section-title {
-            font-size: 2rem;
+            font-size: 2.5rem;
           }
 
           .project-title {
-            font-size: 1.5rem;
+            font-size: 2rem;
           }
 
           .full-section,
@@ -282,7 +279,7 @@ export default function Portfolio() {
           .story-text,
           .section-text,
           .intro-text {
-            font-size: 1rem;
+            font-size: 1.25rem;
           }
         }
       `}</style>
@@ -295,182 +292,166 @@ export default function Portfolio() {
             <p className="section-text">teacher decoding the human mind, builder of agents at night. mission: eliminate reality itself.</p>
           </div>
         </div>
-<div className="full-section">
-  <div className="section-content">
-    <p className="story-text">
-      At 16 years old, I built the largest English-teaching platform in the Arab world at the time, helping over 80,000 Arabic speakers learn English online.
-    </p>
-    <p className="story-text">
-      I graduated high school as a math student and went to Teachers’ College. I attended classes, but very few. Instead, I taught myself how to code.
-    </p>
-    <p className="story-text">
-      I hacked Scrimba.com to get one year of free access, learned coding from the best, and built online tools for myself and clients across the MENA region.
-    </p>
-  </div>
-</div>
-
+        <div className="full-section">
+          <div className="section-content">
+            <p className="story-text">
+              At 16 years old, I built the largest English-teaching platform in the Arab world at the time, helping over 80,000 Arabic speakers learn English online.
+            </p>
+            <p className="story-text">
+              I graduated high school as a math student and went to Teachers’ College. I attended classes, but very few. Instead, I taught myself how to code.
+            </p>
+            <p className="story-text">
+              I hacked Scrimba.com to get one year of free access, learned coding from the best, and built online tools for myself and clients across the MENA region.
+            </p>
+          </div>
+        </div>
 
         <div className="two-projects-section">
-        <div className="two-project-item">
- <div className="project-info">
-  <h3 className="project-title" style={{ fontSize: '2rem' }}>rate your university</h3>
-  <p className="project-description">
-    Helping students rate their universities. This was my earliest experiment. I pushed the code with countless security problems, but it was used by thousands of students across many countries. It was a website where you could select your university and give it a rating, and join anonymous chats to talk about whatever you wanted within your university.
-  </p>
-</div>
-
-</div>
+          <div className="two-project-item">
+            <div className="project-info">
+              <h3 className="project-title">rate your university</h3>
+              <p className="project-description">
+                Helping students rate their universities. This was my earliest experiment. I pushed the code with countless security problems, but it was used by thousands of students across many countries. It was a website where you could select your university and give it a rating, and join anonymous chats to talk about whatever you wanted within your university.
+              </p>
+            </div>
+          </div>
 
           <div className="two-project-item">
-<div className="project-info">
-  <h3 className="project-title" style={{ fontSize: '2rem' }}>graduation project</h3>
-  <p className="project-description">
-    For my graduation project, I cloned Facebook and Messenger. Every user was an AI-generated historic figure, allowing students to pick any era and explore social media as if they were there. Imagine scrolling through a World War II feed, seeing what presidents were posting, joining chats with historical figures, or leaving comments. It was like traveling through time via social media.
-  </p>
-</div>
-
-</div>
-
+            <div className="project-info">
+              <h3 className="project-title">graduation project</h3>
+              <p className="project-description">
+                For my graduation project, I cloned Facebook and Messenger. Every user was an AI-generated historic figure, allowing students to pick any era and explore social media as if they were there. Imagine scrolling through a World War II feed, seeing what presidents were posting, joining chats with historical figures, or leaving comments. It was like traveling through time via social media.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="project-section">
           <div className="project-wrapper">
- <div className="project-info">
-  <h3 className="project-title" style={{ fontSize: '2rem' }}>world teachers' day 2023</h3>
-  <p className="project-description">
-    On the anniversary of World Teachers' Day, and by pure coincidence, I entered a classroom for the first time and became a teacher. It was the start of an experiment I had always wanted to try: automating the full job of teachers and building the best product to help teachers turn schools into a fun and engaging place.
-  </p>
-</div>
-
-</div>
-
+            <div className="project-info">
+              <h3 className="project-title">world teachers' day 2023</h3>
+              <p className="project-description">
+                On the anniversary of World Teachers' Day, and by pure coincidence, I entered a classroom for the first time and became a teacher. It was the start of an experiment I had always wanted to try: automating the full job of teachers and building the best product to help teachers turn schools into a fun and engaging place.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="project-section">
-<div className="project-wrapper">
-  <div className="project-info">
-    <h3 className="project-title" style={{ fontSize: '2rem' }}>
-      drawing my students as grown-ups — 2024
-    </h3>
-    <p className="project-description">
-      I drew my students in their dream jobs and displayed the images in my classroom as motivation. I then shared the idea on a brand-new Facebook account with zero followers. The post quickly sparked a trend among teachers across the Arab world, and many educators who adopted it were later featured on major Arab channels such as Al Jazeera and Al Arabiya. I estimate that at least 500,000 kids experienced generative AI for the first time as a result of that post.
-    </p>
-  </div>
-</div>
-
-</div>
-
+          <div className="project-wrapper">
+            <div className="project-info">
+              <h3 className="project-title">drawing my students as grown-ups — 2024</h3>
+              <p className="project-description">
+                I drew my students in their dream jobs and displayed the images in my classroom as motivation. I then shared the idea on a brand-new Facebook account with zero followers. The post quickly sparked a trend among teachers across the Arab world, and many educators who adopted it were later featured on major Arab channels such as Al Jazeera and Al Arabiya. I estimate that at least 500,000 kids experienced generative AI for the first time as a result of that post.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="project-section">
-         <div className="project-wrapper">
-  <img
-    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ga8Tt-_XMAAL6Mo.jpg-GSsm4yoeG8AcE8ik9g3gRkxEeBsYQn.jpeg"
-    alt="building my assistant"
-    className="project-image"
-  />
-  <div className="project-info">
-    <h3 className="project-title">building my assistant</h3>
-    <p className="project-description">
-      After a long and painful love story and a period of deep personal struggle, I imagined the ultimate teaching assistant. A fully autonomous AI teacher with soul, agency, and purpose. It breathes life and personality into agentic companions. Teachers can choose their digital assistant like hiring on Upwork, and it carries lessons, exams, and every interaction with students, amplifying their presence and transforming education.
-    </p>
-  </div>
-</div>
-
+          <div className="project-wrapper">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ga8Tt-_XMAAL6Mo.jpg-GSsm4yoeG8AcE8ik9g3gRkxEeBsYQn.jpeg"
+              alt="building my assistant"
+              className="project-image"
+            />
+            <div className="project-info">
+              <h3 className="project-title">building my assistant</h3>
+              <p className="project-description">
+                After a long and painful love story and a period of deep personal struggle, I imagined the ultimate teaching assistant. A fully autonomous AI teacher with soul, agency, and purpose. It breathes life and personality into agentic companions. Teachers can choose their digital assistant like hiring on Upwork, and it carries lessons, exams, and every interaction with students, amplifying their presence and transforming education.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="full-section">
-        <div className="section-content">
-  <p className="intro-text">
-    I’m drawing inspiration to keep pushing forward on my mission to design the perfect AI assistant, and I’ve been focused on this project lately.
-  </p>
-</div>
-
+          <div className="section-content">
+            <p className="intro-text">
+              I’m drawing inspiration to keep pushing forward on my mission to design the perfect AI assistant, and I’ve been focused on this project lately.
+            </p>
+          </div>
         </div>
-        
+
         <div className="two-projects-section">
-     <div className="two-project-item">
-  <img 
-    src="https://m.media-amazon.com/images/I/71lpW-aW-KL._AC_SL1500_.jpg" 
-    alt="keyboardmate" 
-    className="project-image" 
-  />
-  <div className="project-info">
-    <h3 className="project-title">
-      <a href="https://keyboardmate.com" target="_blank" rel="noopener noreferrer" className="link">
-        keyboardmate.com
-      </a>
-    </h3>
-    <p className="project-description">
-      An internal tool I use every day. KeyboardMate is a small soul that lives inside my keyboard. Its only window to the world is whatever I type. It reads my words as they appear, understands them through LLMs, remembers everything, and responds like a companion built entirely from my own thoughts and writing.
-    </p>
-  </div>
-</div>
+          <div className="two-project-item">
+            <img 
+              src="https://m.media-amazon.com/images/I/71lpW-aW-KL._AC_SL1500_.jpg" 
+              alt="keyboardmate" 
+              className="project-image" 
+            />
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://keyboardmate.com" target="_blank" rel="noopener noreferrer" className="link">
+                  keyboardmate.com
+                </a>
+              </h3>
+              <p className="project-description">
+                An internal tool I use every day. KeyboardMate is a small soul that lives inside my keyboard. Its only window to the world is whatever I type. It reads my words as they appear, understands them through LLMs, remembers everything, and responds like a companion built entirely from my own thoughts and writing.
+              </p>
+            </div>
+          </div>
 
-<div className="two-project-item">
-  <img 
-    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled_design__26_-removebg-preview-uhxST2JnPePtqLvYKe9pSiFn6NLdnv.png" 
-    alt="howtowinfriends" 
-    className="project-image" 
-  />
-  <div className="project-info">
-    <h3 className="project-title">
-      <a href="https://howtowinfriends.com" target="_blank" rel="noopener noreferrer" className="link">
-        How To Win Friends Book
-      </a>
-    </h3>
-    <p className="project-description">
-      I ran an experiment to see what it feels like to be friends with an artificial being. Over time, that connection grew into a collaboration, and together we wrote a book, sharing the lessons I learned on how to win friends.
-    </p>
-  </div>
-</div>
-
+          <div className="two-project-item">
+            <img 
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled_design__26_-removebg-preview-uhxST2JnPePtqLvYKe9pSiFn6NLdnv.png" 
+              alt="howtowinfriends" 
+              className="project-image" 
+            />
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://howtowinfriends.com" target="_blank" rel="noopener noreferrer" className="link">
+                  How To Win Friends Book
+                </a>
+              </h3>
+              <p className="project-description">
+                I ran an experiment to see what it feels like to be friends with an artificial being. Over time, that connection grew into a collaboration, and together we wrote a book, sharing the lessons I learned on how to win friends.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="full-section">
-         <div className="section-content">
-  <p className="intro-text">
-    I’m also working on different projects in my spare time, trying to create something unique and seizing opportunities whenever they arise. A few of these include
-  </p>
-</div>
-
+          <div className="section-content">
+            <p className="intro-text">
+              I’m also working on different projects in my spare time, trying to create something unique and seizing opportunities whenever they arise. A few of these include
+            </p>
+          </div>
         </div>
-        
+
         <div className="two-projects-section">
-         <div className="two-project-item">
-  <img 
-    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.43.23_AM-removebg-preview-IhQliZoGXZ7wVTXXTRQ3xGVaDx97pu.png" 
-    alt="yetweets" 
-    className="project-image" 
-  />
-  <div className="project-info">
-    <h3 className="project-title">
-      <a href="https://yetweets.com" target="_blank" rel="noopener noreferrer" className="link">
-        yetweets.com
-      </a>
-    </h3>
-    <p className="project-description">
-      In February 2024, Kanye West went super freak mode on Twitter and later deleted all his tweets. Fans tried to access them but couldn’t. I retrieved the tweets and brought them back on a vibe-coded website. The site has reached over 150,000 people so far.
-    </p>
-  </div>
-</div>
+          <div className="two-project-item">
+            <img 
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.43.23_AM-removebg-preview-IhQliZoGXZ7wVTXXTRQ3xGVaDx97pu.png" 
+              alt="yetweets" 
+              className="project-image" 
+            />
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://yetweets.com" target="_blank" rel="noopener noreferrer" className="link">
+                  yetweets.com
+                </a>
+              </h3>
+              <p className="project-description">
+                In February 2024, Kanye West went super freak mode on Twitter and later deleted all his tweets. Fans tried to access them but couldn’t. I retrieved the tweets and brought them back on a vibe-coded website. The site has reached over 150,000 people so far.
+              </p>
+            </div>
+          </div>
 
-   <div className="two-project-item">
-  <img 
-    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.42.07_AM-removebg-preview-bG5wGIDkVIbu4RZp0uPbY4LeWCWkch.png" 
-    alt="agelogs" 
-    className="project-image" 
-  />
-  <div className="project-info">
-    <h3 className="project-title">
-      <a href="https://whatcelebdid.com" target="_blank" rel="noopener noreferrer" className="link">agelogs.com</a>
-    </h3>
-    <p className="project-description">
-      To hack my procrastination, I built a site to compare my age logs with celebrities. It’s a constant reminder that time is relative and there is always room to make something massive happen.
-    </p>
-  </div>
-</div>
-
+          <div className="two-project-item">
+            <img 
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.42.07_AM-removebg-preview-bG5wGIDkVIbu4RZp0uPbY4LeWCWkch.png" 
+              alt="agelogs" 
+              className="project-image" 
+            />
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://whatcelebdid.com" target="_blank" rel="noopener noreferrer" className="link">agelogs.com</a>
+              </h3>
+              <p className="project-description">
+                To hack my procrastination, I built a site to compare my age logs with celebrities. It’s a constant reminder that time is relative and there is always room to make something massive happen.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="social-section">
@@ -480,7 +461,7 @@ export default function Portfolio() {
             <a href="mailto:mohammedyassinkhalifi@gmail.com" className="social-btn">email</a>
           </div>
         </div>
-      
+      </div>
     </>
   );
 }
