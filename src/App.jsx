@@ -369,7 +369,7 @@ export default function Portfolio() {
         <div className="full-section">
           <div className="section-content">
             <p className="intro-text">
-              I’m drawing inspiration to keep pushing forward on my mission to design the perfect AI assistant, and I’ve been focused on this project lately.
+              I’m drawing inspiration to keep pushing forward on my mission to design the perfect AI assistant, so I’ve been experimenting with this lately.
             </p>
           </div>
         </div>
