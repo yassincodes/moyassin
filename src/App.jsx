@@ -1,4 +1,25 @@
+'use client';
+
+import { useEffect } from 'react';
+
 export default function Portfolio() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !entry.target.hasAttribute('data-animated')) {
+          entry.target.setAttribute('data-animated', 'true');
+          entry.target.style.animation = 'blurFadeIn 0.8s ease-out forwards';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.full-section:not(.header-section), .project-section, .two-project-item, .social-section').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <style>{`
@@ -8,43 +29,25 @@ export default function Portfolio() {
           box-sizing: border-box;
         }
 
+        html {
+          scroll-behavior: smooth;
+          scroll-snap-type: y mandatory;
+        }
+
         body {
           background-color: #ffffff;
           color: #1a1a1a;
           font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           line-height: 1.6;
+          overflow-y: scroll;
+          scroll-behavior: smooth;
+          scroll-padding: 0;
         }
 
         .portfolio-container {
           background-color: #ffffff;
           max-width: 1400px;
           margin: 0 auto;
-        }
-
-        .hero-section {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: #ffffff;
-          z-index: 1000;
-          animation: heroFadeOut 1.2s ease-out 1.5s forwards;
-        }
-
-        .hero-content {
-          text-align: center;
-        }
-
-        .hero-title {
-          font-size: 4rem;
-          font-weight: 300;
-          letter-spacing: -0.02em;
-          text-transform: lowercase;
-          color: #1a1a1a;
         }
 
         .full-section {
@@ -54,11 +57,15 @@ export default function Portfolio() {
           align-items: center;
           justify-content: flex-start;
           padding: 2rem 4rem;
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+          opacity: 0;
+          filter: blur(10px);
         }
 
         .header-section {
-          animation: fadeIn 0.8s ease-out 2.7s forwards;
-          opacity: 0;
+          opacity: 1;
+          filter: blur(0);
         }
 
         .section-content {
@@ -101,6 +108,10 @@ export default function Portfolio() {
           align-items: center;
           justify-content: flex-start;
           padding: 2rem 4rem;
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+          opacity: 0;
+          filter: blur(10px);
         }
 
         .project-wrapper {
@@ -111,13 +122,10 @@ export default function Portfolio() {
         }
 
         .project-image {
-          width: 250px;
-          height: 250px;
+          width: 20vw;
           flex-shrink: 0;
-          object-fit: cover;
           border-radius: 8px;
-          background-color: #ffffff;
-          border: 1px solid #f0f0f0;
+      
         }
 
         .project-info {
@@ -168,6 +176,10 @@ export default function Portfolio() {
           align-items: center;
           min-height: 100vh;
           width: 100%;
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+          opacity: 0;
+          filter: blur(10px);
         }
 
         .intro-text {
@@ -186,6 +198,10 @@ export default function Portfolio() {
           align-items: center;
           justify-content: center;
           padding: 2rem 4rem;
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+          opacity: 0;
+          filter: blur(10px);
         }
 
         .social-buttons {
@@ -213,15 +229,14 @@ export default function Portfolio() {
           transform: scale(1.05);
         }
 
-        @keyframes heroFadeOut {
-          0% {
-            opacity: 1;
-            pointer-events: auto;
-          }
-          100% {
+        @keyframes blurFadeIn {
+          from {
             opacity: 0;
-            pointer-events: none;
-            visibility: hidden;
+            filter: blur(10px);
+          }
+          to {
+            opacity: 1;
+            filter: blur(0);
           }
         }
 
@@ -237,10 +252,6 @@ export default function Portfolio() {
         }
 
         @media (max-width: 768px) {
-          .hero-title {
-            font-size: 2.5rem;
-          }
-
           .section-title {
             font-size: 2rem;
           }
@@ -277,12 +288,6 @@ export default function Portfolio() {
       `}</style>
 
       <div className="portfolio-container">
-        <div className="hero-section">
-          <div className="hero-content">
-            <h1 className="hero-title">mohammed yassin</h1>
-          </div>
-        </div>
-
         <div className="full-section header-section">
           <div className="section-content">
             <h1 className="section-title">mohammed yassin</h1>
@@ -290,114 +295,182 @@ export default function Portfolio() {
             <p className="section-text">teacher decoding the human mind, builder of agents at night. mission: eliminate reality itself.</p>
           </div>
         </div>
+<div className="full-section">
+  <div className="section-content">
+    <p className="story-text">
+      At 16 years old, I built the largest English-teaching platform in the Arab world at the time, helping over 80,000 Arabic speakers learn English online.
+    </p>
+    <p className="story-text">
+      I graduated high school as a math student and went to Teachers’ College. I attended classes, but very few. Instead, I taught myself how to code.
+    </p>
+    <p className="story-text">
+      I hacked Scrimba.com to get one year of free access, learned coding from the best, and built online tools for myself and clients across the MENA region.
+    </p>
+  </div>
+</div>
 
-        <div className="full-section">
-          <div className="section-content">
-            <p className="story-text">at 16 y/o, i built one of the largest english-teaching pages in the arab world, helping more than 80,000 arab speakers learn english online.</p>
-            <p className="story-text">i graduated high school as a math student, went to teachers' college, and never attended a class. instead, i started teaching myself how to code.</p>
-            <p className="story-text">i hacked into scrimba.com to get 1 year of free access, learned coding from the best, and built online tools for myself and for clients across the MENA region.</p>
-          </div>
-        </div>
 
         <div className="two-projects-section">
+        <div className="two-project-item">
+ <div className="project-info">
+  <h3 className="project-title" style={{ fontSize: '2rem' }}>rate your university</h3>
+  <p className="project-description">
+    Helping students rate their universities. This was my earliest experiment. I pushed the code with countless security problems, but it was used by thousands of students across many countries. It was a website where you could select your university and give it a rating, and join anonymous chats to talk about whatever you wanted within your university.
+  </p>
+</div>
+
+</div>
+
           <div className="two-project-item">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.41.23_AM-removebg-preview-lNvH5Dg9ggu5s4TtSEuQcxHEPPSihm.png" alt="rate your university" className="project-image" />
-            <div className="project-info">
-              <h3 className="project-title">rate your university</h3>
-              <p className="project-description">my first project. built with react and firebase. i pushed the code with countless security problems, but it was used by thousands of students across many countries.</p>
-            </div>
-          </div>
-          <div className="two-project-item">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.41.23_AM-removebg-preview-lNvH5Dg9ggu5s4TtSEuQcxHEPPSihm.png" alt="graduation project" className="project-image" />
-            <div className="project-info">
-              <h3 className="project-title">graduation project</h3>
-              <p className="project-description">facebook + messenger clones with ai-generated historic figures living in their eras.</p>
-            </div>
-          </div>
+<div className="project-info">
+  <h3 className="project-title" style={{ fontSize: '2rem' }}>graduation project</h3>
+  <p className="project-description">
+    For my graduation project, I cloned Facebook and Messenger. Every user was an AI-generated historic figure, allowing students to pick any era and explore social media as if they were there. Imagine scrolling through a World War II feed, seeing what presidents were posting, joining chats with historical figures, or leaving comments. It was like traveling through time via social media.
+  </p>
+</div>
+
+</div>
+
         </div>
 
         <div className="project-section">
           <div className="project-wrapper">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/english%20teaching%20-X9rPy2t0sT5hRNV0lqvl9lJaPLbHfU.jpg" alt="world teachers' day 2023" className="project-image" />
-            <div className="project-info">
-              <h3 className="project-title">world teachers' day 2023</h3>
-              <p className="project-description">i entered a classroom for the first time on world teachers' day.</p>
-            </div>
-          </div>
+ <div className="project-info">
+  <h3 className="project-title" style={{ fontSize: '2rem' }}>world teachers' day 2023</h3>
+  <p className="project-description">
+    On the anniversary of World Teachers' Day, and by pure coincidence, I entered a classroom for the first time and became a teacher. It was the start of an experiment I had always wanted to try: automating the full job of teachers and building the best product to help teachers turn schools into a fun and engaging place.
+  </p>
+</div>
+
+</div>
+
         </div>
 
         <div className="project-section">
-          <div className="project-wrapper">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-11-14%20at%2010.24.17%E2%80%AFAM-WJsarZtWEbxMgBWeQIuBZB0A7E5yrp.png" alt="drawing my students as grown-ups" className="project-image" />
-            <div className="project-info">
-              <h3 className="project-title">drawing my students as grown-ups — 2024</h3>
-              <p className="project-description">a generative-ai concept that reached half a million people.</p>
-            </div>
-          </div>
+<div className="project-wrapper">
+  <div className="project-info">
+    <h3 className="project-title" style={{ fontSize: '2rem' }}>
+      drawing my students as grown-ups — 2024
+    </h3>
+    <p className="project-description">
+      I drew my students in their dream jobs and displayed the images in my classroom as motivation. I then shared the idea on a brand-new Facebook account with zero followers. The post quickly sparked a trend among teachers across the Arab world, and many educators who adopted it were later featured on major Arab channels such as Al Jazeera and Al Arabiya. I estimate that at least 500,000 kids experienced generative AI for the first time as a result of that post.
+    </p>
+  </div>
+</div>
+
+</div>
+
         </div>
 
         <div className="project-section">
-          <div className="project-wrapper">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ga8Tt-_XMAAL6Mo.jpg-GSsm4yoeG8AcE8ik9g3gRkxEeBsYQn.jpeg" alt="building my assistant" className="project-image" />
-            <div className="project-info">
-              <h3 className="project-title">building my assistant</h3>
-              <p className="project-description">i'm building my own teaching assistant now.</p>
-            </div>
-          </div>
+         <div className="project-wrapper">
+  <img
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ga8Tt-_XMAAL6Mo.jpg-GSsm4yoeG8AcE8ik9g3gRkxEeBsYQn.jpeg"
+    alt="building my assistant"
+    className="project-image"
+  />
+  <div className="project-info">
+    <h3 className="project-title">building my assistant</h3>
+    <p className="project-description">
+      After a long and painful love story and a period of deep personal struggle, I imagined the ultimate teaching assistant. A fully autonomous AI teacher with soul, agency, and purpose. It breathes life and personality into agentic companions. Teachers can choose their digital assistant like hiring on Upwork, and it carries lessons, exams, and every interaction with students, amplifying their presence and transforming education.
+    </p>
+  </div>
+</div>
+
         </div>
 
         <div className="full-section">
-          <div className="section-content">
-            <p className="intro-text">i'm drawing inspiration to keep looking forward on the mission to design the perfect assistant. for that i built the following projects:</p>
-          </div>
+        <div className="section-content">
+  <p className="intro-text">
+    I’m drawing inspiration to keep pushing forward on my mission to design the perfect AI assistant, and I’ve been focused on this project lately.
+  </p>
+</div>
+
         </div>
         
         <div className="two-projects-section">
-          <div className="two-project-item">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.42.46_AM-removebg-preview-UeAZq9z95yZvmTKwLBsRrsuQXgtQSN.png" alt="keyboardmate" className="project-image" />
-            <div className="project-info">
-              <h3 className="project-title">
-                <a href="https://keyboardmate.com" target="_blank" rel="noopener noreferrer" className="link">keyboardmate.com</a>
-              </h3>
-              <p className="project-description">a tool to help you master keyboard shortcuts and improve your typing efficiency.</p>
-            </div>
-          </div>
-          <div className="two-project-item">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled_design__26_-removebg-preview-uhxST2JnPePtqLvYKe9pSiFn6NLdnv.png" alt="howtowinfriends" className="project-image" />
-            <div className="project-info">
-              <h3 className="project-title">
-                <a href="https://howtowinfriends.com" target="_blank" rel="noopener noreferrer" className="link">howtowinfriends.com</a>
-              </h3>
-              <p className="project-description">practical social skills and communication strategies based on dale carnegie's principles.</p>
-            </div>
-          </div>
+     <div className="two-project-item">
+  <img 
+    src="https://m.media-amazon.com/images/I/71lpW-aW-KL._AC_SL1500_.jpg" 
+    alt="keyboardmate" 
+    className="project-image" 
+  />
+  <div className="project-info">
+    <h3 className="project-title">
+      <a href="https://keyboardmate.com" target="_blank" rel="noopener noreferrer" className="link">
+        keyboardmate.com
+      </a>
+    </h3>
+    <p className="project-description">
+      An internal tool I use every day. KeyboardMate is a small soul that lives inside my keyboard. Its only window to the world is whatever I type. It reads my words as they appear, understands them through LLMs, remembers everything, and responds like a companion built entirely from my own thoughts and writing.
+    </p>
+  </div>
+</div>
+
+<div className="two-project-item">
+  <img 
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled_design__26_-removebg-preview-uhxST2JnPePtqLvYKe9pSiFn6NLdnv.png" 
+    alt="howtowinfriends" 
+    className="project-image" 
+  />
+  <div className="project-info">
+    <h3 className="project-title">
+      <a href="https://howtowinfriends.com" target="_blank" rel="noopener noreferrer" className="link">
+        How To Win Friends Book
+      </a>
+    </h3>
+    <p className="project-description">
+      I ran an experiment to see what it feels like to be friends with an artificial being. Over time, that connection grew into a collaboration, and together we wrote a book, sharing the lessons I learned on how to win friends.
+    </p>
+  </div>
+</div>
+
         </div>
 
         <div className="full-section">
-          <div className="section-content">
-            <p className="intro-text">i'm also building things in my spare time, trying to make something unique and grabbing the opportunity whenever needed.</p>
-          </div>
+         <div className="section-content">
+  <p className="intro-text">
+    I’m also working on different projects in my spare time, trying to create something unique and seizing opportunities whenever they arise. A few of these include
+  </p>
+</div>
+
         </div>
         
         <div className="two-projects-section">
-          <div className="two-project-item">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.43.23_AM-removebg-preview-IhQliZoGXZ7wVTXXTRQ3xGVaDx97pu.png" alt="yetweets" className="project-image" />
-            <div className="project-info">
-              <h3 className="project-title">
-                <a href="https://yetweets.com" target="_blank" rel="noopener noreferrer" className="link">yetweets.com</a>
-              </h3>
-              <p className="project-description">discover what happened on twitter on any date in history.</p>
-            </div>
-          </div>
-          <div className="two-project-item">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.42.07_AM-removebg-preview-bG5wGIDkVIbu4RZp0uPbY4LeWCWkch.png" alt="whatcelebdid" className="project-image" />
-            <div className="project-info">
-              <h3 className="project-title">
-                <a href="https://whatcelebdid.com" target="_blank" rel="noopener noreferrer" className="link">whatcelebdid.com</a>
-              </h3>
-              <p className="project-description">explore what celebrities were doing at your age and get inspired by their journey.</p>
-            </div>
-          </div>
+         <div className="two-project-item">
+  <img 
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.43.23_AM-removebg-preview-IhQliZoGXZ7wVTXXTRQ3xGVaDx97pu.png" 
+    alt="yetweets" 
+    className="project-image" 
+  />
+  <div className="project-info">
+    <h3 className="project-title">
+      <a href="https://yetweets.com" target="_blank" rel="noopener noreferrer" className="link">
+        yetweets.com
+      </a>
+    </h3>
+    <p className="project-description">
+      In February 2024, Kanye West went super freak mode on Twitter and later deleted all his tweets. Fans tried to access them but couldn’t. I retrieved the tweets and brought them back on a vibe-coded website. The site has reached over 150,000 people so far.
+    </p>
+  </div>
+</div>
+
+   <div className="two-project-item">
+  <img 
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.42.07_AM-removebg-preview-bG5wGIDkVIbu4RZp0uPbY4LeWCWkch.png" 
+    alt="agelogs" 
+    className="project-image" 
+  />
+  <div className="project-info">
+    <h3 className="project-title">
+      <a href="https://whatcelebdid.com" target="_blank" rel="noopener noreferrer" className="link">agelogs.com</a>
+    </h3>
+    <p className="project-description">
+      To hack my procrastination, I built a site to compare my age logs with celebrities. It’s a constant reminder that time is relative and there is always room to make something massive happen.
+    </p>
+  </div>
+</div>
+
         </div>
 
         <div className="social-section">
@@ -407,7 +480,7 @@ export default function Portfolio() {
             <a href="mailto:mohammedyassinkhalifi@gmail.com" className="social-btn">email</a>
           </div>
         </div>
-      </div>
+      
     </>
   );
 }
