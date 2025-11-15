@@ -1,166 +1,413 @@
-
-
-import { useEffect, useState } from "react"
-
-export default function App() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [theme, setTheme] = useState("light")
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true)
-    }, 100)
-    return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark")
-    document.body.className = "app"
-  }, [theme])
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light")
-  }
-
-  const bioItems = [
-    "Taught English online by building multiple websites and platforms, including the LearnEnglish Facebook page, the largest English teaching page in the Arab world at the time, helping nearly 100,000 people learn English when I was 16 years old.",
-    "In 2019, graduated high school as a mathematics student.",
-    "Attended Teachers' College, and at the same time, taught myself how to code by building more than 100 websites, trying to solve the problems I faced and the problems I saw others facing.",
-    "Worked with clients across the MENA region in web development and digital marketing.",
-    "Created a university rating website in 2021 that started in Tunisia and went viral across several countries.",
-    "As a graduation project, built Facebook and Messenger clones featuring AI-generated historic figures, letting users explore history and interact with them as if they were living in that era.",
-    "On October 5, World Teachers' Day, stepped into teaching for the very first time, with no prior experience.",
-    "Shortly after stepping in, started designing and building my own AI teaching assistant.",
-    "First experiment: I drew my students as grown-ups, which went viral among educators soon after I shared it.",
-    {
-      text: "Building tools: I started creating tools to help my fellow teachers replicate this experiment, while also trying to come up with a solution to any teaching task I see, like my journal tool 🔗 (view video).",
-      link: "https://vimeo.com/976990722",
-    },
-    {
-      text: "Side projects: Shiny side projects kept pulling me in. A few I've built recently include yetweets.com 🔗 (150,000 visitors so far) and keyboardmemory.com 🔗 (an internal tool I use daily to capture everything I type and turn it into memories).",
-      links: [
-        { text: "yetweets.com", url: "https://yetweets.com" },
-        { text: "keyboardmemory.com", url: "https://keyboardmemory.com" },
-      ],
-    },
-    "Although I'd like to improve them, now that I see how all the teaching tools I've built connect in one simple product, assis.tn, this has become my primary life mission.",
-  ]
-
-  const renderBioText = (item) => {
-    if (typeof item === "string") {
-      return <p>{item}</p>
-    }
-
-    if (item.link) {
-      const parts = item.text.split("journal tool 🔗 (view video)")
-      return (
-        <p>
-          {parts[0]}
-          <a href={item.link} target="_blank" rel="noopener noreferrer">
-            journal tool 🔗 (view video)
-          </a>
-          {parts[1]}
-        </p>
-      )
-    }
-
-    if (item.links) {
-      let text = item.text
-      item.links.forEach((link) => {
-        text = text.replace(
-          link.text,
-          `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.text}</a>`,
-        )
-      })
-      return <p dangerouslySetInnerHTML={{ __html: text }} />
-    }
-
-    return <p>{item.text}</p>
-  }
-
+export default function Portfolio() {
   return (
-    <div className="app">
-      {/* Background */}
-      <div className="background-container">
-        <div className="background-base"></div>
-        <div className="background-animated">
-          <div className="floating-orb orb-1"></div>
-          <div className="floating-orb orb-2"></div>
-          <div className="floating-orb orb-3"></div>
+    <>
+      <style>{`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          background-color: #ffffff;
+          color: #1a1a1a;
+          font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          line-height: 1.6;
+        }
+
+        .portfolio-container {
+          background-color: #ffffff;
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+
+        .hero-section {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #ffffff;
+          z-index: 1000;
+          animation: heroFadeOut 1.2s ease-out 1.5s forwards;
+        }
+
+        .hero-content {
+          text-align: center;
+        }
+
+        .hero-title {
+          font-size: 4rem;
+          font-weight: 300;
+          letter-spacing: -0.02em;
+          text-transform: lowercase;
+          color: #1a1a1a;
+        }
+
+        .full-section {
+          width: 100%;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 2rem 4rem;
+        }
+
+        .header-section {
+          animation: fadeIn 0.8s ease-out 2.7s forwards;
+          opacity: 0;
+        }
+
+        .section-content {
+          max-width: 800px;
+        }
+
+        .section-title {
+          font-size: 3.5rem;
+          font-weight: 300;
+          letter-spacing: -0.02em;
+          margin-bottom: 0.75rem;
+          text-transform: lowercase;
+        }
+
+        .section-handle {
+          font-size: 1.125rem;
+          color: #7c3aed;
+          display: block;
+          margin-bottom: 1.5rem;
+        }
+
+        .section-text {
+          font-size: 1.125rem;
+          color: #666666;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+        }
+
+        .story-text {
+          font-size: 1.125rem;
+          color: #555555;
+          line-height: 1.8;
+          margin-bottom: 1.5rem;
+        }
+
+        .project-section {
+          width: 100%;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 2rem 4rem;
+        }
+
+        .project-wrapper {
+          max-width: 1200px;
+          display: flex;
+          gap: 3rem;
+          align-items: center;
+        }
+
+        .project-image {
+          width: 250px;
+          height: 250px;
+          flex-shrink: 0;
+          object-fit: cover;
+          border-radius: 8px;
+          background-color: #ffffff;
+          border: 1px solid #f0f0f0;
+        }
+
+        .project-info {
+          flex: 1;
+        }
+
+        .project-title {
+          font-size: 2rem;
+          font-weight: 300;
+          letter-spacing: -0.01em;
+          margin-bottom: 1.5rem;
+          color: #1a1a1a;
+          text-transform: lowercase;
+        }
+
+        .project-description {
+          font-size: 1.125rem;
+          color: #555555;
+          line-height: 1.8;
+          margin-bottom: 1.25rem;
+        }
+
+        .link {
+          color: #7c3aed;
+          text-decoration: none;
+          border-bottom: 1px solid transparent;
+          transition: border-color 0.2s ease;
+        }
+
+        .link:hover {
+          border-bottom-color: #7c3aed;
+        }
+
+        .two-projects-section {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          padding: 4rem 4rem;
+          gap: 0;
+        }
+
+        .two-project-item {
+          max-width: 1200px;
+          display: flex;
+          gap: 3rem;
+          align-items: center;
+          min-height: 100vh;
+          width: 100%;
+        }
+
+        .intro-text {
+          font-size: 1.25rem;
+          color: #1a1a1a;
+          line-height: 1.8;
+          max-width: 1200px;
+          margin-bottom: 0;
+          font-weight: 400;
+        }
+
+        .social-section {
+          width: 100vw;
+          min-height: 50vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 2rem 4rem;
+        }
+
+        .social-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+
+        .social-btn {
+          padding: 0.75rem 1.5rem;
+          background-color: #7c3aed;
+          color: #ffffff;
+          text-decoration: none;
+          border-radius: 8px;
+          font-size: 0.875rem;
+          font-weight: 500;
+          transition: all 0.2s ease;
+          cursor: pointer;
+          border: none;
+          display: inline-block;
+        }
+
+        .social-btn:hover {
+          background-color: #6d28d9;
+          transform: scale(1.05);
+        }
+
+        @keyframes heroFadeOut {
+          0% {
+            opacity: 1;
+            pointer-events: auto;
+          }
+          100% {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+          }
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .hero-title {
+            font-size: 2.5rem;
+          }
+
+          .section-title {
+            font-size: 2rem;
+          }
+
+          .project-title {
+            font-size: 1.5rem;
+          }
+
+          .full-section,
+          .project-section,
+          .two-projects-section,
+          .social-section {
+            padding: 2rem 1rem;
+          }
+
+          .project-wrapper,
+          .two-project-item {
+            flex-direction: column;
+            gap: 1.5rem;
+          }
+
+          .project-image {
+            width: 180px;
+            height: 180px;
+          }
+
+          .project-description,
+          .story-text,
+          .section-text,
+          .intro-text {
+            font-size: 1rem;
+          }
+        }
+      `}</style>
+
+      <div className="portfolio-container">
+        <div className="hero-section">
+          <div className="hero-content">
+            <h1 className="hero-title">mohammed yassin</h1>
+          </div>
+        </div>
+
+        <div className="full-section header-section">
+          <div className="section-content">
+            <h1 className="section-title">mohammed yassin</h1>
+            <span className="section-handle">@moyassin</span>
+            <p className="section-text">teacher decoding the human mind, builder of agents at night. mission: eliminate reality itself.</p>
+          </div>
+        </div>
+
+        <div className="full-section">
+          <div className="section-content">
+            <p className="story-text">at 16 y/o, i built one of the largest english-teaching pages in the arab world, helping more than 80,000 arab speakers learn english online.</p>
+            <p className="story-text">i graduated high school as a math student, went to teachers' college, and never attended a class. instead, i started teaching myself how to code.</p>
+            <p className="story-text">i hacked into scrimba.com to get 1 year of free access, learned coding from the best, and built online tools for myself and for clients across the MENA region.</p>
+          </div>
+        </div>
+
+        <div className="two-projects-section">
+          <div className="two-project-item">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.41.23_AM-removebg-preview-lNvH5Dg9ggu5s4TtSEuQcxHEPPSihm.png" alt="rate your university" className="project-image" />
+            <div className="project-info">
+              <h3 className="project-title">rate your university</h3>
+              <p className="project-description">my first project. built with react and firebase. i pushed the code with countless security problems, but it was used by thousands of students across many countries.</p>
+            </div>
+          </div>
+          <div className="two-project-item">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.41.23_AM-removebg-preview-lNvH5Dg9ggu5s4TtSEuQcxHEPPSihm.png" alt="graduation project" className="project-image" />
+            <div className="project-info">
+              <h3 className="project-title">graduation project</h3>
+              <p className="project-description">facebook + messenger clones with ai-generated historic figures living in their eras.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="project-section">
+          <div className="project-wrapper">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/english%20teaching%20-X9rPy2t0sT5hRNV0lqvl9lJaPLbHfU.jpg" alt="world teachers' day 2023" className="project-image" />
+            <div className="project-info">
+              <h3 className="project-title">world teachers' day 2023</h3>
+              <p className="project-description">i entered a classroom for the first time on world teachers' day.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="project-section">
+          <div className="project-wrapper">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-11-14%20at%2010.24.17%E2%80%AFAM-WJsarZtWEbxMgBWeQIuBZB0A7E5yrp.png" alt="drawing my students as grown-ups" className="project-image" />
+            <div className="project-info">
+              <h3 className="project-title">drawing my students as grown-ups — 2024</h3>
+              <p className="project-description">a generative-ai concept that reached half a million people.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="project-section">
+          <div className="project-wrapper">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Ga8Tt-_XMAAL6Mo.jpg-GSsm4yoeG8AcE8ik9g3gRkxEeBsYQn.jpeg" alt="building my assistant" className="project-image" />
+            <div className="project-info">
+              <h3 className="project-title">building my assistant</h3>
+              <p className="project-description">i'm building my own teaching assistant now.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="full-section">
+          <div className="section-content">
+            <p className="intro-text">i'm drawing inspiration to keep looking forward on the mission to design the perfect assistant. for that i built the following projects:</p>
+          </div>
+        </div>
+        
+        <div className="two-projects-section">
+          <div className="two-project-item">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.42.46_AM-removebg-preview-UeAZq9z95yZvmTKwLBsRrsuQXgtQSN.png" alt="keyboardmate" className="project-image" />
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://keyboardmate.com" target="_blank" rel="noopener noreferrer" className="link">keyboardmate.com</a>
+              </h3>
+              <p className="project-description">a tool to help you master keyboard shortcuts and improve your typing efficiency.</p>
+            </div>
+          </div>
+          <div className="two-project-item">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled_design__26_-removebg-preview-uhxST2JnPePtqLvYKe9pSiFn6NLdnv.png" alt="howtowinfriends" className="project-image" />
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://howtowinfriends.com" target="_blank" rel="noopener noreferrer" className="link">howtowinfriends.com</a>
+              </h3>
+              <p className="project-description">practical social skills and communication strategies based on dale carnegie's principles.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="full-section">
+          <div className="section-content">
+            <p className="intro-text">i'm also building things in my spare time, trying to make something unique and grabbing the opportunity whenever needed.</p>
+          </div>
+        </div>
+        
+        <div className="two-projects-section">
+          <div className="two-project-item">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.43.23_AM-removebg-preview-IhQliZoGXZ7wVTXXTRQ3xGVaDx97pu.png" alt="yetweets" className="project-image" />
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://yetweets.com" target="_blank" rel="noopener noreferrer" className="link">yetweets.com</a>
+              </h3>
+              <p className="project-description">discover what happened on twitter on any date in history.</p>
+            </div>
+          </div>
+          <div className="two-project-item">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.42.07_AM-removebg-preview-bG5wGIDkVIbu4RZp0uPbY4LeWCWkch.png" alt="whatcelebdid" className="project-image" />
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://whatcelebdid.com" target="_blank" rel="noopener noreferrer" className="link">whatcelebdid.com</a>
+              </h3>
+              <p className="project-description">explore what celebrities were doing at your age and get inspired by their journey.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="social-section">
+          <div className="social-buttons">
+            <a href="https://tiktok.com/@moyassin" target="_blank" rel="noopener noreferrer" className="social-btn">tiktok: @moyassin</a>
+            <a href="https://facebook.com/moyassin" target="_blank" rel="noopener noreferrer" className="social-btn">facebook: @moyassin</a>
+            <a href="mailto:mohammedyassinkhalifi@gmail.com" className="social-btn">email</a>
+          </div>
         </div>
       </div>
-
-      {/* Header */}
-      <header className="site-header">
-        <div className="site-container">
-          <div className={`header-name ${isVisible ? "visible" : ""}`}>Mohammed Yassin</div>
-          <button className={`theme-toggle header-toggle ${isVisible ? "visible" : ""}`} onClick={toggleTheme}>
-            <svg className={`icon sun-icon ${theme === "dark" ? "hidden" : ""}`} viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="5" />
-              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-            </svg>
-            <svg className={`icon moon-icon ${theme === "dark" ? "" : "hidden"}`} viewBox="0 0 24 24">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-            <span className="sr-only">Toggle theme</span>
-          </button>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="site-main">
-        <div className="site-container">
-          {/* Hero Section */}
-          <section className="hero-section">
-            <div className={`hero-title ${isVisible ? "visible" : ""}`}>
-              <h1>▶ Hi, I'm Yassin</h1>
-            </div>
-            <div className={`hero-subtitle ${isVisible ? "visible" : ""}`}>
-              <p>Builder, educator, and perpetual learner.</p>
-            </div>
-          </section>
-
-          {/* Bio Section */}
-          <section className="bio-section">
-            <div className="bio-items">
-              {bioItems.map((item, index) => (
-                <div
-                  key={index}
-                  className={`bio-item ${isVisible ? "visible" : ""}`}
-                  style={{ transitionDelay: `${800 + index * 100}ms` }}
-                >
-                  <span className="bio-icon">▶</span>
-                  {renderBioText(item)}
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Contact Section */}
-          <section className="contact-section">
-            <div className={`contact-content ${isVisible ? "visible" : ""}`}>
-              <h2 className="closing-statement">
-                I am now designing more of these assistants and looking forward to where destiny will lead me.
-              </h2>
-              <div className="contact-links">
-                <p>
-                  Reach me via <a href="mailto:contact@moyass.in">contact@moyass.in</a>
-                </p>
-                <p>
-                  <a href="https://facebook.com/moyassin" target="_blank" rel="noopener noreferrer">
-                    facebook: /moyassin
-                  </a>
-                </p>
-                <p>
-                  <a href="https://tiktok.com/@moyassin" target="_blank" rel="noopener noreferrer">
-                    tiktok: @moyassin
-                  </a>
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
-      </main>
-    </div>
-  )
+    </>
+  );
 }
