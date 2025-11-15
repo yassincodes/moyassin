@@ -71,7 +71,7 @@ export default function Portfolio() {
         }
 
         .section-title {
-          font-size: 4.5rem;
+          font-size: 5.5rem;
           font-weight: 300;
           letter-spacing: -0.02em;
           margin-bottom: 0.75rem;
@@ -79,21 +79,21 @@ export default function Portfolio() {
         }
 
         .section-handle {
-          font-size: 1.5rem;
+          font-size: 1.75rem;
           color: #7c3aed;
           display: block;
           margin-bottom: 1.5rem;
         }
 
         .section-text {
-          font-size: 1.5rem;
+          font-size: 1.75rem;
           color: #666666;
           line-height: 1.6;
           margin-bottom: 1.5rem;
         }
 
         .story-text {
-          font-size: 1.5rem;
+          font-size: 1.75rem;
           color: #555555;
           line-height: 1.8;
           margin-bottom: 1.5rem;
@@ -123,6 +123,8 @@ export default function Portfolio() {
           width: 20vw;
           flex-shrink: 0;
           border-radius: 8px;
+          object-fit: cover;
+          aspect-ratio: 1;
         }
 
         .project-info {
@@ -130,7 +132,7 @@ export default function Portfolio() {
         }
 
         .project-title {
-          font-size: 2.5rem;
+          font-size: 3rem;
           font-weight: 300;
           letter-spacing: -0.01em;
           margin-bottom: 1.5rem;
@@ -139,7 +141,7 @@ export default function Portfolio() {
         }
 
         .project-description {
-          font-size: 1.5rem;
+          font-size: 1.75rem;
           color: #555555;
           line-height: 1.8;
           margin-bottom: 1.25rem;
@@ -180,7 +182,7 @@ export default function Portfolio() {
         }
 
         .intro-text {
-          font-size: 1.75rem;
+          font-size: 2rem;
           color: #1a1a1a;
           line-height: 1.8;
           max-width: 1200px;
@@ -213,7 +215,7 @@ export default function Portfolio() {
           color: #ffffff;
           text-decoration: none;
           border-radius: 8px;
-          font-size: 1.125rem;
+          font-size: 1.25rem;
           font-weight: 500;
           transition: all 0.2s ease;
           cursor: pointer;
@@ -250,11 +252,11 @@ export default function Portfolio() {
 
         @media (max-width: 768px) {
           .section-title {
-            font-size: 2.5rem;
+            font-size: 3rem;
           }
 
           .project-title {
-            font-size: 2rem;
+            font-size: 2.25rem;
           }
 
           .full-section,
@@ -279,7 +281,7 @@ export default function Portfolio() {
           .story-text,
           .section-text,
           .intro-text {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
           }
         }
       `}</style>
@@ -375,7 +377,7 @@ export default function Portfolio() {
         <div className="two-projects-section">
           <div className="two-project-item">
             <img 
-              src="https://m.media-amazon.com/images/I/71lpW-aW-KL._AC_SL1500_.jpg" 
+              src="https://keyboardmate.com" 
               alt="keyboardmate" 
               className="project-image" 
             />
@@ -393,7 +395,7 @@ export default function Portfolio() {
 
           <div className="two-project-item">
             <img 
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled_design__26_-removebg-preview-uhxST2JnPePtqLvYKe9pSiFn6NLdnv.png" 
+              src="https://howtowinfriends.com" 
               alt="howtowinfriends" 
               className="project-image" 
             />
@@ -421,7 +423,7 @@ export default function Portfolio() {
         <div className="two-projects-section">
           <div className="two-project-item">
             <img 
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.43.23_AM-removebg-preview-IhQliZoGXZ7wVTXXTRQ3xGVaDx97pu.png" 
+              src="https://yetweets.com" 
               alt="yetweets" 
               className="project-image" 
             />
@@ -439,7 +441,7 @@ export default function Portfolio() {
 
           <div className="two-project-item">
             <img 
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-11-14_at_9.42.07_AM-removebg-preview-bG5wGIDkVIbu4RZp0uPbY4LeWCWkch.png" 
+              src="https://whatcelebdid.com" 
               alt="agelogs" 
               className="project-image" 
             />
