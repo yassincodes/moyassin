@@ -311,16 +311,16 @@ export default function Portfolio() {
         <div className="two-projects-section">
           <div className="two-project-item">
             <div className="project-info">
-              <h3 className="project-title">rate your university</h3>
+              <h3 className="project-title">2021 – Helping students rate their universities</h3>
               <p className="project-description">
-                Helping students rate their universities. This was my earliest experiment. I pushed the code with countless security problems, but it was used by thousands of students across many countries. It was a website where you could select your university and give it a rating, and join anonymous chats to talk about whatever you wanted within your university.
+                This was my earliest experiment. I pushed the code with countless security problems, but it was used by thousands of students across many countries. It was a website where you could select your university and give it a rating, and join anonymous chats to talk about whatever you wanted within your university.
               </p>
             </div>
           </div>
 
           <div className="two-project-item">
             <div className="project-info">
-              <h3 className="project-title">graduation project</h3>
+              <h3 className="project-title">2023 – graduation project</h3>
               <p className="project-description">
                 For my graduation project, I cloned Facebook and Messenger. Every user was an AI-generated historic figure, allowing students to pick any era and explore social media as if they were there. Imagine scrolling through a World War II feed, seeing what presidents were posting, joining chats with historical figures, or leaving comments. It was like traveling through time via social media.
               </p>
@@ -331,7 +331,7 @@ export default function Portfolio() {
         <div className="project-section">
           <div className="project-wrapper">
             <div className="project-info">
-              <h3 className="project-title">world teachers' day 2023</h3>
+              <h3 className="project-title">october 5th 2023 – world teachers' day</h3>
               <p className="project-description">
                 On the anniversary of World Teachers' Day, and by pure coincidence, I entered a classroom for the first time and became a teacher. It was the start of an experiment I had always wanted to try: automating the full job of teachers and building the best product to help teachers turn schools into a fun and engaging place.
               </p>
@@ -342,7 +342,7 @@ export default function Portfolio() {
         <div className="project-section">
           <div className="project-wrapper">
             <div className="project-info">
-              <h3 className="project-title">drawing my students as grown-ups — 2024</h3>
+              <h3 className="project-title">2024 — drawing my students as grown-ups </h3>
               <p className="project-description">
                 I drew my students in their dream jobs and displayed the images in my classroom as motivation. I then shared the idea on a brand-new Facebook account with zero followers. The post quickly sparked a trend among teachers across the Arab world, and many educators who adopted it were later featured on major Arab channels such as Al Jazeera and Al Arabiya. I estimate that at least 500,000 kids experienced generative AI for the first time as a result of that post.
               </p>
