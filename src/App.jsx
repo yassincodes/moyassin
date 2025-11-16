@@ -50,17 +50,23 @@ export default function Portfolio() {
           line-height: 1.8;
           overflow-y: scroll;
           scroll-padding: 0;
+          margin: 0;
+          padding: 0;
+          width: 100vw;
+          overflow-x: hidden;
         }
 
         .portfolio-container {
           background-color: #ffffff;
-          max-width: 1400px;
-          margin: 0 auto;
+          max-width: 100%;
+          margin: 0;
         }
 
         .full-section {
-          width: 100%;
+          width: 100vw;
+          height: 100vh;
           min-height: 100vh;
+          max-height: 100vh;
           display: flex;
           align-items: center;
           justify-content: flex-start;
@@ -69,7 +75,9 @@ export default function Portfolio() {
           scroll-snap-stop: always;
           opacity: 0;
           filter: blur(10px);
-          transition: opacity 0.8s ease-out, filter 0.8s ease-out;
+          transform: scale(0.95);
+          transition: opacity 0.6s ease-out, filter 0.6s ease-out, transform 0.6s ease-out;
+          overflow: hidden;
         }
 
         .full-section.visible,
@@ -78,6 +86,7 @@ export default function Portfolio() {
         .social-section.visible {
           opacity: 1;
           filter: blur(0px);
+          transform: scale(1);
         }
 
         .section-content {
@@ -85,27 +94,27 @@ export default function Portfolio() {
         }
 
         .section-title {
-          font-size: 5.5rem;
+          font-size: 4rem;
           font-weight: 300;
           letter-spacing: -0.02em;
-          margin-bottom: 0.75rem;
+          margin-bottom: 0.5rem;
           text-transform: lowercase;
           line-height: 1.1;
         }
 
         .section-handle {
-          font-size: 1.75rem;
+          font-size: 1.4rem;
           color: #1a1a1a;
           display: block;
-          margin-bottom: 1.5rem;
+          margin-bottom: 1rem;
           font-weight: 300;
         }
 
         .section-text {
-          font-size: 1.75rem;
+          font-size: 1.4rem;
           color: #666666;
-          line-height: 1.8;
-          margin-bottom: 1.5rem;
+          line-height: 1.6;
+          margin-bottom: 1rem;
           font-weight: 300;
         }
 
@@ -151,16 +160,18 @@ export default function Portfolio() {
         }
 
         .story-text {
-          font-size: 1.75rem;
+          font-size: 1.4rem;
           color: #555555;
-          line-height: 1.9;
-          margin-bottom: 1.5rem;
+          line-height: 1.7;
+          margin-bottom: 1rem;
           font-weight: 300;
         }
 
         .project-section {
-          width: 100%;
+          width: 100vw;
+          height: 100vh;
           min-height: 100vh;
+          max-height: 100vh;
           display: flex;
           align-items: center;
           justify-content: flex-start;
@@ -169,7 +180,9 @@ export default function Portfolio() {
           scroll-snap-stop: always;
           opacity: 0;
           filter: blur(10px);
-          transition: opacity 0.8s ease-out, filter 0.8s ease-out;
+          transform: scale(0.95);
+          transition: opacity 0.6s ease-out, filter 0.6s ease-out, transform 0.6s ease-out;
+          overflow: hidden;
         }
 
         .project-wrapper {
@@ -177,35 +190,40 @@ export default function Portfolio() {
           display: flex;
           gap: 3rem;
           align-items: center;
+          width: 100%;
+          height: 100%;
         }
 
         .project-image {
-          width: 20vw;
+          width: 300px;
+          height: 300px;
           flex-shrink: 0;
           object-fit: cover;
-          aspect-ratio: 1;
+          border-radius: 8px;
           filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
         }
 
         .project-info {
           flex: 1;
+          max-height: 100%;
+          overflow-y: auto;
         }
 
         .project-title {
-          font-size: 3rem;
+          font-size: 2.2rem;
           font-weight: 300;
           letter-spacing: -0.01em;
-          margin-bottom: 1.5rem;
+          margin-bottom: 1rem;
           color: #1a1a1a;
           text-transform: lowercase;
           line-height: 1.2;
         }
 
         .project-description {
-          font-size: 1.75rem;
+          font-size: 1.4rem;
           color: #555555;
-          line-height: 1.9;
-          margin-bottom: 1.25rem;
+          line-height: 1.7;
+          margin-bottom: 1rem;
           font-weight: 300;
         }
 
@@ -223,12 +241,12 @@ export default function Portfolio() {
 
         .read-btn {
           display: inline-block;
-          margin-top: 1rem;
-          font-size: 1.75rem;
+          margin-top: 0.75rem;
+          font-size: 1.3rem;
           color: #1a1a1a;
           text-decoration: none;
           border: 1px solid #1a1a1a;
-          padding: 0.75rem 1.5rem;
+          padding: 0.6rem 1.2rem;
           transition: all 0.2s ease;
           font-weight: 300;
           cursor: pointer;
@@ -250,34 +268,48 @@ export default function Portfolio() {
         }
 
         .two-project-item {
-          max-width: 1200px;
           display: flex;
           gap: 3rem;
           align-items: center;
+          justify-content: center;
+          height: 100vh;
           min-height: 100vh;
-          width: 100%;
+          max-height: 100vh;
+          width: 100vw;
           scroll-snap-align: start;
           scroll-snap-stop: always;
           opacity: 0;
           filter: blur(10px);
-          transition: opacity 0.8s ease-out, filter 0.8s ease-out;
-          flex-direction: row;
+          transform: scale(0.95);
+          transition: opacity 0.6s ease-out, filter 0.6s ease-out, transform 0.6s ease-out;
+          flex-direction: row-reverse;
+          padding: 2rem 4rem;
+          overflow: hidden;
         }
 
         .two-project-item:nth-child(1),
-        .two-project-item:nth-child(2) {
-          flex-direction: row;
-        }
-
+        .two-project-item:nth-child(2),
         .two-project-item:nth-child(3),
         .two-project-item:nth-child(4) {
           flex-direction: row-reverse;
         }
 
+        .two-project-item .project-image {
+          width: 300px;
+          height: 300px;
+        }
+
+        .two-project-item .project-info {
+          flex: 1;
+          max-width: 600px;
+          max-height: 100%;
+          overflow-y: auto;
+        }
+
         .intro-text {
-          font-size: 2rem;
+          font-size: 1.5rem;
           color: #1a1a1a;
-          line-height: 1.9;
+          line-height: 1.7;
           max-width: 1200px;
           margin-bottom: 0;
           font-weight: 300;
@@ -285,7 +317,9 @@ export default function Portfolio() {
 
         .social-section {
           width: 100vw;
-          min-height: 50vh;
+          height: 100vh;
+          min-height: 100vh;
+          max-height: 100vh;
           display: flex;
           align-items: center;
           justify-content: flex-start;
@@ -294,8 +328,10 @@ export default function Portfolio() {
           scroll-snap-stop: always;
           opacity: 0;
           filter: blur(10px);
-          transition: opacity 0.8s ease-out, filter 0.8s ease-out;
+          transform: scale(0.95);
+          transition: opacity 0.6s ease-out, filter 0.6s ease-out, transform 0.6s ease-out;
           background-color: #ffffff;
+          overflow: hidden;
         }
 
         .social-buttons {
@@ -306,7 +342,7 @@ export default function Portfolio() {
         }
 
         .social-btn {
-          font-size: 2.5rem;
+          font-size: 1.8rem;
           color: #1a1a1a;
           font-weight: 300;
         }
@@ -323,47 +359,72 @@ export default function Portfolio() {
         }
 
         @media (max-width: 768px) {
+          html {
+            scroll-snap-type: none;
+          }
+
           .section-title {
-            font-size: 3rem;
+            font-size: 2.5rem;
+          }
+
+          .section-handle {
+            font-size: 1.25rem;
           }
 
           .project-title {
-            font-size: 2.25rem;
+            font-size: 1.75rem;
           }
 
           .full-section,
           .project-section,
-          .two-projects-section,
           .social-section {
-            padding: 2rem 1rem;
+            padding: 3rem 1.5rem;
+            min-height: auto;
+            scroll-snap-align: none;
+          }
+
+          .two-projects-section {
+            padding: 2rem 1.5rem;
+          }
+
+          .two-project-item {
+            min-height: auto;
+            padding: 2rem 0;
+            scroll-snap-align: none;
           }
 
           .project-wrapper,
           .two-project-item {
-            flex-direction: column;
-            gap: 1.5rem;
+            flex-direction: column !important;
+            gap: 2rem;
           }
 
           .project-image {
-            width: 180px;
-            height: 180px;
+            width: 60vw;
+            max-width: 250px;
           }
 
           .project-description,
           .story-text,
           .section-text,
           .intro-text {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+          }
+
+          .read-btn {
+            font-size: 1.25rem;
+            padding: 0.5rem 1rem;
           }
 
           .app-icons {
-            height: 70px;
+            height: 60px;
+            margin-top: 1.5rem;
           }
 
           .app-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
           }
 
           .app-icon-1 {
@@ -372,17 +433,17 @@ export default function Portfolio() {
           }
 
           .app-icon-2 {
-            left: 3rem;
-            top: 0.75rem;
+            left: 2.5rem;
+            top: 0.5rem;
           }
 
           .app-icon-3 {
-            left: 6rem;
+            left: 5rem;
             top: -0.25rem;
           }
 
-          .social-buttons {
-            align-items: flex-start;
+          .social-btn {
+            font-size: 1.5rem;
           }
         }
       `}</style>
@@ -418,7 +479,7 @@ export default function Portfolio() {
               At 16 years old, I built the largest English-teaching platform in the Arab world at the time, helping over 80,000 Arabic speakers learn English online.
             </p>
             <p className="story-text">
-              I graduated high school as a math student and went to Teachers’ College. I attended classes, but very few. Instead, I taught myself how to code.
+              I graduated high school as a math student and went to Teachers' College. I attended classes, but very few. Instead, I taught myself how to code.
             </p>
             <p className="story-text">
               I hacked Scrimba.com to get one year of free access, learned coding from the best, and built online tools for myself and clients across the MENA region.
@@ -487,7 +548,7 @@ export default function Portfolio() {
         <div className="full-section">
           <div className="section-content">
             <p className="intro-text">
-              I’m drawing inspiration to keep pushing forward on my mission to design the perfect AI assistant, so I’ve been experimenting with this lately.
+              I'm drawing inspiration to keep pushing forward on my mission to design the perfect AI assistant, so I've been experimenting with this lately.
             </p>
           </div>
         </div>
@@ -536,7 +597,7 @@ export default function Portfolio() {
         <div className="full-section">
           <div className="section-content">
             <p className="intro-text">
-              I’m also working on different projects in my spare time, trying to create something unique and seizing opportunities whenever they arise. A few of these include
+              I'm also working on different projects in my spare time, trying to create something unique and seizing opportunities whenever they arise. A few of these include
             </p>
           </div>
         </div>
@@ -550,7 +611,7 @@ export default function Portfolio() {
                 </a>
               </h3>
               <p className="project-description">
-                In February 2024, Kanye West went super freak mode on Twitter and later deleted all his tweets. Fans tried to access them but couldn’t. I retrieved the tweets and brought them back on a vibe-coded website. The site has reached over 150,000 people so far.
+                In February 2024, Kanye West went super freak mode on Twitter and later deleted all his tweets. Fans tried to access them but couldn't. I retrieved the tweets and brought them back on a vibe-coded website. The site has reached over 150,000 people so far.
               </p>
             </div>
             <img 
@@ -566,7 +627,7 @@ export default function Portfolio() {
                 <a href="https://whatcelebdid.com" target="_blank" rel="noopener noreferrer" className="link">agelogs.com</a>
               </h3>
               <p className="project-description">
-                To hack my procrastination, I built a site to compare my age logs with celebrities. It’s a constant reminder that time is relative and there is always room to make something massive happen.
+                To hack my procrastination, I built a site to compare my age logs with celebrities. It's a constant reminder that time is relative and there is always room to make something massive happen.
               </p>
             </div>
             <img 
