@@ -6,14 +6,15 @@ export default function Portfolio() {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !entry.target.hasAttribute('data-animated')) {
-          entry.target.setAttribute('data-animated', 'true');
-          entry.target.style.animation = 'blurFadeIn 0.8s ease-out forwards';
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
         }
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.full-section:not(.header-section), .project-section, .two-project-item, .social-section').forEach((el) => {
+    document.querySelectorAll('.full-section, .project-section, .two-project-item, .social-section').forEach((el) => {
       observer.observe(el);
     });
 
@@ -23,6 +24,15 @@ export default function Portfolio() {
   return (
     <>
       <style>{`
+        @font-face {
+          font-family: 'TimesNow-SemiLight';
+          src: url('/fonts/TimesNow-SemiLight.woff2') format('woff2'),
+               url('/fonts/TimesNow-SemiLight.woff') format('woff');
+          font-weight: 300;
+          font-style: normal;
+          font-display: swap;
+        }
+
         * {
           margin: 0;
           padding: 0;
@@ -36,8 +46,8 @@ export default function Portfolio() {
         body {
           background-color: #ffffff;
           color: #1a1a1a;
-          font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          line-height: 1.6;
+          font-family: 'TimesNow-SemiLight', 'Times New Roman', serif;
+          line-height: 1.8;
           overflow-y: scroll;
           scroll-padding: 0;
         }
@@ -59,11 +69,15 @@ export default function Portfolio() {
           scroll-snap-stop: always;
           opacity: 0;
           filter: blur(10px);
+          transition: opacity 0.8s ease-out, filter 0.8s ease-out;
         }
 
-        .header-section {
+        .full-section.visible,
+        .project-section.visible,
+        .two-project-item.visible,
+        .social-section.visible {
           opacity: 1;
-          filter: blur(0);
+          filter: blur(0px);
         }
 
         .section-content {
@@ -76,6 +90,7 @@ export default function Portfolio() {
           letter-spacing: -0.02em;
           margin-bottom: 0.75rem;
           text-transform: lowercase;
+          line-height: 1.1;
         }
 
         .section-handle {
@@ -83,20 +98,64 @@ export default function Portfolio() {
           color: #7c3aed;
           display: block;
           margin-bottom: 1.5rem;
+          font-weight: 300;
         }
 
         .section-text {
           font-size: 1.75rem;
           color: #666666;
-          line-height: 1.6;
+          line-height: 1.8;
           margin-bottom: 1.5rem;
+          font-weight: 300;
+        }
+
+        .app-icons {
+          display: flex;
+          gap: 1rem;
+          margin-top: 2rem;
+          position: relative;
+          width: 100%;
+          height: 80px;
+        }
+
+        .app-icon {
+          width: 64px;
+          height: 64px;
+          border-radius: 16px;
+          object-fit: cover;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          transition: transform 0.2s ease;
+          position: absolute;
+        }
+
+        .app-icon:hover {
+          transform: scale(1.05);
+        }
+
+        .app-icon-1 {
+          transform: rotate(-8deg);
+          left: 0;
+          top: 0;
+        }
+
+        .app-icon-2 {
+          transform: rotate(4deg);
+          left: 4rem;
+          top: 1rem;
+        }
+
+        .app-icon-3 {
+          transform: rotate(-3deg);
+          left: 8rem;
+          top: -0.5rem;
         }
 
         .story-text {
           font-size: 1.75rem;
           color: #555555;
-          line-height: 1.8;
+          line-height: 1.9;
           margin-bottom: 1.5rem;
+          font-weight: 300;
         }
 
         .project-section {
@@ -110,6 +169,7 @@ export default function Portfolio() {
           scroll-snap-stop: always;
           opacity: 0;
           filter: blur(10px);
+          transition: opacity 0.8s ease-out, filter 0.8s ease-out;
         }
 
         .project-wrapper {
@@ -125,6 +185,7 @@ export default function Portfolio() {
           border-radius: 8px;
           object-fit: cover;
           aspect-ratio: 1;
+          filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
         }
 
         .project-info {
@@ -138,13 +199,15 @@ export default function Portfolio() {
           margin-bottom: 1.5rem;
           color: #1a1a1a;
           text-transform: lowercase;
+          line-height: 1.2;
         }
 
         .project-description {
           font-size: 1.75rem;
           color: #555555;
-          line-height: 1.8;
+          line-height: 1.9;
           margin-bottom: 1.25rem;
+          font-weight: 300;
         }
 
         .link {
@@ -152,6 +215,7 @@ export default function Portfolio() {
           text-decoration: none;
           border-bottom: 1px solid transparent;
           transition: border-color 0.2s ease;
+          font-weight: 300;
         }
 
         .link:hover {
@@ -179,15 +243,16 @@ export default function Portfolio() {
           scroll-snap-stop: always;
           opacity: 0;
           filter: blur(10px);
+          transition: opacity 0.8s ease-out, filter 0.8s ease-out;
         }
 
         .intro-text {
           font-size: 2rem;
           color: #1a1a1a;
-          line-height: 1.8;
+          line-height: 1.9;
           max-width: 1200px;
           margin-bottom: 0;
-          font-weight: 400;
+          font-weight: 300;
         }
 
         .social-section {
@@ -201,6 +266,8 @@ export default function Portfolio() {
           scroll-snap-stop: always;
           opacity: 0;
           filter: blur(10px);
+          transition: opacity 0.8s ease-out, filter 0.8s ease-out;
+          background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
         .social-buttons {
@@ -216,27 +283,18 @@ export default function Portfolio() {
           text-decoration: none;
           border-radius: 8px;
           font-size: 1.25rem;
-          font-weight: 500;
-          transition: all 0.2s ease;
+          font-weight: 300;
+          transition: all 0.3s ease;
           cursor: pointer;
           border: none;
           display: inline-block;
+          font-family: inherit;
         }
 
         .social-btn:hover {
           background-color: #6d28d9;
           transform: scale(1.05);
-        }
-
-        @keyframes blurFadeIn {
-          from {
-            opacity: 0;
-            filter: blur(10px);
-          }
-          to {
-            opacity: 1;
-            filter: blur(0);
-          }
+          box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
         }
 
         @keyframes fadeIn {
@@ -283,6 +341,31 @@ export default function Portfolio() {
           .intro-text {
             font-size: 1.5rem;
           }
+
+          .app-icons {
+            height: 70px;
+          }
+
+          .app-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+          }
+
+          .app-icon-1 {
+            left: 0;
+            top: 0;
+          }
+
+          .app-icon-2 {
+            left: 3rem;
+            top: 0.75rem;
+          }
+
+          .app-icon-3 {
+            left: 6rem;
+            top: -0.25rem;
+          }
         }
       `}</style>
 
@@ -292,6 +375,23 @@ export default function Portfolio() {
             <h1 className="section-title">mohammed yassin</h1>
             <span className="section-handle">@moyassin</span>
             <p className="section-text">teacher decoding the human mind, builder of agents at night. mission: eliminate reality itself.</p>
+            <div className="app-icons">
+              <img 
+                src="https://cdn.now.gg/assets-opt/_next/image?url=https%3A%2F%2Fcdn.now.gg%2Fnow-ai-chars%2Fassets%2Fprod1user-gen-characters%2F2025-01-01%2Fprod1user-gen-characters-img-yip1v2KldCCd3kEw8Zcfb-1735759001057.png&w=512&q=80" 
+                alt="app icon 1" 
+                className="app-icon app-icon-1" 
+              />
+              <img 
+                src="https://cdn.now.gg/assets-opt/_next/image?url=https%3A%2F%2Fcdn.now.gg%2Fnow-ai-chars%2Fassets%2Fprod1user-gen-characters%2F2024-12-08%2Fprod1user-gen-characters-img-5JMFgcdHY9OmjnGHvcziK-1733655450510.png&w=512&q=80" 
+                alt="app icon 2" 
+                className="app-icon app-icon-2" 
+              />
+              <img 
+                src="https://cdn.now.gg/assets-opt/_next/image?url=https%3A%2F%2Fcdn.now.gg%2Fnow-ai-chars%2Fassets%2Fprod1user-gen-characters%2F2025-02-09%2Fprod1user-gen-characters-img-ocPdT65uH3XJgpx1iqcGE-1739116845054.png&w=512&q=80" 
+                alt="app icon 3" 
+                className="app-icon app-icon-3" 
+              />
+            </div>
           </div>
         </div>
         <div className="full-section">
