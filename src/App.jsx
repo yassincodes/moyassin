@@ -102,7 +102,7 @@ export default function Portfolio() {
         }
 
         .section-text {
-          font-size: 1.75rem;
+          font-size: 1.25rem;
           color: #666666;
           line-height: 1.8;
           margin-bottom: 1.5rem;
