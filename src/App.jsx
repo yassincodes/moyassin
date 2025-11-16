@@ -271,7 +271,6 @@ export default function Portfolio() {
           height: 300px;
           flex-shrink: 0;
           object-fit: cover;
-          border-radius: 8px;
           filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
         }
 
@@ -855,21 +854,6 @@ export default function Portfolio() {
             <img 
               src="https://whatcelebdid.com" 
               alt="agelogs" 
-              className="project-image" 
-            />
-          </div>
-          <div className="two-project-item">
-            <div className="project-info">
-              <h3 className="project-title">
-                <a href="https://comerate.me" target="_blank" rel="noopener noreferrer" className="link">comerate.me</a>
-              </h3>
-              <p className="project-description">
-           Comerate.me cuts past the fake stuff on social media, like likes, emojis, and vague comments, to show what your friends and fans truly think. It's a simple tool for honest feedback: anonymous ratings, funny tough roasts, big shoutouts, and real talk from people who know you. Just share your personal link, and it becomes your easy feedback spot, no app to download. The beta is ready to try now, with AI features coming
-              </p>
-            </div>
-            <img 
-              src="https://comerate.me" 
-              alt="comerate" 
               className="project-image" 
             />
           </div>
