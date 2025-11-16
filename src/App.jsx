@@ -182,7 +182,6 @@ export default function Portfolio() {
         .project-image {
           width: 20vw;
           flex-shrink: 0;
-          border-radius: 8px;
           object-fit: cover;
           aspect-ratio: 1;
           filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
