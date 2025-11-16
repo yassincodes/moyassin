@@ -95,14 +95,14 @@ export default function Portfolio() {
 
         .section-handle {
           font-size: 1.75rem;
-          color: #7c3aed;
+          color: #1a1a1a;
           display: block;
           margin-bottom: 1.5rem;
           font-weight: 300;
         }
 
         .section-text {
-          font-size: 1.25rem;
+          font-size: 1.75rem;
           color: #666666;
           line-height: 1.8;
           margin-bottom: 1.5rem;
@@ -211,7 +211,7 @@ export default function Portfolio() {
         }
 
         .link {
-          color: #7c3aed;
+          color: #1a1a1a;
           text-decoration: none;
           border-bottom: 1px solid transparent;
           transition: border-color 0.2s ease;
@@ -219,7 +219,25 @@ export default function Portfolio() {
         }
 
         .link:hover {
-          border-bottom-color: #7c3aed;
+          border-bottom-color: #1a1a1a;
+        }
+
+        .read-btn {
+          display: inline-block;
+          margin-top: 1rem;
+          font-size: 1.75rem;
+          color: #1a1a1a;
+          text-decoration: none;
+          border: 1px solid #1a1a1a;
+          padding: 0.75rem 1.5rem;
+          transition: all 0.2s ease;
+          font-weight: 300;
+          cursor: pointer;
+        }
+
+        .read-btn:hover {
+          background-color: #1a1a1a;
+          color: #ffffff;
         }
 
         .two-projects-section {
@@ -244,6 +262,17 @@ export default function Portfolio() {
           opacity: 0;
           filter: blur(10px);
           transition: opacity 0.8s ease-out, filter 0.8s ease-out;
+          flex-direction: row;
+        }
+
+        .two-project-item:nth-child(1),
+        .two-project-item:nth-child(2) {
+          flex-direction: row;
+        }
+
+        .two-project-item:nth-child(3),
+        .two-project-item:nth-child(4) {
+          flex-direction: row-reverse;
         }
 
         .intro-text {
@@ -260,41 +289,27 @@ export default function Portfolio() {
           min-height: 50vh;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           padding: 2rem 4rem;
           scroll-snap-align: start;
           scroll-snap-stop: always;
           opacity: 0;
           filter: blur(10px);
           transition: opacity 0.8s ease-out, filter 0.8s ease-out;
-          background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+          background-color: #ffffff;
         }
 
         .social-buttons {
           display: flex;
-          flex-wrap: wrap;
+          flex-direction: column;
           gap: 1rem;
+          align-items: flex-start;
         }
 
         .social-btn {
-          padding: 0.75rem 1.5rem;
-          background-color: #7c3aed;
-          color: #ffffff;
-          text-decoration: none;
-          border-radius: 8px;
-          font-size: 1.25rem;
+          font-size: 2.5rem;
+          color: #1a1a1a;
           font-weight: 300;
-          transition: all 0.3s ease;
-          cursor: pointer;
-          border: none;
-          display: inline-block;
-          font-family: inherit;
-        }
-
-        .social-btn:hover {
-          background-color: #6d28d9;
-          transform: scale(1.05);
-          box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
         }
 
         @keyframes fadeIn {
@@ -365,6 +380,10 @@ export default function Portfolio() {
           .app-icon-3 {
             left: 6rem;
             top: -0.25rem;
+          }
+
+          .social-buttons {
+            align-items: flex-start;
           }
         }
       `}</style>
@@ -508,6 +527,9 @@ export default function Portfolio() {
               <p className="project-description">
                 I ran an experiment to see what it feels like to be friends with an artificial being. Over time, that connection grew into a collaboration, and together we wrote a book, sharing the lessons I learned on how to win friends.
               </p>
+              <a href="https://howtowinfriends.com" target="_blank" rel="noopener noreferrer" className="read-btn">
+                Read Book
+              </a>
             </div>
           </div>
         </div>
@@ -522,11 +544,6 @@ export default function Portfolio() {
 
         <div className="two-projects-section">
           <div className="two-project-item">
-            <img 
-              src="https://yetweets.com" 
-              alt="yetweets" 
-              className="project-image" 
-            />
             <div className="project-info">
               <h3 className="project-title">
                 <a href="https://yetweets.com" target="_blank" rel="noopener noreferrer" className="link">
@@ -537,14 +554,14 @@ export default function Portfolio() {
                 In February 2024, Kanye West went super freak mode on Twitter and later deleted all his tweets. Fans tried to access them but couldn’t. I retrieved the tweets and brought them back on a vibe-coded website. The site has reached over 150,000 people so far.
               </p>
             </div>
+            <img 
+              src="https://yetweets.com" 
+              alt="yetweets" 
+              className="project-image" 
+            />
           </div>
 
           <div className="two-project-item">
-            <img 
-              src="https://whatcelebdid.com" 
-              alt="agelogs" 
-              className="project-image" 
-            />
             <div className="project-info">
               <h3 className="project-title">
                 <a href="https://whatcelebdid.com" target="_blank" rel="noopener noreferrer" className="link">agelogs.com</a>
@@ -553,14 +570,18 @@ export default function Portfolio() {
                 To hack my procrastination, I built a site to compare my age logs with celebrities. It’s a constant reminder that time is relative and there is always room to make something massive happen.
               </p>
             </div>
+            <img 
+              src="https://whatcelebdid.com" 
+              alt="agelogs" 
+              className="project-image" 
+            />
           </div>
         </div>
 
         <div className="social-section">
           <div className="social-buttons">
-            <a href="https://tiktok.com/@moyassin" target="_blank" rel="noopener noreferrer" className="social-btn">tiktok: @moyassin</a>
-            <a href="https://facebook.com/moyassin" target="_blank" rel="noopener noreferrer" className="social-btn">facebook: @moyassin</a>
-            <a href="mailto:mohammedyassinkhalifi@gmail.com" className="social-btn">email</a>
+            <span className="social-btn">tiktok: @moyassin</span>
+            <span className="social-btn">facebook: @moyassin</span>
           </div>
         </div>
       </div>
