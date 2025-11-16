@@ -8,11 +8,9 @@ export default function Portfolio() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.5 });
 
     document.querySelectorAll('.full-section, .project-section, .two-project-item, .social-section').forEach((el) => {
       observer.observe(el);
@@ -636,6 +634,23 @@ export default function Portfolio() {
               className="project-image" 
             />
           </div>
+<div className="two-project-item">
+  <div className="project-info">
+    <h3 className="project-title">
+      <a href="https://comerate.me" target="_blank" rel="noopener noreferrer" className="link">comerate.me</a>
+    </h3>
+    <p className="project-description">
+      Ever wondered what your friends or fans actually think of you? Beyond the likes, emojis, and vague vibes — we're diving into real ratings, savage anonymous roasts, pure hype drops, and all the chaotic truth in between.
+      
+      Comerate.me makes you a walking, breathing app, with a lot of AI integrations coming soon. Now you can test the beta version.
+    </p>
+  </div>
+  <img 
+    src="https://comerate.me" 
+    alt="comerate" 
+    className="project-image" 
+  />
+</div>
         </div>
 
         <div className="social-section">
