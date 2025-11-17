@@ -857,13 +857,11 @@ export default function Portfolio() {
               className="project-image" 
             />
           </div>
-          <div className="two-project-item">
+      <div className="two-project-item">
   <div className="project-info">
-    <h3 className="project-title">
-      <a href="https://comerate.me" target="_blank" rel="noopener noreferrer" className="link">comerate.me</a>
-    </h3>
+    <h3 className="project-title">Web Dev Agency</h3>
     <p className="project-description">
-      Expanding on my Rate Your University venture, I'm creating something more minimal. Comerate is a link-in-bio tool where anyone can build a rating page for themselves or anything they want. The design is Gen Z-friendly, with lots of AI integrations and collaborations planned for the near future.
+      Running my website development agency, I create sleek, modern websites for individuals and businesses. I focus on Gen Z-friendly designs, AI integrations, and projects that combine creativity with functionality.
     </p>
   </div>
   <img 
@@ -871,6 +869,8 @@ export default function Portfolio() {
     alt="comerate" 
     className="project-image" 
   />
+</div>
+
 </div>
 
         </div>
