@@ -700,7 +700,7 @@ export default function Portfolio() {
 
           <div className="two-project-item">
             <div className="project-info">
-              <h3 className="project-title">2023 – Trying to build a time machine</h3>
+              <h3 className="project-title">2023 – Building a time machine</h3>
              <p className="project-description">
   For my graduation project, I built fully functional Facebook and Messenger clones with no sign-ups, where all profiles were AI-generated historical figures. The platform included over 100 profiles, and the feed was carefully recreated to show what historical figures might have posted before or after major decisions if social media had existed in their time. Students could explore any era and experience Facebook as if it were actually running then, scrolling feeds and reading posts and comments from figures of the past in real time. It was social media brought to life for history.
 </p>
