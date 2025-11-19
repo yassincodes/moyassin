@@ -724,7 +724,7 @@ export default function Portfolio() {
             <div className="project-info">
               <h3 className="project-title">2024 — drawing my students as grown-ups </h3>
               <p className="project-description">
-                I drew my students in their dream jobs and displayed the images in my classroom as motivation. I then shared the idea on a brand-new Facebook account with zero followers. The post quickly sparked a trend among teachers across the Arab world, and many educators who adopted it were later featured on major Arab channels such as Al Jazeera and Al Arabiya. I estimate that at least 500,000 kids experienced generative AI for the first time as a result of that post.
+                I drew my students in their dream jobs and displayed the images in my classroom as motivation. I then shared the idea on a brand-new Facebook account with zero followers. The post quickly sparked a trend among teachers across the Arab world, and many educators who adopted it were later featured on major Arab channels such as Al Jazeera and Al Arabiya. I estimate that at least half a million kid had experienced generative AI for the first time as a result of that post.
               </p>
             </div>
           </div>
@@ -857,11 +857,13 @@ export default function Portfolio() {
               className="project-image" 
             />
           </div>
-      <div className="two-project-item">
+          <div className="two-project-item">
   <div className="project-info">
-    <h3 className="project-title">Web Dev Agency</h3>
+    <h3 className="project-title">
+      <a href="https://comerate.me" target="_blank" rel="noopener noreferrer" className="link">comerate.me</a>
+    </h3>
     <p className="project-description">
-      Running my website development agency, I create sleek, modern websites for individuals and businesses. I focus on Gen Z-friendly designs, AI integrations, and projects that combine creativity with functionality.
+      Expanding on my Rate Your University venture, I'm creating something more minimal. Comerate is a link-in-bio tool where anyone can build a rating page for themselves or anything they want. The design is Gen Z-friendly, with lots of AI integrations and collaborations planned for the near future.
     </p>
   </div>
   <img 
@@ -869,8 +871,6 @@ export default function Portfolio() {
     alt="comerate" 
     className="project-image" 
   />
-</div>
-
 </div>
 
         </div>
