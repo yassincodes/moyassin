@@ -863,8 +863,7 @@ export default function Portfolio() {
       <a href="https://comerate.me" target="_blank" rel="noopener noreferrer" className="link">comerate.me</a>
     </h3>
     <p className="project-description">
-      Expanding on my Rate Your University venture, I'm creating something more minimal. Comerate is a link-in-bio tool where anyone can build a rating page for themselves or anything they want. The design is Gen Z-friendly, with lots of AI integrations and collaborations planned for the near future.
-    </p>
+After the Rate Your University experiment, I wanted something simpler and universal. Comerate.me is a minimal link-in-bio tool where anyone can create a rating page for themselves or anything they choose. Same raw honesty, now distilled to its purest form.    </p>
   </div>
   <img 
     src="https://comerate.me" 
