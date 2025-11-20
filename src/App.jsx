@@ -865,9 +865,7 @@ export default function Portfolio() {
       <a href="https://comerate.me" target="_blank" rel="noopener noreferrer" className="link">comerate.me</a>
     </h3>
     <p className="project-description">
-  After the Rate Your University experiment, I wanted something simpler and universal. Comerate.me is a minimal link-in-bio tool where anyone can create a rating page for themselves or anything they want. Same raw honesty, now distilled to its purest form.
-</p>
-
+After the Rate Your University experiment, I wanted something simpler and universal. Comerate.me is a minimal link-in-bio tool where anyone can create a rating page for themselves or anything they want. Same raw honesty, now distilled to its purest form.  </div>
   <img 
     src="https://comerate.me" 
     alt="comerate" 
@@ -913,7 +911,6 @@ export default function Portfolio() {
             <span className="social-btn">facebook: @moyassin</span>
           </div>
         </div>
-      </div>
       </div>
     </>
   );
