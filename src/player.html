@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Player</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .controls {
+            text-align: center;
+        }
+
+        .play-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .play-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .play-btn:active {
+            transform: translateY(0);
+        }
+
+        .status {
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .loading {
+            color: #667eea;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">🎵</div>
+            <h1>YouTube Audio Player</h1>
+            <p>Playing: AYv40zPNSrg</p>
+        </div>
+
+        <div class="controls">
+            <button class="play-btn" id="toggleBtn" onclick="toggleMusic()" disabled>
+                <span id="btnIcon">▶️</span>
+                <span id="btnText">Loading...</span>
+            </button>
+            <div class="status">
+                <span id="status" class="loading">Loading YouTube API...</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="player" style="display: none;"></div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        let player = null;
+        let isPlaying = false;
+        let isApiReady = false;
+
+        const toggleBtn = document.getElementById('toggleBtn');
+        const btnIcon = document.getElementById('btnIcon');
+        const btnText = document.getElementById('btnText');
+        const status = document.getElementById('status');
+
+        window.onYouTubeIframeAPIReady = function() {
+            isApiReady = true;
+            status.textContent = 'Initializing player...';
+            initPlayer();
+        };
+
+        function initPlayer() {
+            player = new YT.Player('player', {
+                height: '0',
+                width: '0',
+                videoId: 'AYv40zPNSrg',
+                playerVars: {
+                    'playsinline': 1,
+                    'autoplay': 0,
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange,
+                    'onError': onPlayerError
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            toggleBtn.disabled = false;
+            btnText.textContent = 'Play';
+            btnIcon.textContent = '▶️';
+            status.textContent = 'Ready to play';
+            status.classList.remove('loading');
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                isPlaying = true;
+                btnIcon.textContent = '⏸️';
+                btnText.textContent = 'Pause';
+                status.textContent = 'Now playing...';
+            } else if (event.data == YT.PlayerState.PAUSED) {
+                isPlaying = false;
+                btnIcon.textContent = '▶️';
+                btnText.textContent = 'Play';
+                status.textContent = 'Paused';
+            } else if (event.data == YT.PlayerState.ENDED) {
+                isPlaying = false;
+                btnIcon.textContent = '▶️';
+                btnText.textContent = 'Play';
+                status.textContent = 'Ended';
+            }
+        }
+
+        function onPlayerError(event) {
+            status.textContent = 'Error loading video';
+            status.style.color = '#dc2626';
+        }
+
+        function toggleMusic() {
+            if (player && typeof player.playVideo === 'function' && typeof player.pauseVideo === 'function') {
+                if (isPlaying) {
+                    player.pauseVideo();
+                } else {
+                    player.playVideo();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

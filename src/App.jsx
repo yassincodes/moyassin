@@ -872,38 +872,90 @@ After the Rate Your University experiment, I wanted to turn it from institutions
   />
   </p>
 </div>
+<div className="two-project-item">
+  <div className="project-info">
+    <h3 className="project-title">
+      <a 
+        href="https://comerate.me" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="link"
+      >
+        mycassettes.com
+      </a>
+    </h3>
+    <p className="project-description">
+      I just wanted to make a different way to share favorite songs between friends. 
+      Mycassettes is a way to share music differently, like cassettes.
+    </p>
+    <img 
+      src="https://comerate.me/path-to-your-image.jpg" 
+      alt="Mycassettes preview" 
+      className="project-image" 
+    />
+  </div>
+</div>
+
 
         </div>
 
-        <div className="full-section">
-          <div className="section-content">
-            <p className="intro-text">
-              In my spare time, I like reading books and watching anime.
-            </p>
-          </div>
-        </div>
+      <div className="full-section">
+  <div className="section-content">
+    <p className="intro-text">
+      I enjoy coding so much, and I’m also a big fan of books and anime!
+    </p>
+  </div>
+</div>
 
-        <div className="full-section">
-          <div className="section-content">
-            <h3 className="favorites-title">favorite books</h3>
-            <ul className="favorites-list">
-              <li className="favorites-item">The Alchemist by Paulo Coelho – A timeless tale of following your dreams.</li>
-              <li className="favorites-item">Sapiens: A Brief History of Humankind by Yuval Noah Harari – Fascinating insights into human evolution.</li>
-              <li className="favorites-item">Dune by Frank Herbert – Epic sci-fi world-building at its finest.</li>
-            </ul>
-          </div>
-        </div>
+<div className="full-section">
+  <div className="section-content">
+    <h3 className="favorites-title">Tech Stack</h3>
+    <ul className="favorites-list">
+      <li className="favorites-item">React</li>
+      <li className="favorites-item">TypeScript</li>
+      <li className="favorites-item">TailwindCSS</li>
+      <li className="favorites-item">Firebase</li>
+      <li className="favorites-item">Rust</li>
+    </ul>
+  </div>
+</div>
 
-        <div className="full-section">
-          <div className="section-content">
-            <h3 className="favorites-title">favorite anime</h3>
-            <ul className="favorites-list">
-              <li className="favorites-item">Attack on Titan – Intense action and deep themes on freedom and survival.</li>
-              <li className="favorites-item">Fullmetal Alchemist: Brotherhood – Masterful storytelling with alchemy and philosophy.</li>
-              <li className="favorites-item">Spirited Away – Studio Ghibli magic with stunning visuals and heartfelt adventure.</li>
-            </ul>
-          </div>
-        </div>
+<div className="full-section">
+  <div className="section-content">
+    <h3 className="favorites-title">Gear & Tools</h3>
+    <ul className="favorites-list">
+      <li className="favorites-item">MacBook Air 2020</li>
+      <li className="favorites-item">Galaxy S25 Ultra</li>
+      <li className="favorites-item">P9</li>
+      <li className="favorites-item">Friend Necklace</li>
+      <li className="favorites-item">VS Code</li>
+      <li className="favorites-item">GitHub</li>
+    </ul>
+  </div>
+</div>
+
+<div className="full-section">
+  <div className="section-content">
+    <h3 className="favorites-title">Bookshelf</h3>
+    <ul className="favorites-list">
+      <li className="favorites-item">The Alchemist by Paulo Coelho – A timeless tale of following your dreams.</li>
+      <li className="favorites-item">Sapiens: A Brief History of Humankind by Yuval Noah Harari – Fascinating insights into human evolution.</li>
+      <li className="favorites-item">Dune by Frank Herbert – Epic sci-fi world-building at its finest.</li>
+    </ul>
+  </div>
+</div>
+
+<div className="full-section">
+  <div className="section-content">
+    <h3 className="favorites-title">Anime List</h3>
+    <ul className="favorites-list">
+      <li className="favorites-item">Attack on Titan – Intense action and deep themes on freedom and survival.</li>
+      <li className="favorites-item">Fullmetal Alchemist: Brotherhood – Masterful storytelling with alchemy and philosophy.</li>
+      <li className="favorites-item">Spirited Away – Studio Ghibli magic with stunning visuals and heartfelt adventure.</li>
+    </ul>
+  </div>
+</div>
+
 
         <div className="social-section">
           <div className="social-buttons">
