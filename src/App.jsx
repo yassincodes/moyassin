@@ -859,19 +859,7 @@ export default function Portfolio() {
               className="project-image" 
             />
           </div>
-          <div className="two-project-item">
-  <div className="project-info">
-    <h3 className="project-title">
-      <a href="https://comerate.me" target="_blank" rel="noopener noreferrer" className="link">comerate.me</a>
-    </h3>
-    <p className="project-description">
-After the Rate Your University experiment, I wanted to turn it from institutions to individuals. Comerate.me is a clean, minimalist link-in-bio tool where anyone can create a personal rating page, letting you see yourself through the world’s eyes, raw, honest, private and all yours.  <img 
-    src="https://comerate.me" 
-    alt="comerate" 
-    className="project-image" 
-  />
-  </p>
-</div>
+     
 
 <div className="two-project-item">
   <div className="project-info">
