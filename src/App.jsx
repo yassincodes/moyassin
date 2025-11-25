@@ -872,6 +872,7 @@ After the Rate Your University experiment, I wanted to turn it from institutions
   />
   </p>
 </div>
+
 <div className="two-project-item">
   <div className="project-info">
     <h3 className="project-title">
