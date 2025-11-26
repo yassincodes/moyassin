@@ -878,7 +878,7 @@ Throughout the years, I have built more than 100 websites. It started as a way f
                 </a>
               </h3>
               <p className="project-description">
-                In February 2024, Kanye West went super freak mode on Twitter and later deleted all his tweets. Fans tried to access them but couldn't. I retrieved the tweets and brought them back on a vibe-coded website. The site has reached over 150,000 people so far.
+                In February 2024, Ye aka Kanye West went super freak mode on Twitter and later deleted all his tweets. Fans tried to access them but couldn't. I retrieved the tweets and brought them back on a vibe-coded website. The site has reached over 150,000 people so far and was featured on multiple youtube channels.
               </p>
             </div>
             <img 
