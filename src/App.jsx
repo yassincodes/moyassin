@@ -829,8 +829,7 @@ export default function Portfolio() {
         <div className="full-section">
           <div className="section-content">
             <p className="intro-text">
-              I'm also working on different projects in my spare time, trying to create something unique and seizing opportunities whenever they arise. A few of these include
-            </p>
+Throughout the years, I have built more than 100 websites. It started as a way for me to learn more about coding and algorithms, and later it grew into a habit of always trying to create something useful and fun that had never existed before. Here is a short list of my favorites            </p>
           </div>
         </div>
 
@@ -922,7 +921,7 @@ export default function Portfolio() {
               className="project-image" 
             />
           </div>
-          
+
           <div className="two-project-item">
             <div className="project-info">
               <h3 className="project-title">
@@ -941,14 +940,6 @@ export default function Portfolio() {
 
        
         </div>
-
-      <div className="full-section">
-  <div className="section-content">
-    <p className="intro-text">
-      I enjoy coding so much, and I’m also a big fan of books and anime!
-    </p>
-  </div>
-</div>
 
 <div className="full-section">
   <div className="section-content">
@@ -979,7 +970,7 @@ export default function Portfolio() {
 
 <div className="full-section">
   <div className="section-content">
-    <h3 className="favorites-title">Bookshelf</h3>
+    <h3 className="favorites-title">Books I Love</h3>
     <ul className="favorites-list">
       <li className="favorites-item">The Alchemist by Paulo Coelho – A timeless tale of following your dreams.</li>
       <li className="favorites-item">Sapiens: A Brief History of Humankind by Yuval Noah Harari – Fascinating insights into human evolution.</li>
@@ -988,19 +979,12 @@ export default function Portfolio() {
   </div>
 </div>
 
-<div className="full-section">
-  <div className="section-content">
-    <h3 className="favorites-title">Anime List</h3>
-    <ul className="favorites-list">
-      <li className="favorites-item">Attack on Titan – Intense action and deep themes on freedom and survival.</li>
-      <li className="favorites-item">Fullmetal Alchemist: Brotherhood – Masterful storytelling with alchemy and philosophy.</li>
-      <li className="favorites-item">Spirited Away – Studio Ghibli magic with stunning visuals and heartfelt adventure.</li>
-    </ul>
-  </div>
-</div>
-
 
         <div className="social-section">
+          <div>
+     <h3 className="favorites-title">Contact</h3>
+          </div>
+     
           <div className="social-buttons">
             <span className="social-btn">tiktok: @moyassin</span>
             <span className="social-btn">facebook: @moyassin</span>
