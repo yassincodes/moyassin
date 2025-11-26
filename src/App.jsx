@@ -829,7 +829,7 @@ export default function Portfolio() {
         <div className="full-section">
           <div className="section-content">
             <p className="intro-text">
-Throughout the years, I have built more than 100 websites. It started as a way for me to learn more about coding and algorithms, and later it grew into a habit of always trying to create something useful and fun that had never existed before. Here is a short list of my favorites            </p>
+Throughout the years, I have built more than 100 websites. It started as a way for me to learn more about coding and algorithms, and later it grew into a habit of always trying to create something useful and fun while vibe coding at 100 words per minutes and listening to my favorite artists. Here is a short list of my favorites            </p>
           </div>
         </div>
 
