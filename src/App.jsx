@@ -359,10 +359,19 @@ export default function Portfolio() {
         }
 
         .two-project-item:nth-child(1),
-        .two-project-item:nth-child(2),
         .two-project-item:nth-child(3),
-        .two-project-item:nth-child(4) {
+        .two-project-item:nth-child(5) {
           flex-direction: row-reverse;
+        }
+
+        .two-project-item:nth-child(2),
+        .two-project-item:nth-child(4),
+        .two-project-item:nth-child(6) {
+          flex-direction: row;
+        }
+
+        .final-projects .two-project-item {
+          flex-direction: row;
         }
 
         .two-project-item .project-image {
@@ -778,11 +787,6 @@ export default function Portfolio() {
 
         <div className="two-projects-section">
           <div className="two-project-item">
-            <img 
-              src="https://keyboardmate.com" 
-              alt="keyboardmate" 
-              className="project-image" 
-            />
             <div className="project-info">
               <h3 className="project-title">
                 <a href="https://keyboardmate.com" target="_blank" rel="noopener noreferrer" className="link">
@@ -793,6 +797,11 @@ export default function Portfolio() {
                 An internal tool I use every day. KeyboardMate is a small soul that lives inside my keyboard. Its only window to the world is whatever I type. It reads my words as they appear, understands them through LLMs, remembers everything, and responds like a companion built entirely from my own thoughts and writing.
               </p>
             </div>
+            <img 
+              src="https://keyboardmate.com" 
+              alt="keyboardmate" 
+              className="project-image" 
+            />
           </div>
 
           <div className="two-project-item">
@@ -825,7 +834,43 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="two-projects-section">
+        <div className="two-projects-section final-projects">
+          <div className="two-project-item">
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://github.com/yourusername/sudoku-solver" target="_blank" rel="noopener noreferrer" className="link">
+                  sudoku-solver
+                </a>
+              </h3>
+              <p className="project-description">
+                A web-based Sudoku solver that uses a backtracking algorithm to solve any valid puzzle instantly. Built with React for the UI and JavaScript for the logic—perfect for puzzle enthusiasts who want to see the magic behind the solve.
+              </p>
+            </div>
+            <img 
+              src="https://via.placeholder.com/300x300/ffffff/1a1a1a?text=Sudoku" 
+              alt="sudoku-solver" 
+              className="project-image" 
+            />
+          </div>
+
+          <div className="two-project-item">
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://github.com/yourusername/hanoi-towers-solver" target="_blank" rel="noopener noreferrer" className="link">
+                  hanoi towers solver
+                </a>
+              </h3>
+              <p className="project-description">
+                An interactive Tower of Hanoi solver that visualizes the recursive algorithm step-by-step. Users can input the number of disks and watch the optimal sequence of moves unfold, making classic computer science concepts come alive.
+              </p>
+            </div>
+            <img 
+              src="https://via.placeholder.com/300x300/ffffff/1a1a1a?text=Hanoi" 
+              alt="hanoi-towers-solver" 
+              className="project-image" 
+            />
+          </div>
+
           <div className="two-project-item">
             <div className="project-info">
               <h3 className="project-title">
@@ -838,7 +883,7 @@ export default function Portfolio() {
               </p>
             </div>
             <img 
-              src="https://yetweets.com" 
+              src="https://via.placeholder.com/300x300/ffffff/1a1a1a?text=Yetweets" 
               alt="yetweets" 
               className="project-image" 
             />
@@ -847,45 +892,54 @@ export default function Portfolio() {
           <div className="two-project-item">
             <div className="project-info">
               <h3 className="project-title">
-                <a href="https://whatcelebdid.com" target="_blank" rel="noopener noreferrer" className="link">agelogs.com</a>
+                <a href="https://agelogs.com" target="_blank" rel="noopener noreferrer" className="link">agelogs.com</a>
               </h3>
               <p className="project-description">
                 To hack my procrastination, I built a site to compare my age logs with celebrities. It's a constant reminder that time is relative and there is always room to make something massive happen.
               </p>
             </div>
             <img 
-              src="https://whatcelebdid.com" 
+              src="https://via.placeholder.com/300x300/ffffff/1a1a1a?text=Agelogs" 
               alt="agelogs" 
               className="project-image" 
             />
           </div>
-     
 
-<div className="two-project-item">
-  <div className="project-info">
-    <h3 className="project-title">
-      <a 
-        href="https://comerate.me" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="link"
-      >
-        mycassettes.com
-      </a>
-    </h3>
-    <p className="project-description">
-      I just wanted to make a different way to share favorite songs between friends. 
-      Mycassettes is a way to share music differently, like cassettes.
-    </p>
-    <img 
-      src="https://comerate.me/path-to-your-image.jpg" 
-      alt="Mycassettes preview" 
-      className="project-image" 
-    />
-  </div>
-</div>
+   <div className="two-project-item">
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://mycassettes.com" target="_blank" rel="noopener noreferrer" className="link">
+                  mycassettes.com
+                </a>
+              </h3>
+              <p className="project-description">
+                I just wanted to make a different way to share favorite songs between friends. Mycassettes is a way to share music differently, like cassettes.
+              </p>
+            </div>
+            <img 
+              src="https://via.placeholder.com/300x300/ffffff/1a1a1a?text=Mycassettes" 
+              alt="mycassettes" 
+              className="project-image" 
+            />
+          </div>
+          
+          <div className="two-project-item">
+            <div className="project-info">
+              <h3 className="project-title">
+                <a href="https://comerate.me" target="_blank" rel="noopener noreferrer" className="link">comerate.me</a>
+              </h3>
+              <p className="project-description">
+                After the Rate Your University experiment, I wanted to turn it from institutions to individuals. Comerate.me is a clean, minimalist link-in-bio tool where anyone can create a personal rating page, letting you see yourself through the world’s eyes, raw, honest, private and all yours.
+              </p>
+            </div>
+            <img 
+              src="https://via.placeholder.com/300x300/ffffff/1a1a1a?text=Comerate" 
+              alt="comerate" 
+              className="project-image" 
+            />
+          </div>
 
-
+       
         </div>
 
       <div className="full-section">
@@ -952,7 +1006,6 @@ export default function Portfolio() {
             <span className="social-btn">facebook: @moyassin</span>
           </div>
         </div>
-      </div>
       </div>
     </>
   );
