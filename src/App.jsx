@@ -300,18 +300,19 @@ export default function App() {
           <div className="mission-text">mission: eliminate reality itself.</div>
         </div>
 
-        <div className="story-section">
-          <h2 className="section-title">Story</h2>
-          <div className="story-text">
-            <p>At <span className="highlight">16</span>, I built the largest English‑teaching platform in the Arab world, helping over 80,000 Arabic speakers learn English online.</p>
-            
-            <p>After graduating high school as a math student, I went to Teachers' College. Attended classes? Sure—but very few. I taught myself how to code instead.</p>
-            
-            <p>I <span className="highlight">hacked Scrimba.com</span> for a year of free access, learned from the best, and immediately started freelancing—building websites and tools for clients across the MENA region, alongside wild side projects.</p>
-            
-            <p>I stepped into classrooms for the first time on <span className="highlight">World Teachers' Day 2023</span>, the day I began my main product and lifelong project, Assistant. The school became my lab. Teaching ran alongside coding, building, and experimenting—always pushing the limits.</p>
-          </div>
-        </div>
+     <div className="story-section">
+  <h2 className="section-title">Story</h2>
+  <div className="story-text">
+    <p>At <span className="highlight">16</span>, I built the largest English‑teaching platform in the Arab world, helping over 80,000 Arabic speakers learn English online.</p>
+    
+    <p>After graduating high school as a math student, I enrolled in Teachers' College. I attended only a few classes, choosing instead to teach myself how to code.</p>
+    
+    <p>I <span className="highlight">hacked Scrimba.com</span> for a year of free access, learned from the best, and immediately started freelancing, building websites and tools for clients across the MENA region, along with side projects.</p>
+    
+    <p>I stepped into classrooms for the first time on <span className="highlight">World Teachers' Day 2023</span>, the day I began working on my lifelong project, Assistant. The school became my lab. Teaching ran alongside coding, building, and experimenting, always striving to create something new.</p>
+  </div>
+</div>
+
 
         <h2 className="section-title">Favorite Projects</h2>
         <div className="projects-grid">
