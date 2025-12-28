@@ -390,7 +390,7 @@ export default function App() {
           <div className="project-item">
             <div className="project-image">📧</div>
             <div className="project-content">
-              <div className="project-title">famousinbox</div>
+              <div className="project-title">famousinbox.com</div>
               <div className="project-description">Famous people's leaks, presented in original email format.</div>
             </div>
           </div>
@@ -430,7 +430,7 @@ export default function App() {
           <div className="project-item">
             <div className="project-image">🤝</div>
             <div className="project-content">
-              <div className="project-title">howtowinfriend.vercel.app / wijden.xyz</div>
+              <div className="project-title">How To Win Friends Book</div>
               <div className="project-description">Book/playbook sharing real experiences with friendship.</div>
             </div>
           </div>
