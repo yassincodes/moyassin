@@ -404,13 +404,6 @@ export default function App() {
             </div>
           </div>
 
-          <div className="project-item">
-            <div className="project-image">💯</div>
-            <div className="project-content">
-              <div className="project-title">comerate.me</div>
-              <div className="project-description">Get raw ratings, roasts, and hype from friends/fans. See where you stand.</div>
-            </div>
-          </div>
 
           <div className="project-item">
             <div className="project-image">📖</div>
