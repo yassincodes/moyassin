@@ -1,446 +1,492 @@
+import React from "react"
+
 export default function App() {
+  const projects = [
+    {
+      title: "assis.tn",
+      url: "https://assis.tn",
+      description: "The next big thing in education — a living, autonomous AI entity.",
+      emoji: "🤖",
+      tags: ["AI Agent", "Education"],
+      featured: true,
+    },
+    {
+      title: "najmschool.tn",
+      url: "https://najmschool.tn",
+      description: "First online school where every teacher is built with AI.",
+      emoji: "🏫",
+      tags: ["AI", "EdTech"],
+    },
+    {
+      title: "yetweets.com",
+      url: "https://yetweets.com",
+      description: "Full Kanye West tweet archive. 200k+ visitors and counting.",
+      emoji: "🐦",
+      tags: ["Viral", "Archive"],
+    },
+    {
+      title: "comerate.me",
+      url: "https://comerate.me",
+      description: "Built for Gen Z, a website to share customized links and get anonymous ratings.",
+      emoji: "🌟",
+      tags: ["Social", "Gen Z"],
+    },
+    {
+      title: "xpedia.live",
+      url: "https://xpedia.live",
+      description: "Build a Wikipedia page style based on your X posts, 1000+ pages built so far.",
+      emoji: "📖",
+      tags: ["AI", "X API"],
+    },
+    {
+      title: "famousinbox.com",
+      url: "https://famousinbox.com",
+      description: "Famous people's leaks, presented in original email format.",
+      emoji: "📧",
+      tags: ["Creative", "UI"],
+    },
+    {
+      title: "keyboardmate.com",
+      url: "https://keyboardmate.com",
+      description: "AI friend that lives in your keyboard.",
+      emoji: "⌨️",
+      tags: ["AI", "Tool"],
+    },
+    {
+      title: "Teaching English",
+      url: "https://facebook.com/moyassin",
+      description: "Started at 16 building the largest English-teaching platform in the Arab world, helping over 80,000 learners.",
+      emoji: "📚",
+      tags: ["Education", "Scaling"],
+    },
+  ]
+
   return (
     <>
-      <style>{`
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      {/* Global styles – paste this into your global CSS file (e.g., index.css or globals.css) */}
+      <style jsx global>{`
+        :root {
+          --background: oklch(1 0 0);
+          --foreground: oklch(0.145 0 0);
+          --primary: oklch(0.85 0.2 110);
+          --primary-foreground: oklch(0 0 0);
+          --muted: oklch(0.95 0 0);
+          --muted-foreground: oklch(0.4 0 0);
+          --border: oklch(0.9 0 0);
+        }
+
+        .dark {
+          --background: oklch(0.145 0 0);
+          --foreground: oklch(0.985 0 0);
+          --primary: oklch(0.985 0 0);
+          --primary-foreground: oklch(0.205 0 0);
+          --muted: oklch(0.269 0 0);
+          --muted-foreground: oklch(0.708 0 0);
+          --border: oklch(0.269 0 0);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #f5f5f5;
-            color: #1a1a1a;
+          margin: 0;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        .hero {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            padding: 80px 40px;
+        .app {
+          min-height: 100vh;
+          background: var(--background);
+          color: var(--foreground);
         }
 
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .header {
+          background: var(--primary);
+          padding: 4rem 1.5rem;
+          border-bottom: 4px solid var(--foreground);
         }
 
-        .hero-name {
-            font-size: 5em;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: -2px;
-            margin-bottom: 10px;
+        @media (min-width: 768px) {
+          .header {
+            padding: 6rem 1.5rem;
+          }
         }
 
-        .hero-handle {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #fff;
-            opacity: 0.95;
+        .header-container {
+          max-width: 64rem;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+          align-items: flex-start;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 40px;
+        @media (min-width: 768px) {
+          .header-container {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          }
         }
 
-        .bio-section {
-            margin-bottom: 40px;
+        .name-title {
+          font-size: 3.75rem;
+          font-weight: 900;
+          line-height: 1;
+          text-transform: uppercase;
+          letter-spacing: -0.05em;
         }
 
-        .bio-text {
-            font-size: 1.4em;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 15px;
+        @media (min-width: 768px) {
+          .name-title {
+            font-size: 5rem;
+          }
         }
 
-        .mission-text {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 50px;
+        .handle {
+          margin-top: 1rem;
+          font-size: 1.5rem;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          opacity: 0.9;
         }
 
-        .section-title {
-            font-size: 3em;
-            font-weight: 900;
-            margin-bottom: 40px;
-            color: #000;
-            letter-spacing: -2px;
+        @media (min-width: 768px) {
+          .handle {
+            font-size: 1.875rem;
+          }
+        }
+
+        .builder-box {
+          background: var(--foreground);
+          color: var(--primary);
+          padding: 1rem;
+          border-radius: 1rem;
+          transform: rotate(3deg);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+          display: none;
+        }
+
+        @media (min-width: 768px) {
+          .builder-box {
+            display: block;
+          }
+        }
+
+        .builder-text {
+          font-size: 1.25rem;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+        }
+
+        .main-container {
+          max-width: 64rem;
+          margin: 0 auto;
+          padding: 3rem 1.5rem 5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 6rem;
+        }
+
+        @media (min-width: 768px) {
+          .main-container {
+            padding-top: 5rem;
+          }
         }
 
         .story-section {
-            background: #fff;
-            padding: 50px;
-            border-radius: 12px;
-            margin-bottom: 60px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          display: grid;
+          gap: 2rem;
+          align-items: start;
+        }
+
+        @media (min-width: 768px) {
+          .story-section {
+            grid-template-columns: 1fr 2fr;
+          }
+        }
+
+        .section-title {
+          font-size: 2.25rem;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: -0.05em;
         }
 
         .story-text {
-            font-size: 1.15em;
-            line-height: 1.9;
-            color: #333;
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          font-size: 1.25rem;
+          font-weight: 500;
+          line-height: 1.4;
         }
 
-        .story-text p {
-            margin-bottom: 20px;
+        @media (min-width: 768px) {
+          .story-text {
+            font-size: 1.5rem;
+          }
         }
 
-        .highlight {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: #fff;
-            padding: 2px 6px;
-            font-weight: 700;
-            border-radius: 4px;
+        .age-highlight {
+          background: var(--primary);
+          padding: 0 0.25rem;
+          border-radius: 0.25rem;
+        }
+
+        .mission {
+          color: var(--muted-foreground);
+        }
+
+        .mission-quote {
+          color: var(--foreground);
+          font-style: italic;
+        }
+
+        .work-section {
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
         }
 
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+          display: grid;
+          gap: 4rem;
         }
 
-        .project-item {
-            background: #fff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border: 2px solid #e5e5e5;
+        @media (min-width: 768px) {
+          .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem 3rem;
+          }
         }
 
-        .project-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-            border-color: #10b981;
+        .project-link {
+          display: flex;
+          gap: 1.5rem;
+          align-items: flex-start;
+          text-decoration: none;
+          color: inherit;
         }
 
-        .project-image {
-            width: 100%;
-            height: 300px;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4em;
-            position: relative;
-            overflow: hidden;
+        .project-link:hover .project-emoji-box {
+          border-color: var(--foreground);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+          transform: rotate(-2deg);
         }
 
-        .project-item:nth-child(1) .project-image {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .project-link:hover .project-title {
+          text-decoration: underline;
+          text-decoration-thickness: 4px;
+          text-underline-offset: 4px;
         }
 
-        .project-item:nth-child(2) .project-image {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        .project-emoji-box {
+          flex-shrink: 0;
+          width: 6rem;
+          height: 6rem;
+          background: var(--muted);
+          border-radius: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2.25rem;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+          border: 2px solid transparent;
+          transition: all 0.3s ease;
         }
 
-        .project-item:nth-child(3) .project-image {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        .project-item:nth-child(4) .project-image {
-            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-        }
-
-        .project-item:nth-child(5) .project-image {
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-        }
-
-        .project-item:nth-child(6) .project-image {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-        }
-
-        .project-item:nth-child(7) .project-image {
-            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-        }
-
-        .project-item:nth-child(8) .project-image {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-        }
-
-        .project-item:nth-child(9) .project-image {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-        }
-
-        .project-item:nth-child(10) .project-image {
-            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
-        }
-
-        .project-item:nth-child(11) .project-image {
-            background: linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%);
-        }
-
-        .project-item:nth-child(12) .project-image {
-            background: linear-gradient(135deg, #a1ffce 0%, #faffd1 100%);
-        }
-
-        .project-item:nth-child(13) .project-image {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .project-item:nth-child(14) .project-image {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .project-item:nth-child(15) .project-image {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        .project-content {
-            padding: 30px;
-            background: #fff;
+        @media (min-width: 768px) {
+          .project-emoji-box {
+            width: 8rem;
+            height: 8rem;
+            font-size: 3rem;
+          }
         }
 
         .project-title {
-            font-size: 1.5em;
-            font-weight: 900;
-            color: #000;
-            margin-bottom: 12px;
-            text-align: center;
+          font-size: 1.25rem;
+          font-weight: 900;
+        }
+
+        @media (min-width: 768px) {
+          .project-title {
+            font-size: 1.5rem;
+          }
         }
 
         .project-description {
-            font-size: 1.05em;
-            color: #666;
-            line-height: 1.7;
-            text-align: center;
+          font-weight: 500;
+          color: var(--muted-foreground);
         }
 
-        .footer-section {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            padding: 60px 40px;
-            text-align: center;
-            margin-top: 80px;
+        .project-tags {
+          display: flex;
+          gap: 0.5rem;
+          padding-top: 0.5rem;
         }
 
-        .footer-text {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 15px;
-            opacity: 0.9;
+        .tag {
+          font-size: 0.625rem;
+          text-transform: uppercase;
+          font-weight: 900;
+          letter-spacing: 0.1em;
+          background: var(--muted);
+          padding: 0.125rem 0.5rem;
+          border-radius: 0.25rem;
+          border: 1px solid var(--border);
+        }
+
+        .footer {
+          padding: 5rem 1.5rem 3rem;
+          border-top: 4px solid var(--foreground);
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        @media (min-width: 768px) {
+          .footer {
+            flex-direction: row;
+          }
+        }
+
+        .footer-brand {
+          text-align: center;
+        }
+
+        @media (min-width: 768px) {
+          .footer-brand {
+            text-align: left;
+          }
         }
 
         .footer-handle {
-            font-size: 4em;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 30px;
+          font-size: 3.125rem;
+          font-weight: 900;
+          letter-spacing: -0.05em;
+        }
+
+        .footer-tagline {
+          font-weight: 700;
+          color: var(--muted-foreground);
         }
 
         .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+          display: flex;
+          gap: 1rem;
         }
 
         .social-link {
-            background: #fff;
-            color: #10b981;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
+          padding: 1rem;
+          background: var(--muted);
+          border: 2px solid var(--foreground);
+          border-radius: 9999px;
+          transition: background 0.3s ease, color 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--foreground);
         }
 
         .social-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            background: #f0f0f0;
+          background: var(--primary);
+          color: var(--primary-foreground);
         }
 
-        @media (max-width: 768px) {
-            .hero {
-                padding: 60px 20px;
-            }
-
-            .hero-name {
-                font-size: 3em;
-            }
-
-            .hero-handle {
-                font-size: 1.8em;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .story-section {
-                padding: 30px;
-            }
-
-            .footer-handle {
-                font-size: 2.5em;
-            }
-
-            .section-title {
-                font-size: 2em;
-            }
+        .social-icon {
+          width: 24px;
+          height: 24px;
         }
       `}</style>
 
-      <div className="hero">
-        <div className="hero-content">
-          <div className="hero-name">Mohammed Yassin</div>
-          <div className="hero-handle">@moyassin</div>
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="bio-section">
-          <div className="bio-text">teacher decoding the human mind, builder of agents at night.</div>
-          <div className="mission-text">mission: eliminate reality itself.</div>
-        </div>
-
-     <div className="story-section">
-  <h2 className="section-title">Story</h2>
-  <div className="story-text">
-    <p>At <span className="highlight">16</span>, I built the largest English‑teaching platform in the Arab world, helping over 80,000 Arabic speakers learn English online.</p>
-    
-    <p>After graduating high school as a math student, I enrolled in Teachers' College. I attended only a few classes, choosing instead to teach myself how to code.</p>
-    
-    <p>I <span className="highlight">hacked Scrimba.com</span> for a year of free access, learned from the best, and immediately started freelancing, building websites and tools for clients across the MENA region, along with side projects.</p>
-    
-    <p>I stepped into classrooms for the first time on <span className="highlight">World Teachers' Day 2023</span>, the day I began working on my lifelong project, Assistant. The school became my lab. Teaching ran alongside coding, building, and experimenting, always striving to create something new.</p>
-  </div>
-</div>
-
-
-        <h2 className="section-title">Favorite Projects</h2>
-        <div className="projects-grid">
-          <div className="project-item">
-            <div className="project-image">📚</div>
-            <div className="project-content">
-              <div className="project-title">teaching english</div>
-              <div className="project-description">i started making content at 16 helping others learning english online, i built multiple websites and hosted a lot of chat groups back then, with 2 employees working on the platform</div>
+      <div className="app">
+        <header className="header">
+          <div className="header-container">
+            <div>
+              <h1 className="name-title">
+                Mohammed <br /> Yassin
+              </h1>
+              <p className="handle">@moyassin</p>
+            </div>
+            <div className="builder-box">
+              <p className="builder-text">Builder of Agents</p>
             </div>
           </div>
+        </header>
 
-          <div className="project-item">
-            <div className="project-image">📱</div>
-            <div className="project-content">
-              <div className="project-title">Social Media from the Past</div>
-              <div className="project-description">Graduation project: AI-powered clones of historical social platforms.</div>
+        <main className="main-container">
+          <section className="story-section">
+            <h2 className="section-title">The Story</h2>
+            <div className="story-text">
+              <p>
+                At 16 years old, I built the largest English-teaching platform in the Arab world, helping over 80,000 Arabic speakers learn English online.
+              </p>
+              <p>
+                After graduating high school as a math student, I enrolled in Teachers' College. I attended only a few classes, choosing instead to teach myself how to code.
+              </p>
+              <p>
+                I hacked Scrimba.com for a year of free access, learned from the best, and immediately started freelancing, building websites and tools for clients across the MENA region.
+              </p>
+              <p>
+                I stepped into classrooms for the first time on World Teachers' Day 2023, the day I began working on my lifelong project, Assistant. The school became my lab. Teaching ran alongside coding, building, and experimenting.
+              </p>
             </div>
-          </div>
+          </section>
 
-          <div className="project-item">
-            <div className="project-image">🧩</div>
-            <div className="project-content">
-              <div className="project-title">Sudoku Solver</div>
-              <div className="project-description">Built to level up algorithm skills.</div>
+          <section className="work-section">
+            <h2 className="section-title">Favorite Projects</h2>
+            <div className="projects-grid">
+              {projects.map((project, i) => (
+                <a key={i} href={project.url} target="_blank" rel="noreferrer" className="project-link">
+                  <div className="project-emoji-box">{project.emoji}</div>
+                  <div className="project-info">
+                    <h3 className="project-title">
+                      {project.title}: <span className="project-description">{project.description}</span>
+                    </h3>
+                    <div className="project-tags">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="tag">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </a>
+              ))}
             </div>
-          </div>
+          </section>
 
-          <div className="project-item">
-            <div className="project-image">🗼</div>
-            <div className="project-content">
-              <div className="project-title">Hanoi Towers Solver</div>
-              <div className="project-description">Recursive algorithm playground for problem-solving.</div>
+          <footer className="footer">
+            <div className="footer-brand">
+              <p className="footer-handle">@moyassin</p>
+              <p className="footer-tagline">Across all platforms.</p>
             </div>
-          </div>
-
-          <div className="project-item">
-            <div className="project-image">🎨</div>
-            <div className="project-content">
-              <div className="project-title">drawing students as grown ups</div>
-              <div className="project-description">i draw my students as grown ups and shared the experience on a brand new account</div>
+            <div className="social-links">
+              <a href="https://x.com/moyassin" target="_blank" rel="noreferrer" className="social-link">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z" />
+                </svg>
+              </a>
+              <a href="https://github.com/moyassin" target="_blank" rel="noreferrer" className="social-link">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoinCap="round">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </a>
+              <a href="https://facebook.com/moyassin" target="_blank" rel="noreferrer" className="social-link">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoinCap="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+              </a>
+              <a href="https://medium.com/@moyassin" target="_blank" rel="noreferrer" className="social-link">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoinCap="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </a>
             </div>
-          </div>
-
-          <div className="project-item">
-            <div className="project-image">🏫</div>
-            <div className="project-content">
-              <div className="project-title">najmschool.tn</div>
-              <div className="project-description">First online school where every teacher is built with AI.</div>
-            </div>
-          </div>
-
-          <div className="project-item">
-            <div className="project-image">🤖</div>
-            <div className="project-content">
-              <div className="project-title">assis.tn</div>
-              <div className="project-description">The next big thing in education — a living, autonomous AI entity.</div>
-            </div>
-          </div>
-
-          <div className="project-item">
-            <div className="project-image">🍌</div>
-            <div className="project-content">
-              <div className="project-title">bananaest.com</div>
-              <div className="project-description">Pinterest-style platform for AI-generated Nano Banana images. Users can browse, collect, and share unique AI creations, organize them into boards, and discover trending or new Nano Banana art.</div>
-            </div>
-          </div>
-
-          <div className="project-item">
-            <div className="project-image">🐦</div>
-            <div className="project-content">
-              <div className="project-title">yetweets.com</div>
-              <div className="project-description">Full Kanye West tweet archive. 200k+ visitors and counting.</div>
-            </div>
-          </div>
-
-          <div className="project-item">
-            <div className="project-image">📧</div>
-            <div className="project-content">
-              <div className="project-title">famousinbox.com</div>
-              <div className="project-description">Famous people's leaks, presented in original email format.</div>
-            </div>
-          </div>
-
-          <div className="project-item">
-            <div className="project-image">⏰</div>
-            <div className="project-content">
-              <div className="project-title">agelogs.com</div>
-              <div className="project-description">What icons were doing at your age. Motivation through timelines.</div>
-            </div>
-          </div>
-
-
-          <div className="project-item">
-            <div className="project-image">📖</div>
-            <div className="project-content">
-              <div className="project-title">xpedia.live</div>
-              <div className="project-description">build a wikipedia page style based on your x posts, 1000 wikipedia pages built so far</div>
-            </div>
-          </div>
-
-          <div className="project-item">
-            <div className="project-image">⌨️</div>
-            <div className="project-content">
-              <div className="project-title">keyboardmate.com</div>
-              <div className="project-description">AI friend that lives in your keyboard.</div>
-            </div>
-          </div>
-
-          <div className="project-item">
-            <div className="project-image">🤝</div>
-            <div className="project-content">
-              <div className="project-title">How To Win Friends Book</div>
-              <div className="project-description">Book/playbook sharing real experiences with friendship.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="footer-section">
-        <div className="footer-text">find me anywhere</div>
-        <div className="footer-handle">@moyassin</div>
-        <div className="social-links">
-          <a href="https://facebook.com/moyassin" className="social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://tiktok.com/@moyassin" className="social-link" target="_blank" rel="noopener noreferrer">TikTok</a>
-          <a href="https://x.com/moyassin" className="social-link" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="https://medium.com/@moyassin" className="social-link" target="_blank" rel="noopener noreferrer">Medium</a>
-        </div>
+          </footer>
+        </main>
       </div>
     </>
-  );
+  )
 }
