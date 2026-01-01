@@ -1,65 +1,129 @@
 import React from "react"
 
 export default function App() {
-  const projects = [
-    {
-      title: "assis.tn",
-      url: "https://assis.tn",
-      description: "The next big thing in education — a living, autonomous AI entity.",
-      emoji: "🤖",
-      tags: ["AI Agent", "Education"],
-      featured: true,
-    },
-    {
-      title: "najmschool.tn",
-      url: "https://najmschool.tn",
-      description: "First online school where every teacher is built with AI.",
-      emoji: "🏫",
-      tags: ["AI", "EdTech"],
-    },
-    {
-      title: "yetweets.com",
-      url: "https://yetweets.com",
-      description: "Full Kanye West tweet archive. 200k+ visitors and counting.",
-      emoji: "🐦",
-      tags: ["Viral", "Archive"],
-    },
-    {
-      title: "comerate.me",
-      url: "https://comerate.me",
-      description: "Built for Gen Z, a website to share customized links and get anonymous ratings.",
-      emoji: "🌟",
-      tags: ["Social", "Gen Z"],
-    },
-    {
-      title: "xpedia.live",
-      url: "https://xpedia.live",
-      description: "Build a Wikipedia page style based on your X posts, 1000+ pages built so far.",
-      emoji: "📖",
-      tags: ["AI", "X API"],
-    },
-    {
-      title: "famousinbox.com",
-      url: "https://famousinbox.com",
-      description: "Famous people's leaks, presented in original email format.",
-      emoji: "📧",
-      tags: ["Creative", "UI"],
-    },
-    {
-      title: "keyboardmate.com",
-      url: "https://keyboardmate.com",
-      description: "AI friend that lives in your keyboard.",
-      emoji: "⌨️",
-      tags: ["AI", "Tool"],
-    },
-    {
-      title: "Teaching English",
-      url: "https://facebook.com/moyassin",
-      description: "Started at 16 building the largest English-teaching platform in the Arab world, helping over 80,000 learners.",
-      emoji: "📚",
-      tags: ["Education", "Scaling"],
-    },
-  ]
+const projects = [
+  {
+    title: "Teaching English Online",
+    url: "https://facebook.com/moyassin",
+    description:
+      "Built the largest English-learning platform for Arabic speakers, reaching over 80,000 learners.",
+    emoji: "📚",
+    tags: ["Education", "Scaling"],
+  },
+  {
+    title: "Social Media From Past",
+    url: "",
+    description:
+      "A time-machine for social profiles, exploring how people used to think, post, and present themselves.",
+    emoji: "🕰️",
+    tags: ["Social", "Identity"],
+  },
+  {
+    title: "Sudoku Solver",
+    url: "",
+    description:
+      "A logic-based Sudoku solver demonstrating algorithmic thinking and constraint satisfaction.",
+    emoji: "🧩",
+    tags: ["Algorithms", "Logic"],
+  },
+  {
+    title: "Hanoi Towers Solver",
+    url: "",
+    description:
+      "A visual and recursive solution to the classic Towers of Hanoi problem.",
+    emoji: "🏗️",
+    tags: ["Algorithms", "Recursion"],
+  },
+  {
+    title: "Drawing Students as Grown Ups",
+    url: "",
+    description:
+      "AI-generated future versions of students, blending imagination, identity, and technology.",
+    emoji: "🎨",
+    tags: ["AI", "Identity"],
+  },
+  {
+    title: "najmschool",
+    url: "https://najmschool.tn",
+    description:
+      "An AI-first online school where teachers are autonomous agents.",
+    emoji: "🏫",
+    tags: ["AI", "Education"],
+  },
+  {
+    title: "assistant",
+    url: "",
+    description:
+      "A persistent AI entity with memory, goals, and long-term evolution.",
+    emoji: "🤖",
+    tags: ["AI Agent", "Autonomy"],
+  },
+  {
+    title: "yetweets.com",
+    url: "https://yetweets.com",
+    description:
+      "The complete Kanye West tweet archive with over 200,000 visitors.",
+    emoji: "🐦",
+    tags: ["Viral", "Archive"],
+  },
+  {
+    title: "comerateme",
+    url: "https://comerate.me",
+    description:
+      "A Gen Z–focused anonymous rating platform with shareable links.",
+    emoji: "🌟",
+    tags: ["Social", "Gen Z"],
+  },
+  {
+    title: "agelogs.com",
+    url: "",
+    description:
+      "A public age-based life archive comparing what people were doing at the same age across time and culture.",
+    emoji: "📊",
+    tags: ["Metrics", "Identity"],
+  },
+  {
+    title: "xpedia.live",
+    url: "https://xpedia.live",
+    description:
+      "Auto-generated Wikipedia-style pages built from X (Twitter) activity.",
+    emoji: "📖",
+    tags: ["AI", "Social"],
+  },
+  {
+    title: "famousinbox",
+    url: "https://famousinbox.com",
+    description:
+      "Famous people’s stories presented as realistic leaked emails.",
+    emoji: "📧",
+    tags: ["Creative", "UI"],
+  },
+  {
+    title: "publicwishes",
+    url: "",
+    description:
+      "A platform where people publish wishes publicly and track them over time.",
+    emoji: "💭",
+    tags: ["Community", "Social"],
+  },
+  {
+    title: "keyboardmate",
+    url: "https://keyboardmate.com",
+    description:
+      "An AI companion that lives inside your keyboard.",
+    emoji: "⌨️",
+    tags: ["AI", "Companion"],
+  },
+  {
+    title: "How to Win Friends",
+    url: "",
+    description:
+      "An interactive, AI-powered reinterpretation of 'How to Win Friends & Influence People'.",
+    emoji: "📘",
+    tags: ["Self Improvement", "AI"],
+  },
+];
+
 
   return (
     <>
