@@ -81,7 +81,7 @@ const projects = [
   },
   {
     title: "facemash.to",
-    url: "https://xpedia.live",
+    url: "https://facemash.to",
     description:
       "facemash builder for whatever you want, 100 pages generated so far",
     emoji: "🎭",
@@ -95,10 +95,17 @@ const projects = [
   },
   {
     title: "postyourwishes.com",
-    url: "",
+    url: "postyourwishes.com",
     description:
       "Post your wishes and Let rich ppl who don't know what to do with their money, give you an anonymous gift.",
     emoji: "💭",
+  },
+  {
+    title: "weaponaryzone.zone",
+    url: "weaponaryzone.zone",
+    description:
+      "A shop where you browse weapons instead of items, covers 5,000 weapons so far.",
+    emoji: "🔫",
   },
   {
     title: "keyboardmate.com",
@@ -115,6 +122,7 @@ const projects = [
     emoji: "📘",
   },
 ];
+
 
 
 
