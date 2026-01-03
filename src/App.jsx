@@ -8,7 +8,6 @@ const projects = [
     description:
       "Built the largest English-learning platform for Arabic speakers, reaching over 80,000 learners.",
     emoji: "📚",
-    tags: ["Education", "Scaling"],
   },
   {
     title: "Social Media From Past",
@@ -16,7 +15,6 @@ const projects = [
     description:
       "A time-machine for social profiles, exploring how people used to think, post, and present themselves.",
     emoji: "🕰️",
-    tags: ["Social", "Identity"],
   },
   {
     title: "Sudoku Solver",
@@ -24,7 +22,6 @@ const projects = [
     description:
       "A logic-based Sudoku solver demonstrating algorithmic thinking and constraint satisfaction.",
     emoji: "🧩",
-    tags: ["Algorithms", "Logic"],
   },
   {
     title: "Hanoi Towers Solver",
@@ -32,7 +29,6 @@ const projects = [
     description:
       "A visual and recursive solution to the classic Towers of Hanoi problem.",
     emoji: "🏗️",
-    tags: ["Algorithms", "Recursion"],
   },
   {
     title: "Drawing Students as Grown Ups",
@@ -40,39 +36,41 @@ const projects = [
     description:
       "AI-generated future versions of students, blending imagination, identity, and technology.",
     emoji: "🎨",
-    tags: ["AI", "Identity"],
   },
   {
-    title: "najmschool",
+    title: "najmschool.tn",
     url: "https://najmschool.tn",
     description:
       "An AI-first online school where teachers are autonomous agents.",
     emoji: "🏫",
-    tags: ["AI", "Education"],
   },
   {
-    title: "assistant",
+    title: "assis.tn",
     url: "",
     description:
       "A persistent AI entity with memory, goals, and long-term evolution.",
     emoji: "🤖",
-    tags: ["AI Agent", "Autonomy"],
+  },
+  {
+    title: "shelftok.com",
+    url: "",
+    description:
+      "tiktok style app but instead of following influencers you are following books",
+    emoji: "📚",
   },
   {
     title: "yetweets.com",
     url: "https://yetweets.com",
     description:
-      "The complete Kanye West tweet archive with over 200,000 visitors.",
+      "The complete Kanye West tweet archive. over 200,000 visitors in first month. used by multiple influencers.",
     emoji: "🐦",
-    tags: ["Viral", "Archive"],
   },
   {
-    title: "comerateme",
+    title: "comerate.me",
     url: "https://comerate.me",
     description:
       "A Gen Z–focused anonymous rating platform with shareable links.",
     emoji: "🌟",
-    tags: ["Social", "Gen Z"],
   },
   {
     title: "agelogs.com",
@@ -80,49 +78,44 @@ const projects = [
     description:
       "A public age-based life archive comparing what people were doing at the same age across time and culture.",
     emoji: "📊",
-    tags: ["Metrics", "Identity"],
   },
   {
-    title: "xpedia.live",
+    title: "facemash.to",
     url: "https://xpedia.live",
     description:
-      "Auto-generated Wikipedia-style pages built from X (Twitter) activity.",
-    emoji: "📖",
-    tags: ["AI", "Social"],
+      "facemash builder for whatever you want, 100 pages generated so far",
+    emoji: "🎭",
   },
   {
-    title: "famousinbox",
+    title: "famousinbox.com",
     url: "https://famousinbox.com",
     description:
-      "Famous people’s stories presented as realistic leaked emails.",
+      "get a feed of emails from famous people and celebrities. uses public email leaks.",
     emoji: "📧",
-    tags: ["Creative", "UI"],
   },
   {
-    title: "publicwishes",
+    title: "postyourwishes.com",
     url: "",
     description:
-      "A platform where people publish wishes publicly and track them over time.",
+      "Post your wishes and Let rich ppl who don't know what to do with their money, give you an anonymous gift.",
     emoji: "💭",
-    tags: ["Community", "Social"],
   },
   {
-    title: "keyboardmate",
+    title: "keyboardmate.com",
     url: "https://keyboardmate.com",
     description:
       "An AI companion that lives inside your keyboard.",
     emoji: "⌨️",
-    tags: ["AI", "Companion"],
   },
   {
-    title: "How to Win Friends",
+    title: "How to Win Friends Book",
     url: "",
     description:
       "An interactive, AI-powered reinterpretation of 'How to Win Friends & Influence People'.",
     emoji: "📘",
-    tags: ["Self Improvement", "AI"],
   },
 ];
+
 
 
   return (
@@ -497,28 +490,28 @@ const projects = [
             </div>
           </section>
 
-          <section className="work-section">
-            <h2 className="section-title">Favorite Projects</h2>
-            <div className="projects-grid">
-              {projects.map((project, i) => (
-                <a key={i} href={project.url} target="_blank" rel="noreferrer" className="project-link">
-                  <div className="project-emoji-box">{project.emoji}</div>
-                  <div className="project-info">
-                    <h3 className="project-title">
-                      {project.title}: <span className="project-description">{project.description}</span>
-                    </h3>
-                    <div className="project-tags">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="tag">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </section>
+        <section className="work-section">
+  <h2 className="section-title">Favorite Projects</h2>
+  <div className="projects-grid">
+    {projects.map((project, i) => (
+      <a
+        key={i}
+        href={project.url}
+        target="_blank"
+        rel="noreferrer"
+        className="project-link"
+      >
+        <div className="project-emoji-box">{project.emoji}</div>
+        <div className="project-info">
+          <h3 className="project-title">
+            {project.title}: <span className="project-description">{project.description}</span>
+          </h3>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
 
           <footer className="footer">
             <div className="footer-brand">
