@@ -65,6 +65,24 @@ const projects = [
       "A calm Quran experience where verses are presented one by one for reading, reflection, and saving.",
     emoji: "📖",
   },
+
+  // 🔽 NEW PROJECTS 🔽
+
+  {
+    title: "weaponaryzone",
+    url: "",
+    description:
+      "The Amazon for arms — a student-friendly database to explore weapons, jets, and military equipment by country.",
+    emoji: "🪖",
+  },
+  {
+    title: "ArmsTransfer Visualizer",
+    url: "",
+    description:
+      "An interactive map and timeline visualizing how weapons move between countries worldwide.",
+    emoji: "🌍",
+  },
+
   {
     title: "yetweets.com",
     url: "https://yetweets.com",
