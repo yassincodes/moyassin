@@ -53,16 +53,23 @@ const projects = [
   },
   {
     title: "shelftok.com",
-    url: "",
+    url: "https://shelftok.com",
     description:
-      "tiktok style app but instead of following influencers you are following books",
+      "A TikTok-like app where you follow books instead of people, scrolling through quotes, ideas, and passages.",
     emoji: "📚",
+  },
+  {
+    title: "QuranScroll.com",
+    url: "https://QuranScroll.com",
+    description:
+      "A calm Quran experience where verses are presented one by one for reading, reflection, and saving.",
+    emoji: "📖",
   },
   {
     title: "yetweets.com",
     url: "https://yetweets.com",
     description:
-      "The complete Kanye West tweet archive. over 200,000 visitors in first month. used by multiple influencers.",
+      "The complete Kanye West tweet archive. Over 200,000 visitors in the first month, used by multiple influencers.",
     emoji: "🐦",
   },
   {
@@ -83,29 +90,22 @@ const projects = [
     title: "facemash.to",
     url: "https://facemash.to",
     description:
-      "facemash builder for whatever you want, 100 pages generated so far",
+      "Facemash builder for whatever you want. 100 pages generated so far.",
     emoji: "🎭",
   },
   {
     title: "famousinbox.com",
     url: "https://famousinbox.com",
     description:
-      "get a feed of emails from famous people and celebrities. uses public email leaks.",
+      "Get a feed of emails from famous people and celebrities. Uses public email leaks.",
     emoji: "📧",
   },
   {
     title: "postyourwishes.com",
     url: "postyourwishes.com",
     description:
-      "Post your wishes and Let rich ppl who don't know what to do with their money, give you an anonymous gift.",
+      "Post your wishes and let rich people anonymously gift you.",
     emoji: "💭",
-  },
-  {
-    title: "weaponaryzone.zone",
-    url: "weaponaryzone.zone",
-    description:
-      "A shop where you browse weapons instead of items, covers 5,000 weapons so far.",
-    emoji: "🔫",
   },
   {
     title: "keyboardmate.com",
@@ -122,6 +122,7 @@ const projects = [
     emoji: "📘",
   },
 ];
+
 
 
 
