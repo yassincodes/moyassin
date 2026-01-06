@@ -87,13 +87,6 @@ const projects = [
     emoji: "📊",
   },
   {
-    title: "facemash.to",
-    url: "https://facemash.to",
-    description:
-      "A Facemash builder for anything you want. Over 100 pages generated so far.",
-    emoji: "🎭",
-  },
-  {
     title: "famousinbox.com",
     url: "https://famousinbox.com",
     description:
