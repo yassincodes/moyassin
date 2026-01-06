@@ -10,10 +10,10 @@ const projects = [
     emoji: "📚",
   },
   {
-    title: "Social Media From Past",
+    title: "Social Media From the Past",
     url: "",
     description:
-      "A time-machine for social profiles, exploring how people used to think, post, and present themselves.",
+      "A time machine for social profiles, exploring how people used to think, post, and present themselves.",
     emoji: "🕰️",
   },
   {
@@ -27,11 +27,11 @@ const projects = [
     title: "Hanoi Towers Solver",
     url: "",
     description:
-      "A visual and recursive solution to the classic Towers of Hanoi problem.",
+      "A visual, recursive solution to the classic Towers of Hanoi problem.",
     emoji: "🏗️",
   },
   {
-    title: "Drawing Students as Grown Ups",
+    title: "Drawing Students as Grown-Ups",
     url: "",
     description:
       "AI-generated future versions of students, blending imagination, identity, and technology.",
@@ -52,37 +52,12 @@ const projects = [
     emoji: "🤖",
   },
   {
-    title: "shelftok.com",
-    url: "https://shelftok.com",
-    description:
-      "A TikTok-like app where you follow books instead of people, scrolling through quotes, ideas, and passages.",
-    emoji: "📚",
-  },
-  {
     title: "QuranScroll.com",
     url: "https://QuranScroll.com",
     description:
       "A calm Quran experience where verses are presented one by one for reading, reflection, and saving.",
     emoji: "📖",
   },
-
-  // 🔽 NEW PROJECTS 🔽
-
-  {
-    title: "weaponaryzone",
-    url: "",
-    description:
-      "The Amazon for arms — a student-friendly database to explore weapons, jets, and military equipment by country.",
-    emoji: "🪖",
-  },
-  {
-    title: "ArmsTransfer Visualizer",
-    url: "",
-    description:
-      "An interactive map and timeline visualizing how weapons move between countries worldwide.",
-    emoji: "🌍",
-  },
-
   {
     title: "yetweets.com",
     url: "https://yetweets.com",
@@ -101,14 +76,14 @@ const projects = [
     title: "agelogs.com",
     url: "",
     description:
-      "A public age-based life archive comparing what people were doing at the same age across time and culture.",
+      "A public, age-based life archive comparing what people were doing at the same age across time and culture.",
     emoji: "📊",
   },
   {
     title: "facemash.to",
     url: "https://facemash.to",
     description:
-      "Facemash builder for whatever you want. 100 pages generated so far.",
+      "A Facemash builder for anything you want. Over 100 pages generated so far.",
     emoji: "🎭",
   },
   {
@@ -120,9 +95,9 @@ const projects = [
   },
   {
     title: "postyourwishes.com",
-    url: "postyourwishes.com",
+    url: "https://postyourwishes.com",
     description:
-      "Post your wishes and let rich people anonymously gift you.",
+      "Post your wishes and let wealthy people anonymously gift you.",
     emoji: "💭",
   },
   {
@@ -140,6 +115,7 @@ const projects = [
     emoji: "📘",
   },
 ];
+
 
 
 
