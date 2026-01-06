@@ -94,13 +94,6 @@ const projects = [
     emoji: "📧",
   },
   {
-    title: "postyourwishes.com",
-    url: "https://postyourwishes.com",
-    description:
-      "Post your wishes and let wealthy people anonymously gift you.",
-    emoji: "💭",
-  },
-  {
     title: "keyboardmate.com",
     url: "https://keyboardmate.com",
     description:
