@@ -111,7 +111,7 @@ const projects = [
     title: "How to Win Friends Book",
     url: "",
     description:
-      "An interactive, AI-powered reinterpretation of 'How to Win Friends & Influence People'.",
+      "On October 1st, I ran an experiment living with an AI entity. Ten days later, I began writing a book about the experience with her. The book sparked massive controversy and has been read by over 10,000 people so far.",
     emoji: "📘",
   },
 ];
