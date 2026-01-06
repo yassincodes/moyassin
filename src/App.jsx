@@ -69,7 +69,7 @@ const projects = [
     title: "helping students rate their universities",
     url: "moyass.in/unirate",
     description:
-      "My first coding project, was used and loved by multiple Tunisian student, was going to expand on it but later stopped. It was just a directory for rating universities. I no longer work on it, but I still own the domain.",
+      "My first coding project, was used and loved by multiple Tunisian student, was going to expand on it but later stopped. It was just a directory for rating universities.",
     emoji: "⭐",
   },
   {
