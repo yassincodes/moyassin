@@ -13,7 +13,7 @@ const projects = [
     title: "Social Media From the Past",
     url: "",
     description:
-      "A time machine for social profiles, exploring how people used to think, post, and present themselves.",
+      "My graduation project: a time machine for social profiles, exploring what famous people would post if social media existed in the past.",
     emoji: "🕰️",
   },
   {
@@ -34,7 +34,7 @@ const projects = [
     title: "Drawing Students as Grown-Ups",
     url: "",
     description:
-      "AI-generated future versions of students, blending imagination, identity, and technology.",
+      "In my first year as a teacher, I drew my students as grown-ups and shared it on a new Facebook account. The idea sparked a trend among teachers, was featured on Al Jazeera and Al Arabiya, and introduced generative AI to over half a million kids.",
     emoji: "🎨",
   },
   {
@@ -55,7 +55,7 @@ const projects = [
     title: "QuranScroll.com",
     url: "https://QuranScroll.com",
     description:
-      "A calm Quran experience where verses are presented one by one for reading, reflection, and saving.",
+      "A TikTok-style Quran reader with infinite scroll, showing a new ayah every swipe, with 5k+ daily users.",
     emoji: "📖",
   },
   {
@@ -115,6 +115,7 @@ const projects = [
     emoji: "📘",
   },
 ];
+
 
 
 
