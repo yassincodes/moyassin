@@ -66,6 +66,13 @@ const projects = [
     emoji: "🐦",
   },
   {
+    title: "helping students rate their universities",
+    url: "moyass.in/unirate",
+    description:
+      "My first coding project, went viral across multiple countries and was used by thousands of students. It was just a directory for rating universities. I no longer work on it, but I still own the domain.",
+    emoji: "⭐",
+  },
+  {
     title: "comerate.me",
     url: "https://comerate.me",
     description:
@@ -115,6 +122,7 @@ const projects = [
     emoji: "📘",
   },
 ];
+
 
 
 
