@@ -62,7 +62,7 @@ const projects = [
     title: "yetweets.com",
     url: "https://yetweets.com",
     description:
-      "The complete Kanye West tweet archive. Over 200,000 visitors in the first month, used by multiple influencers.",
+      "In February 2024, Ye (formerly Kanye West) deleted all his tweets. I hacked into Twitter that night to bring them back and published them on this website. It went viral, used by 200k+ users within weeks, and featured on multiple YouTube channels, loved by many influencers.",
     emoji: "🐦",
   },
   {
