@@ -489,7 +489,7 @@ const projects = [
           </section>
 
         <section className="work-section">
-  <h2 className="section-title">Some Of My Projects</h2>
+  <h2 className="section-title">Favorite Projects</h2>
   <div className="projects-grid">
     {projects.map((project, i) => (
       <a
