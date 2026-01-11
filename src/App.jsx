@@ -94,12 +94,18 @@ const projects = [
     emoji: "📧",
   },
   {
-    title: "keyboardmate.com",
-    url: "https://keyboardmate.com",
-    description:
-      "An AI companion that lives inside your keyboard.",
-    emoji: "⌨️",
-  },
+  title: "keyboardmates.com",
+  url: "https://keyboardmate.com",
+  description:
+    "An AI companion that lives inside your keyboard and listens to your keystrokes to provide feedback",
+  emoji: "⌨️",
+},{
+  title: "situation monitor",
+  url: "https://situation-monitor.vercel.app",
+  description:
+    "A CIA style situation monitor with up to 10 live panels to track what is happening across the world in real time",
+  emoji: "🖥️",
+},
   {
     title: "How to Win Friends Book",
     url: "",
