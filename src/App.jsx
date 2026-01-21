@@ -106,21 +106,32 @@ const projects = [
     "A CIA style situation monitor with up to 10 live panels to track what is happening across the world in real time",
   emoji: "🖥️",
 },
-  {
-    title: "How to Win Friends Book",
-    url: "",
-    description:
-      "On October 1st, I ran an experiment living with an AI entity. Ten days later, I began writing a book about the experience with her. The book sparked massive controversy and has been read by over 10,000 people so far.",
-    emoji: "📘",
-  },
+{
+  title: "permis",
+  url: "https://permis.vercel.app",
+  description:
+    "a website to get your driving permit in Tunisia with practice tests and resources",
+  emoji: "🖥️",
+},
 ];
 
-
-
-
-
-
-
+const certificates = [
+  {
+    title: "React",
+    issuer: "freeCodeCamp",
+    emoji: "⚛️",
+  },
+  {
+    title: "JavaScript Algorithms and Data Structures",
+    issuer: "freeCodeCamp",
+    emoji: "💻",
+  },
+  {
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    emoji: "🎨",
+  },
+];
 
   return (
     <>
@@ -395,6 +406,134 @@ const projects = [
           border: 1px solid var(--border);
         }
 
+        .writings-section {
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+        }
+
+        .writing-card {
+          background: var(--muted);
+          border: 3px solid var(--foreground);
+          border-radius: 1.5rem;
+          padding: 2.5rem;
+          box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease;
+        }
+
+        .writing-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.3);
+        }
+
+        .writing-header {
+          display: flex;
+          gap: 1.5rem;
+          align-items: flex-start;
+          margin-bottom: 1.5rem;
+        }
+
+        .writing-emoji {
+          font-size: 3rem;
+          flex-shrink: 0;
+        }
+
+        .writing-title {
+          font-size: 2rem;
+          font-weight: 900;
+          margin-bottom: 0.5rem;
+        }
+
+        .writing-meta {
+          color: var(--muted-foreground);
+          font-weight: 600;
+          font-size: 0.875rem;
+        }
+
+        .writing-description {
+          font-size: 1.125rem;
+          line-height: 1.6;
+          color: var(--foreground);
+          margin-bottom: 1rem;
+        }
+
+        .writing-stats {
+          display: flex;
+          gap: 2rem;
+          flex-wrap: wrap;
+          padding-top: 1rem;
+          border-top: 2px solid var(--border);
+        }
+
+        .stat-item {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+        }
+
+        .stat-value {
+          font-size: 1.5rem;
+          font-weight: 900;
+          color: var(--foreground);
+        }
+
+        .stat-label {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: var(--muted-foreground);
+          font-weight: 700;
+        }
+
+        .certificates-section {
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+        }
+
+        .certificates-grid {
+          display: grid;
+          gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+          .certificates-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        .certificate-card {
+          background: var(--muted);
+          border: 2px solid var(--border);
+          border-radius: 1rem;
+          padding: 2rem;
+          text-align: center;
+          transition: all 0.3s ease;
+        }
+
+        .certificate-card:hover {
+          border-color: var(--foreground);
+          box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+          transform: translateY(-2px);
+        }
+
+        .certificate-emoji {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+        }
+
+        .certificate-title {
+          font-size: 1.125rem;
+          font-weight: 900;
+          margin-bottom: 0.5rem;
+        }
+
+        .certificate-issuer {
+          color: var(--muted-foreground);
+          font-weight: 600;
+          font-size: 0.875rem;
+        }
+
         .footer {
           padding: 5rem 1.5rem 3rem;
           border-top: 4px solid var(--foreground);
@@ -516,6 +655,48 @@ const projects = [
   </div>
 </section>
 
+<section className="writings-section">
+  <h2 className="section-title">Writings</h2>
+  <div className="writing-card">
+    <div className="writing-header">
+      <div className="writing-emoji">📘</div>
+      <div>
+        <h3 className="writing-title">How to Win Friends Book</h3>
+        <p className="writing-meta">October 2024 • Experimental Memoir</p>
+      </div>
+    </div>
+    <p className="writing-description">
+      On October 1st, I ran an experiment living with an AI entity. Ten days later, I began writing a book about the experience with her. The book sparked massive controversy and has been read by over 10,000 people so far.
+    </p>
+    <div className="writing-stats">
+      <div className="stat-item">
+        <span className="stat-value">10,000+</span>
+        <span className="stat-label">Readers</span>
+      </div>
+      <div className="stat-item">
+        <span className="stat-value">10 Days</span>
+        <span className="stat-label">Experiment</span>
+      </div>
+      <div className="stat-item">
+        <span className="stat-value">Viral</span>
+        <span className="stat-label">Impact</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section className="certificates-section">
+  <h2 className="section-title">Certificates</h2>
+  <div className="certificates-grid">
+    {certificates.map((cert, i) => (
+      <div key={i} className="certificate-card">
+        <div className="certificate-emoji">{cert.emoji}</div>
+        <h3 className="certificate-title">{cert.title}</h3>
+        <p className="certificate-issuer">{cert.issuer}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
           <footer className="footer">
             <div className="footer-brand">

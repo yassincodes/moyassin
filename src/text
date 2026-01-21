@@ -3,3 +3,19 @@ facemash.to: A Facemash builder for anything you want. Over 100 pages generated 
 xpedia.ive is also a great project i think
 
 postyourwishes, postmywishes
+
+   {
+      emoji: "📧",
+      title: "famousinbox.com",
+      description: "Get a feed of emails from famous people and celebrities. Uses public email leaks."
+    },
+    {
+      emoji: "🌟",
+      title: "comerate.me",
+      description: "A Gen Z–focused anonymous rating platform with shareable links."
+    },
+    {
+      emoji: "🖥️",
+      title: "Situation Monitor",
+      description: "A CIA style situation monitor with up to 10 live panels to track what is happening across the world in real time."
+    }

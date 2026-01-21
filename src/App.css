@@ -1,0 +1,238 @@
+import React, { useState, useEffect } from 'react';
+
+const Portfolio = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const earlyExperiments = [
+    {
+      emoji: "🧩",
+      title: "Sudoku Solver",
+      description: "A logic-based Sudoku solver demonstrating algorithmic thinking and constraint satisfaction."
+    },
+    {
+      emoji: "🏗️",
+      title: "Hanoi Towers Solver",
+      description: "A visual, recursive solution to the classic Towers of Hanoi problem."
+    },
+    {
+      emoji: "⭐",
+      title: "Helping Students Rate Their Universities",
+      description: "My first coding experiment. A simple directory for rating universities, used and loved by Tunisian students."
+    }
+  ];
+
+  const favoriteProjects = [
+    {
+      emoji: "📖",
+      title: "QuranScroll.com",
+      description: "A TikTok-style Quran reader with infinite scroll, showing a new ayah every swipe, with 5k+ daily users."
+    },
+    {
+      emoji: "🐦",
+      title: "yetweets.com",
+      description: "Archived Ye’s deleted tweets the night they vanished. Went viral, used by 200k+ users, featured on YouTube."
+    },
+    {
+      emoji: "📚",
+      title: "Teaching English Online",
+      description: "Built the largest English-learning platform for Arabic speakers, reaching over 80,000 learners."
+    },
+    {
+      emoji: "🏫",
+      title: "najmschool.tn",
+      description: "An AI-first online school where teachers are autonomous agents."
+    },
+    {
+      emoji: "🕰️",
+      title: "Social Media From the Past",
+      description: "Graduation project: a time machine simulating social profiles of historical figures."
+    },
+    {
+      emoji: "🎨",
+      title: "Drawing Students as Grown-Ups",
+      description: "A viral art + AI experiment featured on Al Jazeera and Al Arabiya, introducing AI to 500k+ kids."
+    },
+    {
+      emoji: "🤖",
+      title: "assis.tn",
+      description: "A persistent AI entity with memory, goals, and long-term evolution."
+    },
+    {
+      emoji: "⌨️",
+      title: "keyboardmates.com",
+      description: "An AI companion that lives inside your keyboard and reacts to how you type."
+    },
+    {
+      emoji: "📊",
+      title: "agelogs.com",
+      description: "A public archive comparing what people were doing at the same age across cultures and eras."
+    },
+    {
+      emoji: "📧",
+      title: "famousinbox.com",
+      description: "A feed of emails from famous people using public email leaks."
+    },
+    {
+      emoji: "🌟",
+      title: "comerate.me",
+      description: "A Gen Z anonymous rating platform with shareable profiles."
+    },
+    {
+      emoji: "🖥️",
+      title: "Situation Monitor",
+      description: "A CIA-style real-time situation monitor with multiple live panels."
+    }
+  ];
+
+  const writing = [
+    {
+      emoji: "📘",
+      title: "How to Win Friends Book",
+      description: "A book documenting an experiment living alongside an AI entity. Read by 10,000+ people."
+    }
+  ];
+
+  const certificates = [
+    {
+      emoji: "⚛️",
+      title: "React Course",
+      description: "Advanced React certification from Scrimba covering hooks, context, and modern patterns."
+    },
+    {
+      emoji: "🎨",
+      title: "CSS Course",
+      description: "Scrimba CSS certification including flexbox, grid, animations, and responsive design."
+    },
+    {
+      emoji: "💻",
+      title: "JavaScript Course",
+      description: "In-depth JavaScript certification covering ES6+, async programming, and DOM manipulation."
+    }
+  ];
+
+  return (
+    <div style={styles.container}>
+      <style>{cssStyles}</style>
+
+      <section className="hero">
+        <h1 className={isVisible ? 'fade-in-up' : ''}>Mohammed Yassin</h1>
+        <div className={`subtitle ${isVisible ? 'fade-in-up-delay-1' : ''}`}>
+          Builder of Agents
+        </div>
+        <div className={`handle ${isVisible ? 'fade-in-up-delay-2' : ''}`}>
+          @moyassin
+        </div>
+      </section>
+
+      <section className={`story ${isVisible ? 'fade-in' : ''}`}>
+        <h2 className="section-title">Story</h2>
+        <div className="glass-card">
+          <p>At 16, I built the largest English-teaching platform in the Arab world, helping over 80,000 learners.</p>
+          <p>I skipped most of Teachers’ College to teach myself programming, hacking Scrimba for free access and freelancing across MENA.</p>
+          <p>In 2023, classrooms became my lab. Teaching, coding, and experimenting merged into one long project.</p>
+        </div>
+      </section>
+
+      {/* 1. Favorite Projects */}
+      <section className="projects-section">
+        <h2 className="section-title">Favorite Projects</h2>
+        <div className="projects-grid">
+          {favoriteProjects.map((item, i) => (
+            <div key={i} className="project-card glass-card">
+              <div className="project-emoji">{item.emoji}</div>
+              <div className="project-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 2. Early Experiments */}
+      <section className="projects-section">
+        <h2 className="section-title">Early Experiments</h2>
+        <div className="projects-grid">
+          {earlyExperiments.map((item, i) => (
+            <div key={i} className="project-card glass-card">
+              <div className="project-emoji">{item.emoji}</div>
+              <div className="project-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Writing */}
+      <section className="projects-section">
+        <h2 className="section-title">Writing</h2>
+        <div className="projects-grid">
+          {writing.map((item, i) => (
+            <div key={i} className="project-card glass-card">
+              <div className="project-emoji">{item.emoji}</div>
+              <div className="project-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Certificates */}
+      <section className="projects-section">
+        <h2 className="section-title">Certificates</h2>
+        <div className="projects-grid">
+          {certificates.map((item, i) => (
+            <div key={i} className="project-card glass-card">
+              <div className="project-emoji">{item.emoji}</div>
+              <div className="project-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Social Media */}
+      <section className="projects-section">
+        <h2 className="section-title">Social Media</h2>
+        <div className="projects-grid">
+          {["Facebook", "TikTok", "Medium", "X"].map((platform, i) => (
+            <div key={i} className="project-card glass-card">
+              <h3>{platform}</h3>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <footer className="footer">
+        @moyassin — Facebook · TikTok · Medium · X
+      </footer>
+    </div>
+  );
+};
+
+const styles = {
+  container: {
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    background: '#fafafa',
+    color: '#1d1d1f',
+    overflowX: 'hidden',
+    minHeight: '100vh'
+  }
+};
+
+const cssStyles = `
+/* unchanged styles */
+${/* same CSS as before */""}
+`;
+
+export default Portfolio;
