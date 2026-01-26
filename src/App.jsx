@@ -28,7 +28,7 @@ const projects = [
     url: "",
     description:
       "A visual, recursive solution to the classic Towers of Hanoi problem.",
-    emoji: "🏗️",
+    emoji: "🗼",
   },
   {
     title: "Drawing Students as Grown-Ups",
@@ -49,7 +49,7 @@ const projects = [
     url: "",
     description:
       "A persistent AI entity with memory, goals, and long-term evolution.",
-    emoji: "🤖",
+    emoji: "🧠",
   },
   {
     title: "QuranScroll.com",
@@ -70,50 +70,66 @@ const projects = [
     url: "moyass.in/unirate",
     description:
       "My first coding project, was used and loved by multiple Tunisian student, was going to expand on it but later stopped. It was just a directory for rating universities.",
-    emoji: "⭐",
+    emoji: "🎓",
   },
   {
     title: "comerate.me",
     url: "https://comerate.me",
     description:
       "A Gen Z–focused anonymous rating platform with shareable links.",
-    emoji: "🌟",
+    emoji: "🔥",
   },
   {
     title: "agelogs.com",
     url: "",
     description:
       "A public, age-based life archive comparing what people were doing at the same age across time and culture.",
-    emoji: "📊",
+    emoji: "📈",
   },
   {
     title: "famousinbox.com",
     url: "https://famousinbox.com",
     description:
       "Get a feed of emails from famous people and celebrities. Uses public email leaks.",
-    emoji: "📧",
+    emoji: "💌",
   },
   {
-  title: "keyboardmates.com",
-  url: "https://keyboardmate.com",
-  description:
-    "An AI companion that lives inside your keyboard and listens to your keystrokes to provide feedback",
-  emoji: "⌨️",
-},{
-  title: "situation monitor",
-  url: "https://situation-monitor.vercel.app",
-  description:
-    "A CIA style situation monitor with up to 10 live panels to track what is happening across the world in real time",
-  emoji: "🖥️",
-},
-{
-  title: "permis",
-  url: "https://permis.vercel.app",
-  description:
-    "a website to get your driving permit in Tunisia with practice tests and resources",
-  emoji: "🖥️",
-},
+    title: "keyboardmates.com",
+    url: "https://keyboardmate.com",
+    description:
+      "An AI companion that lives inside your keyboard and listens to your keystrokes to provide feedback",
+    emoji: "⌨️",
+  },
+  {
+    title: "permis",
+    url: "https://permis.vercel.app",
+    description:
+      "a website to get your driving permit in Tunisia with practice tests and resources",
+    emoji: "🚗",
+  },
+  {
+    title: "futurenewpaper",
+    url: "https://futurenewspaper.vercel.app",
+    description:
+      "a website to see the newspaper from the future using prediction markets and ai to generate news articles based on current trends and events",
+    emoji: "📰",
+  },
+  {
+    title: "famousbooks",
+    url: "https://weaponaryzone.vercel.app",
+    description:
+      "apple books but instead you log in as a celeb and see their favorite books",
+    emoji: "📚",
+  },
+  {
+    title: "shelftok",
+    url: "https://weaponaryzone.vercel.app",
+    description:
+      "tiktok but instead of following influencers you follow books",
+    emoji: "📖",
+  },
 ];
+
 
 const certificates = [
   {
@@ -485,6 +501,18 @@ const certificates = [
           font-weight: 700;
         }
 
+        .other-titles {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-top: 3rem;
+        }
+
+        .other-title {
+          font-size: 1.75rem;
+          font-weight: 900;
+        }
+
         .certificates-section {
           display: flex;
           flex-direction: column;
@@ -617,20 +645,25 @@ const certificates = [
         <main className="main-container">
           <section className="story-section">
             <h2 className="section-title">The Story</h2>
-            <div className="story-text">
-              <p>
-                At 16 years old, I built the largest English-teaching platform in the Arab world, helping over 80,000 Arabic speakers learn English online.
-              </p>
-              <p>
-                After graduating high school as a math student, I enrolled in Teachers' College. I attended only a few classes, choosing instead to teach myself how to code.
-              </p>
-              <p>
-                I hacked Scrimba.com for a year of free access, learned from the best, and immediately started freelancing, building websites and tools for clients across the MENA region.
-              </p>
-              <p>
-                I stepped into classrooms for the first time on World Teachers' Day 2023, the day I began working on my lifelong project, Assistant. The school became my lab. Teaching ran alongside coding, building, and experimenting.
-              </p>
-            </div>
+        <div className="story-text">
+  <p>
+    At 16, I built the largest English-learning platform in the Arab world, reaching more than 80,000 learners.
+  </p>
+  <p>
+    I graduated high school as a math student and enrolled in Teachers’ College, but I barely attended classes. I chose to teach myself how to code instead.
+  </p>
+  <p>
+    I hacked Scrimba for a year of free access and learned how to code from engineers at Amazon, Netflix, JP Morgan, and Uber. Since then, I’ve built more than 150 projects for myself and clients across the MENA region.
+  </p>
+  <p>
+    On World Teachers’ Day 2023, I entered a classroom for the first time. That day, I also started my lifelong project, Assistant. The school became my laboratory. Teaching, coding, building, experimenting, all at once.
+  </p>
+  <p>
+    Now I’m obsessed with AI companionship, data visualization, and building intelligent agents that feel alive.
+  </p>
+</div>
+
+
           </section>
 
         <section className="work-section">
@@ -657,6 +690,8 @@ const certificates = [
 
 <section className="writings-section">
   <h2 className="section-title">Writings</h2>
+
+  {/* Featured writing - full design, unchanged */}
   <div className="writing-card">
     <div className="writing-header">
       <div className="writing-emoji">📘</div>
@@ -683,6 +718,15 @@ const certificates = [
       </div>
     </div>
   </div>
+
+  {/* 5 simple titles - no card, no emoji, no extra design, just plain titles */}
+  <div className="other-titles">
+    <h3 className="other-title">what is e/acc</h3>
+    <h3 className="other-title">2025 reading recap</h3>
+    <h3 className="other-title">infiltrating the flower room</h3>
+    <h3 className="other-title">caring about LLMs</h3>
+  </div>
+
 </section>
 
 <section className="certificates-section">
