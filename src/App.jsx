@@ -111,7 +111,7 @@ const projects = [
     title: "shelftok",
     url: "https://weaponaryzone.vercel.app",
     description:
-      "tiktok but instead of following influencers you follow books",
+      "tiktok but instead of following influencers you follow books, contains recommendations and chat with books using ai",
     emoji: "📖",
   },
 ];
