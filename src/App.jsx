@@ -101,25 +101,11 @@ const projects = [
     emoji: "⌨️",
   },
   {
-    title: "permis",
-    url: "https://permis.vercel.app",
-    description:
-      "a website to get your driving permit in Tunisia with practice tests and resources",
-    emoji: "🚗",
-  },
-  {
     title: "futurenewpaper",
     url: "https://futurenewspaper.vercel.app",
     description:
       "a website to see the newspaper from the future using prediction markets and ai to generate news articles based on current trends and events",
     emoji: "📰",
-  },
-  {
-    title: "famousbooks",
-    url: "https://weaponaryzone.vercel.app",
-    description:
-      "apple books but instead you log in as a celeb and see their favorite books",
-    emoji: "📚",
   },
   {
     title: "shelftok",
