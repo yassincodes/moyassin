@@ -30,3 +30,11 @@ postyourwishes, postmywishes
       description: "A Gen Z anonymous rating platform with viral, shareable profiles.",
       emoji: "🔥",
     },
+
+    {
+      id: 10,
+      title: "Helping Students Rate Their Universities",
+      url: "moyass.in/unirate",
+      description: "My first coding project, a simple platform where Tunisian students could rate and review their universities.",
+      emoji: "🎓",
+    },

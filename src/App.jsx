@@ -68,13 +68,6 @@ export default function App() {
     },
     {
       id: 10,
-      title: "Helping Students Rate Their Universities",
-      url: "moyass.in/unirate",
-      description: "My first coding project, a simple platform where Tunisian students could rate and review their universities.",
-      emoji: "🎓",
-    },
-    {
-      id: 11,
       title: "agelogs.com",
       url: "https://agelogs.com",
       description: "A public life archive that lets you compare what people were doing at your exact age.",
