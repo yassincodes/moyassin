@@ -600,7 +600,6 @@ const certificates = [
           </section>
 
         <section className="work-section">
-  <h2 className="section-title">Personal</h2>
   <div className="projects-grid">
     {projects.map((project, i) => (
       <a
