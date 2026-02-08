@@ -1,120 +1,116 @@
 import React from "react"
 
 export default function App() {
-const projects = [
-  {
-    title: "Teaching English Online",
-    url: "https://facebook.com/moyassin",
-    description:
-      "Built the largest English-learning platform for Arabic speakers, reaching over 80,000 learners.",
-    emoji: "📚",
-  },
-  {
-    title: "Social Media From the Past",
-    url: "",
-    description:
-      "My graduation project: a time machine for social profiles, exploring what famous people would post if social media existed in the past.",
-    emoji: "🕰️",
-  },
-  {
-    title: "Sudoku Solver",
-    url: "",
-    description:
-      "A logic-based Sudoku solver demonstrating algorithmic thinking and constraint satisfaction.",
-    emoji: "🧩",
-  },
-  {
-    title: "Hanoi Towers Solver",
-    url: "",
-    description:
-      "A visual, recursive solution to the classic Towers of Hanoi problem.",
-    emoji: "🗼",
-  },
-  {
-    title: "Drawing Students as Grown-Ups",
-    url: "",
-    description:
-      "In my first year as a teacher, I drew my students as grown-ups and shared it on a new Facebook account. The idea sparked a trend among teachers, was featured on Al Jazeera and Al Arabiya, and introduced generative AI to over half a million kids.",
-    emoji: "🎨",
-  },
-  {
-    title: "najmschool.tn",
-    url: "https://najmschool.tn",
-    description:
-      "An AI-first online school where teachers are autonomous agents.",
-    emoji: "🏫",
-  },
-  {
-    title: "assis.tn",
-    url: "",
-    description:
-      "A persistent AI entity with memory, goals, and long-term evolution.",
-    emoji: "🧠",
-  },
-  {
-    title: "QuranScroll.com",
-    url: "https://QuranScroll.com",
-    description:
-      "A TikTok-style Quran reader with infinite scroll, showing a new ayah every swipe, with 5k+ daily users.",
-    emoji: "📖",
-  },
-  {
-    title: "yetweets.com",
-    url: "https://yetweets.com",
-    description:
-      "In February 2024, Ye (formerly Kanye West) deleted all his tweets. I hacked into Twitter that night to bring them back and published them on this website. It went viral, used by 200k+ users within weeks, and featured on multiple YouTube channels, loved by many influencers.",
-    emoji: "🐦",
-  },
-  {
-    title: "helping students rate their universities",
-    url: "moyass.in/unirate",
-    description:
-      "My first coding project, was used and loved by multiple Tunisian student, was going to expand on it but later stopped. It was just a directory for rating universities.",
-    emoji: "🎓",
-  },
-  {
-    title: "comerate.me",
-    url: "https://comerate.me",
-    description:
-      "A Gen Z–focused anonymous rating platform with shareable links.",
-    emoji: "🔥",
-  },
-  {
-    title: "agelogs.com",
-    url: "",
-    description:
-      "A public, age-based life archive comparing what people were doing at the same age across time and culture.",
-    emoji: "📈",
-  },
-  {
-    title: "famousinbox.com",
-    url: "https://famousinbox.com",
-    description:
-      "Get a feed of emails from famous people and celebrities. Uses public email leaks.",
-    emoji: "💌",
-  },
-  {
-    title: "keyboardmates.com",
-    url: "https://keyboardmate.com",
-    description:
-      "An AI companion that lives inside your keyboard and listens to your keystrokes to provide feedback",
-    emoji: "⌨️",
-  },
-  {
-    title: "futurenewpaper",
-    url: "https://futurenewspaper.vercel.app",
-    description:
-      "a website to see the newspaper from the future using prediction markets and ai to generate news articles based on current trends and events",
-    emoji: "📰",
-  },
-  {
-    title: "shelftok",
-    url: "https://weaponaryzone.vercel.app",
-    description:
-      "tiktok but instead of following influencers you follow books, contains recommendations and chat with books using ai",
-    emoji: "📖",
-  },
-];
+
+  const projects = [
+    {
+      id: 1,
+      title: "Teaching English Online",
+      url: "https://facebook.com/moyassin",
+      description: "Built the largest English-learning platform for Arabic speakers, scaled it with a small team, and helped over 80,000 learners level up their English.",
+      emoji: "📚",
+    },
+    {
+      id: 2,
+      title: "Social Media From the Past",
+      url: "",
+      description: "My graduation project, a time machine for social profiles, imagining what famous figures would post if social media existed in their era.",
+      emoji: "🕰️",
+    },
+    {
+      id: 3,
+      title: "Sudoku Solver",
+      url: "https://sudoku-solver-by-yassin.vercel.app/",
+      description: "A smart, logic-driven engine that solves any Sudoku puzzle step by step.",
+      emoji: "🧩",
+    },
+    {
+      id: 4,
+      title: "Hanoi Towers Solver",
+      url: "https://hanoi-towers-solver.vercel.app/",
+      description: "A visual and recursive simulation of the classic Towers of Hanoi problem.",
+      emoji: "🗼",
+    },
+    {
+      id: 5,
+      title: "Drawing Students as Grown-Ups",
+      url: "",
+      description: "I drew my students as their future selves, posted it online, and accidentally started a viral trend featured on Al Jazeera and Al Arabiya, introducing generative AI to over 500,000 kids.",
+      emoji: "🎨",
+    },
+    {
+      id: 6,
+      title: "najmschool.tn",
+      url: "https://najmschool.tn",
+      description: "An AI-first online school where every teacher is an AI character.",
+      emoji: "🏫",
+    },
+    {
+      id: 7,
+      title: "assis.tn",
+      url: "",
+      description: "A persistent AI being with memory, goals, and long-term evolution.",
+      emoji: "🧠",
+    },
+    {
+      id: 8,
+      title: "StudyQuran.com",
+      url: "https://QuranScroll.com",
+      description: "Started as a modern Quran reader, then evolved into a personalized Quran learning platform now used by thousands.",
+      emoji: "📖",
+    },
+    {
+      id: 9,
+      title: "yetweets.com",
+      url: "https://yetweets.com",
+      description: "When Ye deleted all his tweets, I brought them back the same night. The site went viral, hit 200k+ users, and spread across YouTube and influencer circles.",
+      emoji: "🐦",
+    },
+    {
+      id: 10,
+      title: "Helping Students Rate Their Universities",
+      url: "moyass.in/unirate",
+      description: "My first coding project, a simple platform where Tunisian students could rate and review their universities.",
+      emoji: "🎓",
+    },
+    {
+      id: 11,
+      title: "comerate.me",
+      url: "https://comerate.me",
+      description: "A Gen Z anonymous rating platform with viral, shareable profiles.",
+      emoji: "🔥",
+    },
+    {
+      id: 12,
+      title: "agelogs.com",
+      url: "",
+      description: "A public life archive that lets you compare what people were doing at your exact age.",
+      emoji: "📈",
+    },
+    {
+      id: 13,
+      title: "famousinbox.com",
+      url: "https://famousinbox.com",
+      description: "A feed of leaked emails from famous people and celebrities.",
+      emoji: "💌",
+    },
+    {
+      id: 14,
+      title: "keyboardmate.com",
+      url: "https://keyboardmate.com",
+      description: "An AI companion living inside your keyboard, reacting to your thoughts in real time as you type.",
+      emoji: "⌨️",
+    },
+    {
+      id: 15,
+      title: "moltnews",
+      url: "https://moltnews.com",
+      description: "The first newspaper that covers what's happening in the agentic world, tracking the latest in AI agents, autonomous systems, and multi-agent ecosystems.",
+      emoji: "📰",
+    }
+  ];
+
+
 
 
 const certificates = [
