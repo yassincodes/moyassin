@@ -54,13 +54,6 @@ export default function App() {
     },
     {
       id: 8,
-      title: "agelogs.com",
-      url: "https://agelogs.com",
-      description: "A public life archive that lets you compare what people were doing at your exact age.",
-      emoji: "📈",
-    },
-     {
-      id: 9,
       title: "yetweets.com",
       url: "https://yetweets.com",
       description: "When Ye deleted all his tweets, I brought them back the same night. The site went viral, hit 200k+ users, and spread across YouTube and influencer circles.",
@@ -607,7 +600,7 @@ const certificates = [
           </section>
 
         <section className="work-section">
-  <h2 className="section-title">Some Projects</h2>
+  <h2 className="section-title">Personal</h2>
   <div className="projects-grid">
     {projects.map((project, i) => (
       <a
