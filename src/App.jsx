@@ -75,38 +75,10 @@ export default function App() {
     },
     {
       id: 11,
-      title: "comerate.me",
-      url: "https://comerate.me",
-      description: "A Gen Z anonymous rating platform with viral, shareable profiles.",
-      emoji: "🔥",
-    },
-    {
-      id: 12,
       title: "agelogs.com",
-      url: "",
+      url: "https://agelogs.com",
       description: "A public life archive that lets you compare what people were doing at your exact age.",
       emoji: "📈",
-    },
-    {
-      id: 13,
-      title: "famousinbox.com",
-      url: "https://famousinbox.com",
-      description: "A feed of leaked emails from famous people and celebrities.",
-      emoji: "💌",
-    },
-    {
-      id: 14,
-      title: "keyboardmate.com",
-      url: "https://keyboardmate.com",
-      description: "An AI companion living inside your keyboard, reacting to your thoughts in real time as you type.",
-      emoji: "⌨️",
-    },
-    {
-      id: 15,
-      title: "moltnews",
-      url: "https://moltnews.com",
-      description: "The first newspaper that covers what's happening in the agentic world, tracking the latest in AI agents, autonomous systems, and multi-agent ecosystems.",
-      emoji: "📰",
     }
   ];
 

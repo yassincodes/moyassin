@@ -19,3 +19,14 @@ postyourwishes, postmywishes
       title: "Situation Monitor",
       description: "A CIA style situation monitor with up to 10 live panels to track what is happening across the world in real time."
     }
+
+
+
+
+     {
+      id: 11,
+      title: "comerate.me",
+      url: "https://comerate.me",
+      description: "A Gen Z anonymous rating platform with viral, shareable profiles.",
+      emoji: "🔥",
+    },
