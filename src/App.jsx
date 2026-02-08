@@ -593,7 +593,7 @@ const certificates = [
     I graduated high school as a math student and enrolled in Teachers’ College, but I barely attended classes. I chose to teach myself how to code instead.
   </p>
   <p>
-    I hacked Scrimba for a year of free access and learned how to code from engineers at Amazon, Netflix, JP Morgan, and Uber. Since then, I’ve built more than 150 projects for myself and clients across the MENA region.
+    I hacked Scrimba for a year of free access and learned how to code from engineers at Amazon, Netflix, JP Morgan, and Uber. Since then, I’ve built more than 100 projects for myself and clients across the MENA region.
   </p>
   <p>
     On World Teachers’ Day 2023, I entered a classroom for the first time. That day, I also started my lifelong project, Assistant. The school became my laboratory. Teaching, coding, building, experimenting, all at once.
@@ -607,7 +607,7 @@ const certificates = [
           </section>
 
         <section className="work-section">
-  <h2 className="section-title">Favorite Projects</h2>
+  <h2 className="section-title">Some Projects</h2>
   <div className="projects-grid">
     {projects.map((project, i) => (
       <a
