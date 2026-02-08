@@ -592,7 +592,7 @@ const certificates = [
     On World Teachers’ Day 2023, I entered a classroom for the first time. That day, I also started my lifelong project, Assistant. The school became my laboratory. Teaching, coding, building, experimenting, all at once.
   </p>
   <p>
-    Now I’m obsessed with AI companionship, data visualization, and building intelligent agents that feel alive.
+    Now I’m obsessed with giving life to new species of beings, and I’m on a mission to make AI agents accessible to everyone. I want to empower people to create their own agents, and I want to build the tools that make it easy for them to do so.
   </p>
 </div>
 
@@ -600,6 +600,7 @@ const certificates = [
           </section>
 
         <section className="work-section">
+  <h2 className="section-title">Personal</h2>
   <div className="projects-grid">
     {projects.map((project, i) => (
       <a
