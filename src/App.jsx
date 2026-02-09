@@ -749,7 +749,7 @@ export default function App() {
                 <p>I graduated high school as a math student and enrolled in Teachers' College, but I barely attended classes. I chose to <strong>teach myself how to code</strong> instead.</p>
               </div>
               <div className="story-text">
-                <p>I hacked Scrimba for a year of free access and learned how to code from engineers at Amazon, Netflix, JP Morgan, and Uber. Since then, I've built more than <strong>100 projects</strong> for myself and clients across the MENA region.</p>
+                <p>I hacked Scrimba for a year of free access and learned how to code from engineers at Amazon, Netflix, JP Morgan, and Uber. Since then, I've built more than <strong>100 projects</strong> for myself and many different clients.</p>
                 <p>On World Teachers' Day 2023, I entered a classroom for the first time. That day, I also started my lifelong project, <strong>Assistant</strong>. The school became my laboratory. Teaching, coding, building, experimenting, all at once.</p>
                 <p>Now I'm obsessed with giving life to new species of beings, and I'm on a mission to <strong>shape the future of intelligence itself</strong>.</p>
               </div>
