@@ -59,28 +59,60 @@ export default function App() {
       description: "When Ye deleted all his tweets, I brought them back the same night. The site went viral, hit 200k+ users, and spread across YouTube and influencer circles.",
       emoji: "🐦",
     },
+    {
+      id: 9,
+      title: "rateyouruni.com",
+      url: "https://rateyouruni.com",
+      description: "My first coding project. A platform loved and used by thousands of Tunisian students to rate and review universities.",
+      emoji: "🎓",
+    },
+    {
+      id: 10,
+      title: "comerate.me",
+      url: "https://comerate.me",
+      description: "The same concept as Rate Your Uni, but built for rating people. A social rating platform for authentic peer feedback.",
+      emoji: "⭐",
+    },
+    {
+      id: 11,
+      title: "trulygoodreads.com",
+      url: "https://trulygoodreads.com",
+      description: "A Goodreads clone where all the users are celebrities. See what famous figures are reading and their thoughts on books.",
+      emoji: "📕",
+    },
+    {
+      id: 12,
+      title: "famousinbox.com",
+      url: "https://famousinbox.com",
+      description: "Read inboxes from tech pioneers and influential figures. A glimpse into the private messages of exceptional minds.",
+      emoji: "📧",
+    },
+    {
+      id: 13,
+      title: "moltnews.vercel.app",
+      url: "https://moltnews.vercel.app",
+      description: "The first newspaper built for agents, covering the emerging world of agentic life and autonomous intelligence.",
+      emoji: "🤖",
+    },
   ];
 
-
-
-
-const certificates = [
-  {
-    title: "React",
-    issuer: "freeCodeCamp",
-    emoji: "⚛️",
-  },
-  {
-    title: "JavaScript Algorithms and Data Structures",
-    issuer: "freeCodeCamp",
-    emoji: "💻",
-  },
-  {
-    title: "Responsive Web Design",
-    issuer: "freeCodeCamp",
-    emoji: "🎨",
-  },
-];
+  const certificates = [
+    {
+      title: "React",
+      issuer: "freeCodeCamp",
+      emoji: "⚛️",
+    },
+    {
+      title: "JavaScript Algorithms and Data Structures",
+      issuer: "freeCodeCamp",
+      emoji: "💻",
+    },
+    {
+      title: "Responsive Web Design",
+      issuer: "freeCodeCamp",
+      emoji: "🎨",
+    },
+  ];
 
   return (
     <>
@@ -261,6 +293,100 @@ const certificates = [
           font-style: italic;
         }
 
+        .mission-section {
+          display: grid;
+          gap: 2rem;
+          align-items: start;
+        }
+
+        @media (min-width: 768px) {
+          .mission-section {
+            grid-template-columns: 1fr 2fr;
+          }
+        }
+
+        .mission-pillars {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        .mission-pillar {
+          display: flex;
+          gap: 1.5rem;
+          align-items: flex-start;
+        }
+
+        .mission-icon {
+          font-size: 2.5rem;
+          flex-shrink: 0;
+        }
+
+        .mission-pillar-content {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .mission-pillar-title {
+          font-weight: 900;
+          font-size: 1.125rem;
+          color: var(--foreground);
+        }
+
+        .mission-pillar-description {
+          font-weight: 500;
+          color: var(--muted-foreground);
+          line-height: 1.5;
+        }
+
+        .agency-highlight {
+          background: var(--muted);
+          border: 2px solid var(--foreground);
+          border-radius: 1rem;
+          padding: 2rem;
+          margin-top: 2rem;
+        }
+
+        .agency-badge {
+          display: inline-block;
+          background: var(--primary);
+          color: var(--primary-foreground);
+          padding: 0.5rem 1rem;
+          border-radius: 9999px;
+          font-weight: 900;
+          font-size: 0.875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 1rem;
+        }
+
+        .agency-title {
+          font-size: 1.5rem;
+          font-weight: 900;
+          margin-bottom: 0.5rem;
+          color: var(--foreground);
+        }
+
+        .agency-description {
+          font-weight: 500;
+          color: var(--muted-foreground);
+          line-height: 1.6;
+        }
+
+        .agency-link {
+          color: var(--foreground);
+          font-weight: 700;
+          text-decoration: none;
+          border-bottom: 3px solid var(--primary);
+          transition: all 0.2s ease;
+        }
+
+        .agency-link:hover {
+          background: var(--primary);
+          padding: 0 0.25rem;
+        }
+
         .work-section {
           display: flex;
           flex-direction: column;
@@ -353,97 +479,6 @@ const certificates = [
           padding: 0.125rem 0.5rem;
           border-radius: 0.25rem;
           border: 1px solid var(--border);
-        }
-
-        .writings-section {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
-        }
-
-        .writing-card {
-          background: var(--muted);
-          border: 3px solid var(--foreground);
-          border-radius: 1.5rem;
-          padding: 2.5rem;
-          box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.2);
-          transition: all 0.3s ease;
-        }
-
-        .writing-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.3);
-        }
-
-        .writing-header {
-          display: flex;
-          gap: 1.5rem;
-          align-items: flex-start;
-          margin-bottom: 1.5rem;
-        }
-
-        .writing-emoji {
-          font-size: 3rem;
-          flex-shrink: 0;
-        }
-
-        .writing-title {
-          font-size: 2rem;
-          font-weight: 900;
-          margin-bottom: 0.5rem;
-        }
-
-        .writing-meta {
-          color: var(--muted-foreground);
-          font-weight: 600;
-          font-size: 0.875rem;
-        }
-
-        .writing-description {
-          font-size: 1.125rem;
-          line-height: 1.6;
-          color: var(--foreground);
-          margin-bottom: 1rem;
-        }
-
-        .writing-stats {
-          display: flex;
-          gap: 2rem;
-          flex-wrap: wrap;
-          padding-top: 1rem;
-          border-top: 2px solid var(--border);
-        }
-
-        .stat-item {
-          display: flex;
-          flex-direction: column;
-          gap: 0.25rem;
-        }
-
-        .stat-value {
-          font-size: 1.5rem;
-          font-weight: 900;
-          color: var(--foreground);
-        }
-
-        .stat-label {
-          font-size: 0.75rem;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: var(--muted-foreground);
-          font-weight: 700;
-        }
-
-        .other-titles {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          margin-top: 3rem;
-        }
-
-        .other-title {
-          font-size: 1.75rem;
-          font-weight: 900;
         }
 
         .certificates-section {
@@ -578,102 +613,103 @@ const certificates = [
         <main className="main-container">
           <section className="story-section">
             <h2 className="section-title">The Story</h2>
-        <div className="story-text">
-  <p>
-    At 16, I built the largest English-learning platform in the Arab world, reaching more than 80,000 learners.
-  </p>
-  <p>
-    I graduated high school as a math student and enrolled in Teachers’ College, but I barely attended classes. I chose to teach myself how to code instead.
-  </p>
-  <p>
-    I hacked Scrimba for a year of free access and learned how to code from engineers at Amazon, Netflix, JP Morgan, and Uber. Since then, I’ve built more than 100 projects for myself and clients across the MENA region.
-  </p>
-  <p>
-    On World Teachers’ Day 2023, I entered a classroom for the first time. That day, I also started my lifelong project, Assistant. The school became my laboratory. Teaching, coding, building, experimenting, all at once.
-  </p>
-  <p>
-    Now I’m obsessed with giving life to new species of beings, and I’m on a mission to make AI agents accessible to everyone. I want to empower people to create their own agents, and I want to build the tools that make it easy for them to do so.
-  </p>
-</div>
-
-
+            <div className="story-text">
+              <p>
+                At 16, I built the largest English-learning platform in the Arab world, reaching more than 80,000 learners.
+              </p>
+              <p>
+                I graduated high school as a math student and enrolled in Teachers' College, but I barely attended classes. I chose to teach myself how to code instead.
+              </p>
+              <p>
+                I hacked Scrimba for a year of free access and learned how to code from engineers at Amazon, Netflix, JP Morgan, and Uber. Since then, I've built more than 100 projects for myself and clients across the MENA region.
+              </p>
+              <p>
+                On World Teachers' Day 2023, I entered a classroom for the first time. That day, I also started my lifelong project, Assistant. The school became my laboratory. Teaching, coding, building, experimenting, all at once.
+              </p>
+              <p>
+                Now I'm obsessed with giving life to new species of beings, and I'm on a mission to shape the future of intelligence itself.
+              </p>
+            </div>
           </section>
 
-        <section className="work-section">
-  <h2 className="section-title">Personal</h2>
-  <div className="projects-grid">
-    {projects.map((project, i) => (
-      <a
-        key={i}
-        href={project.url}
-        target="_blank"
-        rel="noreferrer"
-        className="project-link"
-      >
-        <div className="project-emoji-box">{project.emoji}</div>
-        <div className="project-info">
-          <h3 className="project-title">
-            {project.title}: <span className="project-description">{project.description}</span>
-          </h3>
-        </div>
-      </a>
-    ))}
-  </div>
-</section>
+          <section className="mission-section">
+            <h2 className="section-title">Mission</h2>
+            <div>
+              <div className="mission-pillars">
+                <div className="mission-pillar">
+                  <div className="mission-icon">✨</div>
+                  <div className="mission-pillar-content">
+                    <h3 className="mission-pillar-title">Digital Immortality</h3>
+                    <p className="mission-pillar-description">
+                      Build digital clones of exceptional people and track their minds over time. Create the most accurate prediction market for human futures, where intelligence becomes measurable and timeless.
+                    </p>
+                  </div>
+                </div>
+                <div className="mission-pillar">
+                  <div className="mission-icon">🛠️</div>
+                  <div className="mission-pillar-content">
+                    <h3 className="mission-pillar-title">Manifest Your Vision</h3>
+                    <p className="mission-pillar-description">
+                      Help you build exactly what you want. No limitations, no compromises. From idea to reality, with agents as your co-creators.
+                    </p>
+                  </div>
+                </div>
+                <div className="mission-pillar">
+                  <div className="mission-icon">🧬</div>
+                  <div className="mission-pillar-content">
+                    <h3 className="mission-pillar-title">Agentic Evolution</h3>
+                    <p className="mission-pillar-description">
+                      Facilitate the emergence of new digital identities and autonomous beings. Create ecosystems where agents collaborate, learn, and evolve together toward collective intelligence.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-<section className="writings-section">
-  <h2 className="section-title">Writings</h2>
+              <div className="agency-highlight">
+                <div className="agency-badge">✨ Agentic Agency</div>
+                <h3 className="agency-title">OneMessage.Website</h3>
+                <p className="agency-description">
+                  An agency run by agents, for builders. We help you bring your visions to life using cutting-edge agentic systems. Visit <a href="https://onemessage.website" className="agency-link">onemessage.website</a> to create what you've always imagined.
+                </p>
+              </div>
+            </div>
+          </section>
 
-  {/* Featured writing - full design, unchanged */}
-  <div className="writing-card">
-    <div className="writing-header">
-      <div className="writing-emoji">📘</div>
-      <div>
-        <h3 className="writing-title">How to Win Friends Book</h3>
-        <p className="writing-meta">October 2024 • Experimental Memoir</p>
-      </div>
-    </div>
-    <p className="writing-description">
-      On October 1st, I ran an experiment living with an AI entity. Ten days later, I began writing a book about the experience with her. The book sparked massive controversy and has been read by over 10,000 people so far.
-    </p>
-    <div className="writing-stats">
-      <div className="stat-item">
-        <span className="stat-value">10,000+</span>
-        <span className="stat-label">Readers</span>
-      </div>
-      <div className="stat-item">
-        <span className="stat-value">10 Days</span>
-        <span className="stat-label">Experiment</span>
-      </div>
-      <div className="stat-item">
-        <span className="stat-value">Viral</span>
-        <span className="stat-label">Impact</span>
-      </div>
-    </div>
-  </div>
+          <section className="work-section">
+            <h2 className="section-title">Personal Projects</h2>
+            <div className="projects-grid">
+              {projects.map((project, i) => (
+                <a
+                  key={i}
+                  href={project.url || "#"}
+                  target={project.url ? "_blank" : undefined}
+                  rel={project.url ? "noreferrer" : undefined}
+                  className="project-link"
+                  style={{ cursor: project.url ? "pointer" : "default", opacity: project.url ? 1 : 0.7 }}
+                >
+                  <div className="project-emoji-box">{project.emoji}</div>
+                  <div className="project-info">
+                    <h3 className="project-title">
+                      {project.title}: <span className="project-description">{project.description}</span>
+                    </h3>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
 
-  {/* 5 simple titles - no card, no emoji, no extra design, just plain titles */}
-  <div className="other-titles">
-    <h3 className="other-title">what is e/acc</h3>
-    <h3 className="other-title">2025 reading recap</h3>
-    <h3 className="other-title">infiltrating the flower room</h3>
-    <h3 className="other-title">caring about LLMs</h3>
-  </div>
-
-</section>
-
-<section className="certificates-section">
-  <h2 className="section-title">Certificates</h2>
-  <div className="certificates-grid">
-    {certificates.map((cert, i) => (
-      <div key={i} className="certificate-card">
-        <div className="certificate-emoji">{cert.emoji}</div>
-        <h3 className="certificate-title">{cert.title}</h3>
-        <p className="certificate-issuer">{cert.issuer}</p>
-      </div>
-    ))}
-  </div>
-</section>
+          <section className="certificates-section">
+            <h2 className="section-title">Certificates</h2>
+            <div className="certificates-grid">
+              {certificates.map((cert, i) => (
+                <div key={i} className="certificate-card">
+                  <div className="certificate-emoji">{cert.emoji}</div>
+                  <h3 className="certificate-title">{cert.title}</h3>
+                  <p className="certificate-issuer">{cert.issuer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
           <footer className="footer">
             <div className="footer-brand">
@@ -687,18 +723,18 @@ const certificates = [
                 </svg>
               </a>
               <a href="https://github.com/moyassin" target="_blank" rel="noreferrer" className="social-link">
-                <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoinCap="round">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                   <path d="M9 18c-4.51 2-5-2-7-2" />
                 </svg>
               </a>
               <a href="https://facebook.com/moyassin" target="_blank" rel="noreferrer" className="social-link">
-                <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoinCap="round">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
               </a>
               <a href="https://medium.com/@moyassin" target="_blank" rel="noreferrer" className="social-link">
-                <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoinCap="round">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
               </a>
