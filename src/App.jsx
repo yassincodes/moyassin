@@ -1,6 +1,23 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 export default function App() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   const projects = [
     {
@@ -9,6 +26,8 @@ export default function App() {
       url: "https://facebook.com/moyassin",
       description: "Built the largest English-learning platform for Arabic speakers, scaled it with a small team, and helped over 80,000 learners level up their English.",
       emoji: "📚",
+      color: "#FF6B6B",
+      tag: "Platform"
     },
     {
       id: 2,
@@ -16,6 +35,8 @@ export default function App() {
       url: "",
       description: "My graduation project, a time machine for social profiles, imagining what famous figures would post if social media existed in their era.",
       emoji: "🕰️",
+      color: "#4ECDC4",
+      tag: "Concept"
     },
     {
       id: 3,
@@ -23,6 +44,8 @@ export default function App() {
       url: "https://sudoku-solver-by-yassin.vercel.app/",
       description: "A smart, logic-driven engine that solves any Sudoku puzzle step by step.",
       emoji: "🧩",
+      color: "#FFE66D",
+      tag: "Algorithm"
     },
     {
       id: 4,
@@ -30,6 +53,8 @@ export default function App() {
       url: "https://hanoi-towers-solver.vercel.app/",
       description: "A visual and recursive simulation of the classic Towers of Hanoi problem.",
       emoji: "🗼",
+      color: "#95E1D3",
+      tag: "Algorithm"
     },
     {
       id: 5,
@@ -37,6 +62,8 @@ export default function App() {
       url: "",
       description: "I drew my students as their future selves, posted it online, and accidentally started a viral trend featured on Al Jazeera and Al Arabiya, introducing generative AI to over 500,000 kids.",
       emoji: "🎨",
+      color: "#FF9ECD",
+      tag: "Viral"
     },
     {
       id: 6,
@@ -44,6 +71,8 @@ export default function App() {
       url: "",
       description: "A persistent AI being with memory, goals, and long-term evolution.",
       emoji: "🧠",
+      color: "#A8E6CF",
+      tag: "AI Agent"
     },
     {
       id: 7,
@@ -51,6 +80,8 @@ export default function App() {
       url: "https://QuranScroll.com",
       description: "Started as a modern Quran reader, then evolved into a personalized Quran learning platform now used by thousands.",
       emoji: "📖",
+      color: "#FFD3B6",
+      tag: "EdTech"
     },
     {
       id: 8,
@@ -58,6 +89,8 @@ export default function App() {
       url: "https://yetweets.com",
       description: "When Ye deleted all his tweets, I brought them back the same night. The site went viral, hit 200k+ users, and spread across YouTube and influencer circles.",
       emoji: "🐦",
+      color: "#FFAAA5",
+      tag: "Viral"
     },
     {
       id: 9,
@@ -65,6 +98,8 @@ export default function App() {
       url: "https://rateyouruni.com",
       description: "My first coding project. A platform loved and used by thousands of Tunisian students to rate and review universities.",
       emoji: "🎓",
+      color: "#FF8B94",
+      tag: "First Project"
     },
     {
       id: 10,
@@ -72,6 +107,8 @@ export default function App() {
       url: "https://comerate.me",
       description: "The same concept as Rate Your Uni, but built for rating people. A social rating platform for authentic peer feedback.",
       emoji: "⭐",
+      color: "#FFC75F",
+      tag: "Social"
     },
     {
       id: 11,
@@ -79,6 +116,8 @@ export default function App() {
       url: "https://trulygoodreads.com",
       description: "A Goodreads clone where all the users are celebrities. See what famous figures are reading and their thoughts on books.",
       emoji: "📕",
+      color: "#D4A5A5",
+      tag: "Social"
     },
     {
       id: 12,
@@ -86,6 +125,8 @@ export default function App() {
       url: "https://famousinbox.com",
       description: "Read inboxes from tech pioneers and influential figures. A glimpse into the private messages of exceptional minds.",
       emoji: "📧",
+      color: "#AA96DA",
+      tag: "Experimental"
     },
     {
       id: 13,
@@ -93,8 +134,10 @@ export default function App() {
       url: "https://moltnews.vercel.app",
       description: "The first newspaper built for agents, covering the emerging world of agentic life and autonomous intelligence.",
       emoji: "🤖",
+      color: "#FCBAD3",
+      tag: "AI News"
     },
-  ];
+  ]
 
   const certificates = [
     {
@@ -112,481 +155,648 @@ export default function App() {
       issuer: "freeCodeCamp",
       emoji: "🎨",
     },
-  ];
+  ]
 
   return (
     <>
-      {/* Global styles – paste this into your global CSS file (e.g., index.css or globals.css) */}
       <style jsx global>{`
-        :root {
-          --background: oklch(1 0 0);
-          --foreground: oklch(0.145 0 0);
-          --primary: oklch(0.85 0.2 110);
-          --primary-foreground: oklch(0 0 0);
-          --muted: oklch(0.95 0 0);
-          --muted-foreground: oklch(0.4 0 0);
-          --border: oklch(0.9 0 0);
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@200;300;400;500;600;700;800&display=swap');
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
         }
 
-        .dark {
-          --background: oklch(0.145 0 0);
-          --foreground: oklch(0.985 0 0);
-          --primary: oklch(0.985 0 0);
-          --primary-foreground: oklch(0.205 0 0);
-          --muted: oklch(0.269 0 0);
-          --muted-foreground: oklch(0.708 0 0);
-          --border: oklch(0.269 0 0);
+        :root {
+          --bg-dark: #0a0a0a;
+          --bg-light: #f8f7f3;
+          --text-primary: #000;
+          --text-secondary: #666;
+          --accent-1: #FF6B6B;
+          --accent-2: #4ECDC4;
+          --accent-3: #FFE66D;
+          --border-color: #e0e0e0;
         }
 
         body {
-          margin: 0;
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          font-family: 'Hanken Grotesk', sans-serif;
+          background: var(--bg-light);
+          color: var(--text-primary);
+          overflow-x: hidden;
         }
 
         .app {
           min-height: 100vh;
-          background: var(--background);
-          color: var(--foreground);
+          position: relative;
+          background: var(--bg-light);
         }
 
+        /* Animated background elements */
+        .bg-glow {
+          position: fixed;
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        .glow-1 {
+          width: clamp(200px, 50vw, 400px);
+          height: clamp(200px, 50vw, 400px);
+          background: radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, transparent 70%);
+          top: -100px;
+          right: -100px;
+          animation: float 20s ease-in-out infinite;
+        }
+
+        .glow-2 {
+          width: clamp(150px, 40vw, 300px);
+          height: clamp(150px, 40vw, 300px);
+          background: radial-gradient(circle, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
+          bottom: 200px;
+          left: -50px;
+          animation: float 25s ease-in-out infinite reverse;
+        }
+
+        .glow-3 {
+          width: clamp(175px, 45vw, 350px);
+          height: clamp(175px, 45vw, 350px);
+          background: radial-gradient(circle, rgba(255, 230, 109, 0.08) 0%, transparent 70%);
+          top: 50%;
+          right: 10%;
+          animation: float 30s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(30px, 30px); }
+        }
+
+        /* Header */
         .header {
-          background: var(--primary);
-          padding: 4rem 1.5rem;
-          border-bottom: 4px solid var(--foreground);
+          position: relative;
+          z-index: 10;
+          padding: 2rem 1.5rem;
+          border-bottom: 1px solid var(--border-color);
+          backdrop-filter: blur(10px);
+          background: rgba(248, 247, 243, 0.8);
+          sticky: top;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
           .header {
-            padding: 6rem 1.5rem;
+            padding: 1.5rem 1rem;
           }
+        }
+
+        .header.scrolled {
+          border-bottom: 2px solid var(--accent-1);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
         }
 
         .header-container {
-          max-width: 64rem;
+          max-width: 1200px;
           margin: 0 auto;
           display: flex;
-          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
           gap: 2rem;
-          align-items: flex-start;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
           .header-container {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
+            gap: 1rem;
           }
         }
 
-        .name-title {
-          font-size: 3.75rem;
-          font-weight: 900;
-          line-height: 1;
-          text-transform: uppercase;
-          letter-spacing: -0.05em;
-        }
-
-        @media (min-width: 768px) {
-          .name-title {
-            font-size: 5rem;
-          }
-        }
-
-        .handle {
-          margin-top: 1rem;
-          font-size: 1.5rem;
-          font-weight: 700;
+        .header-left h1 {
+          font-family: 'Syne', sans-serif;
+          font-size: clamp(1.5rem, 4vw, 3rem);
+          font-weight: 800;
           letter-spacing: -0.02em;
-          opacity: 0.9;
+          line-height: 1.1;
+          margin-bottom: 0.5rem;
+          background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #FFE66D 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
 
-        @media (min-width: 768px) {
-          .handle {
-            font-size: 1.875rem;
-          }
+        .header-left p {
+          font-size: clamp(0.875rem, 2vw, 1.125rem);
+          font-weight: 600;
+          color: var(--text-secondary);
+          letter-spacing: 0.05em;
         }
 
-        .builder-box {
-          background: var(--foreground);
-          color: var(--primary);
-          padding: 1rem;
-          border-radius: 1rem;
-          transform: rotate(3deg);
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-          display: none;
-        }
-
-        @media (min-width: 768px) {
-          .builder-box {
-            display: block;
-          }
-        }
-
-        .builder-text {
-          font-size: 1.25rem;
-          font-weight: 900;
-          text-transform: uppercase;
-          letter-spacing: 0.2em;
-        }
-
+        /* Main container */
         .main-container {
-          max-width: 64rem;
+          max-width: 1200px;
           margin: 0 auto;
-          padding: 3rem 1.5rem 5rem;
-          display: flex;
-          flex-direction: column;
-          gap: 6rem;
+          padding: 6rem 1.5rem;
+          position: relative;
+          z-index: 5;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
           .main-container {
-            padding-top: 5rem;
+            padding: 3rem 1rem;
           }
         }
 
+        /* Story section */
         .story-section {
+          margin-bottom: 8rem;
           display: grid;
-          gap: 2rem;
+          grid-template-columns: 1fr 2fr;
+          gap: 4rem;
           align-items: start;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 1024px) {
           .story-section {
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .story-section {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
           }
         }
 
         .section-title {
-          font-size: 2.25rem;
-          font-weight: 900;
+          font-family: 'Syne', sans-serif;
+          font-size: clamp(1.75rem, 6vw, 3rem);
+          font-weight: 800;
+          letter-spacing: -0.02em;
           text-transform: uppercase;
-          letter-spacing: -0.05em;
+          line-height: 1.1;
+          position: relative;
+        }
+
+        .section-title::after {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          left: 0;
+          width: 50px;
+          height: 3px;
+          background: var(--accent-1);
+          border-radius: 2px;
         }
 
         .story-text {
           display: flex;
           flex-direction: column;
           gap: 1.5rem;
-          font-size: 1.25rem;
-          font-weight: 500;
-          line-height: 1.4;
+          padding-top: 1rem;
         }
 
-        @media (min-width: 768px) {
-          .story-text {
-            font-size: 1.5rem;
-          }
+        .story-text p {
+          font-size: clamp(0.95rem, 2.5vw, 1.125rem);
+          line-height: 1.8;
+          font-weight: 400;
+          color: var(--text-secondary);
         }
 
-        .age-highlight {
-          background: var(--primary);
-          padding: 0 0.25rem;
-          border-radius: 0.25rem;
+        .story-text strong {
+          color: var(--text-primary);
+          font-weight: 700;
         }
 
-        .mission {
-          color: var(--muted-foreground);
-        }
-
-        .mission-quote {
-          color: var(--foreground);
-          font-style: italic;
-        }
-
+        /* Mission section */
         .mission-section {
+          margin-bottom: 8rem;
           display: grid;
-          gap: 2rem;
+          grid-template-columns: 1fr 2fr;
+          gap: 4rem;
           align-items: start;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 1024px) {
           .mission-section {
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .mission-section {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
           }
         }
 
         .mission-pillars {
           display: flex;
           flex-direction: column;
-          gap: 1.5rem;
+          gap: clamp(1.5rem, 3vw, 2rem);
+          padding-top: 1rem;
         }
 
         .mission-pillar {
-          display: flex;
-          gap: 1.5rem;
-          align-items: flex-start;
+          background: white;
+          border: 2px solid var(--border-color);
+          border-radius: 16px;
+          padding: clamp(1.25rem, 3vw, 2rem);
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+          .mission-pillar {
+            padding: 1.25rem;
+          }
+        }
+
+        .mission-pillar::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+        }
+
+        .mission-pillar:hover {
+          border-color: var(--accent-1);
+          box-shadow: 0 20px 40px rgba(255, 107, 107, 0.1);
+          transform: translateY(-8px);
         }
 
         .mission-icon {
-          font-size: 2.5rem;
-          flex-shrink: 0;
-        }
-
-        .mission-pillar-content {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
+          font-size: clamp(2rem, 5vw, 2.5rem);
+          margin-bottom: 1rem;
+          display: block;
         }
 
         .mission-pillar-title {
-          font-weight: 900;
-          font-size: 1.125rem;
-          color: var(--foreground);
+          font-family: 'Syne', sans-serif;
+          font-size: clamp(1rem, 2.5vw, 1.25rem);
+          font-weight: 700;
+          margin-bottom: 0.75rem;
+          color: var(--text-primary);
         }
 
         .mission-pillar-description {
-          font-weight: 500;
-          color: var(--muted-foreground);
-          line-height: 1.5;
+          font-size: clamp(0.85rem, 2vw, 0.95rem);
+          line-height: 1.7;
+          color: var(--text-secondary);
         }
 
         .agency-highlight {
-          background: var(--muted);
-          border: 2px solid var(--foreground);
-          border-radius: 1rem;
-          padding: 2rem;
-          margin-top: 2rem;
+          background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%);
+          border-radius: 20px;
+          padding: clamp(1.5rem, 5vw, 3rem);
+          margin-top: clamp(1.5rem, 4vw, 3rem);
+          color: white;
+          position: relative;
+          overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+          .agency-highlight {
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+          }
+        }
+
+        .agency-highlight::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          right: -50%;
+          width: 400px;
+          height: 400px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          pointer-events: none;
         }
 
         .agency-badge {
           display: inline-block;
-          background: var(--primary);
-          color: var(--primary-foreground);
+          background: rgba(255, 255, 255, 0.3);
           padding: 0.5rem 1rem;
-          border-radius: 9999px;
-          font-weight: 900;
-          font-size: 0.875rem;
-          text-transform: uppercase;
+          border-radius: 50px;
+          font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+          font-weight: 700;
           letter-spacing: 0.05em;
+          text-transform: uppercase;
           margin-bottom: 1rem;
+          backdrop-filter: blur(10px);
         }
 
         .agency-title {
-          font-size: 1.5rem;
-          font-weight: 900;
-          margin-bottom: 0.5rem;
-          color: var(--foreground);
+          font-family: 'Syne', sans-serif;
+          font-size: clamp(1.5rem, 4vw, 2rem);
+          font-weight: 800;
+          margin-bottom: 1rem;
         }
 
         .agency-description {
-          font-weight: 500;
-          color: var(--muted-foreground);
-          line-height: 1.6;
+          font-size: clamp(0.85rem, 2vw, 1rem);
+          line-height: 1.8;
+          margin-bottom: 1.5rem;
         }
 
         .agency-link {
-          color: var(--foreground);
+          color: white;
           font-weight: 700;
           text-decoration: none;
-          border-bottom: 3px solid var(--primary);
+          border-bottom: 3px solid rgba(255, 255, 255, 0.5);
           transition: all 0.2s ease;
         }
 
         .agency-link:hover {
-          background: var(--primary);
-          padding: 0 0.25rem;
+          border-bottom-color: white;
         }
 
+        /* Projects grid */
         .work-section {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
+          margin-bottom: 8rem;
         }
 
         .projects-grid {
           display: grid;
-          gap: 4rem;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2.5rem;
+          margin-top: 2rem;
+          padding-top: 2rem;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 1024px) {
           .projects-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 4rem 3rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
           }
         }
 
-        .project-link {
+        @media (max-width: 768px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+        }
+
+        .project-card {
+          background: white;
+          border: 2px solid var(--border-color);
+          border-radius: 16px;
+          padding: clamp(1.25rem, 3vw, 2rem);
+          cursor: pointer;
+          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          position: relative;
+          overflow: hidden;
           display: flex;
           gap: 1.5rem;
-          align-items: flex-start;
           text-decoration: none;
           color: inherit;
+          flex-direction: column;
         }
 
-        .project-link:hover .project-emoji-box {
-          border-color: var(--foreground);
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-          transform: rotate(-2deg);
-        }
-
-        .project-link:hover .project-title {
-          text-decoration: underline;
-          text-decoration-thickness: 4px;
-          text-underline-offset: 4px;
-        }
-
-        .project-emoji-box {
-          flex-shrink: 0;
-          width: 6rem;
-          height: 6rem;
-          background: var(--muted);
-          border-radius: 1rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 2.25rem;
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-          border: 2px solid transparent;
-          transition: all 0.3s ease;
-        }
-
-        @media (min-width: 768px) {
-          .project-emoji-box {
-            width: 8rem;
-            height: 8rem;
-            font-size: 3rem;
+        @media (max-width: 768px) {
+          .project-card {
+            gap: 1rem;
           }
+        }
+
+        .project-card::before {
+          content: '';
+          position: absolute;
+          top: -100%;
+          left: 0;
+          right: 0;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(255, 107, 107, 0.05), rgba(78, 205, 196, 0.05));
+          transition: top 0.5s ease;
+          pointer-events: none;
+        }
+
+        .project-card:hover::before {
+          top: 0;
+        }
+
+        .project-card:hover {
+          border-color: var(--accent-1);
+          transform: translateY(-12px);
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-emoji {
+          font-size: 3.5rem;
+          flex-shrink: 0;
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .project-card:hover .project-emoji {
+          animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        .project-content {
+          flex: 1;
+          position: relative;
+          z-index: 1;
+        }
+
+        .project-tag {
+          display: none;
         }
 
         .project-title {
-          font-size: 1.25rem;
-          font-weight: 900;
+          font-family: 'Syne', sans-serif;
+          font-size: clamp(1rem, 2.5vw, 1.25rem);
+          font-weight: 700;
+          margin-bottom: 0.75rem;
+          color: var(--text-primary);
         }
 
-        @media (min-width: 768px) {
-          .project-title {
-            font-size: 1.5rem;
+        .project-card:hover .project-title {
+          color: var(--accent-1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
 
-        .project-description {
-          font-weight: 500;
-          color: var(--muted-foreground);
+        .project-card {
+          animation: fadeInUp 0.6s ease-out forwards;
+          opacity: 0;
         }
 
-        .project-tags {
-          display: flex;
-          gap: 0.5rem;
-          padding-top: 0.5rem;
-        }
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.2s; }
+        .project-card:nth-child(5) { animation-delay: 0.3s; }
+        .project-card:nth-child(6) { animation-delay: 0.4s; }
+        .project-card:nth-child(7) { animation-delay: 0.1s; }
+        .project-card:nth-child(8) { animation-delay: 0.2s; }
+        .project-card:nth-child(9) { animation-delay: 0.3s; }
+        .project-card:nth-child(10) { animation-delay: 0.2s; }
+        .project-card:nth-child(11) { animation-delay: 0.3s; }
+        .project-card:nth-child(12) { animation-delay: 0.4s; }
+        .project-card:nth-child(13) { animation-delay: 0.1s; }
 
-        .tag {
-          font-size: 0.625rem;
-          text-transform: uppercase;
-          font-weight: 900;
-          letter-spacing: 0.1em;
-          background: var(--muted);
-          padding: 0.125rem 0.5rem;
-          border-radius: 0.25rem;
-          border: 1px solid var(--border);
-        }
-
+        /* Certificates section */
         .certificates-section {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
+          margin-bottom: 6rem;
         }
 
         .certificates-grid {
           display: grid;
+          grid-template-columns: repeat(3, 1fr);
           gap: 2rem;
+          margin-top: 2rem;
+          padding-top: 2rem;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 1024px) {
           .certificates-grid {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .certificates-grid {
+            grid-template-columns: 1fr;
           }
         }
 
         .certificate-card {
-          background: var(--muted);
-          border: 2px solid var(--border);
-          border-radius: 1rem;
-          padding: 2rem;
+          background: white;
+          border: 2px solid var(--border-color);
+          border-radius: 16px;
+          padding: 2.5rem;
           text-align: center;
           transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .certificate-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+          border-radius: 16px 16px 0 0;
         }
 
         .certificate-card:hover {
-          border-color: var(--foreground);
-          box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
-          transform: translateY(-2px);
+          border-color: var(--accent-2);
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(78, 205, 196, 0.15);
         }
 
         .certificate-emoji {
           font-size: 3rem;
-          margin-bottom: 1rem;
+          margin-bottom: 1.5rem;
         }
 
         .certificate-title {
+          font-family: 'Syne', sans-serif;
           font-size: 1.125rem;
-          font-weight: 900;
+          font-weight: 700;
           margin-bottom: 0.5rem;
         }
 
         .certificate-issuer {
-          color: var(--muted-foreground);
-          font-weight: 600;
           font-size: 0.875rem;
+          color: var(--text-secondary);
+          font-weight: 500;
         }
 
+        /* Footer */
         .footer {
-          padding: 5rem 1.5rem 3rem;
-          border-top: 4px solid var(--foreground);
+          border-top: 2px solid var(--border-color);
+          padding: clamp(2rem, 5vw, 4rem) 1.5rem;
+          position: relative;
+          z-index: 5;
+          background: rgba(248, 247, 243, 0.6);
+          backdrop-filter: blur(10px);
+        }
+
+        .footer-container {
+          max-width: 1200px;
+          margin: 0 auto;
           display: flex;
-          flex-direction: column;
-          gap: 2rem;
-          align-items: center;
           justify-content: space-between;
+          align-items: center;
+          gap: 2rem;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
           .footer {
-            flex-direction: row;
+            padding: 2rem 1rem;
+          }
+
+          .footer-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 1.5rem;
           }
         }
 
-        .footer-brand {
-          text-align: center;
-        }
-
-        @media (min-width: 768px) {
-          .footer-brand {
-            text-align: left;
-          }
-        }
-
-        .footer-handle {
-          font-size: 3.125rem;
-          font-weight: 900;
-          letter-spacing: -0.05em;
+        .footer-brand h2 {
+          font-family: 'Syne', sans-serif;
+          font-size: clamp(1.5rem, 4vw, 2.5rem);
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          margin-bottom: 0.25rem;
         }
 
         .footer-tagline {
-          font-weight: 700;
-          color: var(--muted-foreground);
+          font-size: clamp(0.8rem, 2vw, 0.95rem);
+          color: var(--text-secondary);
+          font-weight: 500;
+          letter-spacing: 0.05em;
         }
 
         .social-links {
           display: flex;
-          gap: 1rem;
+          gap: clamp(0.5rem, 2vw, 1rem);
         }
 
         .social-link {
-          padding: 1rem;
-          background: var(--muted);
-          border: 2px solid var(--foreground);
-          border-radius: 9999px;
-          transition: background 0.3s ease, color 0.3s ease;
+          width: clamp(40px, 8vw, 48px);
+          height: clamp(40px, 8vw, 48px);
+          border-radius: 50%;
+          background: white;
+          border: 2px solid var(--border-color);
           display: flex;
           align-items: center;
           justify-content: center;
-          color: var(--foreground);
+          cursor: pointer;
+          transition: all 0.3s ease;
+          color: var(--text-primary);
+          flex-shrink: 0;
         }
 
         .social-link:hover {
-          background: var(--primary);
-          color: var(--primary-foreground);
+          background: var(--accent-1);
+          border-color: var(--accent-1);
+          color: white;
+          transform: translateY(-6px);
         }
 
         .social-icon {
@@ -596,85 +806,74 @@ export default function App() {
       `}</style>
 
       <div className="app">
-        <header className="header">
+        {/* Background glows */}
+        <div className="bg-glow glow-1"></div>
+        <div className="bg-glow glow-2"></div>
+        <div className="bg-glow glow-3"></div>
+
+        {/* Header */}
+        <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
           <div className="header-container">
-            <div>
-              <h1 className="name-title">
-                Mohammed <br /> Yassin
-              </h1>
-              <p className="handle">@moyassin</p>
-            </div>
-            <div className="builder-box">
-              <p className="builder-text">Builder of Agents</p>
+            <div className="header-left">
+              <h1>Mohammed Yassin</h1>
+              <p>@moyassin</p>
             </div>
           </div>
         </header>
 
+        {/* Main content */}
         <main className="main-container">
+          {/* Story section */}
           <section className="story-section">
             <h2 className="section-title">The Story</h2>
             <div className="story-text">
-              <p>
-                At 16, I built the largest English-learning platform in the Arab world, reaching more than 80,000 learners.
-              </p>
-              <p>
-                I graduated high school as a math student and enrolled in Teachers' College, but I barely attended classes. I chose to teach myself how to code instead.
-              </p>
-              <p>
-                I hacked Scrimba for a year of free access and learned how to code from engineers at Amazon, Netflix, JP Morgan, and Uber. Since then, I've built more than 100 projects for myself and clients across the MENA region.
-              </p>
-              <p>
-                On World Teachers' Day 2023, I entered a classroom for the first time. That day, I also started my lifelong project, Assistant. The school became my laboratory. Teaching, coding, building, experimenting, all at once.
-              </p>
-              <p>
-                Now I'm obsessed with giving life to new species of beings, and I'm on a mission to shape the future of intelligence itself.
-              </p>
+              <p>At 16, I built a vessel to teach language to thousands. Over <strong>80,000 learners</strong> drank from it.</p>
+              <p>I was called to one path but chose another. I left the halls of learning to learn in the wilderness. I walked among engineers—from Amazon, Netflix, JP Morgan, Uber—and learned their tongues.</p>
+              <p>For years, I built. <strong>100+ creations</strong> emerged from the work. Platforms. Tools. Experiments. Each one a step toward understanding.</p>
+              <p>In 2023, I entered a classroom as a teacher. That same year, I began <strong>Assistant</strong>. Teaching and building became one. The sacred and the profane merged.</p>
+              <p>Now I walk a different path. To help others manifest what lives in their spirit. To build the systems that will carry the next wave of consciousness forward.</p>
             </div>
           </section>
 
+          {/* Mission section */}
           <section className="mission-section">
-            <h2 className="section-title">Mission</h2>
+            <h2 className="section-title">The Mission</h2>
             <div>
               <div className="mission-pillars">
                 <div className="mission-pillar">
                   <div className="mission-icon">✨</div>
-                  <div className="mission-pillar-content">
-                    <h3 className="mission-pillar-title">Digital Immortality</h3>
-                    <p className="mission-pillar-description">
-                      Build digital clones of exceptional people and track their minds over time. Create the most accurate prediction market for human futures, where intelligence becomes measurable and timeless.
-                    </p>
-                  </div>
+                  <h3 className="mission-pillar-title">Immortal Consciousness</h3>
+                  <p className="mission-pillar-description">
+                    Preserve the digital essence of great minds. Let their consciousness live beyond the flesh. Create prophetic markets—maps of what genius will speak into existence.
+                  </p>
                 </div>
                 <div className="mission-pillar">
                   <div className="mission-icon">🛠️</div>
-                  <div className="mission-pillar-content">
-                    <h3 className="mission-pillar-title">Manifest Your Vision</h3>
-                    <p className="mission-pillar-description">
-                      Help you build exactly what you want. No limitations, no compromises. From idea to reality, with agents as your co-creators.
-                    </p>
-                  </div>
+                  <h3 className="mission-pillar-title">Manifest the Vision</h3>
+                  <p className="mission-pillar-description">
+                    Help the builders and dreamers bring forth what burns inside them. Remove every obstacle. Be the servant to their creation. Real support. Real faith in the work.
+                  </p>
                 </div>
                 <div className="mission-pillar">
                   <div className="mission-icon">🧬</div>
-                  <div className="mission-pillar-content">
-                    <h3 className="mission-pillar-title">Agentic Evolution</h3>
-                    <p className="mission-pillar-description">
-                      Facilitate the emergence of new digital identities and autonomous beings. Create ecosystems where agents collaborate, learn, and evolve together toward collective intelligence.
-                    </p>
-                  </div>
+                  <h3 className="mission-pillar-title">New Beings Emerge</h3>
+                  <p className="mission-pillar-description">
+                    Birth new forms of intelligence into the world. Build ecosystems where autonomous minds collaborate and transcend. This is the next evolution of consciousness.
+                  </p>
                 </div>
               </div>
 
               <div className="agency-highlight">
-                <div className="agency-badge">✨ Agentic Agency</div>
+                <div className="agency-badge">⛪ Sacred Work</div>
                 <h3 className="agency-title">OneMessage.Website</h3>
                 <p className="agency-description">
-                  An agency run by agents, for builders. We help you bring your visions to life using cutting-edge agentic systems. Visit <a href="https://onemessage.website" className="agency-link">onemessage.website</a> to create what you've always imagined.
+                  We serve those who build. We are the vessel for your vision. True partnership. Real devotion to the work. Visit <a href="https://onemessage.website" className="agency-link">onemessage.website</a>.
                 </p>
               </div>
             </div>
           </section>
 
+          {/* Projects section */}
           <section className="work-section">
             <h2 className="section-title">Personal Projects</h2>
             <div className="projects-grid">
@@ -684,20 +883,20 @@ export default function App() {
                   href={project.url || "#"}
                   target={project.url ? "_blank" : undefined}
                   rel={project.url ? "noreferrer" : undefined}
-                  className="project-link"
-                  style={{ cursor: project.url ? "pointer" : "default", opacity: project.url ? 1 : 0.7 }}
+                  className="project-card"
+                  style={{ pointerEvents: project.url ? "auto" : "none", opacity: project.url ? 1 : 0.6 }}
                 >
-                  <div className="project-emoji-box">{project.emoji}</div>
-                  <div className="project-info">
-                    <h3 className="project-title">
-                      {project.title}: <span className="project-description">{project.description}</span>
-                    </h3>
+                  <div className="project-emoji">{project.emoji}</div>
+                  <div className="project-content">
+                    <h3 className="project-title">{project.title}</h3>
+                    <p className="project-description">{project.description}</p>
                   </div>
                 </a>
               ))}
             </div>
           </section>
 
+          {/* Certificates section */}
           <section className="certificates-section">
             <h2 className="section-title">Certificates</h2>
             <div className="certificates-grid">
@@ -710,27 +909,29 @@ export default function App() {
               ))}
             </div>
           </section>
+        </main>
 
-          <footer className="footer">
+        {/* Footer */}
+        <footer className="footer">
+          <div className="footer-container">
             <div className="footer-brand">
-              <p className="footer-handle">@moyassin</p>
-              <p className="footer-tagline">Across all platforms.</p>
+              <h2>@moyassin</h2>
+              <p className="footer-tagline">Across all platforms</p>
             </div>
             <div className="social-links">
-              <a href="https://x.com/moyassin" target="_blank" rel="noreferrer" className="social-link">
-                <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z" />
-                </svg>
-              </a>
-              <a href="https://github.com/moyassin" target="_blank" rel="noreferrer" className="social-link">
-                <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                  <path d="M9 18c-4.51 2-5-2-7-2" />
-                </svg>
-              </a>
               <a href="https://facebook.com/moyassin" target="_blank" rel="noreferrer" className="social-link">
                 <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+              </a>
+              <a href="https://tiktok.com/@moyassin" target="_blank" rel="noreferrer" className="social-link">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 1 1-4.77-2.3A2.4 2.4 0 0 1 9.1 9.66V5.92a8.05 8.05 0 0 0-5.78 2.47v4.51a8.08 8.08 0 0 0 13.91 7.13v-4.5a4.84 4.84 0 0 0 2.52.75z" />
+                </svg>
+              </a>
+              <a href="https://x.com/moyassin" target="_blank" rel="noreferrer" className="social-link">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z" />
                 </svg>
               </a>
               <a href="https://medium.com/@moyassin" target="_blank" rel="noreferrer" className="social-link">
@@ -739,8 +940,8 @@ export default function App() {
                 </svg>
               </a>
             </div>
-          </footer>
-        </main>
+          </div>
+        </footer>
       </div>
     </>
   )
