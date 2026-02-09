@@ -112,7 +112,14 @@ export default function App() {
       emoji: "📧",
     },
     {
-      id: 14,
+  id: 14,
+  title: "agelogs.com",
+  url: "https://agelogs.com",
+  description: "See what famous people were doing at your age. Track milestones of celebrities, entrepreneurs, and historical figures to compare your journey.",
+  emoji: "📅",
+},
+    {
+      id: 15,
       title: "moltnews.vercel.app",
       url: "https://moltnews.vercel.app",
       description: "The first newspaper built for agents, covering the emerging world of agentic life and autonomous intelligence.",
