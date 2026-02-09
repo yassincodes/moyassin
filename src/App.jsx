@@ -760,20 +760,15 @@ export default function App() {
           <section className="section mission-section">
             <h2 className="section-title">The Mission</h2>
             <div className="mission-grid">
-              <div className="mission-card">
-                <div className="mission-icon">✨</div>
-                <h3>Digital Immortality</h3>
-                <p>Build digital clones of exceptional people and track their minds over time. Create the most accurate prediction market for human futures, where intelligence becomes measurable and timeless.</p>
+          <div className="mission-card">
+                <div className="mission-icon">🧬</div>
+                <h3>Agentic Evolution</h3>
+                <p>Facilitate the emergence of new digital identities and autonomous beings. Create ecosystems where agents collaborate, learn, and evolve together toward collective intelligence.</p>
               </div>
               <div className="mission-card">
                 <div className="mission-icon">🛠️</div>
                 <h3>Manifest Your Vision</h3>
                 <p>Help you build exactly what you want. No limitations, no compromises. From idea to reality, with agents as your co-creators.</p>
-              </div>
-              <div className="mission-card">
-                <div className="mission-icon">🧬</div>
-                <h3>Agentic Evolution</h3>
-                <p>Facilitate the emergence of new digital identities and autonomous beings. Create ecosystems where agents collaborate, learn, and evolve together toward collective intelligence.</p>
               </div>
             </div>
 
