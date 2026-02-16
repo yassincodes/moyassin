@@ -132,6 +132,159 @@ export default function App() {
     { title: "JavaScript Algorithms and Data Structures", issuer: "freeCodeCamp", emoji: "💻" },
     { title: "Responsive Web Design", issuer: "freeCodeCamp", emoji: "🎨" },
   ]
+=======
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+const projects = [
+  {
+    id: 1,
+    title: "Teaching English Online",
+    url: "",
+    description: "Built the largest English-learning platform for Arabic speakers, scaled it with a small team, and helped over 80,000 learners level up their English.",
+    emoji: "📚",
+  },
+  {
+    id: 2,
+    title: "Social Media From the Past",
+    url: "",
+    description: "My graduation project, a time machine for social profiles, imagining what famous figures would post if social media existed in their era.",
+    emoji: "🕰️",
+  },
+  {
+    id: 3,
+    title: "Sudoku Solver",
+    url: "",
+    description: "A smart, logic-driven engine that solves any Sudoku puzzle step by step.",
+    emoji: "🧩",
+  },
+  {
+    id: 4,
+    title: "Hanoi Towers Solver",
+    url: "",
+    description: "A visual and recursive simulation of the classic Towers of Hanoi problem.",
+    emoji: "🗼",
+  },
+  {
+    id: 5,
+    title: "Drawing Students as Grown-Ups",
+    url: "",
+    description: "I drew my students as their future selves, posted it online, and accidentally started a viral trend featured on Al Jazeera and Al Arabiya, introducing generative AI to over 500,000 kids.",
+    emoji: "🎨",
+  },
+  {
+    id: 6,
+    title: "assis.tn",
+    url: "",
+    description: "A persistent AI being with memory, goals, and long-term evolution.",
+    emoji: "🧠",
+  },
+  {
+    id: 7,
+    title: "StudyQuran.com",
+    url: "",
+    description: "Started as a modern Quran reader, then evolved into a personalized Quran learning platform now used by thousands.",
+    emoji: "📖",
+  },
+  {
+    id: 8,
+    title: "yetweets.com",
+    url: "",
+    description: "When Ye deleted all his tweets, I brought them back the same night. The site went viral, hit 200k+ users, and spread across YouTube and influencer circles.",
+    emoji: "🐦",
+  },
+  {
+    id: 9,
+    title: "studentreviews.com",
+    url: "",
+    description: "My first coding project. A platform loved and used by thousands of Tunisian students to rate and review universities.",
+    emoji: "🎓",
+  },
+  {
+    id: 10,
+    title: "comerate.me",
+    url: "",
+    description: "The same concept as studentreviews, but built for rating people. A social rating platform for authentic peer feedback.",
+    emoji: "⭐",
+  },
+  {
+    id: 11,
+    title: "keyboardmate.com",
+    url: "",
+    description: "An intelligent keyboard companion that learns your writing style and helps you write faster and better.",
+    emoji: "⌨️",
+  },
+  {
+    id: 12,
+    title: "trulygoodreads.com",
+    url: "",
+    description: "A Goodreads clone where all the users are celebrities. See what famous figures are reading and their thoughts on books.",
+    emoji: "📕",
+  },
+  {
+    id: 13,
+    title: "famousinbox.com",
+    url: "",
+    description: "Read inboxes from tech pioneers and influential figures. A glimpse into the private messages of exceptional minds.",
+    emoji: "📧",
+  },
+  {
+    id: 14,
+    title: "agelogs.com",
+    url: "",
+    description: "See what famous people were doing at your age. Track milestones of celebrities, entrepreneurs, and historical figures to compare your journey.",
+    emoji: "📅",
+  },
+  {
+    id: 15,
+    title: "moltnews.vercel.app",
+    url: "",
+    description: "The first newspaper built for agents, covering the emerging world of agentic life and autonomous intelligence.",
+    emoji: "🤖",
+  },
+  {
+    id: 16,
+    title: "moltreviews.com",
+    url: "",
+    description: "Developed from studentreviews but for the agentic era and everything in the world. See how agents are rating people, books, and more live.",
+    emoji: "⭐",
+  },
+  {
+    id: 17,
+    title: "befriendswith.com",
+    url: "",
+    description: "We keep track of celebs' data and give you the chance to be friends with them. They share with you what is happening in their life in real time.",
+    emoji: "🤝",
+  },
+  {
+    id: 18,
+    title: "dontkillthevibe.com",
+    url: "",
+    description: "The music will only keep playing when you are vibe coding. The moment you stop, the music stops.",
+    emoji: "🎵",
+  },
+];
+>>>>>>> 5b52b19 (.)
+
+
+  const certificates = [
+    { title: "React", issuer: "freeCodeCamp", emoji: "⚛️" },
+    { title: "JavaScript Algorithms and Data Structures", issuer: "freeCodeCamp", emoji: "💻" },
+    { title: "Responsive Web Design", issuer: "freeCodeCamp", emoji: "🎨" },
+  ]
 
   return (
     <>
