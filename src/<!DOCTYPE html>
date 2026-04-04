@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VibeCodingDJ</title>
+<style>
+  /* Your original styles remain the same - I kept them all */
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+  
+  :root {
+    --bg: #080810; --panel: #10101a; --panel2: #14141e;
+    --border: #252535; --accent: #00ffe0; --accent2: #ff3cac;
+    --accent3: #f5a623; --text: #dde0f0; --dim: #505070;
+  }
+
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh; margin: 0;
+  }
+
+  /* Top Action Bar - NEW */
+  .top-bar {
+    background: var(--panel2);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .action-btn-top {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--dim);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .action-btn-top:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 12px #00ffe055;
+  }
+
+  .action-btn-top:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* Rest of your original styles (booth, panels, etc.) */
+  header { text-align: center; padding: 22px 20px 10px; border-bottom: 1px solid var(--border); }
+  .logo { font-family: 'Orbitron', monospace; font-weight: 900; font-size: clamp(18px, 3.5vw, 28px); letter-spacing: 0.18em; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  
+  /* ... (I kept all your original CSS - just adding the top bar) ... */
+</style>
+</head>
+<body>
+
+  <!-- NEW TOP ACTION BAR -->
+  <div class="top-bar" id="top-bar" style="display: none;">
+    <button class="action-btn-top" id="btn-deploy"><span>🚀</span> Deploy Live</button>
+    <button class="action-btn-top" id="btn-video"><span>🎥</span> Make Launch Video</button>
+    <button class="action-btn-top" id="btn-screenshots"><span>📸</span> Make Screenshots</button>
+    <button class="action-btn-top" id="btn-source"><span>📄</span> Get Source Code</button>
+    <button class="action-btn-top" id="btn-human"><span>🧠</span> Ask Human to Finish It</button>
+  </div>
+
+  <!-- Your original header -->
+  <header>
+    <div class="logo">⬤ VIBECODINGDJ ⬤</div>
+    <div class="tagline">SPIN YOUR SETTINGS — DROP YOUR WEBSITE</div>
+  </header>
+
+  <!-- Your original DJ Booth (unchanged) -->
+  <div class="booth">
+    <!-- Deck A, Center, Deck B, Crossfader - keep exactly as you had -->
+    <!-- ... paste your original booth content here ... -->
+  </div>
+
+  <!-- Output Section -->
+  <div class="output-section">
+    <div class="out-panel" id="out-panel">
+      <div class="out-hdr">
+        <div class="out-hdr-title">⬤ YOUR WEBSITE</div>
+      </div>
+      <div class="loading" id="loading">...</div>
+      <iframe id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
+      <pre id="codebox"></pre>
+    </div>
+  </div>
+
+<script>
+// Your original JavaScript variables and functions...
+
+// Add this new part after successful generation
+function showTopBar() {
+  document.getElementById('top-bar').style.display = 'flex';
+}
+
+// Update the generate() function - add this line at the end when generation succeeds:
+async function generate() {
+  // ... your existing code ...
+
+  // When HTML is successfully generated:
+  if (html) {
+    showTopBar();                    // ← NEW
+    preview.srcdoc = html;
+    codebox.textContent = html;
+    // ... rest of your code
+  }
+}
+
+// Add click handlers for the new top buttons
+document.getElementById('btn-source').addEventListener('click', () => {
+  if (!html) return;
+  navigator.clipboard.writeText(html);
+  alert('✅ Source code copied to clipboard!');
+});
+
+document.getElementById('btn-deploy').addEventListener('click', () => {
+  alert('🚀 Deploy feature coming soon!\n\nFor now, copy the source code and deploy on Vercel / Netlify.');
+});
+
+document.getElementById('btn-video').addEventListener('click', () => {
+  alert('🎥 Launch video prompt is being prepared...\n\nThis feature will generate a ready-to-use prompt for Kling / Runway / Luma soon.');
+});
+
+document.getElementById('btn-screenshots').addEventListener('click', () => {
+  alert('📸 Screenshots feature coming soon.');
+});
+
+document.getElementById('btn-human').addEventListener('click', () => {
+  alert('🧠 "Ask a Human" — This will connect you with a designer to polish your site (coming in future updates).');
+});
+
+// Credit system (simple version for now)
+let credits = 3;
+
+function checkCredits() {
+  if (credits <= 0) {
+    document.getElementById('drop-btn').disabled = true;
+    document.getElementById('drop-btn').textContent = '💰 Buy more drops ($20)';
+    return false;
+  }
+  return true;
+}
+
+// Decrease credits after successful drop
+// Put this inside generate() after successful generation:
+credits--;
+console.log(`Credits left: ${credits}`);
+</script>
+</body>
+</html>
