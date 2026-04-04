@@ -9,22 +9,92 @@ const story = [
 ];
 
 const projects = [
-  { name: "English Teaching Platform", desc: "The largest English-learning platform for Arabic speakers — built when I was 16.", color: "#e8f4e8", symbol: "EN→AR" },
-  { name: "Social Media From the Past", desc: "The feeds of history's iconic figures, as if social media had always existed.", color: "#f0e8e0", symbol: "1789" },
-  { name: "Drawing Students as Grown-Ups", desc: "Generative AI portraits of students as their future selves. Featured on Al Jazeera & Al Arabiya.", color: "#e8e8f4", symbol: "2047" },
-  { name: "EverydayQuran", desc: "A personalized Quran learning platform that adapts to each learner's pace.", color: "#f4f0e0", symbol: "﷽" },
-  { name: "YeTweets", desc: "Preserved Kanye's deleted tweets. 200,000 users in under 24 hours.", color: "#111", symbol: "YE", light: false },
-  { name: "KeyboardMate", desc: "An intelligent keyboard companion that learns your writing style.", color: "#e4eff4", symbol: "⌘" },
-  { name: "ComeRate.me", desc: "A social platform for honest peer feedback and authentic ratings.", color: "#f4e8e8", symbol: "★" },
-  { name: "OpenShelf", desc: "A platform to keep tracking your shelves.", color: "#e8f4f4", symbol: "📚" },
-  { name: "FamousInbox.com", desc: "Explore public emails of influential figures. Read messages that shaped history.", color: "#f0f0e8", symbol: "@" },
-  { name: "Situation Monitor", desc: "Real-time tracking of digital signals and trends. I pioneered the concept.", color: "#1a1a2e", symbol: "◉", light: false },
-  { name: "AgeLogs", desc: "See what famous people were doing at your exact age right now.", color: "#f4edf4", symbol: "≈" },
-  { name: "HowToWinFriends", desc: "A practical guide for building genuine relationships with AI.", color: "#eef4f0", symbol: "↔" },
-  { name: "Sudoku Solver", desc: "AI-powered solver for any Sudoku puzzle, showing its reasoning step by step.", color: "#f4f4e8", symbol: "9×9" },
-  { name: "data Wrapped", desc: "Turn your TikTok data into a personalized year-in-review video.", color: "#f4e8f0", symbol: "∞" },
-  { name: "VibeCodingDJ", desc: "An AI DJ for websites — mix any URLs into remixable webpages.", color: "#1c1c1c", symbol: "♫", light: false },
-  { name: "DigitalBeings", desc: "Giving life to new species of digital beings. My life's work.", color: "#00FF87", symbol: "✦" },
+  { 
+    name: "English Teaching Platform", 
+    desc: "The largest English-learning platform for Arabic speakers back in the time, serving more than 80k students.", 
+    color: "#e8f4e8", 
+    symbol: "EN→AR" 
+  },
+  { 
+    name: "Social Media From the Past", 
+    desc: "My graduation project, a time machine showing what social media would look like in different timelines. I had to clone Twitter, Facebook, and Messenger for the early version.", 
+    color: "#f0e8e0", 
+    symbol: "1789" 
+  },
+  { 
+    name: "Drawing Students as Grown-Ups", 
+    desc: "Generative AI portraits of students as their future selves. At least half a million kids got exposed to generative AI for the first time through this project, making it mostly the first use case for AI in education. Featured on Al Jazeera & Al Arabiya.", 
+    color: "#e8e8f4", 
+    symbol: "2047" 
+  },
+  { 
+    name: "EverydayQuran", 
+    desc: "An infinite-scroll type of reader for the Quran, used and loved by over 5k users.", 
+    color: "#f4f0e0", 
+    symbol: "﷽" 
+  },
+  { 
+    name: "YeTweets", 
+    desc: "The night Ye deleted all his tweets, I scraped them and put them on a 1-hour VibeCoded website. Reached 300k visitors so far and used and loved by a lot of influencers.", 
+    color: "#111", 
+    symbol: "YE", 
+    light: false 
+  },
+  { 
+    name: "KeyboardMate", 
+    desc: "An intelligent keyboard companion that lives inside my keyboard. Project still open for early access, but used by me every day.", 
+    color: "#e4eff4", 
+    symbol: "⌘" 
+  },
+  { 
+    name: "OpenShelf.so", 
+    desc: "A platform that keeps track of celebs recommendations and lets you do the same for your own library. loved by thousands.", 
+    color: "#e8f4f4", 
+    symbol: "📚" 
+  },
+  { 
+    name: "FamousInbox.com", 
+    desc: "Explore public emails of famous CEOs and see how the history of tech and AI was made. Used by more than 10k users.", 
+    color: "#f0f0e8", 
+    symbol: "@" 
+  },
+  { 
+    name: "AgeLogs", 
+    desc: "See what famous people were doing at any given age. Tracks celebrities’ achievements.", 
+    color: "#f4edf4", 
+    symbol: "≈" 
+  },
+  { 
+    name: "HowToWinFriends", 
+    desc: "A practical guide for building genuine relationships with AI. Retweeted by the CEO of friend.com and got thousands of readers.", 
+    color: "#eef4f0", 
+    symbol: "↔" 
+  },
+  { 
+    name: "Sudoku Solver", 
+    desc: "My favorite non-VibeCoding project, built to learn more about algorithms and data structures back in the time. AI-powered solver for any Sudoku puzzle, showing its reasoning step by step.", 
+    color: "#f4f4e8", 
+    symbol: "9×9" 
+  },
+  { 
+    name: "TikTokMirror", 
+    desc: "Turn your TikTok data into a personalized year-in-review video.", 
+    color: "#f4e8f0", 
+    symbol: "∞" 
+  },
+  { 
+    name: "VibeCodingDJ", 
+    desc: "The first AI mixer for building and testing ideas. Comes with a tracklist of more than 1k startup ideas. Used and loved by thousands.", 
+    color: "#1c1c1c", 
+    symbol: "♫", 
+    light: false 
+  },
+  { 
+    name: "DigitalBeings", 
+    desc: "Giving life to new species of digital beings. My life's work.", 
+    color: "#00FF87", 
+    symbol: "✦" 
+  },
 ];
 
 const socialLinks = [
@@ -204,7 +274,7 @@ export default function Portfolio() {
           letter-spacing: -0.02em;
         }
         .proj-name {
-          font-size: 14.5px;
+          font-size: 30px;
           font-weight: 700;
           color: var(--ink);
           line-height: 1.25;
@@ -223,6 +293,9 @@ export default function Portfolio() {
           padding-bottom: 52px;
           border-top: 1px solid var(--faint);
           padding-top: 40px;
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
         }
         .fact-card {
           display: flex;
@@ -341,16 +414,27 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* FUN FACT */}
-          <div className="fact-wrap">
-            <div className="fact-card">
-              <div className="fact-dot" />
-              <div className="fact-inner">
-                <div className="fact-label">Fun fact</div>
-                <div className="fact-text">Suggested the calendar idea for Jmail — it got implemented. 🗓️</div>
-              </div>
-            </div>
-          </div>
+         {/* FUN FACT */}
+<div className="fact-wrap">
+  <div className="fact-card">
+    <div className="fact-dot" />
+    <div className="fact-inner">
+      <div className="fact-text">Haven’t touched a line of code since 2024 — only vibes. ✨</div>
+    </div>
+  </div>
+  <div className="fact-card">
+    <div className="fact-dot" />
+    <div className="fact-inner">
+      <div className="fact-text">Suggested the calendar idea for Jmail — it went live and reached millions. 🗓️</div>
+    </div>
+  </div>
+  <div className="fact-card">
+    <div className="fact-dot" />
+    <div className="fact-inner">
+      <div className="fact-text">Built the first Situation Monitor — dashboards that connect APIs and track news, now millions use the concept. ⚡</div>
+    </div>
+  </div>
+</div>
 
           {/* FOOTER */}
           <footer className="footer">
