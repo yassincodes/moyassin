@@ -9,23 +9,23 @@ const story = [
 ];
 
 const projects = [
-  { name: "English Teaching Platform", desc: "The largest English-learning platform for Arabic speakers back in the time, serving more than 80k students.", color: "#e8f4e8", symbol: "EN→AR" },
-  { name: "Social Media From the Past", desc: "My graduation project, a time machine showing what social media would look like in different timelines. I had to clone Twitter, Facebook, and Messenger for the early version.", color: "#f0e8e0", symbol: "1789" },
-  { name: "Drawing Students as Grown-Ups", desc: "Generative AI portraits of students as their future selves. At least half a million kids got exposed to generative AI for the first time through this project, making it mostly the first use case for AI in education. Featured on Al Jazeera & Al Arabiya.", color: "#e8e8f4", symbol: "2047" },
-  { name: "EverydayQuran", desc: "An infinite-scroll type of reader for the Quran, used and loved by over 5k users.", color: "#f4f0e0", symbol: "﷽" },
-  { name: "YeTweets", desc: "The night Ye deleted all his tweets, I scraped them and put them on a 1-hour VibeCoded website. Reached 300k visitors so far and used and loved by a lot of influencers.", color: "#111", symbol: "YE", light: false },
-  { name: "KeyboardMate", desc: "An intelligent keyboard companion that lives inside my keyboard. Project still open for early access, but used by me every day.", color: "#e4eff4", symbol: "⌘" },
-  { name: "OpenShelf.so", desc: "A platform that keeps track of celebs recommendations and lets you do the same for your own library. loved by thousands.", color: "#e8f4f4", symbol: "📚" },
-  { name: "FamousInbox.com", desc: "Explore public emails of famous CEOs and see how the history of tech and AI was made. Used by more than 10k users.", color: "#f0f0e8", symbol: "@" },
-  { name: "AgeLogs", desc: "See what famous people were doing at any given age. Tracks celebrities' achievements.", color: "#f4edf4", symbol: "≈" },
-  { name: "HowToWinFriends", desc: "A practical guide for building genuine relationships with AI. Retweeted by the CEO of friend.com and got thousands of readers.", color: "#eef4f0", symbol: "↔" },
-  { name: "Sudoku Solver", desc: "My favorite non-VibeCoding project, built to learn more about algorithms and data structures back in the time. AI-powered solver for any Sudoku puzzle, showing its reasoning step by step.", color: "#f4f4e8", symbol: "9×9" },
-  { name: "TikTokMirror", desc: "Turn your TikTok data into a personalized year-in-review video.", color: "#f4e8f0", symbol: "∞" },
-  { name: "VibeCodingDJ", desc: "The first AI mixer for building and testing ideas. Comes with a tracklist of more than 1k startup ideas. Used and loved by thousands.", color: "#1c1c1c", symbol: "♫", light: false },
-  { name: "DigitalBeings", desc: "Giving life to new species of digital beings. My life's work.", color: "#00FF87", symbol: "✦" },
+  { name: "English Teaching Platform", desc: "The largest English-learning platform for Arabic speakers back in the time, serving more than 80k students.", color: "#e8f4e8", symbol: "EN→AR", link: "#" },
+  { name: "rateyouruni", desc: "A university review platform for Tunisian universities, gained 20k visitors, with 1 thousand students who share their experiences and help each other make informed decisions.", color: "#f4e8e8", symbol: "🎓", link: "https://rateyouruni.com" },
+  { name: "Social Media From the Past", desc: "My graduation project, a time machine showing what social media would look like in different timelines. I had to clone Twitter, Facebook, and Messenger for the early version.", color: "#f0e8e0", symbol: "1789", link: "#" },
+  { name: "Drawing Students as Grown-Ups", desc: "Generative AI portraits of students as their future selves. At least half a million kids got exposed to generative AI for the first time through this project, making it mostly the first use case for AI in education. Featured on Al Jazeera & Al Arabiya.", color: "#e8e8f4", symbol: "2047", link: "#" },
+  { name: "EverydayQuran", desc: "An infinite-scroll type of reader for the Quran, used and loved by over 5k users.", color: "#f4f0e0", symbol: "﷽", link: "https://everydayquran.com" },
+  { name: "YeTweets", desc: "The night Ye deleted all his tweets, I scraped them and put them on a 1-hour VibeCoded website. Reached half a million visitors so far and used and loved by a lot of influencers including @sneako, @its.blanko, @AetherionArtOG and featured on ye remixes viewed by hundreds of thousands.", color: "#111", symbol: "YE", light: false, link: "#" },
+  { name: "KeyboardMate", desc: "An intelligent keyboard companion that lives inside my keyboard. Project still open for early access, but used by me every day.", color: "#e4eff4", symbol: "⌘", link: "#" },
+  { name: "FamousInbox", desc: "Explore public emails of famous CEOs and see how the history of tech and AI was made. Used by more than 10k users.", color: "#f0f0e8", symbol: "@", link: "https://famousinbox.com" },
+  { name: "AgeLogs", desc: "See what famous people were doing at any given age. Tracks celebrities' achievements.", color: "#f4edf4", symbol: "≈", link: "#" },
+  { name: "Sudoku Solver", desc: "My favorite non-VibeCoding project, built to learn more about algorithms and data structures back in the time. AI-powered solver for any Sudoku puzzle, showing its reasoning step by step.", color: "#f4f4e8", symbol: "9×9", link: "#" },
+  { name: "TikTokMirror", desc: "The first tool that lets you truly explore your TikTok history, go back month by month, rediscover your favorite videos, and relive the moments you forgot you even saved, already used by 1,000 users in its first week.", color: "#f4e8f0", symbol: "∞", link: "https://tiktokmirror.vercel.app" },
+  { name: "VibeCodingDJ", desc: "The first AI mixer for building and testing ideas. Comes with a tracklist of more than 1k startup ideas. Used and loved by thousands.", color: "#1c1c1c", symbol: "♫", light: false, link: "https://vibecodingdj.com" },
+  { name: "DigitalBeings", desc: "Giving life to new species of digital beings. My life's work.", color: "#00FF87", symbol: "✦", link: "https://digitalbeings.llc" },
 ];
 
 const socialLinks = [
+  { label: "OpenShelf", handle: "@moyassin", href: "https://openshelf.link", icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.445l-7.416 3.968 1.48-8.279L0 9.306l8.332-1.151z"/></svg> },
   { label: "X", handle: "@moyassin", href: "https://x.com/moyassin", icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> },
   { label: "TikTok", handle: "@moyassin", href: "https://tiktok.com/@moyassin", icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg> },
   { label: "Facebook", handle: "moyassin", href: "https://facebook.com/moyassin", icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> },
@@ -69,7 +69,7 @@ export default function Portfolio() {
           overflow: hidden;
         }
         .header-name {
-          font-size: clamp(54px, 7vw, 88px);
+          font-size: clamp(42px, 7vw, 88px);
           font-weight: 800;
           letter-spacing: -0.03em;
           line-height: 0.92;
@@ -117,7 +117,7 @@ export default function Portfolio() {
           max-width: 680px;
         }
         .story p {
-          font-size: 18px;
+          font-size: clamp(15px, 2vw, 18px);
           font-weight: 400;
           line-height: 1.85;
           color: #555;
@@ -138,6 +138,7 @@ export default function Portfolio() {
           letter-spacing: 0.16em;
           text-transform: uppercase;
           color: var(--ink);
+          white-space: nowrap;
         }
         .sec-line {
           flex: 1;
@@ -149,32 +150,23 @@ export default function Portfolio() {
         .fact-wrap {
           padding-bottom: 52px;
           padding-top: 40px;
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px;
         }
         .fact-card {
-          display: flex;
-          align-items: flex-start;
-          gap: 14px;
           background: #00FF87;
           border-radius: 14px;
-          padding: 22px 26px;
-          max-width: 560px;
+          padding: 22px 24px;
         }
-        .fact-dot {
-          width: 9px;
-          height: 9px;
-          border-radius: 50%;
-          background: var(--ink);
-          flex-shrink: 0;
-          margin-top: 8px;
-        }
+        .fact-card:nth-child(1) { transform: rotate(-1.5deg); }
+        .fact-card:nth-child(2) { transform: rotate(1deg); }
+        .fact-card:nth-child(3) { transform: rotate(-0.8deg); }
         .fact-text {
-          font-size: 18px;
+          font-size: clamp(14px, 1.6vw, 17px);
           font-weight: 500;
           color: var(--ink);
-          line-height: 1.6;
+          line-height: 1.65;
         }
 
         /* ── PROJECT GRID ── */
@@ -187,42 +179,46 @@ export default function Portfolio() {
         .proj {
           display: flex;
           align-items: flex-start;
-          gap: 16px;
+          gap: 18px;
           padding: 16px;
-          border-radius: 14px;
+          border-radius: 16px;
           cursor: default;
           transition: background 0.15s;
+          text-decoration: none;
+        }
+        .proj[href]:not([href="#"]) {
+          cursor: pointer;
         }
         .proj:hover { background: #eeeee9; }
         .proj-thumb {
-          width: 108px;
-          height: 78px;
-          border-radius: 10px;
+          width: 130px;
+          height: 100px;
+          border-radius: 12px;
           flex-shrink: 0;
           display: flex;
           align-items: center;
           justify-content: center;
         }
         .proj-symbol {
-          font-size: 18px;
+          font-size: 22px;
           font-weight: 800;
           user-select: none;
           opacity: 0.25;
           letter-spacing: -0.02em;
         }
         .proj-name {
-          font-size: 32px;
+          font-size: clamp(20px, 2.8vw, 34px);
           font-weight: 700;
           color: var(--ink);
-          line-height: 1.25;
-          margin-bottom: 6px;
-          letter-spacing: -0.01em;
+          line-height: 1.15;
+          margin-bottom: 7px;
+          letter-spacing: -0.02em;
         }
         .proj-desc {
-          font-size: 14px;
+          font-size: clamp(13px, 1.4vw, 15px);
           font-weight: 400;
           color: #aaa;
-          line-height: 1.6;
+          line-height: 1.65;
         }
 
         /* ── FOOTER ── */
@@ -233,6 +229,7 @@ export default function Portfolio() {
           align-items: center;
           justify-content: space-between;
           gap: 20px;
+          flex-wrap: wrap;
         }
         .footer-name {
           font-size: 13px;
@@ -240,7 +237,7 @@ export default function Portfolio() {
           color: var(--ink);
           letter-spacing: -0.01em;
         }
-        .socials { display: flex; align-items: center; gap: 4px; }
+        .socials { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
         .soc {
           display: flex;
           align-items: center;
@@ -260,11 +257,36 @@ export default function Portfolio() {
         .soc-handle { font-weight: 400; color: #aaa; font-size: 11.5px; }
         .soc:hover .soc-handle { color: #555; }
 
-        @media (max-width: 640px) {
+        @media (max-width: 860px) {
+          :root { --pad: 32px; }
+          .grid { grid-template-columns: 1fr 1fr; gap: 4px; }
+          .proj-thumb { width: 100px; height: 78px; }
+          .fact-wrap { grid-template-columns: 1fr 1fr; }
+          .fact-card:nth-child(3) { grid-column: span 2; transform: rotate(0.5deg); }
+        }
+
+        @media (max-width: 600px) {
           :root { --pad: 20px; }
-          .grid { grid-template-columns: 1fr; }
-          .footer { flex-direction: column; align-items: flex-start; }
-          .socials { flex-wrap: wrap; }
+          .header { padding: 44px var(--pad) 52px; }
+          .grid { grid-template-columns: 1fr; gap: 4px; }
+          .proj { gap: 14px; padding: 12px; }
+          .proj-thumb { width: 80px; height: 64px; border-radius: 10px; }
+          .proj-name { font-size: 20px; }
+          .proj-desc { font-size: 13px; }
+          .story { padding: 36px 0 36px; }
+          .fact-card { padding: 18px 20px; }
+          .fact-wrap { padding-top: 28px; padding-bottom: 36px; grid-template-columns: 1fr; }
+          .fact-card:nth-child(3) { grid-column: span 1; }
+          .fact-card:nth-child(1),
+          .fact-card:nth-child(2),
+          .fact-card:nth-child(3) { transform: none; }
+          .footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+          .sec { padding: 28px 0 18px; }
+        }
+
+        @media (max-width: 380px) {
+          :root { --pad: 16px; }
+          .proj-thumb { display: none; }
         }
       `}</style>
 
@@ -277,7 +299,7 @@ export default function Portfolio() {
             <div className="tape-track">
               {[...Array(10)].map((_, i) => (
                 <span key={i} className="tape-item" style={{ color: i % 2 === 0 ? "#00FF87" : "#fff" }}>
-                  Building DigitalBeings.inc
+                  Building DigitalBeings.llc
                 </span>
               ))}
             </div>
@@ -291,21 +313,18 @@ export default function Portfolio() {
             {story.map((p, i) => <p key={i}>{p}</p>)}
           </section>
 
-          {/* FUN FACTS — now before projects */}
+          {/* FUN FACTS */}
           <div className="sec">
             <span className="sec-title">Fun Facts</span>
           </div>
           <div className="fact-wrap">
             <div className="fact-card">
-              <div className="fact-dot" />
-              <div className="fact-text">Haven't touched a line of code since 2024 — only vibes. ✨</div>
+              <div className="fact-text">my typing speed is 1.5 words per second on average ✨</div>
             </div>
             <div className="fact-card">
-              <div className="fact-dot" />
               <div className="fact-text">Suggested the calendar idea for Jmail — it went live and reached millions. 🗓️</div>
             </div>
             <div className="fact-card">
-              <div className="fact-dot" />
               <div className="fact-text">Built the first Situation Monitor — dashboards that connect APIs and track news, now millions use the concept. ⚡</div>
             </div>
           </div>
@@ -316,7 +335,14 @@ export default function Portfolio() {
           </div>
           <div className="grid">
             {projects.map((p, i) => (
-              <div className="proj" key={i}>
+              <a
+                className="proj"
+                key={i}
+                href={p.link}
+                target={p.link !== "#" ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                style={{ color: "inherit" }}
+              >
                 <div className="proj-thumb" style={{ background: p.color }}>
                   <span className="proj-symbol" style={{ color: p.light === false ? "#fff" : "#111" }}>{p.symbol}</span>
                 </div>
@@ -324,7 +350,7 @@ export default function Portfolio() {
                   <div className="proj-name">{p.name}</div>
                   <div className="proj-desc">{p.desc}</div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
