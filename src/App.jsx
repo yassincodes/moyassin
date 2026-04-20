@@ -9,19 +9,120 @@ const story = [
 ];
 
 const projects = [
-  { name: "English Teaching Platform", desc: "The largest English-learning platform for Arabic speakers back in the time, serving more than 80k students.", color: "#e8f4e8", symbol: "EN→AR", link: "#" },
-  { name: "rateyouruni", desc: "A university review platform for Tunisian universities, gained 20k visitors, with 1 thousand students who share their experiences and help each other make informed decisions.", color: "#f4e8e8", symbol: "🎓", link: "https://rateyouruni.com" },
-  { name: "Social Media From the Past", desc: "My graduation project, a time machine showing what social media would look like in different timelines. I had to clone Twitter, Facebook, and Messenger for the early version.", color: "#f0e8e0", symbol: "1789", link: "#" },
-  { name: "Drawing Students as Grown-Ups", desc: "Generative AI portraits of students as their future selves. At least half a million kids got exposed to generative AI for the first time through this project, making it mostly the first use case for AI in education. Featured on Al Jazeera & Al Arabiya.", color: "#e8e8f4", symbol: "2047", link: "#" },
-  { name: "EverydayQuran", desc: "An infinite-scroll type of reader for the Quran, used and loved by over 5k users.", color: "#f4f0e0", symbol: "﷽", link: "https://everydayquran.com" },
-  { name: "YeTweets", desc: "The night Ye deleted all his tweets, I scraped them and put them on a 1-hour VibeCoded website. Reached half a million visitors so far and used and loved by a lot of influencers including @sneako, @its.blanko, @AetherionArtOG and featured on ye remixes viewed by hundreds of thousands.", color: "#111", symbol: "YE", light: false, link: "#" },
-  { name: "KeyboardMate", desc: "An intelligent keyboard companion that lives inside my keyboard. Project still open for early access, but used by me every day.", color: "#e4eff4", symbol: "⌘", link: "#" },
-  { name: "FamousInbox", desc: "Explore public emails of famous CEOs and see how the history of tech and AI was made. Used by more than 10k users.", color: "#f0f0e8", symbol: "@", link: "https://famousinbox.com" },
-  { name: "AgeLogs", desc: "See what famous people were doing at any given age. Tracks celebrities' achievements.", color: "#f4edf4", symbol: "≈", link: "#" },
-  { name: "Sudoku Solver", desc: "My favorite non-VibeCoding project, built to learn more about algorithms and data structures back in the time. AI-powered solver for any Sudoku puzzle, showing its reasoning step by step.", color: "#f4f4e8", symbol: "9×9", link: "#" },
-  { name: "TikTokMirror", desc: "The first tool that lets you truly explore your TikTok history, go back month by month, rediscover your favorite videos, and relive the moments you forgot you even saved, already used by 1,000 users in its first week.", color: "#f4e8f0", symbol: "∞", link: "https://tiktokmirror.vercel.app" },
-  { name: "VibeCodingDJ", desc: "The first AI mixer for building and testing ideas. Comes with a tracklist of more than 1k startup ideas. Used and loved by thousands.", color: "#1c1c1c", symbol: "♫", light: false, link: "https://vibecodingdj.com" },
-  { name: "DigitalBeings", desc: "Giving life to new species of digital beings. My life's work.", color: "#00FF87", symbol: "✦", link: "https://digitalbeings.llc" },
+  {
+    name: "English Teaching Platform",
+    year: 2016,
+    desc: "The largest English-learning platform for Arabic speakers back in the time, serving more than 80k students.",
+    color: "#e8f4e8",
+    symbol: "EN→AR",
+    link: "#"
+  },
+  {
+    name: "Sudoku Solver",
+    year: 2021,
+    desc: "My favorite non-VibeCoding project, built to learn more about algorithms and data structures back in the time. AI-powered solver for any Sudoku puzzle, showing its reasoning step by step.",
+    color: "#f4f4e8",
+    symbol: "9×9",
+    link: "#"
+  },
+  {
+    name: "rateyouruni",
+    year: 2021,
+    desc: "A university review platform for Tunisian universities, gained 20k visitors, with 1 thousand students who share their experiences and help each other make informed decisions.",
+    color: "#f4e8e8",
+    symbol: "🎓",
+    link: "https://rateyouruni.com"
+  },
+  {
+    name: "Elon vs Putin",
+    year: 2022,
+    desc: "Built during the viral moment when Elon Musk challenged Vladimir Putin. A real-time voting platform that reached over 100k visits and collected more than 10k votes.",
+    color: "#dfe8f4",
+    symbol: "VS",
+    link: "#"
+  },
+  {
+    name: "Social Media From the Past",
+    year: 2023,
+    desc: "My graduation project, a time machine showing what social media would look like in different timelines. I had to clone Twitter, Facebook, and Messenger for the early version.",
+    color: "#f0e8e0",
+    symbol: "1789",
+    link: "#"
+  },
+  {
+    name: "Drawing Students as Grown-Ups",
+    year: 2024,
+    desc: "Generative AI portraits of students as their future selves. At least half a million kids got exposed to generative AI for the first time through this project, making it mostly the first use case for AI in education. Featured on Al Jazeera & Al Arabiya.",
+    color: "#e8e8f4",
+    symbol: "2047",
+    link: "#"
+  },
+  {
+    name: "YeTweets",
+    year: 2025,
+    desc: "The night Ye deleted all his tweets, I scraped them and put them on a 1-hour VibeCoded website. Reached half a million visitors so far and used and loved by a lot of influencers including @sneako, @its.blanko, @AetherionArtOG and featured on ye remixes viewed by hundreds of thousands.",
+    color: "#111",
+    symbol: "YE",
+    light: false,
+    link: "#"
+  },
+  {
+    name: "KeyboardMate",
+    year: 2025,
+    desc: "An intelligent keyboard companion that lives inside my keyboard. Project still open for early access, but used by me every day.",
+    color: "#e4eff4",
+    symbol: "⌘",
+    link: "#"
+  },
+  {
+    name: "AgeLogs",
+    year: 2025,
+    desc: "See what famous people were doing at any given age. Tracks celebrities' achievements.",
+    color: "#f4edf4",
+    symbol: "≈",
+    link: "#"
+  },
+  {
+    name: "EverydayQuran",
+    year: 2026,
+    desc: "An infinite-scroll type of reader for the Quran, used and loved by over 5k users.",
+    color: "#f4f0e0",
+    symbol: "﷽",
+    link: "https://everydayquran.com"
+  },
+  {
+    name: "TikTokMirror",
+    year: 2026,
+    desc: "The first tool that lets you truly explore your TikTok history, go back month by month, rediscover your favorite videos, and relive the moments you forgot you even saved, already used by 1,000 users in its first week.",
+    color: "#f4e8f0",
+    symbol: "∞",
+    link: "https://tiktokmirror.vercel.app"
+  },
+  {
+    name: "FamousInbox",
+    year: 2026,
+    desc: "Explore public emails of famous CEOs and see how the history of tech and AI was made. Used by more than 10k users.",
+    color: "#f0f0e8",
+    symbol: "@",
+    link: "https://famousinbox.com"
+  },
+  {
+    name: "VibeCodingDJ",
+    year: 2026,
+    desc: "The first AI mixer for building and testing ideas. Comes with a tracklist of more than 1k startup ideas. Used and loved by thousands.",
+    color: "#1c1c1c",
+    symbol: "♫",
+    light: false,
+    link: "https://vibecodingdj.com"
+  },
+  {
+    name: "DigitalBeings",
+    year: 2026,
+    desc: "Giving life to new species of digital beings. My life's work.",
+    color: "#00FF87",
+    symbol: "✦",
+    link: "https://digitalbeings.llc"
+  }
 ];
 
 const socialLinks = [
