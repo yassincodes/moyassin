@@ -156,7 +156,7 @@ export default function Portfolio() {
           font-family: 'Bricolage Grotesque', sans-serif;
           opacity: 0;
           transition: opacity 0.6s ease;
-          max-width: 1100px;
+       
           margin: 0 auto;
         }
         .page.ready { opacity: 1; }
