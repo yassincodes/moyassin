@@ -26,14 +26,6 @@ const projects = [
     link: "#"
   },
   {
-    name: "Sudoku Solver",
-    year: 2020,
-    desc: "My favorite non-VibeCoding project, built to go deep on algorithms and data structures. Feed it any Sudoku puzzle and watch it solve it step by step, showing every move.",
-    color: "#f4f4e8",
-    symbol: "9×9",
-    link: "#"
-  },
-  {
     name: "rateyouruni",
     year: 2021,
     desc: "A university review platform for Tunisian universities, gained 20k visitors, with 1 thousand students who share their experiences and help each other make informed decisions.",
@@ -91,28 +83,20 @@ const projects = [
     link: "#"
   },
   {
-    name: "EverydayQuran",
+    name: "QuranScroll",
     year: 2026,
-    desc: "An infinite-scroll type of reader for the Quran, used and loved by over 5k users.",
+    desc: "An infinite-scroll type of reader for the Quran, used and loved by over 5k users and featured on builtformuslims.com.",
     color: "#f4f0e0",
     symbol: "﷽",
     link: "https://everydayquran.com"
   },
   {
-    name: "TikTokMirror",
-    year: 2026,
-    desc: "The first tool that lets you truly explore your TikTok history, go back month by month, rediscover your favorite videos, and relive the moments you forgot you even saved, already used by 1,000 users in its first week.",
-    color: "#f4e8f0",
-    symbol: "∞",
-    link: "https://tiktokmirror.vercel.app"
-  },
-  {
-    name: "FamousInbox",
+    name: "openmail.world",
     year: 2026,
     desc: "Explore public emails of famous CEOs and see how the history of tech and AI was made. Used by more than 10k users.",
     color: "#f0f0e8",
     symbol: "@",
-    link: "https://famousinbox.com"
+    link: "https://openmail.world"
   },
   {
     name: "VibeCodingDJ",
@@ -166,7 +150,6 @@ const socialLinks = [
   },
 ];
 
-// Group and sort projects by year ascending
 const groupedProjects = projects
   .slice()
   .sort((a, b) => a.year - b.year)
@@ -208,7 +191,6 @@ export default function Portfolio() {
         }
         .page.ready { opacity: 1; }
 
-        /* HEADER */
         .header {
           background: var(--green);
           padding: 72px var(--pad) 0;
@@ -249,7 +231,6 @@ export default function Portfolio() {
           letter-spacing: 0.04em;
         }
 
-        /* TAPE */
         .tape {
           margin-top: 48px;
           background: var(--ink);
@@ -278,10 +259,8 @@ export default function Portfolio() {
           to   { transform: translateX(-50%); }
         }
 
-        /* BODY */
         .body { padding: 0 var(--pad); }
 
-        /* DIVIDER */
         .divider {
           display: flex;
           align-items: center;
@@ -299,7 +278,6 @@ export default function Portfolio() {
         }
         .divider-line { flex: 1; height: 1px; background: var(--faint); }
 
-        /* STORY */
         .story {
           padding: 56px 0 52px;
           border-bottom: 1px solid var(--faint);
@@ -314,7 +292,6 @@ export default function Portfolio() {
         }
         .story p:last-child { margin-bottom: 0; }
 
-        /* FACTS */
         .facts {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -336,7 +313,6 @@ export default function Portfolio() {
           line-height: 1.7;
         }
 
-        /* YEAR GROUPS */
         .year-group { margin-bottom: 8px; }
         .year-label {
           display: flex;
@@ -359,7 +335,6 @@ export default function Portfolio() {
           gap: 4px;
         }
 
-        /* PROJECTS */
         .proj {
           display: flex;
           align-items: flex-start;
@@ -404,10 +379,8 @@ export default function Portfolio() {
           line-height: 1.7;
         }
 
-        /* PROJECTS WRAP */
         .projects-wrap { padding-bottom: 60px; }
 
-        /* FOOTER */
         .footer {
           border-top: 1px solid var(--faint);
           padding: 32px 0 56px;
@@ -476,11 +449,9 @@ export default function Portfolio() {
 
       <div className={`page${ready ? " ready" : ""}`}>
 
-        {/* HEADER */}
         <header className="header">
           <div className="header-inner">
             <div className="header-name">Mohammed<br />Yassin</div>
-            
           </div>
           <div className="tape">
             <div className="tape-track">
@@ -493,12 +464,10 @@ export default function Portfolio() {
 
         <div className="body">
 
-          {/* STORY */}
           <section className="story">
             {story.map((p, i) => <p key={i}>{p}</p>)}
           </section>
 
-          {/* FUN FACTS */}
           <div className="divider" style={{ paddingTop: "44px" }}>
             <span className="divider-label">Fun Facts</span>
           </div>
@@ -508,7 +477,6 @@ export default function Portfolio() {
             <div className="fact-card"><div className="fact-text">Built the first Situation Monitor — dashboards that connect APIs and track news, now millions use the concept. ⚡</div></div>
           </div>
 
-          {/* PROJECTS */}
           <div className="divider">
             <span className="divider-label">Favorite Work</span>
             <div className="divider-line" />
@@ -548,7 +516,6 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* FOOTER */}
           <footer className="footer">
             <span className="footer-name">Mohammed Yassin</span>
             <div className="socials">
