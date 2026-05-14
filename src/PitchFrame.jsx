@@ -33,7 +33,7 @@ export default function PitchFrame() {
             letterSpacing: "0.06em",
           }}
         >
-          ← Portfolio
+          ← Home
         </a>
         <span style={{ color: "#5a5a5a", fontSize: 11, letterSpacing: "0.12em" }}>
           Full picture

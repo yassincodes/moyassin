@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Portfolio from "./App.jsx";
+import Home from "./Home.jsx";
 import PitchFrame from "./PitchFrame.jsx";
 
 function normalizePathname(pathname) {
@@ -25,5 +25,5 @@ export default function Root() {
   if (path === "/pitch") {
     return <PitchFrame />;
   }
-  return <Portfolio />;
+  return <Home />;
 }
