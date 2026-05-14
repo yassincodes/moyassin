@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const story = [
   "At 16, I built the largest English-learning platform in the Arab world, reaching more than 80,000 learners.",
@@ -159,376 +159,665 @@ const groupedProjects = projects
     return acc;
   }, {});
 
-const tapeItems = ["Building DigitalBeings.llc"];
+const years = Object.keys(groupedProjects).sort((a, b) => Number(a) - Number(b));
+
+function useReveal(rootRef, ready) {
+  useEffect(() => {
+    if (!ready) return;
+    const root = rootRef.current;
+    if (!root) return;
+    const nodes = root.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("mu-visible");
+        });
+      },
+      { threshold: 0.06, rootMargin: "0px 0px -8% 0px" }
+    );
+    nodes.forEach((n) => io.observe(n));
+    return () => io.disconnect();
+  }, [ready, rootRef]);
+}
 
 export default function Portfolio() {
   const [ready, setReady] = useState(false);
-  useEffect(() => { setTimeout(() => setReady(true), 80); }, []);
+  const mainRef = useRef(null);
+  useEffect(() => {
+    const t = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(t);
+  }, []);
+  useReveal(mainRef, ready);
 
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: #f5f5f2; margin: 0; -webkit-font-smoothing: antialiased; }
 
         :root {
-          --green: #00FF87;
-          --ink: #111;
-          --muted: #888;
-          --faint: #e4e4df;
-          --bg: #f5f5f2;
-          --pad: 60px;
+          --spot: #00ff87;
+          --spot-dim: rgba(0, 255, 135, 0.12);
+          --void: #0a0a09;
+          --wall: #111110;
+          --mat: #161614;
+          --frame: #2c2c28;
+          --ink: #f4f2ec;
+          --muted: #8c8983;
+          --faint: #3a3935;
+          --pad: clamp(20px, 5vw, 72px);
+          --max: 1180px;
+          --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .page {
-          font-family: 'Bricolage Grotesque', sans-serif;
-          opacity: 0;
-          transition: opacity 0.5s ease;
-          max-width: 1100px;
-          margin: 0 auto;
-        }
-        .page.ready { opacity: 1; }
-
-        .header {
-          background: var(--green);
-          padding: 72px var(--pad) 0;
-          position: relative;
-          overflow: hidden;
-        }
-        .header-inner {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-          gap: 24px;
-        }
-        .header-name {
-          font-size: clamp(48px, 8vw, 96px);
-          font-weight: 800;
-          letter-spacing: -0.035em;
-          line-height: 0.9;
+        body {
+          margin: 0;
+          background: var(--void);
           color: var(--ink);
-        }
-        .header-meta {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          gap: 8px;
-          padding-bottom: 6px;
-        }
-        .header-role {
-          font-size: 13px;
-          font-weight: 600;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: rgba(0,0,0,0.45);
-        }
-        .header-location {
-          font-size: 13px;
-          font-weight: 500;
-          color: rgba(0,0,0,0.35);
-          letter-spacing: 0.04em;
+          -webkit-font-smoothing: antialiased;
+          text-rendering: optimizeLegibility;
         }
 
-        .tape {
-          margin-top: 48px;
-          background: var(--ink);
-          padding: 10px 0;
-          overflow: hidden;
-          position: relative;
-          left: -60px;
-          width: calc(100% + 120px);
-          transform: rotate(-1.2deg);
+        .mu-page {
+          font-family: "DM Sans", system-ui, sans-serif;
+          min-height: 100vh;
+          opacity: 0;
+          transition: opacity 0.7s var(--ease-out);
         }
-        .tape-track {
-          display: flex;
-          width: max-content;
-          animation: slide 14s linear infinite;
+        .mu-page.mu-ready { opacity: 1; }
+
+        [data-reveal] {
+          opacity: 0;
+          transform: translateY(28px);
+          transition:
+            opacity 0.85s var(--ease-out),
+            transform 0.85s var(--ease-out);
         }
-        .tape-item {
-          font-size: 10.5px;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          white-space: nowrap;
-          padding-right: 36px;
-        }
-        @keyframes slide {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
+        [data-reveal].mu-visible {
+          opacity: 1;
+          transform: translateY(0);
         }
 
-        .body { padding: 0 var(--pad); }
+        .mu-grain {
+          pointer-events: none;
+          position: fixed;
+          inset: 0;
+          z-index: 50;
+          opacity: 0.04;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
 
-        .divider {
+        .mu-nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 40;
           display: flex;
           align-items: center;
-          gap: 14px;
-          padding: 48px 0 28px;
+          justify-content: space-between;
+          gap: 16px;
+          padding: 18px var(--pad);
+          background: linear-gradient(to bottom, rgba(10,10,9,0.94), rgba(10,10,9,0.65) 70%, transparent);
+          border-bottom: 1px solid transparent;
+          transition: border-color 0.3s, background 0.3s;
         }
-        .divider-label {
-          font-size: 10.5px;
+        .mu-nav-brand {
+          font-family: "Instrument Serif", Georgia, serif;
+          font-size: 1.15rem;
+          font-weight: 400;
+          letter-spacing: 0.02em;
+          color: var(--ink);
+          text-decoration: none;
+        }
+        .mu-nav-brand em {
+          font-style: italic;
+          color: var(--spot);
+        }
+        .mu-nav-links {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+        }
+        .mu-nav a.mu-nav-link {
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: var(--muted);
+          text-decoration: none;
+          padding: 8px 14px;
+          border-radius: 999px;
+          border: 1px solid var(--faint);
+          background: rgba(22,22,20,0.5);
+          transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .mu-nav a.mu-nav-link:hover {
+          color: var(--ink);
+          border-color: var(--spot);
+          background: var(--spot-dim);
+        }
+
+        .mu-hero {
+          position: relative;
+          min-height: 100vh;
+          min-height: 100dvh;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 120px var(--pad) 48px;
+          overflow: hidden;
+        }
+        .mu-hero-glow {
+          position: absolute;
+          top: -20%;
+          right: -15%;
+          width: 70vw;
+          height: 70vw;
+          max-width: 900px;
+          max-height: 900px;
+          background: radial-gradient(circle at 40% 40%, var(--spot-dim), transparent 55%);
+          pointer-events: none;
+        }
+        .mu-hero-line {
+          position: absolute;
+          top: 0;
+          left: var(--pad);
+          width: 1px;
+          height: min(45vh, 320px);
+          background: linear-gradient(to bottom, var(--spot), transparent);
+          opacity: 0.5;
+        }
+        .mu-hero-badge {
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.35em;
+          text-transform: uppercase;
+          color: var(--muted);
+          margin-bottom: 28px;
+        }
+        .mu-hero h1 {
+          font-family: "Instrument Serif", Georgia, serif;
+          font-size: clamp(3.2rem, 11vw, 7.5rem);
+          font-weight: 400;
+          line-height: 0.95;
+          letter-spacing: -0.02em;
+          max-width: 12ch;
+          margin-bottom: 20px;
+        }
+        .mu-hero h1 span {
+          font-style: italic;
+          color: var(--spot);
+        }
+        .mu-hero-tag {
+          font-size: clamp(0.95rem, 2vw, 1.15rem);
+          font-weight: 500;
+          color: var(--muted);
+          max-width: 36ch;
+          line-height: 1.55;
+          margin-bottom: 48px;
+        }
+        .mu-hero-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 32px 48px;
+          padding-top: 8px;
+          border-top: 1px solid var(--faint);
+          max-width: var(--max);
+        }
+        .mu-hero-meta dt {
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--muted);
+          margin-bottom: 6px;
+        }
+        .mu-hero-meta dd {
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--ink);
+        }
+        .mu-scroll {
+          position: absolute;
+          bottom: 28px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 10px;
+          letter-spacing: 0.25em;
+          text-transform: uppercase;
+          color: var(--muted);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+        .mu-scroll-bar {
+          width: 1px;
+          height: 40px;
+          background: linear-gradient(to bottom, var(--spot), transparent);
+          transform-origin: top center;
+          animation: mu-scroll-pulse 2.4s ease-in-out infinite;
+        }
+        @keyframes mu-scroll-pulse {
+          0%, 100% { opacity: 0.35; transform: scaleY(0.55); }
+          50% { opacity: 1; transform: scaleY(1); }
+        }
+
+        .mu-main {
+          position: relative;
+          background: var(--wall);
+          border-top: 1px solid var(--faint);
+        }
+        .mu-inner {
+          max-width: var(--max);
+          margin: 0 auto;
+          padding: 0 var(--pad) 100px;
+        }
+
+        .mu-room {
+          padding: 72px 0 0;
+        }
+        .mu-room-head {
+          display: flex;
+          align-items: baseline;
+          gap: 20px;
+          margin-bottom: 36px;
+          flex-wrap: wrap;
+        }
+        .mu-room-num {
+          font-family: "Instrument Serif", Georgia, serif;
+          font-size: clamp(3rem, 8vw, 4.5rem);
+          line-height: 1;
+          color: var(--faint);
+          min-width: 0.8em;
+        }
+        .mu-room-title {
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.28em;
+          text-transform: uppercase;
+          color: var(--spot);
+        }
+        .mu-room h2 {
+          font-family: "Instrument Serif", Georgia, serif;
+          font-size: clamp(1.75rem, 4vw, 2.75rem);
+          font-weight: 400;
+          letter-spacing: -0.02em;
+          color: var(--ink);
+          width: 100%;
+        }
+
+        .mu-prose {
+          max-width: 52ch;
+        }
+        .mu-prose p {
+          font-size: clamp(15px, 1.7vw, 17px);
+          line-height: 1.85;
+          color: #b9b6ae;
+          margin-bottom: 1.25em;
+        }
+        .mu-prose p:last-child { margin-bottom: 0; }
+
+        .mu-vitrines {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+          margin-top: 8px;
+        }
+        .mu-vitrine {
+          background: var(--mat);
+          border: 1px solid var(--frame);
+          padding: 28px 24px;
+          position: relative;
+          transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s var(--ease-out);
+        }
+        .mu-vitrine::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, var(--spot), transparent);
+          opacity: 0;
+          transition: opacity 0.25s;
+        }
+        .mu-vitrine:hover {
+          border-color: #454540;
+          box-shadow: 0 24px 48px rgba(0,0,0,0.35);
+          transform: translateY(-3px);
+        }
+        .mu-vitrine:hover::before { opacity: 1; }
+        .mu-vitrine-label {
+          font-size: 9px;
           font-weight: 700;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: var(--ink);
-          white-space: nowrap;
-          flex-shrink: 0;
+          color: var(--muted);
+          margin-bottom: 12px;
         }
-        .divider-line { flex: 1; height: 1px; background: var(--faint); }
-
-        .story {
-          padding: 56px 0 52px;
-          border-bottom: 1px solid var(--faint);
-          max-width: 700px;
-        }
-        .story p {
-          font-size: clamp(15px, 1.9vw, 18px);
-          font-weight: 400;
-          line-height: 1.9;
-          color: #555;
-          margin-bottom: 18px;
-        }
-        .story p:last-child { margin-bottom: 0; }
-
-        .facts {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 10px;
-          padding-bottom: 56px;
-        }
-        .fact-card {
-          background: var(--green);
-          border-radius: 16px;
-          padding: 24px 26px;
-        }
-        .fact-card:nth-child(1) { transform: rotate(-1.4deg); }
-        .fact-card:nth-child(2) { transform: rotate(0.8deg); }
-        .fact-card:nth-child(3) { transform: rotate(-0.6deg); }
-        .fact-text {
-          font-size: clamp(14px, 1.6vw, 16px);
+        .mu-vitrine p {
+          font-size: 14px;
+          line-height: 1.65;
+          color: #c9c6bf;
           font-weight: 500;
-          color: var(--ink);
-          line-height: 1.7;
         }
 
-        .year-group { margin-bottom: 8px; }
-        .year-label {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 18px 18px 10px;
+        .mu-wing {
+          margin-top: 56px;
         }
-        .year-num {
-          font-size: clamp(28px, 3.5vw, 42px);
-          font-weight: 800;
-          letter-spacing: -0.04em;
-          color: #ddd;
+        .mu-year-row {
+          display: grid;
+          grid-template-columns: 100px 1fr;
+          gap: 24px 32px;
+          align-items: start;
+          margin-bottom: 8px;
+        }
+        .mu-year {
+          font-family: "Instrument Serif", Georgia, serif;
+          font-size: clamp(2.5rem, 5vw, 3.5rem);
+          color: var(--faint);
           line-height: 1;
-          min-width: 80px;
+          position: sticky;
+          top: 88px;
+          padding-top: 8px;
         }
-        .year-line { flex: 1; height: 1px; background: var(--faint); }
-        .year-grid {
+        .mu-exhibit-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 4px;
+          gap: 12px;
         }
 
-        .proj {
+        .mu-exhibit {
           display: flex;
-          align-items: flex-start;
-          gap: 20px;
-          padding: 20px 18px;
-          border-radius: 16px;
-          cursor: default;
-          transition: background 0.15s;
+          flex-direction: column;
+          background: var(--mat);
+          border: 1px solid var(--frame);
           text-decoration: none;
           color: inherit;
+          overflow: hidden;
+          transition: border-color 0.25s, box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out);
         }
-        .proj.linkable { cursor: pointer; }
-        .proj:hover { background: #ebebE6; }
-        .proj-thumb {
-          width: 110px;
-          height: 88px;
-          border-radius: 12px;
-          flex-shrink: 0;
+        .mu-exhibit:not(.mu-exhibit--static) { cursor: pointer; }
+        .mu-exhibit:not(.mu-exhibit--static):hover {
+          border-color: rgba(0, 255, 135, 0.35);
+          box-shadow: 0 20px 56px rgba(0,0,0,0.45);
+          transform: translateY(-4px);
+        }
+        .mu-exhibit--static { cursor: default; opacity: 0.92; }
+
+        .mu-exhibit-frame {
+          aspect-ratio: 16 / 10;
           display: flex;
           align-items: center;
           justify-content: center;
+          position: relative;
         }
-        .proj-symbol {
-          font-size: 20px;
+        .mu-exhibit-frame::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+          pointer-events: none;
+        }
+        .mu-exhibit-symbol {
+          font-size: clamp(1.4rem, 3vw, 2rem);
           font-weight: 800;
+          letter-spacing: -0.03em;
           user-select: none;
-          opacity: 0.22;
-          letter-spacing: -0.02em;
+          opacity: 0.35;
         }
-        .proj-name {
-          font-size: clamp(18px, 2.4vw, 26px);
-          font-weight: 700;
-          color: var(--ink);
-          line-height: 1.1;
-          margin-bottom: 7px;
-          letter-spacing: -0.025em;
+        .mu-exhibit-placard {
+          padding: 22px 22px 26px;
+          border-top: 1px solid var(--frame);
+          background: linear-gradient(180deg, rgba(0,0,0,0.15), transparent);
         }
-        .proj-desc {
-          font-size: clamp(12.5px, 1.3vw, 14px);
+        .mu-exhibit-placard h3 {
+          font-family: "Instrument Serif", Georgia, serif;
+          font-size: clamp(1.25rem, 2.4vw, 1.65rem);
           font-weight: 400;
-          color: #bbb;
+          letter-spacing: -0.02em;
+          margin-bottom: 10px;
+          color: var(--ink);
+        }
+        .mu-exhibit-placard p {
+          font-size: 13px;
           line-height: 1.7;
+          color: var(--muted);
+        }
+        .mu-exhibit-cta {
+          margin-top: 14px;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: var(--spot);
+          opacity: 0;
+          transform: translateY(4px);
+          transition: opacity 0.25s, transform 0.25s;
+        }
+        .mu-exhibit:not(.mu-exhibit--static):hover .mu-exhibit-cta {
+          opacity: 1;
+          transform: translateY(0);
         }
 
-        .projects-wrap { padding-bottom: 60px; }
-
-        .footer {
+        .mu-footer {
+          margin-top: 80px;
+          padding-top: 40px;
           border-top: 1px solid var(--faint);
-          padding: 32px 0 56px;
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           justify-content: space-between;
-          gap: 20px;
-          flex-wrap: wrap;
+          gap: 28px;
         }
-        .footer-name {
-          font-size: 13px;
-          font-weight: 700;
-          color: var(--ink);
-          letter-spacing: -0.01em;
+        .mu-footer-copy {
+          font-family: "Instrument Serif", Georgia, serif;
+          font-size: 1.25rem;
+          color: var(--muted);
         }
-        .socials { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        .soc {
+        .mu-socials {
           display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .mu-soc {
+          display: inline-flex;
           align-items: center;
-          gap: 7px;
-          padding: 7px 14px;
+          gap: 8px;
+          padding: 10px 16px;
           border-radius: 999px;
-          border: 1px solid var(--faint);
-          background: #fff;
+          border: 1px solid var(--frame);
+          background: rgba(22,22,20,0.6);
           font-size: 12px;
           font-weight: 600;
           color: var(--ink);
           text-decoration: none;
-          transition: background 0.15s, border-color 0.15s;
-          letter-spacing: -0.01em;
+          transition: border-color 0.2s, background 0.2s, color 0.2s;
         }
-        .soc:hover { background: var(--green); border-color: var(--green); }
-        .soc-handle { font-weight: 400; color: #aaa; font-size: 11.5px; }
-        .soc:hover .soc-handle { color: #555; }
+        .mu-soc:hover {
+          border-color: var(--spot);
+          background: var(--spot-dim);
+        }
+        .mu-soc span { font-weight: 500; color: var(--muted); font-size: 11px; }
+        .mu-soc:hover span { color: var(--ink); }
 
-        @media (max-width: 860px) {
-          :root { --pad: 36px; }
-          .year-grid { grid-template-columns: 1fr 1fr; gap: 3px; }
-          .proj-thumb { width: 88px; height: 72px; }
-          .facts { grid-template-columns: 1fr 1fr; }
-          .fact-card:nth-child(3) { grid-column: span 2; transform: rotate(0.4deg); }
+        @media (max-width: 900px) {
+          .mu-vitrines { grid-template-columns: 1fr; }
+          .mu-year-row { grid-template-columns: 1fr; }
+          .mu-year { position: relative; top: auto; padding-top: 0; }
+          .mu-exhibit-grid { grid-template-columns: 1fr; }
         }
-        @media (max-width: 620px) {
-          :root { --pad: 22px; }
-          .header { padding: 44px var(--pad) 0; }
-          .header-meta { display: none; }
-          .year-grid { grid-template-columns: 1fr; gap: 3px; }
-          .proj { gap: 14px; padding: 14px 12px; }
-          .proj-thumb { width: 76px; height: 62px; border-radius: 10px; }
-          .facts { grid-template-columns: 1fr; padding-bottom: 40px; }
-          .fact-card:nth-child(1),
-          .fact-card:nth-child(2),
-          .fact-card:nth-child(3) { transform: none; grid-column: span 1; }
-          .story { padding: 40px 0 40px; }
-          .footer { flex-direction: column; align-items: flex-start; gap: 14px; }
-          .divider { padding: 36px 0 22px; }
-          .tape { left: -22px; width: calc(100% + 44px); }
-          .year-num { font-size: 28px; min-width: 60px; }
-        }
-        @media (max-width: 380px) {
-          :root { --pad: 16px; }
-          .proj-thumb { display: none; }
-          .tape { left: -16px; width: calc(100% + 32px); }
+        @media (max-width: 520px) {
+          .mu-scroll { display: none; }
+          .mu-hero-meta { flex-direction: column; gap: 20px; }
         }
       `}</style>
 
-      <div className={`page${ready ? " ready" : ""}`}>
+      <div className={`mu-page${ready ? " mu-ready" : ""}`}>
+        <div className="mu-grain" aria-hidden />
 
-        <header className="header">
-          <div className="header-inner">
-            <div className="header-name">Mohammed<br />Yassin</div>
+        <nav className="mu-nav">
+          <a className="mu-nav-brand" href="/">
+            Mohammed <em>Yassin</em>
+          </a>
+          <div className="mu-nav-links">
+            <a className="mu-nav-link" href="/pitch">
+              The long read
+            </a>
           </div>
-          <div className="tape">
-            <div className="tape-track">
-              {[...tapeItems, ...tapeItems, ...tapeItems, ...tapeItems, ...tapeItems, ...tapeItems].map((t, i) => (
-                <span key={i} className="tape-item" style={{ color: i % 2 === 0 ? "#00FF87" : "#fff" }}>{t}</span>
-              ))}
+        </nav>
+
+        <header className="mu-hero">
+          <div className="mu-hero-glow" aria-hidden />
+          <div className="mu-hero-line" aria-hidden />
+          <p className="mu-hero-badge">Private collection · since 2016</p>
+          <h1>
+            Museum of<br /><span>work</span>
+          </h1>
+          <p className="mu-hero-tag">
+            Builder, teacher, artist. Pieces below are experiments, products, and obsessions — hung in order of year, like a walk through the archive.
+          </p>
+          <dl className="mu-hero-meta">
+            <div>
+              <dt>On view</dt>
+              <dd>{projects.length} projects · {years.length} years</dd>
             </div>
+            <div>
+              <dt>Current focus</dt>
+              <dd>DigitalBeings · openmail.world</dd>
+            </div>
+          </dl>
+          <div className="mu-scroll" aria-hidden>
+            <span>Enter</span>
+            <div className="mu-scroll-bar" />
           </div>
         </header>
 
-        <div className="body">
-
-          <section className="story">
-            {story.map((p, i) => <p key={i}>{p}</p>)}
-          </section>
-
-          <div className="divider" style={{ paddingTop: "44px" }}>
-            <span className="divider-label">Fun Facts</span>
-          </div>
-          <div className="facts">
-            <div className="fact-card"><div className="fact-text">my typing speed is 1.5 words per second on average ✨</div></div>
-            <div className="fact-card"><div className="fact-text">Suggested the calendar idea for Jmail — it went live and reached millions. 🗓️</div></div>
-            <div className="fact-card"><div className="fact-text">Built the first Situation Monitor — dashboards that connect APIs and track news, now millions use the concept. ⚡</div></div>
-          </div>
-
-          <div className="divider">
-            <span className="divider-label">Favorite Work</span>
-            <div className="divider-line" />
-          </div>
-
-          <div className="projects-wrap">
-            {Object.keys(groupedProjects).map((yr) => (
-              <div className="year-group" key={yr}>
-                <div className="year-label">
-                  <span className="year-num">{yr}</span>
-                  <div className="year-line" />
-                </div>
-                <div className="year-grid">
-                  {groupedProjects[yr].map((p, i) => {
-                    const isLight = p.light !== false;
-                    const isLink = p.link && p.link !== "#";
-                    const symbolColor = isLight ? "#111" : "#fff";
-                    const inner = (
-                      <>
-                        <div className="proj-thumb" style={{ background: p.color }}>
-                          <span className="proj-symbol" style={{ color: symbolColor }}>{p.symbol}</span>
-                        </div>
-                        <div>
-                          <div className="proj-name">{p.name}</div>
-                          <div className="proj-desc">{p.desc}</div>
-                        </div>
-                      </>
-                    );
-                    return isLink ? (
-                      <a key={i} className="proj linkable" href={p.link} target="_blank" rel="noopener noreferrer">{inner}</a>
-                    ) : (
-                      <div key={i} className="proj">{inner}</div>
-                    );
-                  })}
+        <main className="mu-main" ref={mainRef}>
+          <div className="mu-inner">
+            <section className="mu-room">
+              <div className="mu-room-head">
+                <span className="mu-room-num">01</span>
+                <div>
+                  <p className="mu-room-title">Prologue</p>
+                  <h2>How the archive reads</h2>
                 </div>
               </div>
-            ))}
+              <div className="mu-prose">
+                {story.map((p, i) => (
+                  <p key={i} data-reveal style={{ transitionDelay: `${80 + i * 70}ms` }}>
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </section>
+
+            <section className="mu-room">
+              <div className="mu-room-head">
+                <span className="mu-room-num">02</span>
+                <div>
+                  <p className="mu-room-title">Vitrine</p>
+                  <h2>Small truths on the wall</h2>
+                </div>
+              </div>
+              <div className="mu-vitrines">
+                <div className="mu-vitrine" data-reveal style={{ transitionDelay: "0ms" }}>
+                  <p className="mu-vitrine-label">Artifact A</p>
+                  <p>my typing speed is 1.5 words per second on average ✨</p>
+                </div>
+                <div className="mu-vitrine" data-reveal style={{ transitionDelay: "80ms" }}>
+                  <p className="mu-vitrine-label">Artifact B</p>
+                  <p>Suggested the calendar idea for Jmail — it went live and reached millions. 🗓️</p>
+                </div>
+                <div className="mu-vitrine" data-reveal style={{ transitionDelay: "160ms" }}>
+                  <p className="mu-vitrine-label">Artifact C</p>
+                  <p>Built the first Situation Monitor — dashboards that connect APIs and track news, now millions use the concept. ⚡</p>
+                </div>
+              </div>
+            </section>
+
+            <section className="mu-room">
+              <div className="mu-room-head">
+                <span className="mu-room-num">03</span>
+                <div>
+                  <p className="mu-room-title">Permanent collection</p>
+                  <h2>Favorite work</h2>
+                </div>
+              </div>
+
+              <div className="mu-wing">
+                {years.map((yr, yi) => (
+                  <div className="mu-year-row" key={yr}>
+                    <div className="mu-year" data-reveal style={{ transitionDelay: `${yi * 40}ms` }}>
+                      {yr}
+                    </div>
+                    <div className="mu-exhibit-grid">
+                      {groupedProjects[yr].map((p, i) => {
+                        const isLight = p.light !== false;
+                        const isLink = p.link && p.link !== "#";
+                        const symbolColor = isLight ? "#111" : "rgba(255,255,255,0.85)";
+                        const delay = `${yi * 60 + i * 50}ms`;
+                        const placard = (
+                          <div className="mu-exhibit-placard">
+                            <h3>{p.name}</h3>
+                            <p>{p.desc}</p>
+                            {isLink ? (
+                              <div className="mu-exhibit-cta">View piece →</div>
+                            ) : null}
+                          </div>
+                        );
+                        const frame = (
+                          <div className="mu-exhibit-frame" style={{ background: p.color }}>
+                            <span className="mu-exhibit-symbol" style={{ color: symbolColor }}>
+                              {p.symbol}
+                            </span>
+                          </div>
+                        );
+                        const cls = `mu-exhibit${isLink ? "" : " mu-exhibit--static"}`;
+                        const reveal = { "data-reveal": true, style: { transitionDelay: delay } };
+                        return isLink ? (
+                          <a
+                            key={p.name}
+                            className={cls}
+                            href={p.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            {...reveal}
+                          >
+                            {frame}
+                            {placard}
+                          </a>
+                        ) : (
+                          <div key={p.name} className={cls} {...reveal}>
+                            {frame}
+                            {placard}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <footer className="mu-footer">
+              <p className="mu-footer-copy">Mohammed Yassin</p>
+              <div className="mu-socials">
+                {socialLinks.map((s) => (
+                  <a key={s.label} href={s.href} className="mu-soc" target="_blank" rel="noopener noreferrer">
+                    {s.icon}
+                    <span>{s.handle}</span>
+                  </a>
+                ))}
+              </div>
+            </footer>
           </div>
-
-          <footer className="footer">
-            <span className="footer-name">Mohammed Yassin</span>
-            <div className="socials">
-              {socialLinks.map((s) => (
-                <a key={s.label} href={s.href} className="soc" target="_blank" rel="noopener noreferrer">
-                  {s.icon}
-                  <span className="soc-handle">{s.handle}</span>
-                </a>
-              ))}
-            </div>
-          </footer>
-
-        </div>
+        </main>
       </div>
     </>
   );
