@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import About from "./About.jsx";
 import Home from "./Home.jsx";
 import PitchFrame from "./PitchFrame.jsx";
 
@@ -24,6 +25,9 @@ export default function Root() {
 
   if (path === "/pitch") {
     return <PitchFrame />;
+  }
+  if (path === "/about") {
+    return <About />;
   }
   return <Home />;
 }
